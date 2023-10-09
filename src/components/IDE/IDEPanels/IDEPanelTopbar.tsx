@@ -10,7 +10,7 @@ const IDEPanelTopbar: React.FC<IDEPanelTopbarProps> = (props) => {
       className={`
       ${props.pl ? "pl-3" : ""}
       ${props.pr ? "pr-3" : ""}
-      flex-shrink-0 border-b border-neutral-400 dark:border-black flex justify-between items-center h-9 pt-[1px] text-sm w-full bg-neutral-300 dark:bg-onedark-900`}
+      flex-shrink-0 border-b border-neutral-400 dark:border-black flex justify-between items-center h-9 pt-[1px] text-xs w-full bg-neutral-300 dark:bg-onedark-900`}
     >
       {props.children}
     </div>
