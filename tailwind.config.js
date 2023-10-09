@@ -12,6 +12,7 @@ module.exports = {
         "ui-sans-serif",
         "system-ui",
       ],
+      mono: ["JetBrains Mono", "Menlo", "Cascadia Code", "mono"],
     },
     extend: {
       colors: {

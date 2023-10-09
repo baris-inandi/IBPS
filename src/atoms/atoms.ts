@@ -7,6 +7,11 @@ export const INITIAL_FILES = {
   allFiles: { Welcome: "<welcome page>" },
 };
 
+export const activeRightPanelAtom = atomWithStorage<number>(
+  "jotai__activeRightPanelAtom",
+  0,
+);
+
 export const ibpsCodeAtom = atom((get) => {
   const files = get(filesAtom);
   const fileName = files.active;

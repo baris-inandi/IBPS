@@ -25,6 +25,7 @@ const IBPSEditor = () => {
 
   return (
     <AceEditor
+      className="font-mono"
       readOnly={isWelcomePage()}
       wrapEnabled={isWelcomePage()}
       value={isWelcomePage() ? WELCOME : ibpsCode}

@@ -17,7 +17,7 @@ const FilesPanel = () => {
   } = useFiles();
 
   return (
-    <div className="h-full bg-neutral-100 dark:bg-onedark-950 text-xs flex flex-col">
+    <div className="h-full bg-neutral-100 dark:bg-onedark-950 text-sm flex flex-col">
       <div className="pl-3 pt-3 flex flex-col gap-1 dark:text-onedark-200 text-neutral-800">
         <button
           onClick={() => {

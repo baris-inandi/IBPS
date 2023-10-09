@@ -9,6 +9,7 @@ import IBPSEditor from "./IBPSEditor/IBPSEditor";
 import ConsoleSectionTabs from "./IDEPanels/ConsoleSectionTabs";
 import FilesPanel from "./IDEPanels/FilesPanel";
 import IDEPanelTopbar from "./IDEPanels/IDEPanelTopbar";
+import BottomBar from "./BottomBar/BottomBar";
 
 const IDE = () => {
   const { activeFile } = useFiles();
@@ -32,7 +33,7 @@ const IDE = () => {
         </PanelResizeHandle>
         <Panel>
           <div className="flex flex-col w-full h-full">
-            <IDEPanelTopbar pl pr>
+            <IDEPanelTopbar>
               {activeFile}
               <button className="flex items-center gap-2 px-3 py-[2px] text-neutral-700 dark:text-emerald-100 bg-neutral-700 dark:bg-emerald-600 dark:bg-opacity-20 bg-opacity-20 border border-neutral-700 dark:border-emerald-500 dark:border-opacity-20 border-opacity-20 rounded-md">
                 <IoPlaySharp className="inline" />
@@ -49,13 +50,13 @@ const IDE = () => {
           </div>
         </PanelResizeHandle>
         <Panel minSize={30} maxSize={60} defaultSize={40}>
-          <IDEPanelTopbar>
+          <IDEPanelTopbar pl>
             <ConsoleSectionTabs />
           </IDEPanelTopbar>
           <div className="h-full bg-neutral-100 dark:bg-onedark-950"></div>
         </Panel>
       </PanelGroup>
-      {/* <BottomBar /> */}
+      <BottomBar />
     </div>
   );
 };
