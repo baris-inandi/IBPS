@@ -1,16 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { PythonProvider } from 'react-py';
-import App from './App';
-import './styles/tailwind.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { PythonProvider } from "react-py";
+import IDE from "./components/IDE/IDE";
+import "./styles/tailwind.css";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
+  document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
     <PythonProvider>
-      <App />
+      <div className="h-screen w-screen">
+        <IDE />
+      </div>
     </PythonProvider>
   </React.StrictMode>,
 );
