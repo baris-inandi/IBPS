@@ -39,4 +39,3 @@ export const filesAtom = atomWithStorage<{
   active: string;
   allFiles: Record<string, string>;
 }>("jotai__filesAtom", INITIAL_FILES);
-

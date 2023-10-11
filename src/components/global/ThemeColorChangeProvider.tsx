@@ -26,4 +26,3 @@ const ThemeColorChangeProvider: React.FC<Props> = (props) => {
 };
 
 export default ThemeColorChangeProvider;
-

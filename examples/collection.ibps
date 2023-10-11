@@ -1,0 +1,14 @@
+C = Collection(1,2,3)
+C.addItem(4)
+C.addItem(5)
+C.addItem(6)
+output C
+loop while C.hasNext()
+    output C.getNext()
+end loop
+C.resetNext()
+loop while C.hasNext()
+    output C.getNext()
+end loop
+output C.isEmpty()
+output C

@@ -3,7 +3,6 @@ import { INITIAL_FILES, filesAtom } from "../atoms/atoms";
 import toValidFilename from "../lib/toValidFilename";
 import { INITIAL_FILENAME } from "../lib/welcome";
 
-
 const useFiles = () => {
   const [files, setFiles] = useAtom(filesAtom);
 
@@ -13,6 +12,7 @@ const useFiles = () => {
 
   const newFile = (name: string) => {
     const n = toValidFilename(allFilenames(), name);
+    if (n.trim().length === 0) return;
     setFiles({ active: n, allFiles: { ...files.allFiles, [n]: "" } });
   };
 
@@ -71,4 +71,3 @@ const useFiles = () => {
 };
 
 export default useFiles;
-

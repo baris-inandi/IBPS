@@ -7,7 +7,7 @@ const BottomBar = () => {
 
   return (
     <div className="font-medium text-white border-t dark:border-black px-2 text-xs w-full bg-blue-600 dark:bg-violet-500 flex justify-between">
-      <p>IBPS IDE v1.0.0 • IBPS Interpreter v2.0.0</p>
+      <p>IBPS IDE v1.0.0 • ibpscomp-rs v0.1.0</p>
       <div className="flex items-center gap-2">
         <div
           className={`rounded-full w-48 bg-white bg-opacity-30 h-[6px] ${
@@ -35,4 +35,3 @@ const BottomBar = () => {
 };
 
 export default BottomBar;
-

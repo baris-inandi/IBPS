@@ -1,0 +1,6 @@
+loop I from 1 to 20
+    loop J from 1 to I
+        output "#", end=""
+    end loop
+    output
+end loop

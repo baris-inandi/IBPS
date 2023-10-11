@@ -89,4 +89,3 @@ const FilesPanel = () => {
   );
 };
 export default FilesPanel;
-

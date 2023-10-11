@@ -44,7 +44,7 @@ const ConsoleSectionTabs = () => {
         }
         `}
         >
-          Reference
+          Documentation
         </button>
       </div>
       <div className="pr-1">
@@ -57,4 +57,3 @@ const ConsoleSectionTabs = () => {
 };
 
 export default ConsoleSectionTabs;
-

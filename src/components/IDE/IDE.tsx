@@ -1,10 +1,13 @@
+import { useAtom } from "jotai";
 import { IoPlaySharp } from "react-icons/io5";
 import {
   Panel,
   PanelGroup,
   PanelResizeHandle,
 } from "react-resizable-panels";
+import { ibpsCodeAtom } from "../../atoms/atoms";
 import useFiles from "../../hooks/useFiles";
+import ibpsToPy from "../../lib/ibpscomp-rs/ibpscomp";
 import BottomBar from "./BottomBar/BottomBar";
 import IBPSEditor from "./IBPSEditor/IBPSEditor";
 import ConsoleSectionTabs from "./IDEPanels/ConsoleSectionTabs";
@@ -13,6 +16,7 @@ import IDEPanelTopbar from "./IDEPanels/IDEPanelTopbar";
 
 const IDE = () => {
   const { activeFile } = useFiles();
+  const [ibpsCode] = useAtom(ibpsCodeAtom);
 
   return (
     <div className="flex flex-col h-full w-full">
@@ -35,7 +39,14 @@ const IDE = () => {
           <div className="flex flex-col w-full h-full">
             <IDEPanelTopbar>
               {activeFile}
-              <button className="flex items-center gap-2 px-3 py-[2px] text-neutral-700 dark:text-emerald-100 bg-neutral-700 dark:bg-emerald-600 dark:bg-opacity-20 bg-opacity-20 border border-neutral-700 dark:border-emerald-500 dark:border-opacity-20 border-opacity-20 rounded-md">
+              <button
+                className="flex items-center gap-2 px-3 py-[2px] text-neutral-700 dark:text-emerald-100 bg-neutral-700 dark:bg-emerald-600 dark:bg-opacity-20 bg-opacity-20 border border-neutral-700 dark:border-emerald-500 dark:border-opacity-20 border-opacity-20 rounded-md"
+                onClick={() => {
+                  ibpsToPy(ibpsCode).then((x) => {
+                    console.log(x);
+                  });
+                }}
+              >
                 <IoPlaySharp className="inline" />
                 Run
               </button>
