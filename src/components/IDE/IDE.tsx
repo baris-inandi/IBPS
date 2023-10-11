@@ -5,11 +5,11 @@ import {
   PanelResizeHandle,
 } from "react-resizable-panels";
 import useFiles from "../../hooks/useFiles";
+import BottomBar from "./BottomBar/BottomBar";
 import IBPSEditor from "./IBPSEditor/IBPSEditor";
 import ConsoleSectionTabs from "./IDEPanels/ConsoleSectionTabs";
 import FilesPanel from "./IDEPanels/FilesPanel";
 import IDEPanelTopbar from "./IDEPanels/IDEPanelTopbar";
-import BottomBar from "./BottomBar/BottomBar";
 
 const IDE = () => {
   const { activeFile } = useFiles();

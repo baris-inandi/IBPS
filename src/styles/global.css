@@ -1,3 +1,18 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#ibps-ide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+}
+
 body {
   @apply bg-neutral-100 dark:bg-onedark-900 text-black dark:text-white select-none;
 }

@@ -43,6 +43,7 @@ const FilesPanel = () => {
         <div className="h-full flex-grow">
           {allFilenames().map((file) => (
             <button
+              key={file}
               onClick={() => {
                 setActiveFile(file);
               }}

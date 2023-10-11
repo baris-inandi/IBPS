@@ -9,7 +9,7 @@ const ConsoleSectionTabs = () => {
 
   return (
     <div className="flex w-full items-center justify-between h-full">
-      <div className="flex gap-1 text-sm h-full">
+      <div className="flex gap-1 h-full">
         <button
           onClick={() => setActiveRightPanel(0)}
           className={`

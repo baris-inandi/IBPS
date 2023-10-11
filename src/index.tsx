@@ -15,7 +15,7 @@ root.render(
   <React.StrictMode>
     <PythonProvider>
       <ThemeColorChangeProvider>
-        <div className="h-screen w-screen">
+        <div id="ibpside" className="h-screen w-screen">
           <IDE />
         </div>
       </ThemeColorChangeProvider>
