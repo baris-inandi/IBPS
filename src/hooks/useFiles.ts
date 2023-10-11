@@ -1,19 +1,32 @@
 import { useAtom } from "jotai";
+import { compress } from "lz-string";
+import { useEffect } from "react";
 import { INITIAL_FILES, filesAtom } from "../atoms/atoms";
+import {
+  FILE_DISK_USAGE_CAP,
+  jsonExceedsDiskUsageCap,
+  jsonSizeInBytes,
+} from "../lib/jsonDiskUsageUtils";
 import toValidFilename from "../lib/toValidFilename";
-import { INITIAL_FILENAME } from "../lib/welcome";
 
 const useFiles = () => {
   const [files, setFiles] = useAtom(filesAtom);
+
+  useEffect(() => {
+    console.log(files);
+  }, [files]);
 
   const allFilenames = () => {
     return Object.keys(files.allFiles);
   };
 
   const newFile = (name: string) => {
+    if (name.trim().length === 0) return;
     const n = toValidFilename(allFilenames(), name);
-    if (n.trim().length === 0) return;
-    setFiles({ active: n, allFiles: { ...files.allFiles, [n]: "" } });
+    setFiles({
+      active: n,
+      allFiles: { ...files.allFiles, [n]: compress("") },
+    });
   };
 
   const deleteFile = (name: string) => {
@@ -31,10 +44,31 @@ const useFiles = () => {
   };
 
   const setFileContent = (name: string, content: string) => {
-    setFiles({
+    // IA: Algorithm here
+    const compressedContent = compress(content);
+    const oldFiles = { active: files.active, allFiles: files.allFiles };
+    const newFiles = {
       ...files,
-      allFiles: { ...files.allFiles, [name]: content },
-    });
+      allFiles: { ...files.allFiles, [name]: compressedContent },
+    };
+    const oldFilesSize = jsonSizeInBytes(oldFiles);
+    const newFilesSize = jsonSizeInBytes(newFiles);
+    const oldActiveFileSize = jsonSizeInBytes(
+      oldFiles.allFiles[files.active] ?? "",
+    );
+    const newActiveFileSize = jsonSizeInBytes(
+      newFiles.allFiles[files.active] ?? "",
+    );
+    if (
+      (jsonExceedsDiskUsageCap(newFiles) &&
+        newFilesSize > oldFilesSize) ||
+      (newActiveFileSize >= FILE_DISK_USAGE_CAP &&
+        newActiveFileSize > oldActiveFileSize)
+    ) {
+      setFiles({ active: files.active, allFiles: files.allFiles });
+      return;
+    }
+    setFiles(newFiles);
   };
 
   const renameFile = (name: string, newName: string) => {
@@ -50,12 +84,13 @@ const useFiles = () => {
   };
 
   const setActiveFile = (name: string) => {
-    if (allFilenames().includes(name) === false) return;
-    setFiles({ ...files, active: name });
+    if (allFilenames().includes(name) || name === "Welcome") {
+      setFiles({ ...files, active: name });
+    }
   };
 
   const isWelcomePage = () => {
-    return files.active === INITIAL_FILENAME;
+    return files.active === "Welcome";
   };
 
   return {

@@ -11,7 +11,7 @@ import ibpsToPy from "../../lib/ibpscomp-rs/ibpscomp";
 import BottomBar from "./BottomBar/BottomBar";
 import IBPSEditor from "./IBPSEditor/IBPSEditor";
 import ConsoleSectionTabs from "./IDEPanels/ConsoleSectionTabs";
-import FilesPanel from "./IDEPanels/FilesPanel";
+import FilesPanel from "./IDEPanels/FilesPanel/FilesPanel";
 import IDEPanelTopbar from "./IDEPanels/IDEPanelTopbar";
 
 const IDE = () => {
@@ -38,9 +38,9 @@ const IDE = () => {
         <Panel>
           <div className="flex flex-col w-full h-full">
             <IDEPanelTopbar>
-              {activeFile}
+              <p>{activeFile}</p>
               <button
-                className="flex items-center gap-2 px-3 py-[2px] text-neutral-700 dark:text-emerald-100 bg-neutral-700 dark:bg-emerald-600 dark:bg-opacity-20 bg-opacity-20 border border-neutral-700 dark:border-emerald-500 dark:border-opacity-20 border-opacity-20 rounded-md"
+                className="text-xs flex items-center gap-2 px-3 py-[2px] text-neutral-700 dark:text-emerald-100 bg-neutral-700 dark:bg-emerald-600 dark:bg-opacity-20 bg-opacity-20 border border-neutral-700 dark:border-emerald-500 dark:border-opacity-20 border-opacity-20 rounded-md"
                 onClick={() => {
                   ibpsToPy(ibpsCode).then((x) => {
                     console.log(x);

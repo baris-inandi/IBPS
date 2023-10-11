@@ -7,10 +7,10 @@ const BottomBar = () => {
 
   return (
     <div className="font-medium text-white border-t dark:border-black px-2 text-xs w-full bg-blue-600 dark:bg-violet-500 flex justify-between">
-      <p>IBPS IDE v1.0.0 • ibpscomp-rs v0.1.0</p>
-      <div className="flex items-center gap-2">
+      <p>IDE v0.1.0 • ibpscomp-rs v0.1.0</p>
+      <div className="flex items-center gap-2 w-64">
         <div
-          className={`rounded-full w-48 bg-white bg-opacity-30 h-[6px] ${
+          className={`rounded-full w-full bg-white bg-opacity-40 h-[6px] ${
             usedBytesPercentage >= 90 ? "border border-red-200" : ""
           }`}
         >
@@ -26,7 +26,7 @@ const BottomBar = () => {
             className="rounded-full h-full bg-white"
           />
         </div>
-        <p>
+        <p className="flex-shrink-0">
           {usedBytesRepr} of {availableBytesRepr} used
         </p>
       </div>

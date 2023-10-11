@@ -1,25 +1,32 @@
 import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
+import { decompress } from "lz-string";
 import prettyBytes from "pretty-bytes";
-import { INITIAL_FILENAME } from "../lib/welcome";
+import IFiles from "../lib/IFiles";
+import {
+  DISK_USAGE_CAP,
+  jsonSizeInBytes,
+} from "../lib/jsonDiskUsageUtils";
 
 export const INITIAL_FILES = {
-  active: INITIAL_FILENAME,
-  allFiles: { Welcome: "<welcome page>" },
+  active: "Welcome",
+  allFiles: {},
 };
-
-export const TOTAL_SPACE = 2000000; // 2 MB
 
 export const usedDiskSpaceAtom = atom((get) => {
   const files = get(filesAtom);
-  const size = new TextEncoder().encode(JSON.stringify(files)).length;
-  const usedBytesPercentage = (size / TOTAL_SPACE) * 100;
+  const usedSpace = jsonSizeInBytes(files);
+  const usedBytesRatio = usedSpace / DISK_USAGE_CAP;
+  const usedBytesPercentage = usedBytesRatio * 100;
   return {
-    usedBytes: size,
-    usedBytesRepr: prettyBytes(size),
-    availableBytes: TOTAL_SPACE,
-    availableBytesRepr: prettyBytes(TOTAL_SPACE),
+    usedBytes: usedSpace,
+    usedBytesRepr: prettyBytes(
+      usedSpace >= DISK_USAGE_CAP ? DISK_USAGE_CAP : usedSpace,
+    ),
+    availableBytes: DISK_USAGE_CAP,
+    availableBytesRepr: prettyBytes(DISK_USAGE_CAP),
     usedBytesPercentage,
+    usedBytesRatio,
   };
 });
 
@@ -32,10 +39,10 @@ export const ibpsCodeAtom = atom((get) => {
   const files = get(filesAtom);
   const fileName = files.active;
   const code = files.allFiles[fileName];
-  return code ?? "";
+  return decompress(code ?? "");
 });
 
-export const filesAtom = atomWithStorage<{
-  active: string;
-  allFiles: Record<string, string>;
-}>("jotai__filesAtom", INITIAL_FILES);
+export const filesAtom = atomWithStorage<IFiles>(
+  "jotai__filesAtom",
+  INITIAL_FILES,
+);
