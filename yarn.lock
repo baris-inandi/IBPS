@@ -5165,9 +5165,6 @@ human-signals@^2.1.0:
 "ibpscomp-rs@file:./ibpscomp-rs/pkg":
   version "0.1.0"
 
-"ibpscomp-rs@file:./ibpscomp-rs/pkg/":
-  version "0.1.0"
-
 iconv-lite@0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"

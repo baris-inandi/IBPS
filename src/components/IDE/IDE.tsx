@@ -61,7 +61,7 @@ const IDE = () => {
           </div>
         </PanelResizeHandle>
         <Panel minSize={30} maxSize={60} defaultSize={40}>
-          <IDEPanelTopbar pl>
+          <IDEPanelTopbar>
             <ConsoleSectionTabs />
           </IDEPanelTopbar>
           <div className="h-full bg-neutral-100 dark:bg-onedark-950"></div>

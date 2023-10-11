@@ -1,6 +1,6 @@
 use crate::compiler::ibps_to_py;
 
-const USE_IBPS_STDLIB: bool = false;
+const USE_IBPS_STDLIB: bool = true;
 
 pub fn generate_stdlib() -> String {
     fn valid(code: &str) -> String {

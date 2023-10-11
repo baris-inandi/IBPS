@@ -1,3 +1,5 @@
+""" ibps stdlib implemented in python """
+
 nil = None
 null = None
 none = None

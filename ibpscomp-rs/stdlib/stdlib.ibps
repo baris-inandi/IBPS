@@ -1,3 +1,5 @@
+""" ibps stdlib implemented in ibps """
+
 nil = None
 null = None
 none = None
@@ -58,30 +60,30 @@ class Collection:
 class Queue:
 
     sub __init__(SELF, *ARGS)
-        SELF.inner = []
+        SELF.INNER = []
         for ARG in ARGS:
             SELF.enqueue(ARG)
     end sub
 
     sub isEmpty(SELF)
-        return SELF.inner == []
+        return SELF.INNER == []
     end sub
 
     sub __len__(SELF)
-        return len(SELF.inner)
+        return len(SELF.INNER)
     end sub
 
     sub enqueue(SELF, *ITEM)
         for I in ITEM:
-            SELF.inner.insert(0, I)
+            SELF.INNER.insert(0, I)
     end sub
 
     sub dequeue(SELF)
-        return SELF.inner.pop()
+        return SELF.INNER.pop()
     end sub
 
     sub __repr__(SELF)
-        return "Queue" + str(SELF.inner)
+        return "Queue" + str(SELF.INNER)
     end sub
 
 class __IBPSStackNode__:
@@ -132,7 +134,7 @@ class Stack:
     sub list(SELF)
         CUR_NODE = SELF.TOP
         OUT = []
-        while CUR_NODE is not null:
+        while CUR_NODE is NOT null:
             OUT.append(CUR_NODE.DATA)
             CUR_NODE = CUR_NODE.next
         return OUT
