@@ -5,6 +5,8 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: [
+        "-apple-system",
+        "BlinkMacSystemFont",
         "Heebo",
         "Inter",
         "Roboto",

@@ -40,7 +40,7 @@ const IDE = () => {
             <IDEPanelTopbar>
               <p>{activeFile}</p>
               <button
-                className="text-xs flex items-center gap-2 px-3 py-[2px] text-neutral-700 dark:text-emerald-100 bg-neutral-700 dark:bg-emerald-600 dark:bg-opacity-20 bg-opacity-20 border border-neutral-700 dark:border-emerald-500 dark:border-opacity-20 border-opacity-20 rounded-md"
+                className="text-xs flex items-center gap-1 px-3 py-[4px] text-white bg-blue-600 dark:text-emerald-100 dark:bg-onedark-800 rounded-md"
                 onClick={() => {
                   ibpsToPy(ibpsCode).then((x) => {
                     console.log(x);

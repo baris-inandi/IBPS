@@ -9,15 +9,15 @@ const ConsoleSectionTabs = () => {
 
   return (
     <div className="text-xs flex w-full items-center justify-between h-full">
-      <div className="flex h-full pt-[3px]">
+      <div className="flex h-full pt-[1px]">
         <button
           onClick={() => setActiveRightPanel(0)}
           className={`
-        cursor-pointer border-t border-x px-3 ${
-          activeRightPanel === 0
-            ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-700 bg-neutral-200 rounded-t-md"
-            : "border-transparent"
-        }
+          cursor-pointer border-t border-x px-3 ${
+            activeRightPanel === 0
+              ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-800 bg-neutral-200 rounded-t-md"
+              : "border-transparent"
+          }
         `}
         >
           Ouptut
@@ -27,7 +27,7 @@ const ConsoleSectionTabs = () => {
           className={`
         cursor-pointer border-t border-x px-3 ${
           activeRightPanel === 1
-            ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-700 bg-neutral-200 rounded-t-md"
+            ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-800 bg-neutral-200 rounded-t-md"
             : "border-transparent"
         }
         `}
@@ -37,9 +37,9 @@ const ConsoleSectionTabs = () => {
         <button
           onClick={() => setActiveRightPanel(2)}
           className={`
-        cursor-pointer border-t border-x px-2 ${
+        cursor-pointer border-t border-x px-3 ${
           activeRightPanel === 2
-            ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-700 bg-neutral-200 rounded-t-md"
+            ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-800 bg-neutral-200 rounded-t-md"
             : "border-transparent"
         }
         `}
