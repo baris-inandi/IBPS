@@ -34,19 +34,28 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (
         ) : (
           <AiOutlineFileText className="inline" />
         )}
-        {props.file}
+        <p className="w-20 text-left overflow-hidden overflow-ellipsis">
+          {props.file}
+        </p>
       </div>
       {props.file === "Welcome" ? null : (
-        <div className="items-center gap-2 group-hover:flex hidden">
+        <div className="items-center gap-3 group-hover:flex hidden">
           <LiaPencilAltSolid
             onClick={() => {
-              const n = prompt("Enter a name for the new file") ?? "";
+              const n =
+                prompt(`Rename ${props.file}`, props.file) ?? "";
               renameFile(props.file, n);
             }}
           ></LiaPencilAltSolid>
           <SlTrash
             onClick={() => {
-              deleteFile(props.file);
+              if (
+                window.confirm(
+                  `Are you sure you want to delete ${props.file}?`,
+                )
+              ) {
+                deleteFile(props.file);
+              }
             }}
           ></SlTrash>
         </div>

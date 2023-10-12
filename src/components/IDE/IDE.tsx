@@ -25,7 +25,7 @@ const IDE = () => {
         direction="horizontal"
         className="flex-grow"
       >
-        <Panel minSize={18} maxSize={24} defaultSize={18}>
+        <Panel minSize={16} maxSize={24} defaultSize={16}>
           <IDEPanelTopbar pl>
             <h1 className="font-medium">IBPS IDE</h1>
           </IDEPanelTopbar>

@@ -1,6 +1,5 @@
 import { useAtom } from "jotai";
 import { compress } from "lz-string";
-import { useEffect } from "react";
 import { INITIAL_FILES, filesAtom } from "../atoms/atoms";
 import {
   FILE_DISK_USAGE_CAP,
@@ -11,10 +10,6 @@ import toValidFilename from "../lib/toValidFilename";
 
 const useFiles = () => {
   const [files, setFiles] = useAtom(filesAtom);
-
-  useEffect(() => {
-    console.log(files);
-  }, [files]);
 
   const allFilenames = () => {
     return Object.keys(files.allFiles);
@@ -72,14 +67,18 @@ const useFiles = () => {
   };
 
   const renameFile = (name: string, newName: string) => {
-    const { [name]: _, ...rest } = files.allFiles;
-    const n = toValidFilename(allFilenames(), newName);
+    const allDifferentFilenames = allFilenames().filter(
+      (n) => n !== name,
+    );
+    if (newName.trim().length === 0) return;
+    newName = toValidFilename(allDifferentFilenames, newName);
+    if (newName === name) return;
+    const fileContent = files.allFiles[name] ?? compress("");
+    deleteFile(name);
+    newFile(newName);
     setFiles({
-      active: n,
-      allFiles: {
-        ...rest,
-        [n]: files.allFiles[name] ?? "Error: Content Lost",
-      },
+      active: files.active,
+      allFiles: { ...files.allFiles, [newName]: fileContent },
     });
   };
 
