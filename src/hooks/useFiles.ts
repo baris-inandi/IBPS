@@ -1,8 +1,8 @@
 import { useAtom } from "jotai";
-import { compress } from "lz-string";
+import { compress, decompress } from "lz-string";
 import { INITIAL_FILES, filesAtom } from "../atoms/atoms";
 import {
-  FILE_DISK_USAGE_CAP,
+  MAX_FILE_LENGTH_CHARS,
   jsonExceedsDiskUsageCap,
   jsonSizeInBytes,
 } from "../lib/jsonDiskUsageUtils";
@@ -48,17 +48,17 @@ const useFiles = () => {
     };
     const oldFilesSize = jsonSizeInBytes(oldFiles);
     const newFilesSize = jsonSizeInBytes(newFiles);
-    const oldActiveFileSize = jsonSizeInBytes(
-      oldFiles.allFiles[files.active] ?? "",
+    const oldActiveFileLength = jsonSizeInBytes(
+      decompress(oldFiles.allFiles[files.active] ?? ""),
     );
-    const newActiveFileSize = jsonSizeInBytes(
-      newFiles.allFiles[files.active] ?? "",
+    const newActiveFileLength = jsonSizeInBytes(
+      decompress(newFiles.allFiles[files.active] ?? ""),
     );
     if (
       (jsonExceedsDiskUsageCap(newFiles) &&
         newFilesSize > oldFilesSize) ||
-      (newActiveFileSize >= FILE_DISK_USAGE_CAP &&
-        newActiveFileSize > oldActiveFileSize)
+      (newActiveFileLength >= MAX_FILE_LENGTH_CHARS &&
+        newActiveFileLength > oldActiveFileLength)
     ) {
       setFiles({ active: files.active, allFiles: files.allFiles });
       return;
@@ -101,6 +101,7 @@ const useFiles = () => {
     renameFile,
     setActiveFile,
     isWelcomePage,
+    filesRaw: files,
   };
 };
 

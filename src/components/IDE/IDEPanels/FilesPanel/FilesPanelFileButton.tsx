@@ -1,7 +1,7 @@
-import { AiOutlineFileText } from "react-icons/ai";
+import { AiOutlineCoffee, AiOutlineFileText } from "react-icons/ai";
 import { LiaPencilAltSolid } from "react-icons/lia";
-import { PiFlower } from "react-icons/pi";
 import { SlTrash } from "react-icons/sl";
+import { TfiBookmark } from "react-icons/tfi";
 import useFiles from "../../../../hooks/useFiles";
 
 interface FilesPanelFileButtonProps {
@@ -20,7 +20,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (
       onClick={() => {
         setActiveFile(props.file);
       }}
-      className={`group flex items-center justify-between w-full px-2 py-1 rounded-md text-neutral-800 dark:text-onedark-200
+      className={`group flex items-center justify-between w-full px-2 py-1 text-neutral-800 dark:text-onedark-200
               ${
                 activeFile === props.file
                   ? "bg-neutral-200 dark:bg-onedark-800"
@@ -28,13 +28,15 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (
               }
               `}
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 pl-3">
         {props.file === "Welcome" ? (
-          <PiFlower className="inline"></PiFlower>
+          <AiOutlineCoffee className="inline"></AiOutlineCoffee>
+        ) : props.file === "Documentation" ? (
+          <TfiBookmark className="inline"></TfiBookmark>
         ) : (
           <AiOutlineFileText className="inline" />
         )}
-        <p className="w-20 text-left overflow-hidden overflow-ellipsis">
+        <p className="text-left overflow-hidden overflow-ellipsis">
           {props.file}
         </p>
       </div>

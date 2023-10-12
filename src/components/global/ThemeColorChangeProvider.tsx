@@ -16,9 +16,9 @@ const ThemeColorChangeProvider: React.FC<Props> = (props) => {
       return;
     }
     if (prefersColorScheme === "dark") {
-      metaTag.content = "#3A404B";
+      metaTag.content = "#1D1F24";
     } else {
-      metaTag.content = "#D4D4D4";
+      metaTag.content = "#E5E5E5";
     }
   }, [prefersColorScheme]);
 

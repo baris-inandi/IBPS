@@ -30,7 +30,7 @@ export const usedDiskSpaceAtom = atom((get) => {
   };
 });
 
-export const activeRightPanelAtom = atomWithStorage<number>(
+export const activeRightPanelAtom = atomWithStorage(
   "jotai__activeRightPanelAtom",
   0,
 );

@@ -13,6 +13,7 @@ import IBPSEditor from "./IBPSEditor/IBPSEditor";
 import ConsoleSectionTabs from "./IDEPanels/ConsoleSectionTabs";
 import FilesPanel from "./IDEPanels/FilesPanel/FilesPanel";
 import IDEPanelTopbar from "./IDEPanels/IDEPanelTopbar";
+import RightPanel from "./IDEPanels/RightPanel/RightPanel";
 
 const IDE = () => {
   const { activeFile } = useFiles();
@@ -31,16 +32,16 @@ const IDE = () => {
           </IDEPanelTopbar>
           <FilesPanel />
         </Panel>
-        <PanelResizeHandle className="w-3 bg-neutral-100 dark:bg-onedark-950">
+        <PanelResizeHandle className="w-3 bg-[#F6F6F6] dark:bg-onedark-900">
           <IDEPanelTopbar />
-          <div className="h-full w-full border-r border-neutral-400 dark:border-black"></div>
+          <div className="h-full w-full border-l border-neutral-400 dark:border-black"></div>
         </PanelResizeHandle>
         <Panel>
           <div className="flex flex-col w-full h-full">
             <IDEPanelTopbar>
               <p>{activeFile}</p>
               <button
-                className="text-xs flex items-center gap-1 px-3 py-[4px] text-white bg-blue-600 dark:text-emerald-100 dark:bg-onedark-800 rounded-md"
+                className="text-xs flex items-center gap-1 px-3 py-[3px] dark:text-blue-300 dark:bg-onedark-800 bg-blue-500 text-white rounded-md"
                 onClick={() => {
                   ibpsToPy(ibpsCode).then((x) => {
                     console.log(x);
@@ -56,15 +57,13 @@ const IDE = () => {
         </Panel>
         <PanelResizeHandle className="w-3 bg-neutral-100 dark:bg-onedark-950">
           <IDEPanelTopbar />
-          <div className="h-full w-full border-l border-neutral-400 dark:border-black">
-            {/* This is the output section */}
-          </div>
+          <div className="h-full w-full border-l border-neutral-400 dark:border-black"></div>
         </PanelResizeHandle>
         <Panel minSize={30} maxSize={60} defaultSize={40}>
           <IDEPanelTopbar>
             <ConsoleSectionTabs />
           </IDEPanelTopbar>
-          <div className="h-full bg-neutral-100 dark:bg-onedark-950"></div>
+          <RightPanel />
         </Panel>
       </PanelGroup>
       <BottomBar />

@@ -6,11 +6,11 @@ const BottomBar = () => {
     useAtom(usedDiskSpaceAtom);
 
   return (
-    <div className="font-medium text-white border-t dark:border-black px-2 text-xs w-full bg-blue-600 dark:bg-violet-500 flex justify-between">
+    <div className="font-medium text-neutral-600 border-t dark:border-black px-2 text-xs w-full bg-neutral-300 border-neutral-400 dark:bg-onedark-1000 dark:text-neutral-500 flex justify-between">
       <p>IDE v0.1.0 • ibpscomp-rs v0.1.0</p>
       <div className="flex items-center gap-2 w-64">
         <div
-          className={`rounded-full w-full bg-white bg-opacity-40 h-[6px] ${
+          className={`rounded-full w-full bg-black dark:bg-onedark-900 bg-opacity-20 h-[8px] ${
             usedBytesPercentage >= 90 ? "border border-red-200" : ""
           }`}
         >
@@ -19,11 +19,11 @@ const BottomBar = () => {
               width:
                 usedBytesPercentage >= 100
                   ? "100%"
-                  : usedBytesPercentage < 5
-                  ? "6px"
+                  : usedBytesPercentage < 3
+                  ? "8px"
                   : usedBytesPercentage + "%",
             }}
-            className="rounded-full h-full bg-white"
+            className="rounded-full h-full bg-white border border-neutral-400 dark:bg-onedark-600 dark:border-black"
           />
         </div>
         <p className="flex-shrink-0">

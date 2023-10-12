@@ -15,7 +15,7 @@ const ConsoleSectionTabs = () => {
           className={`
           cursor-pointer border-t border-x px-3 ${
             activeRightPanel === 0
-              ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-800 bg-neutral-200 rounded-t-md"
+              ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-800 bg-neutral-100 rounded-t-md"
               : "border-transparent"
           }
         `}
@@ -27,29 +27,18 @@ const ConsoleSectionTabs = () => {
           className={`
         cursor-pointer border-t border-x px-3 ${
           activeRightPanel === 1
-            ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-800 bg-neutral-200 rounded-t-md"
+            ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-800 bg-neutral-100 rounded-t-md"
             : "border-transparent"
         }
         `}
         >
           REPL
         </button>
-        <button
-          onClick={() => setActiveRightPanel(2)}
-          className={`
-        cursor-pointer border-t border-x px-3 ${
-          activeRightPanel === 2
-            ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-800 bg-neutral-200 rounded-t-md"
-            : "border-transparent"
-        }
-        `}
-        >
-          Documentation
-        </button>
       </div>
       <div className="pr-1">
-        <button className="flex justify-center items-center gap-2 p-1 text-red-700 dark:text-red-100 bg-red-700 dark:bg-red-600 dark:bg-opacity-20 bg-opacity-20 border border-red-700 dark:border-red-500 dark:border-opacity-20 border-opacity-20 rounded-md">
+        <button className="text-xs flex items-center gap-1 px-3 py-[3px] dark:text-onedark-200 dark:bg-onedark-800 bg-neutral-300 text-black rounded-md">
           <SlTrash />
+          Clear
         </button>
       </div>
     </div>
