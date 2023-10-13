@@ -3,9 +3,7 @@ import { SlTrash } from "react-icons/sl";
 import { activeRightPanelAtom } from "../../../atoms/atoms";
 
 const ConsoleSectionTabs = () => {
-  const [activeRightPanel, setActiveRightPanel] = useAtom(
-    activeRightPanelAtom,
-  );
+  const [activeRightPanel, setActiveRightPanel] = useAtom(activeRightPanelAtom);
 
   return (
     <div className="text-xs flex w-full items-center justify-between h-full">
@@ -15,7 +13,7 @@ const ConsoleSectionTabs = () => {
           className={`
           cursor-pointer border-t border-x px-3 ${
             activeRightPanel === 0
-              ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-800 bg-neutral-100 rounded-t-md"
+              ? "border-b-blue-600 dark:border-black border-stone-300 dark:bg-onedark-800 bg-stone-100 rounded-t-md"
               : "border-transparent"
           }
         `}
@@ -27,7 +25,7 @@ const ConsoleSectionTabs = () => {
           className={`
         cursor-pointer border-t border-x px-3 ${
           activeRightPanel === 1
-            ? "border-b-blue-600 dark:border-black border-neutral-400 dark:bg-onedark-800 bg-neutral-100 rounded-t-md"
+            ? "border-b-blue-600 dark:border-black border-stone-300 dark:bg-onedark-800 bg-stone-100 rounded-t-md"
             : "border-transparent"
         }
         `}
@@ -36,7 +34,7 @@ const ConsoleSectionTabs = () => {
         </button>
       </div>
       <div className="pr-1">
-        <button className="text-xs flex items-center gap-1 px-3 py-[3px] dark:text-onedark-200 dark:bg-onedark-800 bg-neutral-300 text-black rounded-md">
+        <button className="text-xs flex items-center gap-1 px-3 py-[3px] dark:text-onedark-200 dark:bg-onedark-800 bg-stone-300 text-black rounded-md">
           <SlTrash />
           Clear
         </button>

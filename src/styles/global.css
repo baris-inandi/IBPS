@@ -13,6 +13,22 @@ body {
   overflow: auto;
 }
 
+.ace_gutter {
+  @apply bg-stone-50 dark:bg-onedark-950 !important;
+}
+
+.ace_gutter-active-line {
+  @apply bg-stone-200 dark:bg-onedark-900 !important;
+}
+
+.ace_marker-layer .ace_active-line {
+  @apply bg-stone-100 dark:bg-onedark-800 !important;
+}
+
+.ace_marker-layer .ace_selection {
+  @apply bg-stone-300 dark:bg-onedark-600 !important;
+}
+
 body {
-  @apply bg-neutral-100 dark:bg-onedark-900 text-black dark:text-white select-none;
+  @apply bg-stone-100 dark:bg-onedark-900 text-black dark:text-white select-none;
 }

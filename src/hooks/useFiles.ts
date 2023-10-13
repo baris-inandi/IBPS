@@ -52,8 +52,7 @@ const useFiles = () => {
     const oldActiveFileLength = ibpsCode.length;
     const newActiveFileLength = content.length;
     if (
-      (jsonExceedsDiskUsageCap(newFiles) &&
-        newFilesSize > oldFilesSize) ||
+      (jsonExceedsDiskUsageCap(newFiles) && newFilesSize > oldFilesSize) ||
       (newActiveFileLength >= MAX_FILE_LENGTH_CHARS &&
         newActiveFileLength > oldActiveFileLength)
     ) {
@@ -64,9 +63,7 @@ const useFiles = () => {
   };
 
   const renameFile = (name: string, newName: string) => {
-    const allDifferentFilenames = allFilenames().filter(
-      (n) => n !== name,
-    );
+    const allDifferentFilenames = allFilenames().filter((n) => n !== name);
     if (newName.trim().length === 0) return;
     newName = toValidFilename(allDifferentFilenames, newName);
     if (newName === name) return;

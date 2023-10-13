@@ -3,10 +3,7 @@ import { atomWithStorage } from "jotai/utils";
 import { decompress } from "lz-string";
 import prettyBytes from "pretty-bytes";
 import IFiles from "../lib/IFiles";
-import {
-  DISK_USAGE_CAP,
-  jsonSizeInBytes,
-} from "../lib/jsonDiskUsageUtils";
+import { DISK_USAGE_CAP, jsonSizeInBytes } from "../lib/jsonDiskUsageUtils";
 
 export const INITIAL_FILES = {
   active: "Welcome",

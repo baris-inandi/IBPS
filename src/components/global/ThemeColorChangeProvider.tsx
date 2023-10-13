@@ -9,16 +9,14 @@ const ThemeColorChangeProvider: React.FC<Props> = (props) => {
   const prefersColorScheme = usePrefersColorScheme();
 
   useEffect(() => {
-    const metaTag = document.getElementById(
-      "theme-color",
-    ) as HTMLMetaElement;
+    const metaTag = document.getElementById("theme-color") as HTMLMetaElement;
     if (!metaTag) {
       return;
     }
     if (prefersColorScheme === "dark") {
       metaTag.content = "#1D1F24";
     } else {
-      metaTag.content = "#E5E5E5";
+      metaTag.content = "#FAFAF9";
     }
   }, [prefersColorScheme]);
 

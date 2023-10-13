@@ -1,4 +1,5 @@
 import { useAtom } from "jotai";
+import { BsDatabaseFill } from "react-icons/bs";
 import { usedDiskSpaceAtom } from "../../../atoms/atoms";
 
 const BottomBar = () => {
@@ -6,7 +7,7 @@ const BottomBar = () => {
     useAtom(usedDiskSpaceAtom);
 
   return (
-    <div className="font-medium text-neutral-600 border-t dark:border-black px-2 text-xs w-full bg-neutral-300 border-neutral-400 dark:bg-onedark-1000 dark:text-neutral-500 flex justify-between">
+    <div className="font-medium border-t dark:border-black px-2 text-xs w-full bg-blue-500 text-white border-stone-300 dark:bg-onedark-1000 dark:text-neutral-500 flex justify-between">
       <p>IDE v0.1.0 • ibpscomp-rs v0.1.0</p>
       <div className="flex items-center gap-2 w-64">
         <div
@@ -23,12 +24,17 @@ const BottomBar = () => {
                   ? "8px"
                   : usedBytesPercentage + "%",
             }}
-            className="rounded-full h-full bg-white border border-neutral-400 dark:bg-onedark-600 dark:border-black"
+            className="rounded-full h-full bg-white border border-stone-300 dark:bg-onedark-600 dark:border-black"
           />
         </div>
-        <p className="flex-shrink-0">
-          {usedBytesRepr} of {availableBytesRepr} used
-        </p>
+        <div className="flex flex-shrink-0 items-center h-full gap-2">
+          <span className="h-fit">
+            <BsDatabaseFill />
+          </span>
+          <span>
+            {usedBytesRepr} of {availableBytesRepr} used
+          </span>
+        </div>
       </div>
     </div>
   );

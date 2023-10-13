@@ -1,3 +1,4 @@
+import { MouseEventHandler } from "react";
 import { AiOutlineCoffee, AiOutlineFileText } from "react-icons/ai";
 import { LiaPencilAltSolid } from "react-icons/lia";
 import { SlTrash } from "react-icons/sl";
@@ -6,25 +7,26 @@ import useFiles from "../../../../hooks/useFiles";
 
 interface FilesPanelFileButtonProps {
   file: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (
-  props,
-) => {
-  const { activeFile, deleteFile, renameFile, setActiveFile } =
-    useFiles();
+const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
+  const { activeFile, deleteFile, renameFile, setActiveFile } = useFiles();
 
   return (
     <button
       key={props.file}
-      onClick={() => {
-        setActiveFile(props.file);
-      }}
-      className={`group flex items-center justify-between w-full px-2 py-1 text-neutral-800 dark:text-onedark-200
+      onClick={
+        props.onClick ??
+        (() => {
+          setActiveFile(props.file);
+        })
+      }
+      className={`group flex items-center justify-between w-full px-2 py-[2px] border-y border-transparent text-stone-800 dark:text-onedark-200
               ${
                 activeFile === props.file
-                  ? "bg-neutral-200 dark:bg-onedark-800"
-                  : "hover:bg-neutral-300 dark:hover:dark:bg-onedark-900"
+                  ? "bg-stone-200 dark:bg-onedark-800 border-stone-300"
+                  : "hover:bg-stone-200 dark:hover:dark:bg-onedark-900"
               }
               `}
     >
@@ -44,17 +46,14 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (
         <div className="items-center gap-2 group-hover:flex hidden">
           <LiaPencilAltSolid
             onClick={() => {
-              const n =
-                prompt(`Rename ${props.file}`, props.file) ?? "";
+              const n = prompt(`Rename ${props.file}`, props.file) ?? "";
               renameFile(props.file, n);
             }}
           ></LiaPencilAltSolid>
           <SlTrash
             onClick={() => {
               if (
-                window.confirm(
-                  `Are you sure you want to delete ${props.file}?`,
-                )
+                window.confirm(`Are you sure you want to delete ${props.file}?`)
               ) {
                 deleteFile(props.file);
               }
@@ -67,4 +66,3 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (
 };
 
 export default FilesPanelFileButton;
-
