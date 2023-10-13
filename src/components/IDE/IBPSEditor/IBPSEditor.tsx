@@ -35,13 +35,6 @@ const IBPSEditor = () => {
       name="IBPSEditor"
       height="100%"
       width="100%"
-      setOptions={{
-        enableLiveAutocompletion: true,
-        enableBasicAutocompletion: true,
-        enableMultiselect: true,
-        showFoldWidgets: true,
-      }}
-      editorProps={{ $blockScrolling: true }}
     />
   );
 };

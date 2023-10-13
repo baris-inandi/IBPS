@@ -28,28 +28,28 @@ const FilesPanel = () => {
 
   return (
     <div className="h-full bg-neutral-100 dark:bg-onedark-950 text-xs flex flex-col dark:text-onedark-200 text-neutral-800">
-      <div className="py-3 flex flex-col gap-1">
-        <span className="pl-3 font-medium py-1">Files</span>
+      <div className="pt-2 pb-4 flex flex-col gap-1">
+        <span className="pl-2 font-medium">Files</span>
         <div className="flex flex-col">
           <button
             onClick={() => {
               const n = prompt("Enter a name for the new file") ?? "";
               newFile(n);
             }}
-            className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-5 py-1 text-neutral-800 dark:text-onedark-200 hover:bg-neutral-300 dark:hover:dark:bg-onedark-900"
+            className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-4 py-1 text-neutral-800 dark:text-onedark-200 hover:bg-neutral-300 dark:hover:dark:bg-onedark-900"
           >
             <AiOutlineFileAdd className="inline" />
             <span className="text-left">New File</span>
           </button>
-          <button className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-5 py-1 text-neutral-800 dark:text-onedark-200 hover:bg-neutral-300 dark:hover:dark:bg-onedark-900">
+          <button className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-4 py-1 text-neutral-800 dark:text-onedark-200 hover:bg-neutral-300 dark:hover:dark:bg-onedark-900">
             <AiOutlineDownload className="inline" />
-            <span className="text-left">Import File</span>
+            <span className="text-left">Import</span>
           </button>
           <button
             onClick={() => {
               download(fileExtension(activeFile), ibpsCode);
             }}
-            className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-5 py-1 text-neutral-800 dark:text-onedark-200 hover:bg-neutral-300 dark:hover:dark:bg-onedark-900"
+            className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-4 py-1 text-neutral-800 dark:text-onedark-200 hover:bg-neutral-300 dark:hover:dark:bg-onedark-900"
           >
             <AiOutlineUpload className="inline" />
             <span className="text-left">Export File</span>
@@ -61,7 +61,7 @@ const FilesPanel = () => {
                 compress(JSON.stringify(filesRaw)),
               );
             }}
-            className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-5 py-1 text-neutral-800 dark:text-onedark-200 hover:bg-neutral-300 dark:hover:dark:bg-onedark-900"
+            className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-4 py-1 text-neutral-800 dark:text-onedark-200 hover:bg-neutral-300 dark:hover:dark:bg-onedark-900"
           >
             <AiOutlineFileZip className="inline" />
             <span className="text-left">Export Workspace</span>
@@ -70,7 +70,7 @@ const FilesPanel = () => {
       </div>
       <FilesPanelFileButton file="Welcome" />
       <FilesPanelFileButton file="Documentation" />
-      <span className="pl-3 font-medium pb-2 pt-4">Your Code</span>
+      <span className="pl-2 font-medium pb-1 pt-4">Your Code</span>
       <div className="h-full overflow-y-scroll flex flex-col gap-1">
         <div className="h-full flex-grow">
           {allFilenames()

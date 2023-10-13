@@ -26,7 +26,7 @@ const IDE = () => {
         direction="horizontal"
         className="flex-grow"
       >
-        <div>
+        <div className="w-40">
           <IDEPanelTopbar pl>
             <h1 className="font-medium">IBPS IDE</h1>
           </IDEPanelTopbar>

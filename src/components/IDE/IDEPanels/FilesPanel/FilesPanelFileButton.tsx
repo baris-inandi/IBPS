@@ -28,7 +28,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (
               }
               `}
     >
-      <div className="flex items-center gap-2 pl-3">
+      <div className="flex items-center gap-2 pl-2">
         {props.file === "Welcome" ? (
           <AiOutlineCoffee className="inline"></AiOutlineCoffee>
         ) : props.file === "Documentation" ? (
@@ -41,7 +41,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (
         </p>
       </div>
       {props.file === "Welcome" ? null : (
-        <div className="items-center gap-3 group-hover:flex hidden">
+        <div className="items-center gap-2 group-hover:flex hidden">
           <LiaPencilAltSolid
             onClick={() => {
               const n =
