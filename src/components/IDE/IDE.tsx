@@ -26,16 +26,14 @@ const IDE = () => {
         direction="horizontal"
         className="flex-grow"
       >
-        <Panel minSize={16} maxSize={24} defaultSize={16}>
+        <div>
           <IDEPanelTopbar pl>
             <h1 className="font-medium">IBPS IDE</h1>
           </IDEPanelTopbar>
-          <FilesPanel />
-        </Panel>
-        <PanelResizeHandle className="w-3 bg-[#F6F6F6] dark:bg-onedark-900">
-          <IDEPanelTopbar />
-          <div className="h-full w-full border-l border-neutral-400 dark:border-black"></div>
-        </PanelResizeHandle>
+          <div className="w-full h-full border-r border-neutral-400 dark:border-black">
+            <FilesPanel />
+          </div>
+        </div>
         <Panel>
           <div className="flex flex-col w-full h-full">
             <IDEPanelTopbar>

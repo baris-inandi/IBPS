@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
-import { compress, decompress } from "lz-string";
-import { INITIAL_FILES, filesAtom } from "../atoms/atoms";
+import { compress } from "lz-string";
+import { INITIAL_FILES, filesAtom, ibpsCodeAtom } from "../atoms/atoms";
 import {
   MAX_FILE_LENGTH_CHARS,
   jsonExceedsDiskUsageCap,
@@ -10,6 +10,7 @@ import toValidFilename from "../lib/toValidFilename";
 
 const useFiles = () => {
   const [files, setFiles] = useAtom(filesAtom);
+  const [ibpsCode] = useAtom(ibpsCodeAtom);
 
   const allFilenames = () => {
     return Object.keys(files.allFiles);
@@ -38,22 +39,18 @@ const useFiles = () => {
     }
   };
 
-  const setFileContent = (name: string, content: string) => {
+  const writeToFile = (name: string, content: string) => {
     // IA: Algorithm here
-    const compressedContent = compress(content);
+    const compressed = compress(content);
     const oldFiles = { active: files.active, allFiles: files.allFiles };
     const newFiles = {
       ...files,
-      allFiles: { ...files.allFiles, [name]: compressedContent },
+      allFiles: { ...files.allFiles, [name]: compressed },
     };
     const oldFilesSize = jsonSizeInBytes(oldFiles);
     const newFilesSize = jsonSizeInBytes(newFiles);
-    const oldActiveFileLength = jsonSizeInBytes(
-      decompress(oldFiles.allFiles[files.active] ?? ""),
-    );
-    const newActiveFileLength = jsonSizeInBytes(
-      decompress(newFiles.allFiles[files.active] ?? ""),
-    );
+    const oldActiveFileLength = ibpsCode.length;
+    const newActiveFileLength = content.length;
     if (
       (jsonExceedsDiskUsageCap(newFiles) &&
         newFilesSize > oldFilesSize) ||
@@ -97,7 +94,7 @@ const useFiles = () => {
     allFilenames,
     newFile,
     deleteFile,
-    setFileContent,
+    setFileContent: writeToFile,
     renameFile,
     setActiveFile,
     isWelcomePage,
