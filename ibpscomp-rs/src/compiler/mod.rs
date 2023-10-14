@@ -9,20 +9,20 @@ pub fn ibps_to_py(code: &str) -> String {
     let mut out = String::new();
     for line in preprocessed_code.lines() {
         let l = line.trim();
-        if l.starts_with("output") {
+        if l.starts_with("output ") {
             let spaces = line.split("output").next().unwrap();
             let args = line.split("output").nth(1).unwrap_or("").trim();
-            out.push_str(&format!("{}output({})\n", spaces, args)); // TODO: this might not work
-        } else if l.starts_with("input") {
+            out.push_str(&format!("{}output({})\n", spaces, args));
+        } else if l.starts_with("input ") {
             let spaces = line.split("input").next().unwrap();
             let args = line.split("input").nth(1).unwrap_or("").trim();
             out.push_str(&format!("{}input({})\n", spaces, args));
-        } else if l.starts_with("loop while") {
+        } else if l.starts_with("loop while ") {
             let colon = if l.ends_with(":") { "" } else { ":" };
             let spaces = line.split("loop while").next().unwrap();
             let args = line.split("loop while").nth(1).unwrap_or("").trim();
             out.push_str(&format!("{}while {}{}\n", spaces, args, colon));
-        } else if l.starts_with("loop until") {
+        } else if l.starts_with("loop until ") {
             let colon = if l.ends_with(":") { "" } else { ":" };
             let spaces = line.split("loop until").next().unwrap();
             let args = line.split("loop until").nth(1).unwrap_or("").trim();
@@ -35,7 +35,7 @@ pub fn ibps_to_py(code: &str) -> String {
                 "{}{}__ibps_until_flag__ = False\n",
                 spaces, spaces
             ));
-        } else if l.starts_with("loop") {
+        } else if l.starts_with("loop ") {
             // TODO: change this because this doesn't work for statements with spaces in them, since there is [5] used, "len(x) -1" has "len(x)" as index 5 and "-1" as index 6
             // for loop
             let spaces = line.split("loop").next().unwrap();
@@ -65,7 +65,7 @@ pub fn ibps_to_py(code: &str) -> String {
             let args = line.split("loop").nth(1).unwrap_or("").trim();
             let colon = if l.ends_with(":") { "" } else { ":" };
             out.push_str(&format!("{}for {}{}\n", spaces, args, colon));
-        } else if l.starts_with("if") {
+        } else if l.starts_with("if ") {
             // turn "if condition then" to "if condition:"
             let mut tokens: Vec<&str> = l.split_whitespace().collect();
             let spaces = line.split("if").next().unwrap();
@@ -74,7 +74,7 @@ pub fn ibps_to_py(code: &str) -> String {
             }
             let colon = if l.ends_with(":") { "" } else { ":" };
             out.push_str(&format!("{}{}{}\n", spaces, tokens.join(" "), colon));
-        } else if l.starts_with("else if") {
+        } else if l.starts_with("else if ") {
             let mut tokens: Vec<&str> = l.split_whitespace().collect();
             tokens.remove(0);
             tokens.remove(0);

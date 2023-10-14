@@ -1,11 +1,11 @@
 """ ibps stdlib implemented in ibps """
 
-nil = None
-null = None
-none = None
-true = True
-false = False
-output = print
+nil=None
+null=None
+none=None
+true=True
+false=False
+output=print
 
 sub Array(*dimensions)
     if len(dimensions) < 1 then
