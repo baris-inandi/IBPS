@@ -1,5 +1,5 @@
 use regex::Regex;
-pub mod remove_comments;
+mod remove_comments;
 mod replace_ibps_tokens;
 pub mod stdlib;
 

@@ -1,5 +1,5 @@
 {
-  "name": "ibps-live",
+  "name": "ibps-ide",
   "version": "0.1.0",
   "license": "LGPL-3.0-only",
   "dependencies": {
@@ -28,11 +28,12 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "wasm-pack build . --target web && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "prettier --write .",
-    "wasm": "cd ibpscomp-rs && wasm-pack build . --target web"
+    "wasm": "cd ibpscomp-rs && wasm-pack build . --target web --dev",
+    "rustpython": "git clone https://github.com/RustPython/RustPython"
   },
   "eslintConfig": {
     "extends": [

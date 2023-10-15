@@ -7,7 +7,7 @@ edition = "2021"
 
 [lib]
 name = "ibps"
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "rlib"]
 path = "src/lib.rs"
 
 [dependencies]
