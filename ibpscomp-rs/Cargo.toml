@@ -10,6 +10,10 @@ name = "ibps"
 crate-type = ["cdylib", "rlib"]
 path = "src/lib.rs"
 
+[[bin]]
+name = "ibpscomp-rs-bin"
+path = "src/bin.rs"
+
 [dependencies]
 fancy-regex = "0.11.0"
 regex = "1.10.0"

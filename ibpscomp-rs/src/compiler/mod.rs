@@ -118,5 +118,6 @@ pub fn ibps_to_py(code: &str) -> String {
             out.push_str(&format!("{}\n", line));
         }
     }
-    return out;
+
+    out
 }
