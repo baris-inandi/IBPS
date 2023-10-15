@@ -33,7 +33,6 @@
     "eject": "react-scripts eject",
     "prettier": "prettier --write .",
     "wasm": "cd ibpscomp-rs && wasm-pack build . --target web --dev",
-    "rustpython": "git clone https://github.com/RustPython/RustPython"
   },
   "eslintConfig": {
     "extends": [
