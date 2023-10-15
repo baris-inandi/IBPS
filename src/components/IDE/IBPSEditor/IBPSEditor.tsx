@@ -37,6 +37,7 @@ const IBPSEditor = () => {
       name="IBPSEditor"
       height="100%"
       width="100%"
+      focus={true}
     />
   );
 };

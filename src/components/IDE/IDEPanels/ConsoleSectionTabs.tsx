@@ -34,7 +34,7 @@ const ConsoleSectionTabs = () => {
         </button>
       </div>
       <div className="pr-1">
-        <button className="text-xs flex items-center gap-1 px-3 py-[3px] dark:text-onedark-200 dark:bg-onedark-800 bg-stone-300 text-black rounded-md">
+        <button className="text-xs flex items-center gap-1 px-3 py-[3px] dark:text-onedark-200 dark:bg-onedark-800 bg-stone-200 text-black rounded-md">
           <SlTrash />
           Clear
         </button>

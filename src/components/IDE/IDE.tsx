@@ -1,7 +1,6 @@
-import { IoPlaySharp } from "react-icons/io5";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-import { useRunHandler } from "../../hooks/useRunHandler";
 import FileSwitchBar from "../global/FileSwitchBar";
+import RunButton from "../global/RunButton";
 import BottomBar from "./BottomBar/BottomBar";
 import IBPSEditor from "./IBPSEditor/IBPSEditor";
 import ConsoleSectionTabs from "./IDEPanels/ConsoleSectionTabs";
@@ -10,8 +9,6 @@ import IDEPanelTopbar from "./IDEPanels/IDEPanelTopbar";
 import RightPanel from "./IDEPanels/RightPanel/RightPanel";
 
 const IDE = () => {
-  const run = useRunHandler();
-
   return (
     <div className="flex flex-col h-full w-full">
       <PanelGroup
@@ -32,13 +29,7 @@ const IDE = () => {
             <IDEPanelTopbar>
               <div className="flex justify-between w-full h-full py-1">
                 <FileSwitchBar />
-                <button
-                  className="flex-shrink-0 text-xs flex items-center gap-1 px-3 py-[3px] dark:text-blue-300 dark:bg-onedark-800 bg-blue-200 text-blue-800 rounded-md"
-                  onClick={run}
-                >
-                  <IoPlaySharp className="inline" />
-                  Run
-                </button>
+                <RunButton />
               </div>
             </IDEPanelTopbar>
             <IBPSEditor />

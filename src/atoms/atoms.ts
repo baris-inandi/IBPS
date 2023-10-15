@@ -43,3 +43,5 @@ export const filesAtom = atomWithStorage<IFiles>(
   "jotai__filesAtom",
   INITIAL_FILES,
 );
+
+export const outputAtom = atom("");

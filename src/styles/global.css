@@ -29,6 +29,14 @@ body {
   @apply bg-stone-300 dark:bg-onedark-600 !important;
 }
 
+#IBPSOutput.ace_editor {
+  background: transparent !important;
+}
+
+#IBPSOutput .ace_active-line {
+  @apply bg-transparent !important;
+}
+
 body {
   @apply bg-stone-100 dark:bg-onedark-900 text-black dark:text-white select-none;
 }

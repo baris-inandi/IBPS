@@ -9,11 +9,11 @@ pub fn ibps_to_py(code: &str) -> String {
     let mut out = String::new();
     for line in preprocessed_code.lines() {
         let l = line.trim();
-        if l.starts_with("output ") {
+        if l.starts_with("output ") || l == "output" {
             let spaces = line.split("output").next().unwrap();
             let args = line.split("output").nth(1).unwrap_or("").trim();
             out.push_str(&format!("{}output({})\n", spaces, args));
-        } else if l.starts_with("input ") {
+        } else if l.starts_with("input ") || l == "input" {
             let spaces = line.split("input").next().unwrap();
             let args = line.split("input").nth(1).unwrap_or("").trim();
             out.push_str(&format!("{}input({})\n", spaces, args));
@@ -89,7 +89,7 @@ pub fn ibps_to_py(code: &str) -> String {
                 tokens.join(" "),
                 colon
             ));
-        } else if l.starts_with("else") {
+        } else if l.starts_with("else ") || l == "else" {
             let mut tokens: Vec<&str> = l.split_whitespace().collect();
             if *tokens.get(tokens.len() - 1).unwrap_or(&"") == "then" {
                 tokens.pop();
@@ -101,12 +101,12 @@ pub fn ibps_to_py(code: &str) -> String {
                 tokens.join(" "),
                 colon
             ));
-        } else if l.starts_with("sub") {
+        } else if l.starts_with("sub ") {
             let args = l.split("sub").nth(1).unwrap_or("").trim();
             let spaces = line.split("sub").next().unwrap();
             let colon = if l.ends_with(":") { "" } else { ":" };
             out.push_str(&format!("{}def {}{}\n", spaces, args, colon));
-        } else if l.starts_with("function") {
+        } else if l.starts_with("function ") {
             let args = l.split("function").nth(1).unwrap_or("").trim();
             let spaces = line.split("function").next().unwrap();
             let colon = if l.ends_with(":") { "" } else { ":" };
