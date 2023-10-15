@@ -27,6 +27,11 @@ const IBPSEditor = () => {
       height="100%"
       width="100%"
       showGutter={false}
+      editorProps={{
+        $onDocumentChange: (x) => {
+          console.log("change:", x);
+        },
+      }}
     />
   );
 };
