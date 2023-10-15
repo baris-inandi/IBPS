@@ -32,7 +32,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "prettier --write .",
-    "wasm": "cd ibpscomp-rs && wasm-pack build . --target web --dev",
+    "wasm": "cd ibpscomp-rs && wasm-pack build . --target web --dev"
   },
   "eslintConfig": {
     "extends": [
