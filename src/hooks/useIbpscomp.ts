@@ -8,9 +8,10 @@ import useFiles from "./useFiles";
 
 export const useIbpscomp = () => {
   const [ibpsCode] = useAtom(ibpsCodeAtom);
-  const [, setOutput] = useAtom(outputAtom);
+  const [output, setOutput] = useAtom(outputAtom);
   const [isCompiling, setIsCompiling] = useState(false);
-
+  const [runId, setRunId] = useState(-1);
+  const { isWelcomePage } = useFiles();
   const {
     runPython,
     stdout,
@@ -27,21 +28,30 @@ export const useIbpscomp = () => {
   });
 
   useEffect(() => {
-    setOutput(stdout);
-  }, [stdout, setOutput]);
+    if (runId !== -1) {
+      setOutput((output) => ({ ...output, [runId]: stdout }));
+    }
+  }, [output, runId, stdout, setOutput]);
 
-  const { isWelcomePage } = useFiles();
+  useEffect(() => {
+    if (runId !== -1 && stderr.length > 0) {
+      const err = `IBPS script exited with an error:\n${stderr}`;
+      setOutput((output) => ({
+        ...output,
+        [runId]: (output[runId] ?? "") + err,
+      }));
+    }
+  }, [output, stderr, setOutput, runId]);
 
   const run = async () => {
+    const r = Date.now();
+    setRunId(r);
     const code = isWelcomePage() ? WELCOME : ibpsCode;
-    console.log("Running ibpscomp-rs");
     setIsCompiling(true);
     const pycode = await ibpsToPy(code);
     setIsCompiling(false);
-    console.log("Compilation finished.");
     if (!isLoading && !isRunning) {
-      console.log("Running Python Code");
-      runPython(pycode);
+      await runPython(pycode);
     }
   };
 

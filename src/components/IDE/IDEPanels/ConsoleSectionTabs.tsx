@@ -1,9 +1,10 @@
 import { useAtom } from "jotai";
 import { SlTrash } from "react-icons/sl";
-import { activeRightPanelAtom } from "../../../atoms/atoms";
+import { activeRightPanelAtom, outputAtom } from "../../../atoms/atoms";
 
 const ConsoleSectionTabs = () => {
   const [activeRightPanel, setActiveRightPanel] = useAtom(activeRightPanelAtom);
+  const [, setOutput] = useAtom(outputAtom);
 
   return (
     <div className="text-xs flex w-full items-center justify-between h-full">
@@ -34,7 +35,10 @@ const ConsoleSectionTabs = () => {
         </button>
       </div>
       <div className="pr-1">
-        <button className="text-xs flex items-center gap-1 px-3 py-[3px] dark:text-onedark-200 dark:bg-onedark-800 bg-stone-200 text-black rounded-md">
+        <button
+          onClick={() => setOutput({})}
+          className="text-xs flex items-center gap-1 px-3 py-[3px] dark:text-onedark-200 dark:bg-onedark-800 bg-stone-200 text-black rounded-md"
+        >
           <SlTrash />
           Clear
         </button>

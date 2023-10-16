@@ -44,4 +44,4 @@ export const filesAtom = atomWithStorage<IFiles>(
   INITIAL_FILES,
 );
 
-export const outputAtom = atom("");
+export const outputAtom = atom<Record<number, string>>({});
