@@ -36,7 +36,7 @@ const RunButton = () => {
       onClick={isLoading || isCompiling ? () => {} : isRunning ? stop : run}
     >
       {isLoading ? (
-        <span>Loading...</span>
+        <span>Please Wait</span>
       ) : isCompiling ? (
         <span>Compiling...</span>
       ) : isRunning ? (

@@ -18,7 +18,10 @@ const IBPSEditor = () => {
     <AceEditor
       className="font-mono"
       readOnly
-      value={JSON.stringify(output, null, 2)}
+      value={
+        Object.values(output).join("\n")
+        /* JSON.stringify(output, null, 2) */
+      }
       mode="plain_text"
       showPrintMargin={false}
       theme={prefersColorScheme === "dark" ? "one_dark" : "crimson_editor"}

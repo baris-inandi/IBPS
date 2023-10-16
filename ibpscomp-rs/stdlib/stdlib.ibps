@@ -1,10 +1,22 @@
 """ ibps stdlib implemented in ibps """
 
+# Null value aliases
 null=None
 none=None
+
+# Boolean aliases
 true=True
 false=False
+
+# Output alias
 output=print
+
+# Type aliases
+Boolean=bool
+String=str
+Integer=int
+Float=float
+Double=float
 
 sub Array(*dimensions)
     if len(dimensions) < 1 then

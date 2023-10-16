@@ -11,7 +11,8 @@ export const useIbpscomp = () => {
   const [output, setOutput] = useAtom(outputAtom);
   const [isCompiling, setIsCompiling] = useState(false);
   const [runId, setRunId] = useState(-1);
-  const { isWelcomePage } = useFiles();
+  const { activeFile, isWelcomePage } = useFiles();
+
   const {
     runPython,
     stdout,
@@ -31,7 +32,7 @@ export const useIbpscomp = () => {
     if (runId !== -1) {
       setOutput((output) => ({ ...output, [runId]: stdout }));
     }
-  }, [output, runId, stdout, setOutput]);
+  }, [runId, stdout, setOutput]);
 
   useEffect(() => {
     if (runId !== -1 && stderr.length > 0) {
@@ -41,17 +42,30 @@ export const useIbpscomp = () => {
         [runId]: (output[runId] ?? "") + err,
       }));
     }
-  }, [output, stderr, setOutput, runId]);
+  }, [stderr, setOutput, runId]);
+
+  const logToConsole = (msg: string, newline: boolean = false) => {
+    setOutput((output) => ({
+      ...output,
+      [Date.now()]: `[${msg}]${newline ? "\n" : ""}`,
+    }));
+  };
 
   const run = async () => {
-    const r = Date.now();
-    setRunId(r);
     const code = isWelcomePage() ? WELCOME : ibpsCode;
+    const a = activeFile;
+    logToConsole(`Compiling '${a}'`);
     setIsCompiling(true);
     const pycode = await ibpsToPy(code);
     setIsCompiling(false);
     if (!isLoading && !isRunning) {
+      logToConsole("Running Script...");
+      const start = Date.now() + 1;
+      setRunId(start);
       await runPython(pycode);
+      const finish = Date.now();
+      const elapsed = finish - start;
+      logToConsole(`'${a}' finished in ${elapsed}ms`, true);
     }
   };
 
@@ -60,9 +74,14 @@ export const useIbpscomp = () => {
     isLoading,
     isRunning,
     isCompiling,
-    stop: interruptExecution,
+    stop: () => {
+      logToConsole("Script Interrupted", true);
+      setRunId(-1);
+      interruptExecution();
+    },
     isReady,
     stdout,
     stderr,
+    output,
   };
 };

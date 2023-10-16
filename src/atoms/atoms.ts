@@ -4,6 +4,7 @@ import { decompress } from "lz-string";
 import prettyBytes from "pretty-bytes";
 import IFiles from "../lib/IFiles";
 import { DISK_USAGE_CAP, jsonSizeInBytes } from "../lib/jsonDiskUsageUtils";
+import { CONSOLE_WELCOME_MSG } from "../lib/welcome";
 
 export const INITIAL_FILES = {
   active: "Welcome",
@@ -44,4 +45,6 @@ export const filesAtom = atomWithStorage<IFiles>(
   INITIAL_FILES,
 );
 
-export const outputAtom = atom<Record<number, string>>({});
+export const outputAtom = atom<Record<number, string>>({
+  "0": CONSOLE_WELCOME_MSG,
+});
