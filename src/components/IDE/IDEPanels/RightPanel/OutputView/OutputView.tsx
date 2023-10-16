@@ -19,7 +19,7 @@ const IBPSEditor = () => {
       className="font-mono"
       readOnly
       value={
-        Object.values(output).join("\n")
+        Object.values(output).join("\n") + "\n\n\n"
         /* JSON.stringify(output, null, 2) */
       }
       mode="plain_text"
