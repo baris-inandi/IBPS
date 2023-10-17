@@ -71,7 +71,7 @@ export const useIbpscomp = () => {
 
   return {
     run,
-    isLoading,
+    isLoading: isLoading || !isReady,
     isRunning,
     isCompiling,
     stop: () => {

@@ -6,6 +6,7 @@ import "ace-builds/src-noconflict/mode-plain_text";
 import "ace-builds/src-noconflict/theme-crimson_editor";
 import "ace-builds/src-noconflict/theme-one_dark";
 import { useAtom } from "jotai";
+import { useEffect, useRef } from "react";
 import AceEditor from "react-ace";
 import usePrefersColorScheme from "use-prefers-color-scheme";
 import { outputAtom } from "../../../../../atoms/atoms";
@@ -14,8 +15,21 @@ const IBPSEditor = () => {
   const prefersColorScheme = usePrefersColorScheme();
   const [output] = useAtom(outputAtom);
 
+  const aceRef = useRef(null);
+
+  useEffect(() => {
+    if (aceRef.current) {
+      const editor = (aceRef.current as AceEditor).editor;
+      const session = editor.getSession();
+      const len = session.getLength();
+      editor.gotoLine(len, 0, true);
+      editor.moveCursorTo(len, 0);
+    }
+  }, [output]);
+
   return (
     <AceEditor
+      ref={aceRef}
       className="font-mono"
       readOnly
       value={
