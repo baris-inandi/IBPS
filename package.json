@@ -28,7 +28,7 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "wasm-pack build . --target web && react-scripts build",
+    "build": "cd ibpscomp-rs && wasm-pack build . --target web && cd .. && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "prettier --write .",
