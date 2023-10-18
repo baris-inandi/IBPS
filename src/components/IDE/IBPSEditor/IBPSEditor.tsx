@@ -2,10 +2,11 @@ import "ace-builds/src-noconflict/ace";
 import "ace-builds/src-noconflict/ext-code_lens";
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-searchbox";
-import "ace-builds/src-noconflict/mode-plain_text";
+import acePythonMode from "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-crimson_editor";
 import "ace-builds/src-noconflict/theme-one_dark";
 import { useAtom } from "jotai";
+import { useEffect, useRef } from "react";
 import AceEditor from "react-ace";
 import usePrefersColorScheme from "use-prefers-color-scheme";
 import { ibpsCodeAtom } from "../../../atoms/atoms";
@@ -16,8 +17,18 @@ const IBPSEditor = () => {
   const { setFileContent, isWelcomePage } = useFiles();
   const { activeFile } = useFiles();
   const [ibpsCode] = useAtom(ibpsCodeAtom);
+  const aceRef = useRef(null);
 
   const prefersColorScheme = usePrefersColorScheme();
+  console.log(acePythonMode);
+
+  useEffect(() => {
+    if (aceRef.current) {
+      const editor = (aceRef.current as AceEditor).editor;
+      const session = editor.getSession();
+      session.setMode(acePythonMode);
+    }
+  });
 
   return (
     <AceEditor
@@ -25,7 +36,7 @@ const IBPSEditor = () => {
       readOnly={isWelcomePage()}
       wrapEnabled={isWelcomePage()}
       value={isWelcomePage() ? WELCOME : ibpsCode}
-      mode="plain_text"
+      mode="python"
       showPrintMargin={false}
       theme={prefersColorScheme === "dark" ? "one_dark" : "crimson_editor"}
       fontSize={14}
