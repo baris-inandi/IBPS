@@ -13,12 +13,11 @@ WORKDIR /usr/src/app
 COPY --from=rust-builder /usr/src/app/ .
 COPY . .
 RUN yarn global add wasm-pack
-RUN yarn install --production
+RUN yarn install --production --ignore-engines
 RUN yarn build
 
 # Stage 3: Set up the production environment
 FROM nginx:1.21.0-alpine AS production
-ENV NODE_ENV production
 COPY --from=node-builder /usr/src/app/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 8080/udp
