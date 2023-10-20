@@ -1,22 +1,25 @@
-FROM rust:1.54
+# Stage 1: Build the Rust code
+FROM rust:latest AS rust-builder
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-RUN cargo install wasm-pack
-COPY . .
 
-FROM node:20-alpine3.17 AS builder
+COPY ibpscomp-rs .
+RUN cargo install wasm-pack
+
+# Stage 2: Build the Node.js code
+FROM node:20-alpine3.17 AS node-builder
 ENV NODE_ENV production
 WORKDIR /usr/src/app
-COPY --from=0 /usr/src/app .
-COPY package.json ./
-COPY yarn.lock ./
-RUN yarn install --production
+COPY --from=rust-builder /usr/src/app/ .
 COPY . .
-RUN yarn wasm
+RUN yarn global add wasm-pack
+RUN yarn install --production
 RUN yarn build
 
+# Stage 3: Set up the production environment
 FROM nginx:1.21.0-alpine AS production
 ENV NODE_ENV production
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=node-builder /usr/src/app/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
+EXPOSE 8080/udp
 CMD ["nginx", "-g", "daemon off;"]
