@@ -1,5 +1,5 @@
 # Stage 1: Build the Rust code
-FROM rust:latest AS rust-builder
+FROM rust:1-bullseye AS rust-builder
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
