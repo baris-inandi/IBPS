@@ -11,7 +11,7 @@ FROM node:20-alpine3.17 AS node-builder
 ENV NODE_ENV production
 WORKDIR /usr/src/app
 COPY . .
-COPY --from=rust-builder /usr/src/app/ .
+COPY --from=rust-builder /usr/src/app/ ./ibpscomp-rs
 RUN yarn install --production --ignore-engines
 RUN yarn build
 
