@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { PythonProvider } from "react-py";
@@ -13,6 +14,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
+    <Analytics />
     <PythonProvider>
       <ThemeColorChangeProvider>
         <div id="ibpside" className="h-screen w-screen">
