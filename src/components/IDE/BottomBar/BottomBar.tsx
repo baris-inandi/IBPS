@@ -1,14 +1,20 @@
 import { useAtom } from "jotai";
+import { useEffect, useState } from "react";
 import { BsDatabaseFill } from "react-icons/bs";
 import { usedDiskSpaceAtom } from "../../../atoms/atoms";
+import { getCompilerVersion } from "../../../lib/ibpscomp-rs/ibpscomp";
 
 const BottomBar = () => {
   const [{ usedBytesRepr, availableBytesRepr, usedBytesPercentage }] =
     useAtom(usedDiskSpaceAtom);
+  const [version, setVersion] = useState("");
+  useEffect(() => {
+    getCompilerVersion().then((v) => setVersion(v));
+  }, []);
 
   return (
     <div className="font-medium border-t dark:border-black px-2 text-xs w-full bg-blue-500 text-white border-stone-300 dark:bg-onedark-1000 dark:text-neutral-500 flex justify-between">
-      <p>IDE v0.1.0 • ibpscomp-rs v0.1.0</p>
+      <p>IDE v0.1.0 • ibpscomp-rs v{version}</p>
       <div className="flex items-center gap-2 w-64">
         <div
           className={`rounded-full w-full bg-black dark:bg-onedark-900 bg-opacity-20 h-[8px] ${

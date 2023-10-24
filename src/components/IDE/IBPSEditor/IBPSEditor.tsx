@@ -20,7 +20,6 @@ const IBPSEditor = () => {
   const aceRef = useRef(null);
 
   const prefersColorScheme = usePrefersColorScheme();
-  console.log(acePythonMode);
 
   useEffect(() => {
     if (aceRef.current) {

@@ -3,6 +3,8 @@ mod remove_comments;
 mod replace_ibps_tokens;
 pub mod stdlib;
 
+// TODO: CACHE PREVIOUSLY SEEN LINES, WILL SPEED UP COMPILATION DRASTICALLY
+
 pub fn ibps_to_py(code: &str) -> String {
     let preprocessed_code =
         replace_ibps_tokens::regex_replace(&remove_comments::remove_comments(code));
@@ -24,13 +26,17 @@ pub fn ibps_to_py(code: &str) -> String {
             out.push_str(&format!("{}while {}{}\n", spaces, args, colon));
         } else if l.starts_with("loop until ") {
             let colon = if l.ends_with(":") { "" } else { ":" };
-            let spaces = line.split("loop until").next().unwrap();
+            let mut spaces = line.split("loop until").next().unwrap();
             let args = line.split("loop until").nth(1).unwrap_or("").trim();
             out.push_str(&format!("{}__ibps_until_flag__ = True\n", spaces));
             out.push_str(&format!(
                 "{}while __ibps_until_flag__ or {}{}\n",
                 spaces, args, colon
             ));
+            if spaces == "" {
+                spaces = "\t"
+                // TODO: check this, see if it works
+            }
             out.push_str(&format!(
                 "{}{}__ibps_until_flag__ = False\n",
                 spaces, spaces
