@@ -9,6 +9,7 @@ pub fn ibps_to_py(code: &str) -> String {
     let preprocessed_code =
         replace_ibps_tokens::regex_replace(&remove_comments::remove_comments(code));
     let mut out = String::new();
+
     for line in preprocessed_code.lines() {
         let l = line.trim();
         if l.starts_with("output ") || l == "output" {
@@ -35,15 +36,12 @@ pub fn ibps_to_py(code: &str) -> String {
             ));
             if spaces == "" {
                 spaces = "\t"
-                // TODO: check this, see if it works
             }
             out.push_str(&format!(
                 "{}{}__ibps_until_flag__ = False\n",
                 spaces, spaces
             ));
         } else if l.starts_with("loop ") {
-            // TODO: change this because this doesn't work for statements with spaces in them, since there is [5] used, "len(x) -1" has "len(x)" as index 5 and "-1" as index 6
-            // for loop
             let spaces = line.split("loop").next().unwrap();
             let re = Regex::new(r"loop \w from \s*.*\s* to \s*.*\s*$").unwrap();
             let is_range = re.is_match(l);
@@ -51,19 +49,20 @@ pub fn ibps_to_py(code: &str) -> String {
                 // Split the input string into tokens
                 let tokens: Vec<&str> = l.split_whitespace().collect();
 
-                // Check that the input string has the correct format
-                if tokens[0] != "loop" || tokens[2] != "from" || tokens[4] != "to" {
-                    panic!("Invalid input string");
-                }
-
                 // Extract the loop variable and the loop bounds
+                // loop I from   (1 - 1) to 10 + 90
                 let loop_variable = tokens[1];
-                let start = tokens[3];
-                let end = tokens[5];
+                let loop_range = l
+                    .split(" from ")
+                    .collect::<Vec<&str>>()
+                    .split_off(1)
+                    .join("");
+                let start = loop_range.split(" to ").collect::<Vec<&str>>()[0];
+                let end = loop_range.split(" to ").collect::<Vec<&str>>()[1];
 
                 // Build the output string
                 out.push_str(&format!(
-                    "{}for {} in range({}, int({})+1):\n",
+                    "{}for {} in range(int({}), int({})+1):\n",
                     spaces, loop_variable, start, end
                 ));
                 continue;
@@ -95,26 +94,19 @@ pub fn ibps_to_py(code: &str) -> String {
                 tokens.join(" "),
                 colon
             ));
-        } else if l.starts_with("else ") || l == "else" {
+        } else if l == "else" {
             let mut tokens: Vec<&str> = l.split_whitespace().collect();
             if *tokens.get(tokens.len() - 1).unwrap_or(&"") == "then" {
                 tokens.pop();
             }
-            let colon = if l.ends_with(":") { "" } else { ":" };
             out.push_str(&format!(
-                "{}{}{}\n",
+                "{}{}:\n",
                 line.split("else").next().unwrap(),
                 tokens.join(" "),
-                colon
             ));
         } else if l.starts_with("sub ") {
             let args = l.split("sub").nth(1).unwrap_or("").trim();
             let spaces = line.split("sub").next().unwrap();
-            let colon = if l.ends_with(":") { "" } else { ":" };
-            out.push_str(&format!("{}def {}{}\n", spaces, args, colon));
-        } else if l.starts_with("function ") {
-            let args = l.split("function").nth(1).unwrap_or("").trim();
-            let spaces = line.split("function").next().unwrap();
             let colon = if l.ends_with(":") { "" } else { ":" };
             out.push_str(&format!("{}def {}{}\n", spaces, args, colon));
         } else if l.starts_with("end ") {
