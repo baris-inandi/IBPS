@@ -4,6 +4,7 @@ mod replace_ibps_tokens;
 pub mod stdlib;
 
 // TODO: CACHE PREVIOUSLY SEEN LINES, WILL SPEED UP COMPILATION DRASTICALLY
+// TODO: treeshake the standard library using the python_parser crate
 
 pub fn ibps_to_py(code: &str) -> String {
     let preprocessed_code =
