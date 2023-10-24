@@ -10,3 +10,4 @@ includes complex parts of the application that will be written about in Crit C.
 - Bootstrapping
   - IBPS stdlib implementation in IBPS
 - Reactive and asyncronous programming
+- Mention Analytics
