@@ -1,14 +1,14 @@
 use regex::Regex;
-mod remove_comments;
-mod replace_ibps_tokens;
+
+use self::preprocess::preprocess_ibps;
+mod preprocess;
 pub mod stdlib;
 
 // TODO: CACHE PREVIOUSLY SEEN LINES, WILL SPEED UP COMPILATION DRASTICALLY
 // TODO: treeshake the standard library using the python_parser crate
 
 pub fn ibps_to_py(code: &str) -> String {
-    let preprocessed_code =
-        replace_ibps_tokens::regex_replace(&remove_comments::remove_comments(code));
+    let preprocessed_code = preprocess_ibps(code);
     let mut out = String::new();
 
     for line in preprocessed_code.lines() {
