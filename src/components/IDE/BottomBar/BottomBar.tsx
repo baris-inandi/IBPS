@@ -13,7 +13,7 @@ const BottomBar = () => {
   }, []);
 
   return (
-    <div className="font-medium border-t dark:border-black px-2 text-xs w-full bg-blue-500 text-white border-stone-300 dark:bg-onedark-1000 dark:text-neutral-500 flex justify-between">
+    <div className="font-medium border-t dark:border-black px-2 text-sm w-full bg-blue-500 text-white border-stone-300 dark:bg-onedark-1000 dark:text-neutral-500 flex justify-between">
       <p>IDE v0.1.0 • ibpscomp-rs v{version}</p>
       <div className="flex items-center gap-2 w-64">
         <div
