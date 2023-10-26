@@ -131,7 +131,7 @@ class Stack:
         TEMP1 = SELF.TOP.NEXT
         SELF.TOP.NEXT = null
         SELF.TOP = TEMP1
-        return temp
+        return TEMP
     end sub
 
     sub peek(SELF)
