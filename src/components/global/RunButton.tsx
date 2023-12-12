@@ -20,10 +20,11 @@ const RunButton = () => {
     }, []);
 
     useEffect(() => {
-        console.log(isAwaitingInput);
         if (isAwaitingInput) {
-            const input = prompt("IBPS is awaiting input. ") ?? "";
-            sendInput(input);
+            const input = prompt("Enter input");
+            if (input) {
+                sendInput(input);
+            }
         }
     }, [isAwaitingInput, sendInput]);
 
@@ -37,18 +38,18 @@ const RunButton = () => {
     return (
         <button
             id="runbutton"
-            className={`flex-shrink-0 text-xs flex items-center gap-1 px-3 py-[3px] rounded-md
-        ${
-            isLoading || isCompiling
-                ? "opacity-50 cursor-default"
-                : "cursor-pointer"
-        }
-        ${
-            isRunning
-                ? "dark:bg-orange-400 dark:bg-opacity-50 bg-orange-600 text-white"
-                : "dark:text-white dark:bg-onedark-800 bg-blue-500 text-white"
-        }
-      `}
+            className={`flex-shrink-0 text-xs flex items-center gap-1 px-3 py-[3px] rounded-md mr-2
+            ${
+                isLoading || isCompiling
+                    ? "opacity-50 cursor-default"
+                    : "cursor-pointer"
+            }
+            ${
+                isRunning
+                    ? "dark:bg-orange-400 dark:bg-opacity-50 bg-orange-600 text-white"
+                    : "dark:text-white dark:bg-onedark-800 bg-blue-500 text-white"
+            }
+            `}
             onClick={
                 isLoading || isCompiling ? () => {} : isRunning ? stop : run
             }

@@ -32,11 +32,6 @@ export const usedDiskSpaceAtom = atom((get) => {
     };
 });
 
-export const activeRightPanelAtom = atomWithStorage(
-    "jotai__activeRightPanelAtom",
-    0,
-);
-
 export const ibpsCodeAtom = atom((get) => {
     const files = get(filesAtom);
     const fileName = files.active;
@@ -53,3 +48,4 @@ export const filesAtom = atomWithStorage<IFiles>(
 export const outputAtom = atom<Record<number, string>>({
     "0": CONSOLE_WELCOME_MSG,
 });
+
