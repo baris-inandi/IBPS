@@ -17,6 +17,13 @@ pub fn ibps_to_py(code: &str) -> String {
             let spaces = line.split("output").next().unwrap();
             let args = line.split("output").nth(1).unwrap_or("").trim();
             out.push_str(&format!("{}output({})\n", spaces, args));
+        } else if l.starts_with("input ") {
+            let spaces = line.split("input").next().unwrap();
+            let args = line.split("input").nth(1).unwrap_or("").trim();
+            out.push_str(&format!(
+                "{}{} = input('IBPS is asking for input: ')\n",
+                spaces, args
+            ));
         } else if l.starts_with("input ") || l == "input" {
             let spaces = line.split("input").next().unwrap();
             let args = line.split("input").nth(1).unwrap_or("").trim();
