@@ -19,7 +19,7 @@ const ConsoleSectionTabs = () => {
           }
         `}
         >
-          Ouptut
+          Output
         </button>
         <button
           onClick={() => setActiveRightPanel(1)}
@@ -48,3 +48,4 @@ const ConsoleSectionTabs = () => {
 };
 
 export default ConsoleSectionTabs;
+
