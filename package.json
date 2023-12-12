@@ -19,7 +19,7 @@
         "react-ace": "^10.1.0",
         "react-dom": "^18.2.0",
         "react-icons": "^4.11.0",
-        "react-py": "^1.10.6",
+        "react-py": "1.9.2-6",
         "react-resizable-panels": "^0.0.55",
         "react-scripts": "5.0.1",
         "typescript": "^5.2.2",

@@ -87,7 +87,6 @@ const useFiles = () => {
     };
 
     const writeToFile = (name: string, content: string) => {
-        console.log(files.allFiles);
         // IA: Algorithm here
         const oldFiles = { active: files.active, allFiles: files.allFiles };
         const newFiles = {

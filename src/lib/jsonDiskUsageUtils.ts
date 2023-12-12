@@ -10,9 +10,5 @@ export const jsonExceedsDiskUsageCap = (json: Object): boolean => {
 };
 
 export const fileExceedsFileDiskUsageCap = (content: string): boolean => {
-    console.log(content);
-    console.log(
-        new TextEncoder().encode(content).length > MAX_FILE_LENGTH_BITS,
-    );
     return new TextEncoder().encode(content).length > MAX_FILE_LENGTH_BITS;
 };

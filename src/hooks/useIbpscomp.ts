@@ -2,9 +2,9 @@ import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { usePython } from "react-py";
 import { ibpsCodeAtom, outputAtom } from "../atoms/atoms";
-import ibpsToPy from "../lib/ibpscomp-rs/ibpscomp";
 import { WELCOME_CODE } from "../lib/welcome";
 import useFiles from "./useFiles";
+import ibpsToPy from "../lib/ibpscomp-rs/ibpscomp";
 
 export const useIbpscomp = () => {
     const [ibpsCode] = useAtom(ibpsCodeAtom);
@@ -25,8 +25,8 @@ export const useIbpscomp = () => {
         sendInput,
     } = usePython({
         packages: {
-            official: [],
-            micropip: ["pyodide-http"],
+            official: ["pyodide-http"],
+            micropip: [],
         },
     });
 
@@ -89,3 +89,4 @@ export const useIbpscomp = () => {
         sendInput,
     };
 };
+

@@ -36,7 +36,7 @@ const BottomBar = () => {
                             width:
                                 usedBytesPercentage >= 100
                                     ? "100%"
-                                    : usedBytesPercentage < 3
+                                    : usedBytesPercentage < 10
                                     ? "8px"
                                     : usedBytesPercentage + "%",
                         }}
@@ -57,3 +57,4 @@ const BottomBar = () => {
 };
 
 export default BottomBar;
+

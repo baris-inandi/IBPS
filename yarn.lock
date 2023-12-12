@@ -7888,10 +7888,10 @@ react-is@^18.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
-react-py@^1.10.6:
-  version "1.10.6"
-  resolved "https://registry.yarnpkg.com/react-py/-/react-py-1.10.6.tgz#9337774e5a3b41c95ae382dfbbeee11cc1e34fc3"
-  integrity sha512-ciqLOAIyfXGxGKUZE1UFN38YDDHamfLHnjO3QQR2aCAAdPmN+yifAMsgh3GlQb2rovdAlUlLxpEeBagfk10cwQ==
+react-py@1.9.2-6:
+  version "1.9.2-6"
+  resolved "https://registry.yarnpkg.com/react-py/-/react-py-1.9.2-6.tgz#58273914944c8d248a49951cad79e025f6545062"
+  integrity sha512-RoKg93Bar1Z/SuLQuN6PCJV/R7nlKOgqXoZU+//lZOG2bZu3Q4fpDKFKObBDRPWM2Ekv6zHKtevLcyWn8ecA4g==
   dependencies:
     comlink "^4.4.1"
 
