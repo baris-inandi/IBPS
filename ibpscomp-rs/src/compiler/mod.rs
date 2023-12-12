@@ -34,8 +34,8 @@ pub fn ibps_to_py(code: &str) -> String {
             let args = line.split("loop while").nth(1).unwrap_or("").trim();
             out.push_str(&format!("{}while {}{}\n", spaces, args, colon));
         } else if l.starts_with("loop until ") {
-            /* let colon = if l.ends_with(":") { "" } else { ":" };
-            let mut spaces = line.split("loop until").next().unwrap();
+            let colon = if l.ends_with(":") { "" } else { ":" };
+            let spaces = line.split("loop until").next().unwrap();
             let args = line.split("loop until").nth(1).unwrap_or("").trim();
             out.push_str(&format!("{}__ibps_until_flag__ = True\n", spaces));
             out.push_str(&format!(
@@ -43,16 +43,13 @@ pub fn ibps_to_py(code: &str) -> String {
                 spaces, args, colon
             ));
             if spaces == "" {
-                spaces = "\t"
+                out.push_str("\t__ibps_until_flag__ = False\n");
+                continue;
             }
             out.push_str(&format!(
                 "{}{}__ibps_until_flag__ = False\n",
                 spaces, spaces
-            )); */
-            let colon = if l.ends_with(":") { "" } else { ":" };
-            let spaces = line.split("loop while").next().unwrap();
-            let args = line.split("loop while").nth(1).unwrap_or("").trim();
-            out.push_str(&format!("{}while not({}){}\n", spaces, args, colon));
+            ));
         } else if l.starts_with("loop ") {
             let spaces = line.split("loop").next().unwrap();
             let re = Regex::new(r"loop \w from \s*.*\s* to \s*.*\s*$").unwrap();
