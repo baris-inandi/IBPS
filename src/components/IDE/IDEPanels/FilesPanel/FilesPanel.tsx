@@ -106,7 +106,7 @@ const FilesPanel = () => {
             </div>
             <FilesPanelFileButton file="Welcome" />
             <FilesPanelFileButton file="Documentation" />
-            <span className="pl-2 font-medium pb-1 pt-4">Your Code</span>
+            <span className="pl-2 font-medium pb-1 pt-4">Your Workspace</span>
             <div className="h-full overflow-y-scroll flex flex-col gap-1">
                 <div className="h-full flex-grow">
                     {allFilenames()

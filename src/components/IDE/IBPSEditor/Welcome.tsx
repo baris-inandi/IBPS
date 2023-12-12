@@ -2,8 +2,8 @@ interface WelcomeProps {}
 
 const Welcome: React.FC<WelcomeProps> = () => {
     return (
-        <div className="select-text flex gap-5 flex-col p-9 bg-white h-full w-full overflow-y-scroll pb-20">
-            <p className="text-lg font-bold pb-1">
+        <div className="select-text flex gap-5 flex-col p-9 bg-white dark:bg-onedark-900 h-full w-full overflow-y-scroll pb-20">
+            <p className="text-xl font-bold pb-1">
                 Welcome to the IBPS IDE for IB Pseudocode!
             </p>
             <p>
@@ -34,9 +34,12 @@ const Welcome: React.FC<WelcomeProps> = () => {
             <pre className="bg-stone-200 text-stone-600 dark:bg-onedark-700 dark:text-onedark-50 px-4 py-2 rounded-sm">
                 output "Hello, World!"
             </pre>
-            <p>Now click the "Run" button to see the output!</p>
+            <p>
+                Now click the <b>Run</b> button to see the output!
+            </p>
         </div>
     );
 };
 
 export default Welcome;
+
