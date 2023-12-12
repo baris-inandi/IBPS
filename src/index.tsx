@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Ide from "./components/Ide/Ide";
@@ -16,6 +17,7 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <Analytics />
+        <SpeedInsights />
         <ThemeColorChangeProvider>
             <div id="ibpside" className="h-screen w-screen">
                 <Ide />
