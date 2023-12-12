@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Ide from "./components/ssss/Ide";
+import Ide from "./components/Ide/Ide";
 import ThemeColorChangeProvider from "./components/global/ThemeColorChangeProvider";
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
