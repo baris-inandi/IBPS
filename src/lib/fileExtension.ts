@@ -4,3 +4,4 @@ export const fileExtension = (name: string) => {
     }
     return name;
 };
+

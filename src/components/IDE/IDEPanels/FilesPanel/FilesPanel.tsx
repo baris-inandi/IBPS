@@ -84,11 +84,16 @@ const FilesPanel = () => {
                     </button>
                     <button
                         onClick={() => {
+                            let name =
+                                prompt("Name your workspace") ?? "Workspace";
                             download(
-                                "workspace.ibws",
+                                `${name}.ibws`,
                                 JSON.stringify({
-                                    __ibps_filetype__: "ibpsworkspace",
-                                    content: compress(JSON.stringify(filesRaw)),
+                                    __ibps_filetype__: "ibws",
+                                    __ibws_version__: 1,
+                                    content: compress(
+                                        JSON.stringify(filesRaw.allFiles),
+                                    ),
                                 }),
                             );
                         }}
@@ -116,3 +121,4 @@ const FilesPanel = () => {
     );
 };
 export default FilesPanel;
+

@@ -39,15 +39,13 @@ const useFiles = () => {
         };
         try {
             let c = JSON.parse(content);
-            if (c.__ibps_filetype__ === "ibpsworkspace") {
+            if (c.__ibps_filetype__ === "ibws") {
                 isIBWS = true;
             }
         } catch (_) {}
         if (isIBWS) {
             // is a workspace
-            let c = JSON.parse(
-                decompress(JSON.parse(content).content),
-            ).allFiles;
+            let c = JSON.parse(decompress(JSON.parse(content).content));
             let IBWSRecord: Record<string, string> = {};
             for (const [key, value] of Object.entries(c)) {
                 const n = toValidFilename(allFilenames(), key);
@@ -151,3 +149,4 @@ const useFiles = () => {
 };
 
 export default useFiles;
+
