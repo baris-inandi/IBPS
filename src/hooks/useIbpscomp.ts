@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { usePython } from "react-py";
 import { ibpsCodeAtom, outputAtom } from "../atoms/atoms";
 import ibpsToPy from "../lib/ibpscomp-rs/ibpscomp";
-import { WELCOME } from "../lib/welcome";
+import { WELCOME_CODE } from "../lib/welcome";
 import useFiles from "./useFiles";
 
 export const useIbpscomp = () => {
@@ -54,7 +54,7 @@ export const useIbpscomp = () => {
     };
 
     const run = async () => {
-        const code = isWelcomePage() ? WELCOME : ibpsCode;
+        const code = isWelcomePage() ? WELCOME_CODE : ibpsCode;
         const a = activeFile;
         logToConsole(`Compiling '${a}'`);
         setIsCompiling(true);
@@ -89,4 +89,3 @@ export const useIbpscomp = () => {
         sendInput,
     };
 };
-

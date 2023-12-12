@@ -9,48 +9,46 @@ import AceEditor from "react-ace";
 import usePrefersColorScheme from "use-prefers-color-scheme";
 import { ibpsCodeAtom } from "../../../atoms/atoms";
 import useFiles from "../../../hooks/useFiles";
-import { WELCOME } from "../../../lib/welcome";
+import Welcome from "./Welcome";
 
 const IBPSEditor = () => {
     const { setFileContent, isWelcomePage } = useFiles();
     const { activeFile } = useFiles();
     const [ibpsCode] = useAtom(ibpsCodeAtom);
-    /* const aceRef = useRef(null); */
 
     const prefersColorScheme = usePrefersColorScheme();
 
-    /* useEffect(() => {
-        if (aceRef.current) {
-            const editor = (aceRef.current as AceEditor).editor;
-            const session = editor.getSession();
-            session.setMode(acePythonMode);
-        }
-    }); */
-
     return (
-        <AceEditor
-            className="font-mono"
-            readOnly={isWelcomePage()}
-            wrapEnabled={isWelcomePage()}
-            value={isWelcomePage() ? WELCOME : ibpsCode}
-            mode="plain_text"
-            showPrintMargin={false}
-            theme={
-                prefersColorScheme === "dark" ? "one_dark" : "crimson_editor"
-            }
-            fontSize={14}
-            onChange={(val) => {
-                if (!isWelcomePage()) {
-                    setFileContent(activeFile, val);
-                }
-            }}
-            name="IBPSEditor"
-            height="100%"
-            width="100%"
-            focus={true}
-        />
+        <div className="h-full w-full">
+            {activeFile === "Welcome" ? (
+                <Welcome />
+            ) : (
+                <AceEditor
+                    className="font-mono"
+                    readOnly={isWelcomePage()}
+                    wrapEnabled={isWelcomePage()}
+                    value={ibpsCode}
+                    mode="plain_text"
+                    showPrintMargin={false}
+                    theme={
+                        prefersColorScheme === "dark"
+                            ? "one_dark"
+                            : "crimson_editor"
+                    }
+                    fontSize={14}
+                    onChange={(val) => {
+                        if (!isWelcomePage()) {
+                            setFileContent(activeFile, val);
+                        }
+                    }}
+                    name="IBPSEditor"
+                    height="100%"
+                    width="100%"
+                    focus={true}
+                />
+            )}
+        </div>
     );
 };
 
 export default IBPSEditor;
-

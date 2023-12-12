@@ -12,8 +12,32 @@ import { fileExtension } from "../../../../lib/fileExtension";
 import FilesPanelFileButton from "./FilesPanelFileButton";
 
 const FilesPanel = () => {
-    const { allFilenames, newFile, activeFile, filesRaw } = useFiles();
+    const { allFilenames, newFile, activeFile, filesRaw, importIBPSorIBWS } =
+        useFiles();
     const [ibpsCode] = useAtom(ibpsCodeAtom);
+
+    const onImport = () => {
+        let input = document.createElement("input");
+        input.type = "file";
+        input.accept = ".ibps,.ibws";
+        input.onchange = (_) => {
+            let files = Array.from(input.files ?? []);
+            files.forEach((file) => {
+                if (file) {
+                    let reader = new FileReader();
+                    reader.readAsText(file, "UTF-8");
+                    reader.onload = (e) => {
+                        let content = String(e.target?.result ?? "");
+                        importIBPSorIBWS(file.name, content);
+                    };
+                    reader.onerror = () => {
+                        alert(`Cannot read file: '${file.name}'`);
+                    };
+                }
+            });
+        };
+        input.click();
+    };
 
     const download = (filename: string, content: string) => {
         const data = new Blob([content]);
@@ -42,7 +66,10 @@ const FilesPanel = () => {
                         <AiOutlineFileAdd className="inline" />
                         <span className="text-left">New File</span>
                     </button>
-                    <button className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-4 py-1 text-stone-800 dark:text-onedark-200 hover:bg-stone-300 dark:hover:dark:bg-onedark-900">
+                    <button
+                        className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-4 py-1 text-stone-800 dark:text-onedark-200 hover:bg-stone-300 dark:hover:dark:bg-onedark-900"
+                        onClick={onImport}
+                    >
                         <AiOutlineDownload className="inline" />
                         <span className="text-left">Import</span>
                     </button>
@@ -58,8 +85,11 @@ const FilesPanel = () => {
                     <button
                         onClick={() => {
                             download(
-                                "workspace.ibpsworkspace",
-                                compress(JSON.stringify(filesRaw)),
+                                "workspace.ibws",
+                                JSON.stringify({
+                                    __ibps_filetype__: "ibpsworkspace",
+                                    content: compress(JSON.stringify(filesRaw)),
+                                }),
                             );
                         }}
                         className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-4 py-1 text-stone-800 dark:text-onedark-200 hover:bg-stone-300 dark:hover:dark:bg-onedark-900"
