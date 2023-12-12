@@ -21,7 +21,7 @@ const RunButton = () => {
 
     useEffect(() => {
         if (isAwaitingInput) {
-            const input = prompt("Enter input");
+            const input = prompt("IBPS is requesting an input.");
             if (input) {
                 sendInput(input);
             }
