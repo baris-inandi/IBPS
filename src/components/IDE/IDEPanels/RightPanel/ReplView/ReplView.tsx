@@ -1,5 +1,5 @@
 const ReplView = () => {
-    return <div></div>
-}
+    return <div></div>;
+};
 
-export default ReplView
+export default ReplView;

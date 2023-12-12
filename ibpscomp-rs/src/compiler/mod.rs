@@ -43,7 +43,7 @@ pub fn ibps_to_py(code: &str) -> String {
                 spaces, args, colon
             ));
             if spaces == "" {
-                out.push_str("\t__ibps_until_flag__ = False\n");
+                out.push_str("    __ibps_until_flag__ = False\n");
                 continue;
             }
             out.push_str(&format!(

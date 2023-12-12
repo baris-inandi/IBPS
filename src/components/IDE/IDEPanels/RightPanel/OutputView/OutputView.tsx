@@ -12,46 +12,47 @@ import usePrefersColorScheme from "use-prefers-color-scheme";
 import { outputAtom } from "../../../../../atoms/atoms";
 
 const IBPSEditor = () => {
-  const prefersColorScheme = usePrefersColorScheme();
-  const [output] = useAtom(outputAtom);
+    const prefersColorScheme = usePrefersColorScheme();
+    const [output] = useAtom(outputAtom);
 
-  const aceRef = useRef(null);
+    const aceRef = useRef(null);
 
-  useEffect(() => {
-    if (aceRef.current) {
-      const editor = (aceRef.current as AceEditor).editor;
-      const session = editor.getSession();
-      const len = session.getLength();
-      editor.gotoLine(len, 0, true);
-      editor.moveCursorTo(len, 0);
-    }
-  }, [output]);
+    useEffect(() => {
+        if (aceRef.current) {
+            const editor = (aceRef.current as AceEditor).editor;
+            const session = editor.getSession();
+            const len = session.getLength();
+            editor.gotoLine(len, 0, true);
+            editor.moveCursorTo(len, 0);
+        }
+    }, [output]);
 
-  return (
-    <AceEditor
-      ref={aceRef}
-      className="font-mono"
-      readOnly
-      value={
-        Object.values(output).join("\n") + "\n\n\n"
-        /* JSON.stringify(output, null, 2) */
-      }
-      mode="plain_text"
-      showPrintMargin={false}
-      theme={prefersColorScheme === "dark" ? "one_dark" : "crimson_editor"}
-      fontSize={12}
-      name="IBPSOutput"
-      height="100%"
-      width="100%"
-      showGutter={false}
-      editorProps={{
-        $onDocumentChange: (x) => {
-          console.log("change:", x);
-        },
-      }}
-    />
-  );
+    return (
+        <AceEditor
+            ref={aceRef}
+            className="font-mono"
+            readOnly
+            value={
+                Object.values(output).join("\n") + "\n\n\n"
+                /* JSON.stringify(output, null, 2) */
+            }
+            mode="plain_text"
+            showPrintMargin={false}
+            theme={
+                prefersColorScheme === "dark" ? "one_dark" : "crimson_editor"
+            }
+            fontSize={12}
+            name="IBPSOutput"
+            height="100%"
+            width="100%"
+            showGutter={false}
+            editorProps={{
+                $onDocumentChange: (x) => {
+                    console.log("change:", x);
+                },
+            }}
+        />
+    );
 };
 
 export default IBPSEditor;
-

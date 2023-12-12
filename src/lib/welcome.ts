@@ -21,4 +21,3 @@ output "Hello, World!"
 
 # Now click the "Run" button to see the output!
 `;
-

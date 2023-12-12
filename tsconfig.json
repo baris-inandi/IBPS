@@ -1,13 +1,13 @@
 {
-  "include": ["src"],
-  "extends": "@tsconfig/strictest/tsconfig.json",
-  "compilerOptions": {
-    "outDir": "./build",
-    "allowJs": true,
-    "jsx": "preserve",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true
-  }
+    "include": ["src"],
+    "extends": "@tsconfig/strictest/tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./build",
+        "allowJs": true,
+        "jsx": "preserve",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true
+    }
 }
