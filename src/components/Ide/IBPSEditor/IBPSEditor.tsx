@@ -2,6 +2,7 @@ import "ace-builds/src-noconflict/ace";
 import "ace-builds/src-noconflict/ext-code_lens";
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-searchbox";
+import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-crimson_editor";
 import "ace-builds/src-noconflict/theme-one_dark";
 import { useAtom } from "jotai";
@@ -28,7 +29,7 @@ const IBPSEditor = () => {
                     readOnly={isWelcomePage()}
                     wrapEnabled={isWelcomePage()}
                     value={ibpsCode}
-                    mode="plain_text"
+                    mode="python"
                     showPrintMargin={false}
                     theme={
                         prefersColorScheme === "dark"
@@ -52,3 +53,4 @@ const IBPSEditor = () => {
 };
 
 export default IBPSEditor;
+
