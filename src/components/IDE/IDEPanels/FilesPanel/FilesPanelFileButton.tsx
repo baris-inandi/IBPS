@@ -42,7 +42,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
           {props.file}
         </p>
       </div>
-      {props.file === "Welcome" ? null : (
+      {props.file === "Welcome" || props.file === "Documentation" ? null : (
         <div className="items-center gap-2 group-hover:flex hidden">
           <LiaPencilAltSolid
             onClick={() => {
@@ -66,3 +66,4 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
 };
 
 export default FilesPanelFileButton;
+
