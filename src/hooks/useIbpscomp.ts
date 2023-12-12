@@ -21,6 +21,8 @@ export const useIbpscomp = () => {
         isRunning,
         interruptExecution,
         isReady,
+        isAwaitingInput,
+        sendInput,
     } = usePython({
         packages: {
             official: [],
@@ -83,5 +85,8 @@ export const useIbpscomp = () => {
         stdout,
         stderr,
         output,
+        isAwaitingInput,
+        sendInput,
     };
 };
+

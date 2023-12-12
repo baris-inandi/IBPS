@@ -3,13 +3,29 @@ import { IoPlaySharp, IoSquareSharp } from "react-icons/io5";
 import { useIbpscomp } from "../../hooks/useIbpscomp";
 
 const RunButton = () => {
-    const { run, isLoading, isRunning, isCompiling, stop } = useIbpscomp();
+    const {
+        run,
+        isLoading,
+        isRunning,
+        isCompiling,
+        stop,
+        isAwaitingInput,
+        sendInput,
+    } = useIbpscomp();
 
     const handleKeyPress = useCallback((event: KeyboardEvent) => {
         if (event.altKey && event.key === "Enter") {
             document.getElementById("runbutton")?.click();
         }
     }, []);
+
+    useEffect(() => {
+        console.log(isAwaitingInput);
+        if (isAwaitingInput) {
+            const input = prompt("IBPS is awaiting input. ") ?? "";
+            sendInput(input);
+        }
+    }, [isAwaitingInput, sendInput]);
 
     useEffect(() => {
         document.addEventListener("keydown", handleKeyPress);
@@ -57,3 +73,4 @@ const RunButton = () => {
 };
 
 export default RunButton;
+
