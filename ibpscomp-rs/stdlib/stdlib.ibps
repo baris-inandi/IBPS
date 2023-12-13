@@ -155,3 +155,7 @@ class Stack:
         sub __repr__(SELF)
                 return "Stack" + str(SELF.list())
         end sub
+
+# end of stdlib
+####
+# compiled with ibps stdlib implemented in ibps

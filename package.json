@@ -46,7 +46,8 @@
         "eject": "react-scripts eject",
         "prettier": "prettier --write .",
         "wasm-dev": "cd ibpscomp-rs && wasm-pack build . --target web --dev && cd .. && yarn add file:./ibpscomp-rs/pkg",
-        "wasm-prod": "cd ibpscomp-rs && wasm-pack build . --target web --release && cd .. && yarn add file:./ibpscomp-rs/pkg"
+        "wasm-prod": "cd ibpscomp-rs && wasm-pack build . --target web --release && cd .. && yarn add file:./ibpscomp-rs/pkg",
+        "wasm-hard-reset": "rm -rf ibpscomp-rs/target && rm -rf ibpscomp-rs/pkg && yarn remove ibpscomp-rs && yarn wasm-prod"
     },
     "eslintConfig": {
         "extends": [
