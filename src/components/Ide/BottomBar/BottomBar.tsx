@@ -20,9 +20,9 @@ const BottomBar = () => {
                 <a
                     className="underline"
                     target="blank"
-                    href="https://github.com/baris-inandi"
+                    href="https://inandioglu.com"
                 >
-                    @baris-inandi
+                    Baris
                 </a>
             </p>
             <div className="flex items-center gap-2 w-64">
