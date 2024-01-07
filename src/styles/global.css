@@ -40,3 +40,18 @@ body {
 body {
     @apply bg-stone-100 dark:bg-onedark-900 text-black dark:text-white select-none;
 }
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color-scheme: dark;
+    }
+
+    body::-webkit-scrollbar-track {
+        background: #1c1f24;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #282c34;
+    }
+}
+

@@ -41,7 +41,7 @@ const IBPSEditor = () => {
             theme={
                 prefersColorScheme === "dark" ? "one_dark" : "crimson_editor"
             }
-            fontSize={12}
+            fontSize={14}
             name="IBPSOutput"
             height="100%"
             width="100%"

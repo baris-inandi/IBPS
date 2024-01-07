@@ -36,7 +36,7 @@ const RunButton = () => {
     return (
         <button
             id="runbutton"
-            className={`flex-shrink-0 text-xs flex items-center gap-1 px-3 py-[3px] rounded-md mr-2
+            className={`flex-shrink-0 text-sm flex items-center gap-1 px-3 py-[3px] rounded-md mr-2
             ${
                 isLoading || isCompiling
                     ? "opacity-50 cursor-default"

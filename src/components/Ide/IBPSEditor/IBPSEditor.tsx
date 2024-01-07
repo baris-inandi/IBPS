@@ -27,7 +27,6 @@ const IBPSEditor = () => {
                 <AceEditor
                     className="font-mono"
                     readOnly={isWelcomePage()}
-                    wrapEnabled={isWelcomePage()}
                     value={ibpsCode}
                     mode="python"
                     showPrintMargin={false}
@@ -36,7 +35,7 @@ const IBPSEditor = () => {
                             ? "one_dark"
                             : "crimson_editor"
                     }
-                    fontSize={14}
+                    fontSize={15}
                     onChange={(val) => {
                         if (!isWelcomePage()) {
                             setFileContent(activeFile, val);

@@ -7,14 +7,24 @@ module.exports = {
             sans: [
                 "-apple-system",
                 "BlinkMacSystemFont",
-                "Heebo",
+                "Arimo",
                 "Inter",
                 "Roboto",
                 "Arial",
                 "ui-sans-serif",
                 "system-ui",
             ],
-            mono: ["JetBrains Mono", "Menlo", "Cascadia Code", "mono"],
+            mono: ["DM Mono", "Menlo", "Cascadia Code", "mono"],
+            logo: [
+                "Arimo",
+                "-apple-system",
+                "BlinkMacSystemFont",
+                "Inter",
+                "Roboto",
+                "Arial",
+                "ui-sans-serif",
+                "system-ui",
+            ],
         },
         extend: {
             colors: {
@@ -50,3 +60,4 @@ module.exports = {
     },
     plugins: [],
 };
+

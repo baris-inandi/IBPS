@@ -22,7 +22,7 @@ const Ide = () => {
                 >
                     <div className="w-52">
                         <IDEPanelTopbar pl>
-                            <h1 className="font-medium">IBPS IDE</h1>
+                            <h1 className="font-bold font-logo">IBPS IDE</h1>
                         </IDEPanelTopbar>
                         <div className="w-full h-full border-r border-stone-300 dark:border-black">
                             <FilesPanel />

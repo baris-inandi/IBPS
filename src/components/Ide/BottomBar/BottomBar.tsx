@@ -7,16 +7,17 @@ import { getCompilerVersion } from "../../../lib/ibpscomp-rs/ibpscomp";
 const BottomBar = () => {
     const [{ usedBytesRepr, availableBytesRepr, usedBytesPercentage }] =
         useAtom(usedDiskSpaceAtom);
-    const [version, setVersion] = useState("");
+    const [compilerVersion, setCompilerVersion] = useState("");
+
     useEffect(() => {
-        getCompilerVersion().then((v) => setVersion(v));
+        getCompilerVersion().then((v) => setCompilerVersion(v));
     }, []);
 
     return (
         <div className="font-medium border-t dark:border-black px-2 text-sm w-full bg-blue-500 text-white border-stone-300 dark:bg-onedark-1000 dark:text-neutral-500 flex justify-between">
             <p>
-                IBPS IDE <code>v0.2.1</code> • ibpscomp-rs{" "}
-                <code>v{version}</code> • created by{" "}
+                IBPS IDE <code>v0.2.2</code> • ibpscomp-rs{" "}
+                <code>v{compilerVersion}</code> • created by{" "}
                 <a
                     className="underline"
                     target="blank"
