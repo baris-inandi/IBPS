@@ -1,6 +1,7 @@
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { BsDatabaseFill } from "react-icons/bs";
+import packagejson from "../../../../package.json";
 import { usedDiskSpaceAtom } from "../../../atoms/atoms";
 import { getCompilerVersion } from "../../../lib/ibpscomp-rs/ibpscomp";
 
@@ -8,18 +9,20 @@ const BottomBar = () => {
     const [{ usedBytesRepr, availableBytesRepr, usedBytesPercentage }] =
         useAtom(usedDiskSpaceAtom);
     const [compilerVersion, setCompilerVersion] = useState("");
+    const [uiVersion, setUiVersion] = useState("");
 
     useEffect(() => {
         getCompilerVersion().then((v) => setCompilerVersion(v));
+        setUiVersion(packagejson.version);
     }, []);
 
     return (
-        <div className="font-medium border-t dark:border-black px-2 text-sm w-full bg-blue-500 text-white border-stone-300 dark:bg-onedark-1000 dark:text-neutral-500 flex justify-between">
+        <div className="border-t dark:border-black px-2 text-sm w-full bg-blue-500 text-white border-stone-300 dark:bg-onedark-1000 dark:text-neutral-500 flex justify-between">
             <p>
-                IBPS IDE <code>v0.2.2</code> • ibpscomp-rs{" "}
-                <code>v{compilerVersion}</code> • created by{" "}
+                IBPS IDE <code className="font-bold pl-[2px]">{uiVersion}</code> • ibpscomp-rs{" "}
+                <code className="font-bold pl-[2px]">{compilerVersion}</code> • created by{" "}
                 <a
-                    className="underline"
+                    className="underline underline-offset-2 font-medium"
                     target="blank"
                     href="https://inandioglu.com"
                 >
