@@ -17,6 +17,8 @@ String=str
 Integer=int
 Float=float
 Double=float
+HashMap=dict
+Map=dict
 
 sub Array(*dimensions)
         if len(dimensions) < 1 then
