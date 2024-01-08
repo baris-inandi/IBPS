@@ -2,7 +2,8 @@
 
 import { PythonProvider } from "react-py";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-import FileSwitchBar from "../global/FileSwitchBar";
+import FileName from "../global/FileName";
+import FontSizeButton from "../global/FontSizeButton";
 import RunButton from "../global/RunButton";
 import BottomBar from "./BottomBar/BottomBar";
 import IBPSEditor from "./IBPSEditor/IBPSEditor";
@@ -32,7 +33,8 @@ const Ide = () => {
                         <div className="flex flex-col w-full h-full">
                             <IDEPanelTopbar>
                                 <div className="flex justify-between w-full h-full py-1">
-                                    <FileSwitchBar />
+                                    <FileName />
+                                    <FontSizeButton />
                                     <RunButton />
                                 </div>
                             </IDEPanelTopbar>

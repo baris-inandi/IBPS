@@ -14,7 +14,7 @@ module.exports = {
                 "ui-sans-serif",
                 "system-ui",
             ],
-            mono: ["DM Mono", "Menlo", "Cascadia Code", "mono"],
+            mono: ["Roboto Mono", "Menlo", "Cascadia Code", "mono"],
             logo: [
                 "Arimo",
                 "-apple-system",

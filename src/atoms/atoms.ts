@@ -49,3 +49,8 @@ export const outputAtom = atom<Record<number, string>>({
     "0": CONSOLE_WELCOME_MSG,
 });
 
+export const codeFontSizeAtom = atomWithStorage<number>(
+    "jotai__codeFontSizeAtom",
+    16,
+);
+

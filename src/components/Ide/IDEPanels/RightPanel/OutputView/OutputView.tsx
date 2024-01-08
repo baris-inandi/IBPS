@@ -9,11 +9,12 @@ import { useAtom } from "jotai";
 import { useEffect, useRef } from "react";
 import AceEditor from "react-ace";
 import usePrefersColorScheme from "use-prefers-color-scheme";
-import { outputAtom } from "../../../../../atoms/atoms";
+import { codeFontSizeAtom, outputAtom } from "../../../../../atoms/atoms";
 
 const IBPSEditor = () => {
     const prefersColorScheme = usePrefersColorScheme();
     const [output] = useAtom(outputAtom);
+    const [codeFontSize] = useAtom(codeFontSizeAtom);
 
     const aceRef = useRef(null);
 
@@ -41,7 +42,7 @@ const IBPSEditor = () => {
             theme={
                 prefersColorScheme === "dark" ? "one_dark" : "crimson_editor"
             }
-            fontSize={14}
+            fontSize={codeFontSize}
             name="IBPSOutput"
             height="100%"
             width="100%"
@@ -51,3 +52,4 @@ const IBPSEditor = () => {
 };
 
 export default IBPSEditor;
+

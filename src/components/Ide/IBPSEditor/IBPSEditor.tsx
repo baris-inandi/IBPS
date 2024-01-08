@@ -8,7 +8,7 @@ import "ace-builds/src-noconflict/theme-one_dark";
 import { useAtom } from "jotai";
 import AceEditor from "react-ace";
 import usePrefersColorScheme from "use-prefers-color-scheme";
-import { ibpsCodeAtom } from "../../../atoms/atoms";
+import { codeFontSizeAtom, ibpsCodeAtom } from "../../../atoms/atoms";
 import useFiles from "../../../hooks/useFiles";
 import Welcome from "./Welcome";
 
@@ -16,6 +16,7 @@ const IBPSEditor = () => {
     const { setFileContent, isWelcomePage } = useFiles();
     const { activeFile } = useFiles();
     const [ibpsCode] = useAtom(ibpsCodeAtom);
+    const [codeFontSize] = useAtom(codeFontSizeAtom);
 
     const prefersColorScheme = usePrefersColorScheme();
 
@@ -35,7 +36,7 @@ const IBPSEditor = () => {
                             ? "one_dark"
                             : "crimson_editor"
                     }
-                    fontSize={15}
+                    fontSize={codeFontSize}
                     onChange={(val) => {
                         if (!isWelcomePage()) {
                             setFileContent(activeFile, val);
