@@ -10,6 +10,7 @@ import AceEditor from "react-ace";
 import usePrefersColorScheme from "use-prefers-color-scheme";
 import { codeFontSizeAtom, ibpsCodeAtom } from "../../../atoms/atoms";
 import useFiles from "../../../hooks/useFiles";
+import Docs from "./Docs/Docs";
 import Welcome from "./Welcome";
 
 const IBPSEditor = () => {
@@ -21,9 +22,11 @@ const IBPSEditor = () => {
     const prefersColorScheme = usePrefersColorScheme();
 
     return (
-        <div className="h-full w-full">
+        <div className="h-full w-full" id="ibpseditor">
             {activeFile === "Welcome" ? (
                 <Welcome />
+            ) : activeFile === "Documentation" ? (
+                <Docs />
             ) : (
                 <AceEditor
                     className="font-mono"

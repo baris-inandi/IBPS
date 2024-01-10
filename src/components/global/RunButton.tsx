@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { IoPlaySharp, IoSquareSharp } from "react-icons/io5";
+import useFiles from "../../hooks/useFiles";
 import { useIbpscomp } from "../../hooks/useIbpscomp";
 
 const RunButton = () => {
@@ -12,6 +13,7 @@ const RunButton = () => {
         isAwaitingInput,
         sendInput,
     } = useIbpscomp();
+    const { activeFile } = useFiles();
 
     const handleKeyPress = useCallback((event: KeyboardEvent) => {
         if (event.altKey && event.key === "Enter") {
@@ -32,6 +34,19 @@ const RunButton = () => {
             document.removeEventListener("keydown", handleKeyPress);
         };
     }, [handleKeyPress]);
+
+    if (activeFile === "Documentation") {
+        return (
+            <button
+                onClick={() => {
+                    window?.print();
+                }}
+                className="flex-shrink-0 text-sm flex items-center gap-1 px-3 py-[3px] rounded-md mr-2 dark:text-white dark:bg-onedark-800 bg-blue-500 text-white"
+            >
+                Download as PDF
+            </button>
+        );
+    }
 
     return (
         <button

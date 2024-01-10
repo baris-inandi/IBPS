@@ -10,11 +10,14 @@ import { useEffect, useRef } from "react";
 import AceEditor from "react-ace";
 import usePrefersColorScheme from "use-prefers-color-scheme";
 import { codeFontSizeAtom, outputAtom } from "../../../../../atoms/atoms";
+import useFiles from "../../../../../hooks/useFiles";
+import DocumentationNavigator from "./DocumentationNavigator";
 
 const IBPSEditor = () => {
     const prefersColorScheme = usePrefersColorScheme();
     const [output] = useAtom(outputAtom);
     const [codeFontSize] = useAtom(codeFontSizeAtom);
+    const { activeFile } = useFiles();
 
     const aceRef = useRef(null);
 
@@ -28,7 +31,9 @@ const IBPSEditor = () => {
         }
     }, [output]);
 
-    return (
+    return activeFile === "Documentation" ? (
+        <DocumentationNavigator />
+    ) : (
         <AceEditor
             ref={aceRef}
             className="font-mono"
@@ -42,7 +47,7 @@ const IBPSEditor = () => {
             theme={
                 prefersColorScheme === "dark" ? "one_dark" : "crimson_editor"
             }
-            fontSize={codeFontSize}
+            fontSize={codeFontSize - 2}
             name="IBPSOutput"
             height="100%"
             width="100%"

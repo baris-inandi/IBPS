@@ -1,6 +1,7 @@
 import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 import prettyBytes from "pretty-bytes";
+import { DocsTitle as DocsHeader } from "../components/Ide/IBPSEditor/Docs/Docs";
 import IFiles from "../lib/IFiles";
 import {
     DISK_USAGE_CAP_BYTES,
@@ -53,4 +54,6 @@ export const codeFontSizeAtom = atomWithStorage<number>(
     "jotai__codeFontSizeAtom",
     16,
 );
+
+export const docsIdAtom = atom<Array<DocsHeader>>([]);
 

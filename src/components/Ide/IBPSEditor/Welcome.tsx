@@ -1,6 +1,4 @@
-interface WelcomeProps {}
-
-const Welcome: React.FC<WelcomeProps> = () => {
+const Welcome: React.FC = () => {
     return (
         <div className="select-text flex gap-5 flex-col p-9 bg-white dark:bg-onedark-900 h-full w-full overflow-y-scroll pb-20">
             <p className="text-xl font-bold pb-1">
@@ -36,6 +34,9 @@ const Welcome: React.FC<WelcomeProps> = () => {
             </pre>
             <p>
                 Now click the <b>Run</b> button to see the output!
+            </p>
+            <p className="opacity-50 pt-6">
+                Created by <a className="underline underline-offset-2" href="https://inandioglu.com">Baris Inandioglu</a>
             </p>
         </div>
     );

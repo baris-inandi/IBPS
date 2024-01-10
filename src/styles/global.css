@@ -13,6 +13,19 @@ body {
     overflow: auto;
 }
 
+@media print {
+    body {
+        visibility: hidden;
+    }
+    #ibpseditor,
+    #ibpsdocs {
+        visibility: visible;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
 .ace_gutter {
     @apply bg-stone-50 dark:bg-onedark-950 !important;
 }

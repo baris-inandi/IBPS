@@ -8,6 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import "./styles/fonts.css";
 import "./styles/global.css";
+import "./styles/markdown.css";
 import "./styles/tailwind.css";
 
 const root = ReactDOM.createRoot(

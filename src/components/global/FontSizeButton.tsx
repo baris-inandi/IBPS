@@ -1,11 +1,18 @@
 import { useAtom } from "jotai";
 import { codeFontSizeAtom } from "../../atoms/atoms";
+import useFiles from "../../hooks/useFiles";
 
 const MIN_FONTSIZE = 10;
 const MAX_FONTSIZE = 24;
 
 const FontSizeButton: React.FC = () => {
     const [, setCodeFontSize] = useAtom(codeFontSizeAtom);
+    const { activeFile } = useFiles();
+
+    if (activeFile === "Documentation" || activeFile === "Welcome") {
+        return null;
+    }
+
     const changeFontSize = (delta: number) => {
         setCodeFontSize((prev) => {
             const newSize = prev + delta;

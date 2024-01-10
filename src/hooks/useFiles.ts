@@ -124,7 +124,11 @@ const useFiles = () => {
     };
 
     const setActiveFile = (name: string) => {
-        if (allFilenames().includes(name) || name === "Welcome") {
+        if (
+            allFilenames().includes(name) ||
+            name === "Welcome" ||
+            name === "Documentation"
+        ) {
             setFiles({ ...files, active: name });
         }
     };
