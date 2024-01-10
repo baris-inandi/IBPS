@@ -5288,7 +5288,7 @@ human-signals@^2.1.0:
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
 "ibpscomp-rs@file:./ibpscomp-rs/pkg":
-  version "0.1.8"
+  version "0.2.0"
 
 iconv-lite@0.4.24:
   version "0.4.24"
