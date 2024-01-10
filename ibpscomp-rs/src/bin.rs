@@ -1,6 +1,7 @@
 use std::env;
 use std::fs;
 use std::process::exit;
+use std::process::Command;
 
 fn main() {
     let filepath = env::args().nth(1).unwrap_or_else(|| {
@@ -15,5 +16,10 @@ fn main() {
 
     let pycode = ibps::ibps_to_py(contents);
 
-    println!("{}", pycode);
+    println!("{}\n#### END OF PYTHON SOURCE ####\n", pycode);
+    Command::new("python")
+        .arg("-c")
+        .arg(format!("{}", pycode))
+        .spawn()
+        .expect("python failed to start");
 }

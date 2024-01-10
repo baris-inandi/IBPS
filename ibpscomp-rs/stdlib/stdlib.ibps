@@ -1,5 +1,7 @@
 """ ibps stdlib implemented in ibps """
 
+from pprint import pformat
+
 # Null value aliases
 null=None
 none=None
@@ -18,17 +20,43 @@ Integer=int
 Float=float
 Double=float
 HashMap=dict
-Map=dict
 
-sub Array(*dimensions)
-        if len(dimensions) < 1 then
+class Array(list):
+    @classmethod
+    sub __empty_array(CLS, *dimensions)
+        if len(dimensions) < 1:
             return []
-        end if
-        if len(dimensions) == 1 then
-                return [null] * dimensions[0]
-        end if
-        return [Array(*dimensions[1:]) for _ in range(dimensions[0])]
-end sub
+        if len(dimensions) == 1:
+            return [None] * dimensions[0]
+        return [CLS.__empty_array(*dimensions[1:]) for _ in range(dimensions[0])]
+    end sub
+
+    sub __init__(SELF, *dimensions)
+        super().__init__(SELF.__empty_array(*dimensions))
+    end sub
+
+    sub push(SELF, VALUE)
+        SELF.append(VALUE)
+    end sub
+
+    @classmethod
+    sub fromValues(CLS, *VALUES)
+        obj = CLS()
+        for V in VALUES:
+            obj.push(V)
+        return obj
+
+    @property
+    sub length(SELF)
+        return len(SELF)
+    end sub
+
+    sub __repr__(SELF)
+        return pformat(super().copy())
+    end sub
+
+
+list = Array
 
 class Collection:
 
@@ -66,6 +94,11 @@ class Collection:
                 return SELF.INNER.pop()
         end sub
 
+        @property
+        sub length(SELF)
+                return len(SELF.INNER)
+        end sub
+
         sub __repr__(SELF)
                 return "Collection" + str(SELF.INNER)
         end sub
@@ -93,6 +126,11 @@ class Queue:
 
         sub dequeue(SELF)
                 return SELF.INNER.pop()
+        end sub
+
+        @property
+        sub length(SELF)
+                return len(SELF.INNER)
         end sub
 
         sub __repr__(SELF)
@@ -152,6 +190,11 @@ class Stack:
                         CUR_NODE = CUR_NODE.NEXT
                 end loop
                 return OUT
+        end sub
+
+        @property
+        sub length(SELF)
+                return len(SELF.list())
         end sub
 
         sub __repr__(SELF)
