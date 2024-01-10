@@ -31,8 +31,8 @@ const DocumentationNavigator: React.FC = () => {
                                   docsHeading.level <= 2
                                       ? "text-lg font-bold pt-3" // h2
                                       : docsHeading.level === 3
-                                      ? "font-medium text-stone-800" // h3
-                                      : "text-stone-500" // h4-6
+                                      ? "font-medium text-stone-800 dark:text-stone-300" // h3
+                                      : "text-stone-500 dark:text-stone-400" // h4-6
                               }`}
                           >
                               {docsHeading.text}
