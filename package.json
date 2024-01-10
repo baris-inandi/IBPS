@@ -14,6 +14,7 @@
         "@vercel/speed-insights": "^1.0.1",
         "ibpscomp-rs": "file:./ibpscomp-rs/pkg",
         "jotai": "^2.4.3",
+        "jspdf": "^2.5.1",
         "lz-string": "^1.5.0",
         "pretty-bytes": "^6.1.1",
         "react": "^18.2.0",

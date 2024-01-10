@@ -12,6 +12,7 @@ false=False
 
 # Output alias
 output=print
+print=None
 
 # Type aliases
 Boolean=bool
@@ -31,12 +32,12 @@ class Array(list):
         return [CLS.__empty_array(*dimensions[1:]) for _ in range(dimensions[0])]
     end sub
 
-    sub __init__(SELF, *dimensions)
-        super().__init__(SELF.__empty_array(*dimensions))
+    sub __init__(THIS, *dimensions)
+        super().__init__(THIS.__empty_array(*dimensions))
     end sub
 
-    sub push(SELF, VALUE)
-        SELF.append(VALUE)
+    sub push(THIS, VALUE)
+        THIS.append(VALUE)
     end sub
 
     @classmethod
@@ -47,159 +48,156 @@ class Array(list):
         return obj
 
     @property
-    sub length(SELF)
-        return len(SELF)
+    sub length(THIS)
+        return len(THIS)
     end sub
 
-    sub __repr__(SELF)
+    sub __repr__(THIS)
         return pformat(super().copy())
     end sub
 
-
-list = Array
-
 class Collection:
 
-        sub __init__(SELF, *ARGS)
-                SELF.INNER = list(ARGS)
-                SELF.PTR = 0
-        end sub
+    sub __init__(THIS, *ARGS)
+        THIS.INNER = list(ARGS)
+        THIS.PTR = 0
+    end sub
 
-        sub isEmpty(SELF)
-                return SELF.INNER == []
-        end sub
+    sub isEmpty(THIS)
+        return THIS.INNER == []
+    end sub
 
-        sub hasNext(SELF)
-                return SELF.PTR < len(SELF.INNER)
-        end sub
+    sub hasNext(THIS)
+        return THIS.PTR < len(THIS.INNER)
+    end sub
 
-        sub getNext(SELF)
-                if SELF.hasNext() then
-                        SELF.PTR += 1
-                        return SELF.INNER[SELF.PTR - 1]
-                else
-                        raise StopIteration
-                end if
-        end sub
+    sub getNext(THIS)
+        if THIS.hasNext() then
+            THIS.PTR += 1
+            return THIS.INNER[THIS.PTR - 1]
+        else
+            raise StopIteration
+        end if
+    end sub
 
-        sub addItem(SELF, ITEM)
-                SELF.INNER.append(ITEM)
-        end sub
+    sub addItem(THIS, ITEM)
+        THIS.INNER.append(ITEM)
+    end sub
 
-        sub resetNext(SELF)
-                SELF.PTR = 0
-        end sub
+    sub resetNext(THIS)
+        THIS.PTR = 0
+    end sub
 
-        sub pop(SELF)
-                return SELF.INNER.pop()
-        end sub
+    sub pop(THIS)
+        return THIS.INNER.pop()
+    end sub
 
-        @property
-        sub length(SELF)
-                return len(SELF.INNER)
-        end sub
+    @property
+    sub length(THIS)
+        return len(THIS.INNER)
+    end sub
 
-        sub __repr__(SELF)
-                return "Collection" + str(SELF.INNER)
-        end sub
+    sub __repr__(THIS)
+        return "Collection" + str(THIS.INNER)
+    end sub
 
 class Queue:
 
-        sub __init__(SELF, *ARGS)
-                SELF.INNER = []
-                for ARG in ARGS:
-                        SELF.enqueue(ARG)
-        end sub
+    sub __init__(THIS, *ARGS)
+        THIS.INNER = []
+        for ARG in ARGS:
+            THIS.enqueue(ARG)
+    end sub
 
-        sub isEmpty(SELF)
-                return SELF.INNER == []
-        end sub
+    sub isEmpty(THIS)
+        return THIS.INNER == []
+    end sub
 
-        sub __len__(SELF)
-                return len(SELF.INNER)
-        end sub
+    sub __len__(THIS)
+        return len(THIS.INNER)
+    end sub
 
-        sub enqueue(SELF, *ITEM)
-                for I in ITEM:
-                        SELF.INNER.insert(0, I)
-        end sub
+    sub enqueue(THIS, *ITEM)
+        for I in ITEM:
+            THIS.INNER.insert(0, I)
+    end sub
 
-        sub dequeue(SELF)
-                return SELF.INNER.pop()
-        end sub
+    sub dequeue(THIS)
+        return THIS.INNER.pop()
+    end sub
 
-        @property
-        sub length(SELF)
-                return len(SELF.INNER)
-        end sub
+    @property
+    sub length(THIS)
+        return len(THIS.INNER)
+    end sub
 
-        sub __repr__(SELF)
-                return "Queue" + str(SELF.INNER)
-        end sub
+    sub __repr__(THIS)
+        return "Queue" + str(THIS.INNER)
+    end sub
 
 class __IBPSStackNode__:
 
-        sub __init__(SELF, DATA)
-                SELF.DATA = DATA
-                SELF.NEXT = null
-        end sub
+    sub __init__(THIS, DATA)
+        THIS.DATA = DATA
+        THIS.NEXT = null
+    end sub
 
 class Stack:
 
-        sub __init__(SELF, *ARGS)
-                SELF.TOP = null
-                SELF.push(*ARGS)
-        end sub
+    sub __init__(THIS, *ARGS)
+        THIS.TOP = null
+        THIS.push(*ARGS)
+    end sub
 
-        sub push(SELF, *ITEMS)
-                for ITEM in ITEMS:
-                        NODE = __IBPSStackNode__(ITEM)
-                        if SELF.TOP is null
-                                SELF.TOP = NODE
-                        else
-                                NODE.NEXT = SELF.TOP
-                                SELF.TOP = NODE
-                        end if
-                return ITEMS
-        end sub
+    sub push(THIS, *ITEMS)
+        for ITEM in ITEMS:
+            NODE = __IBPSStackNode__(ITEM)
+            if THIS.TOP is null
+                THIS.TOP = NODE
+            else
+                NODE.NEXT = THIS.TOP
+                THIS.TOP = NODE
+            end if
+        return ITEMS
+    end sub
 
-        sub pop(SELF)
-                if SELF.TOP is null
-                        return null
-                end if
-                TEMP = SELF.TOP.DATA
-                TEMP1 = SELF.TOP.NEXT
-                SELF.TOP.NEXT = null
-                SELF.TOP = TEMP1
-                return TEMP
-        end sub
+    sub pop(THIS)
+        if THIS.TOP is null
+            return null
+        end if
+        TEMP = THIS.TOP.DATA
+        TEMP1 = THIS.TOP.NEXT
+        THIS.TOP.NEXT = null
+        THIS.TOP = TEMP1
+        return TEMP
+    end sub
 
-        sub peek(SELF)
-                return SELF.TOP.DATA
-        end sub
+    sub peek(THIS)
+        return THIS.TOP.DATA
+    end sub
 
-        sub isEmpty(SELF)
-                return SELF.TOP is null
-        end sub
+    sub isEmpty(THIS)
+        return THIS.TOP is null
+    end sub
 
-        sub list(SELF)
-                CUR_NODE = SELF.TOP
-                OUT = []
-                loop while CUR_NODE is NOT null
-                        OUT.append(CUR_NODE.DATA)
-                        CUR_NODE = CUR_NODE.NEXT
-                end loop
-                return OUT
-        end sub
+    sub list(THIS)
+        CUR_NODE = THIS.TOP
+        OUT = []
+        loop while CUR_NODE is NOT null
+            OUT.append(CUR_NODE.DATA)
+            CUR_NODE = CUR_NODE.NEXT
+        end loop
+        return OUT
+    end sub
 
-        @property
-        sub length(SELF)
-                return len(SELF.list())
-        end sub
+    @property
+    sub length(THIS)
+        return len(THIS.list())
+    end sub
 
-        sub __repr__(SELF)
-                return "Stack" + str(SELF.list())
-        end sub
+    sub __repr__(THIS)
+        return "Stack" + str(THIS.list())
+    end sub
 
 # end of stdlib
 ####

@@ -1,6 +1,6 @@
 [package]
 name = "ibpscomp-rs"
-version = "0.2.0"
+version = "0.2.2"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -15,7 +15,7 @@ name = "ibpscomp-rs-bin"
 path = "src/bin.rs"
 
 [dependencies]
-fancy-regex = "0.12.0"
+fancy-regex = "0.13.0"
 regex = "1.10.0"
 wasm-bindgen = "0.2.87"
 

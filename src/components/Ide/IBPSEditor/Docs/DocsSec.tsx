@@ -22,7 +22,7 @@ const DocsSec: React.FC<DocsSecProps> = (props) => {
 
     return (
         <details open={true} id={_id + "-details"}>
-            <summary className="pt-4 pb-2">
+            <summary className="pt-5 select-none cursor-pointer">
                 <Header id={_id} className="inline">
                     {props.text}
                 </Header>

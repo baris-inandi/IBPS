@@ -1,9 +1,9 @@
 .markdown {
-    @apply text-lg;
+    @apply text-base;
 }
 
 .markdown p {
-    @apply py-4;
+    @apply py-2;
 }
 
 .markdown h1,
@@ -12,11 +12,11 @@
 }
 
 .markdown h2 {
-    @apply text-xl font-bold;
+    @apply text-2xl font-bold;
 }
 
 .markdown h3 {
-    @apply text-xl font-medium;
+    @apply text-xl font-bold;
 }
 
 .markdown h4 {

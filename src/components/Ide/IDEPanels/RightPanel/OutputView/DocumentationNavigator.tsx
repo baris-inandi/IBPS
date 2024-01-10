@@ -5,18 +5,16 @@ const DocumentationNavigator: React.FC = () => {
     const [docsId] = useAtom(docsIdAtom);
 
     return (
-        <div className="flex flex-col gap-1 py-3">
+        <div className="flex flex-col gap-1 py-3 h-full w-full overflow-y-scroll">
             {docsId.map
                 ? docsId.map((docsHeading) => {
                       return (
                           <button
                               data-points-to={docsHeading.id}
                               onClick={() => {
-                                  document
-                                      .getElementById(
-                                          docsHeading.id + "-details",
-                                      )
-                                      ?.setAttribute("open", "true");
+                                  Array.from(
+                                      document.getElementsByTagName("details"),
+                                  ).forEach((x) => (x.open = true));
                                   document.getElementById("ibpsdocs")?.scroll({
                                       top:
                                           (document.getElementById(
@@ -33,8 +31,8 @@ const DocumentationNavigator: React.FC = () => {
                                   docsHeading.level <= 2
                                       ? "text-lg font-bold pt-3" // h2
                                       : docsHeading.level === 3
-                                      ? "font-medium" // h3
-                                      : "text-gray-500" // h4-6
+                                      ? "font-medium text-stone-800" // h3
+                                      : "text-stone-500" // h4-6
                               }`}
                           >
                               {docsHeading.text}

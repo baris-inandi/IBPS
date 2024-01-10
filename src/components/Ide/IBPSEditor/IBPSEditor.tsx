@@ -23,10 +23,16 @@ const IBPSEditor = () => {
 
     return (
         <div className="h-full w-full" id="ibpseditor">
-            {activeFile === "Welcome" ? (
+            <Docs
+                className={
+                    activeFile === "Documentation"
+                        ? "block overflow-y-scroll"
+                        : "hidden"
+                }
+            />
+            {activeFile === "Documentation" ? null : activeFile ===
+              "Welcome" ? (
                 <Welcome />
-            ) : activeFile === "Documentation" ? (
-                <Docs />
             ) : (
                 <AceEditor
                     className="font-mono"
