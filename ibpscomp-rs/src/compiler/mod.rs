@@ -4,9 +4,6 @@ use self::preprocess::preprocess_ibps;
 mod preprocess;
 pub mod stdlib;
 
-// TODO: CACHE PREVIOUSLY SEEN LINES, WILL SPEED UP COMPILATION DRASTICALLY
-// TODO: treeshake the standard library using the python_parser crate
-
 pub fn ibps_to_py(code: &str) -> String {
     let preprocessed_code = preprocess_ibps(code);
     let mut out = String::new();
@@ -21,10 +18,26 @@ pub fn ibps_to_py(code: &str) -> String {
             let spaces = line.split("input").next().unwrap();
             let args = line.split("input").nth(1).unwrap_or("").trim();
             out.push_str(&format!("{}{} = input('>>> ')\n", spaces, args));
-        } else if l.starts_with("input ") || l == "input" {
-            let spaces = line.split("input").next().unwrap();
-            let args = line.split("input").nth(1).unwrap_or("").trim();
-            out.push_str(&format!("{}input({})\n", spaces, args));
+        } else if Regex::new(r"(?m)\w+\s+input\s+[a-zA-Z_][a-zA-Z0-9_]*")
+            .unwrap()
+            .is_match(l)
+        {
+            let indentation = line
+                .chars()
+                .take_while(|&c| c.is_whitespace())
+                .collect::<String>();
+            let tokens: Vec<&str> = l.split(" ").collect();
+            let wrapper = tokens[0];
+            let args = tokens
+                .iter()
+                .skip(2)
+                .map(|c| c.to_string())
+                .collect::<Vec<String>>()
+                .join(" ");
+            out.push_str(&format!(
+                "{}{} = {}(input('>>> '))\n",
+                indentation, args, wrapper
+            ));
         } else if l.starts_with("loop while ") {
             let colon = if l.ends_with(":") { "" } else { ":" };
             let spaces = line.split("loop while").next().unwrap();

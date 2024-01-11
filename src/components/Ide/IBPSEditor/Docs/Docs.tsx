@@ -165,7 +165,8 @@ output("Hello World!")
                         <p>
                             Use the <DocsCode>input</DocsCode> keyword to read a
                             value from the console. The value will be stored in
-                            the variable name proceeding the keyword as a{" "}
+                            the variable proceeding the keyword.{" "}
+                            <DocsCode>input</DocsCode> will always return a{" "}
                             <DocsCode>String</DocsCode>.
                         </p>
                         <DocsCode block>
@@ -185,6 +186,39 @@ NAME = input("What is your name?")
 output "Hello " + NAME + "!"
 `}
                         </DocsCode>
+                        <DocsSec level={4} text="Input Casting">
+                            <p>
+                                As of compiler version 0.2.3, inputs can have a
+                                specified type. For example:
+                            </p>
+                            <DocsCode block>
+                                {`
+Integer input AGE // AGE is an Integer
+                                `}
+                            </DocsCode>
+                            <p>is a shortand for:</p>
+                            <DocsCode block>
+                                {`
+input AGE
+AGE = Integer(AGE)
+                                `}
+                            </DocsCode>
+                            <p>
+                                Input casting can be used to cast an input to
+                                any type:
+                            </p>
+                            <DocsCode block>{`
+Double input FOO
+Boolean input BAR
+Integer input BAZ
+                            `}</DocsCode>
+                            <p>
+                                Note that if the given input cannot be converted
+                                to the specified type, for example, if the user
+                                inputs "Hello" to an integer-cast input, a{" "}
+                                <DocsCode>ValueError</DocsCode> will be raised.
+                            </p>
+                        </DocsSec>
                     </DocsSec>
                 </DocsSec>
                 <DocsSec level={3} text="Functions (Submethods)">
