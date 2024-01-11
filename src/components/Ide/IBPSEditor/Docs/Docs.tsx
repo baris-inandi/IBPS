@@ -539,6 +539,13 @@ end if
                     </ul>
                 </DocsSec>
             </DocsSec>
+            <DocsSec level={2} text="Further Help">
+                <p>
+                    <b>Pro Tip: </b>To get help on a specific class or function,
+                    call the <DocsCode>help</DocsCode> function. Try{" "}
+                    <DocsCode>help(Stack)</DocsCode>!
+                </p>
+            </DocsSec>
         </div>
     );
 };

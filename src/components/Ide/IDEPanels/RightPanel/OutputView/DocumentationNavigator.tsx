@@ -5,7 +5,7 @@ const DocumentationNavigator: React.FC = () => {
     const [docsId] = useAtom(docsIdAtom);
 
     return (
-        <div className="flex flex-col gap-1 py-3 h-full w-full overflow-y-scroll">
+        <div className="flex flex-col gap-1 pt-3 pb-20 h-full w-full overflow-y-scroll">
             {docsId.map
                 ? docsId.map((docsHeading) => {
                       return (
