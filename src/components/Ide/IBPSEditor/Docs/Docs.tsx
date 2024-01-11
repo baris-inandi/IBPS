@@ -272,8 +272,7 @@ output X // prints "True"
                         <DocsCode block>
                             {`
 // Get user input
-input AGE
-AGE = Integer(AGE)
+Integer input AGE
 
 // Check the user's age
 if AGE > 21 then
