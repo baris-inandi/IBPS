@@ -1,8 +1,11 @@
 import { MouseEventHandler } from "react";
-import { AiOutlineCoffee, AiOutlineFileText } from "react-icons/ai";
+import {
+    AiOutlineBook,
+    AiOutlineCoffee,
+    AiOutlineFileText,
+} from "react-icons/ai";
 import { LiaPencilAltSolid } from "react-icons/lia";
 import { SlTrash } from "react-icons/sl";
-import { TfiBookmark } from "react-icons/tfi";
 import useFiles from "../../../../hooks/useFiles";
 
 interface FilesPanelFileButtonProps {
@@ -34,7 +37,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                 {props.file === "Welcome" ? (
                     <AiOutlineCoffee className="inline"></AiOutlineCoffee>
                 ) : props.file === "Documentation" ? (
-                    <TfiBookmark className="inline"></TfiBookmark>
+                    <AiOutlineBook className="inline"></AiOutlineBook>
                 ) : (
                     <AiOutlineFileText className="inline" />
                 )}

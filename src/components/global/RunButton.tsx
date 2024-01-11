@@ -1,8 +1,8 @@
-import { jsPDF } from "jspdf";
 import { useCallback, useEffect } from "react";
 import { IoPlaySharp, IoSquareSharp } from "react-icons/io5";
 import useFiles from "../../hooks/useFiles";
 import { useIbpscomp } from "../../hooks/useIbpscomp";
+import { printExternal } from "../../lib/printExternal";
 
 const RunButton = () => {
     const {
@@ -40,16 +40,7 @@ const RunButton = () => {
         return (
             <button
                 onClick={() => {
-                    const doc = new jsPDF();
-                    doc.html(
-                        document.getElementById("ibpsdocs") as HTMLElement,
-                        {
-                            callback: function (doc) {
-                                doc.save();
-                            },
-                            filename: "IBPS Documentation",
-                        },
-                    );
+                    printExternal("/docs");
                 }}
                 className="flex-shrink-0 text-sm flex items-center gap-1 px-3 py-[3px] rounded-md mr-2 dark:text-white dark:bg-onedark-800 bg-blue-500 text-white"
             >

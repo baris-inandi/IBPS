@@ -12,6 +12,7 @@ export interface DocsTitle {
 
 const Docs: React.FC<{
     className?: string;
+    print?: boolean;
 }> = (props) => {
     const docsRef = useRef<HTMLDivElement>(null);
     const [, setDocsId] = useAtom(docsIdAtom);
@@ -42,7 +43,12 @@ const Docs: React.FC<{
         <div
             id="ibpsdocs"
             ref={docsRef}
-            className={`scroll-smooth markdown select-text flex gap-5 flex-col px-9 pt-3 bg-white dark:bg-onedark-900 h-full w-full overflow-y-scroll pb-40 ${props.className}`}
+            style={{
+                zoom: props.print ? 0.8 : "unset",
+            }}
+            className={`scroll-smooth markdown select-text flex gap-5 flex-col px-9 pt-3 bg-white dark:bg-onedark-900 ${
+                props.print ? "leading-snug" : "h-full w-full overflow-y-scroll"
+            } pb-40 ${props.className}`}
         >
             <div className="h1">The IBPS Programming Language</div>
             <p>
@@ -456,8 +462,8 @@ X = doesNotReturn() // X is null.
 `}
                         </DocsCode>
                         <p>
-                            <DocsCode>null</DocsCode> also can be used to initialize
-                            an object:
+                            <DocsCode>null</DocsCode> also can be used to
+                            initialize an object:
                         </p>
                         <DocsCode block>
                             {`

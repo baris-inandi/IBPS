@@ -15,7 +15,7 @@ import RightPanel from "./IDEPanels/RightPanel/RightPanel";
 const Ide = () => {
     return (
         <PythonProvider>
-            <div className="flex flex-col h-full w-full">
+            <div className="flex flex-col h-full w-full" id="ibpside">
                 <PanelGroup
                     autoSaveId="IBPS_IDE_LAYOUT_SAVE"
                     direction="horizontal"

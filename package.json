@@ -1,6 +1,6 @@
 {
     "name": "ibps-ide",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "license": "LGPL-3.0-only",
     "dependencies": {
         "@testing-library/jest-dom": "^5.14.1",
@@ -24,6 +24,7 @@
         "react-icons": "^4.11.0",
         "react-py": "^1.10.6",
         "react-resizable-panels": "^0.0.55",
+        "react-router-dom": "^6.21.1",
         "react-scripts": "5.0.1",
         "typescript": "^5.2.2",
         "use-prefers-color-scheme": "^1.1.3",

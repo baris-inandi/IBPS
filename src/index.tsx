@@ -1,9 +1,8 @@
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
-import React from "react";
 import ReactDOM from "react-dom/client";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import IBPSProvider from "./IBPSProvider";
+import DocsPdf from "./components/Ide/IBPSEditor/Docs/DocsPdf";
 import Ide from "./components/Ide/Ide";
-import ThemeColorChangeProvider from "./components/global/ThemeColorChangeProvider";
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import "./styles/fonts.css";
@@ -15,16 +14,21 @@ const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement,
 );
 
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Ide />,
+    },
+    {
+        path: "docs",
+        element: <DocsPdf />,
+    },
+]);
+
 root.render(
-    <React.StrictMode>
-        <Analytics />
-        <SpeedInsights />
-        <ThemeColorChangeProvider>
-            <div id="ibpside" className="h-screen w-screen">
-                <Ide />
-            </div>
-        </ThemeColorChangeProvider>
-    </React.StrictMode>,
+    <IBPSProvider>
+        <RouterProvider router={router} />
+    </IBPSProvider>,
 );
 
 // If you want your app to work offline and load faster, you can change
