@@ -20,6 +20,7 @@ const FilesPanel = () => {
         let input = document.createElement("input");
         input.type = "file";
         input.accept = ".ibps,.ibws";
+        input.multiple = true;
         input.onchange = (_) => {
             let files = Array.from(input.files ?? []);
             files.forEach((file) => {
@@ -84,18 +85,19 @@ const FilesPanel = () => {
                     </button>
                     <button
                         onClick={() => {
-                            let name =
-                                prompt("Name your workspace") ?? "Workspace";
-                            download(
-                                `${name}.ibws`,
-                                JSON.stringify({
-                                    __ibps_filetype__: "ibws",
-                                    __ibws_version__: 1,
-                                    content: compress(
-                                        JSON.stringify(filesRaw.allFiles),
-                                    ),
-                                }),
-                            );
+                            let name = prompt("Name your workspace");
+                            if (name) {
+                                download(
+                                    `${name}.ibws`,
+                                    JSON.stringify({
+                                        __ibps_filetype__: "ibws",
+                                        __ibws_version__: 1,
+                                        content: compress(
+                                            JSON.stringify(filesRaw.allFiles),
+                                        ),
+                                    }),
+                                );
+                            }
                         }}
                         className="flex items-center gap-2 w-full hover:dark:bg-onedark-900 pl-4 py-1 text-stone-800 dark:text-onedark-200 hover:bg-stone-300 dark:hover:dark:bg-onedark-900"
                     >
