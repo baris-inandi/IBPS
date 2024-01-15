@@ -5,7 +5,7 @@ use wasm_bindgen::prelude::*;
 pub fn ibps_to_py(code: &str) -> String {
     format!(
         "{}{}",
-        compiler::stdlib::generate_stdlib(compiler::stdlib::StdlibType::Ibps),
+        compiler::stdlib::generate_stdlib(code),
         compiler::ibps_to_py(code)
     )
 }

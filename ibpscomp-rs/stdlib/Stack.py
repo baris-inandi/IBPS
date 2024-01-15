@@ -1,4 +1,4 @@
-class IBPSStackNode:
+class __IBPSStackNode__:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -11,22 +11,24 @@ class Stack:
 
     def push(self, *items):
         for item in items:
-            node = IBPSStackNode(item)
+            node = __IBPSStackNode__(item)
             if self.top is None:
                 self.top = node
             else:
                 node.next = self.top
                 self.top = node
+
         return items
 
     def pop(self):
         if self.top is None:
             return None
-        temp = self.top.data
-        temp1 = self.top.next
+
+        TEMP = self.top.data
+        TEMP1 = self.top.next
         self.top.next = None
-        self.top = temp1
-        return temp
+        self.top = TEMP1
+        return TEMP
 
     def peek(self):
         return self.top.data
@@ -40,7 +42,12 @@ class Stack:
         while cur_node is not None:
             out.append(cur_node.data)
             cur_node = cur_node.next
+
         return out
+
+    @property
+    def length(self):
+        return len(self.list())
 
     def __repr__(self):
         return "Stack" + str(self.list())

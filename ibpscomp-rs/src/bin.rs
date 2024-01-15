@@ -16,7 +16,9 @@ fn main() {
 
     let pycode = ibps::ibps_to_py(contents);
 
-    println!("{}\n#### END OF PYTHON SOURCE ####\n", pycode);
+    println!("{}", pycode);
+    println!("### START OF PYTHON OUTPUT ###");
+
     Command::new("python")
         .arg("-c")
         .arg(format!("{}", pycode))

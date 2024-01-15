@@ -1,31 +1,49 @@
-use crate::compiler::ibps_to_py;
+use std::collections::HashMap;
 
-pub enum StdlibType {
-    Python,
-    Ibps,
-}
+const VERSION: &str = "0.1.1";
 
-pub fn generate_stdlib(stdlib_type: StdlibType) -> String {
+pub fn generate_stdlib(code: &str) -> String {
     fn valid(code: &str) -> String {
         return format!(
             "\n{}",
             code.lines()
                 .filter(|line| !line.trim().ends_with("# stdlibignore"))
-                .filter(|line| !line.trim().ends_with("// stdlibignore"))
                 .collect::<Vec<&str>>()
                 .join("\n")
         );
     }
-    if matches!(stdlib_type, StdlibType::Ibps) {
-        let ibps_lib = &valid(std::include_str!("../../stdlib/stdlib.ibps"));
-        return ibps_to_py(ibps_lib);
+
+    let stdlib_source = HashMap::from([
+        ("Array", valid(std::include_str!("../../stdlib/Array.py"))),
+        (
+            "ArrayList",
+            valid(std::include_str!("../../stdlib/ArrayList.py")),
+        ),
+        ("Queue", valid(std::include_str!("../../stdlib/Queue.py"))),
+        ("Stack", valid(std::include_str!("../../stdlib/Stack.py"))),
+        (
+            "Collection",
+            valid(std::include_str!("../../stdlib/Collection.py")),
+        ),
+        ("null", String::from("null = None")),
+        ("none", String::from("none = None")),
+        ("true", String::from("true = True")),
+        ("false", String::from("false = False")),
+        ("output", String::from("output = print")),
+        ("Boolean", String::from("Boolean = bool")),
+        ("String", String::from("String = str")),
+        ("Integer", String::from("Integer = int")),
+        ("Float", String::from("Float = float")),
+        ("Double", String::from("Double = float")),
+        ("HashMap", String::from("HashMap = dict")),
+    ]);
+    let mut stdlib_treeshaken = format!("### IBPS stdlib {} implemented in Python ###\n", VERSION);
+    for (name, source) in stdlib_source.iter() {
+        if code.contains(name) {
+            stdlib_treeshaken.push_str(source);
+            stdlib_treeshaken.push_str("\n");
+        }
     }
-    let mut lib = String::new();
-    lib.push_str(&valid(std::include_str!("../../stdlib/python/header.py")));
-    lib.push_str(&valid(std::include_str!("../../stdlib/python/stdcoll.py")));
-    lib.push_str(&valid(std::include_str!("../../stdlib/python/stdqueue.py")));
-    lib.push_str(&valid(std::include_str!("../../stdlib/python/stdstack.py")));
-    lib.push_str(&valid(std::include_str!("../../stdlib/python/stdarr.py")));
-    lib.push_str("\n");
-    return lib;
+    stdlib_treeshaken.push_str("\n### END OF STDLIB ###\n");
+    return stdlib_treeshaken;
 }

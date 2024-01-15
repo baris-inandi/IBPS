@@ -10,6 +10,9 @@ pub fn ibps_to_py(code: &str) -> String {
 
     for line in preprocessed_code.lines() {
         let l = line.trim();
+        if l == "" || l.starts_with("end ") {
+            continue;
+        }
         if l.starts_with("output ") || l == "output" {
             let spaces = line.split("output").next().unwrap();
             let args = line.split("output").nth(1).unwrap_or("").trim();
@@ -128,9 +131,6 @@ pub fn ibps_to_py(code: &str) -> String {
             let spaces = line.split("sub").next().unwrap();
             let colon = if l.ends_with(":") { "" } else { ":" };
             out.push_str(&format!("{}def {}{}\n", spaces, args, colon));
-        } else if l.starts_with("end ") {
-            out.push_str("\n");
-            continue;
         } else {
             out.push_str(&format!("{}\n", line));
         }

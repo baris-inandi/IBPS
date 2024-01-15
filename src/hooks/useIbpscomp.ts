@@ -46,10 +46,14 @@ export const useIbpscomp = () => {
         }
     }, [stderr, setOutput, runId]);
 
-    const logToConsole = (msg: string, newline: boolean = false) => {
+    const logToConsole = (
+        msg: string,
+        newline: boolean = false,
+        shift: number = 0,
+    ) => {
         setOutput((output) => ({
             ...output,
-            [Date.now()]: `[${msg}]${newline ? "\n" : ""}`,
+            [Date.now() + shift]: `[${msg}]${newline ? "\n" : ""}`,
         }));
     };
 
@@ -58,14 +62,23 @@ export const useIbpscomp = () => {
         const a = activeFile;
         logToConsole(`Compiling '${a}'`);
         setIsCompiling(true);
-        const pycode = await ibpsToPy(code);
+        const start_compiling = Date.now();
+        let pycode = "";
+        if (code.trim() !== "") {
+            pycode = await ibpsToPy(code);
+        }
+        const end_compiling = Date.now();
         setIsCompiling(false);
+        const elapsed_compiling = end_compiling - start_compiling;
+        logToConsole(`'${a}' compiled in ${elapsed_compiling}ms`, false, -1);
         if (!isLoading && !isRunning) {
             logToConsole("Running Script...");
             const start = Date.now() + 1;
             setRunId(start);
-            await runPython(pycode);
-            const finish = Date.now();
+            if (pycode.trim() !== "") {
+                await runPython(pycode);
+            }
+            const finish = Date.now() + 1;
             const elapsed = finish - start;
             logToConsole(`'${a}' finished in ${elapsed}ms`, true);
         }

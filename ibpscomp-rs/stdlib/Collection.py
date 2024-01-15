@@ -21,9 +21,13 @@ class Collection:
 
     def resetNext(self):
         self.ptr = 0
-        
+
     def pop(self):
         return self.inner.pop()
 
-    def __repr__(self) -> str:
+    @property
+    def length(self):
+        return len(self.inner)
+
+    def __repr__(self):
         return "Collection" + str(self.inner)

@@ -10,12 +10,16 @@ class Queue:
     def __len__(self):
         return len(self.inner)
 
-    def enqueue(self, *item):
-        for i in item:
-            self.inner.insert(0, i)
+    def enqueue(self, *items):
+        for I in items:
+            self.inner.insert(0, I)
 
     def dequeue(self):
         return self.inner.pop()
+
+    @property
+    def length(self):
+        return len(self.inner)
 
     def __repr__(self):
         return "Queue" + str(self.inner)
