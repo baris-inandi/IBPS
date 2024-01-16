@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-const VERSION: &str = "0.1.1";
+const VERSION: &str = std::include_str!("../../stdlib/VERSION");
 
 pub fn generate_stdlib(code: &str) -> String {
     fn valid(code: &str) -> String {
