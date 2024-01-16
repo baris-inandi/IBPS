@@ -7,4 +7,3 @@ const DocsPdf: React.FC<DocsPdfProps> = () => {
 };
 
 export default DocsPdf;
-

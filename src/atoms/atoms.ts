@@ -56,4 +56,3 @@ export const codeFontSizeAtom = atomWithStorage<number>(
 );
 
 export const docsIdAtom = atom<Array<DocsHeader>>([]);
-

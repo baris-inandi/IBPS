@@ -28,4 +28,3 @@ export const printExternal = (url: string) => {
         true,
     );
 };
-

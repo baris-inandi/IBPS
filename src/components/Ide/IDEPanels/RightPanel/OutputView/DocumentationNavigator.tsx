@@ -45,4 +45,3 @@ const DocumentationNavigator: React.FC = () => {
 };
 
 export default DocumentationNavigator;
-

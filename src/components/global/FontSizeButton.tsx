@@ -50,4 +50,3 @@ const FontSizeButton: React.FC = () => {
 };
 
 export default FontSizeButton;
-

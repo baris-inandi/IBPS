@@ -33,4 +33,3 @@ const DocsCode: React.FC<DocsCodeProps> = (props) => {
 };
 
 export default DocsCode;
-

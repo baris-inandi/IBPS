@@ -57,4 +57,3 @@ const IBPSEditor = () => {
 };
 
 export default IBPSEditor;
-

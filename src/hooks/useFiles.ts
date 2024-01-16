@@ -152,4 +152,3 @@ const useFiles = () => {
 };
 
 export default useFiles;
-

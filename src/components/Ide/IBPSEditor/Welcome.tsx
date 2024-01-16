@@ -36,11 +36,16 @@ const Welcome: React.FC = () => {
                 Now click the <b>Run</b> button to see the output!
             </p>
             <p className="opacity-50 pt-6">
-                Created by <a className="underline underline-offset-2" href="https://inandioglu.com">Baris Inandioglu</a>
+                Created by{" "}
+                <a
+                    className="underline underline-offset-2"
+                    href="https://inandioglu.com"
+                >
+                    Baris Inandioglu
+                </a>
             </p>
         </div>
     );
 };
 
 export default Welcome;
-

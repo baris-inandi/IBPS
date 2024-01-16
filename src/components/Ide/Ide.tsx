@@ -87,4 +87,3 @@ const Ide = () => {
 };
 
 export default Ide;
-
