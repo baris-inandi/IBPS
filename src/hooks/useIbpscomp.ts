@@ -75,9 +75,7 @@ export const useIbpscomp = () => {
             logToConsole("Running Script...");
             const startRun = Date.now() + 1;
             setRunId(startRun);
-            if (pycode.trim() !== "") {
-                await runPython(pycode);
-            }
+            await runPython(pycode);
             const finishRun = Date.now() + 1;
             const elapsedRun = finishRun - startRun;
             logToConsole(`Finished in ${elapsedRun}ms`, true);
