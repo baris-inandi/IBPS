@@ -34,7 +34,7 @@ body {
 }
 
 .ace_marker-layer .ace_active-line {
-    @apply bg-stone-100 dark:bg-idedark-900 border-none !important;
+    @apply bg-stone-100 dark:bg-idedark-800 border-none !important;
 }
 
 .ace_marker-layer .ace_selection {
