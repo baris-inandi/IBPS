@@ -531,7 +531,7 @@ BAZ = String() // returns an empty string
                             <DocsCode>
                                 {`
 FOO = "Hello World!" // a Python str
-output FOO.length // Won't work because Python does not the "length" property.
+output FOO.length // Won't work because Python does not implement the "length" property.
                                 `}
                             </DocsCode>
                         </DocsSec>
