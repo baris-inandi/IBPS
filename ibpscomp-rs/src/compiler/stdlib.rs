@@ -32,6 +32,7 @@ pub fn generate_stdlib(code: &str) -> String {
         ("Float", String::from("Float = float")),
         ("Double", String::from("Double = float")),
         ("HashMap", String::from("HashMap = dict")),
+        ("Set", String::from("HashMap = set")),
     ]);
     let mut stdlib_treeshaken = format!("### IBPS stdlib {} implemented in Python ###\n", VERSION);
     for (name, source) in stdlib_source.iter() {
