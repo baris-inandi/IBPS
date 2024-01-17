@@ -9,7 +9,7 @@ const BottomBar = () => {
     const { compilerVersion, ideVersion } = useVersion();
 
     return (
-        <div className="text-stone-500 border-t dark:border-black px-2 py-[1px] text-sm w-full bg-stone-200 border-stone-300 dark:bg-idedark-1000 dark:text-neutral-400 flex justify-between">
+        <div className="border-t dark:border-black px-2 py-[1px] text-sm w-full bg-blue-500 border-stone-300 dark:bg-idedark-1000 text-white dark:text-neutral-400 flex justify-between">
             <div className="flex items-center gap-1">
                 <p>
                     Created by{" "}
@@ -23,12 +23,12 @@ const BottomBar = () => {
                 </p>
                 <span className="px-1">•</span>
                 <p>IDE</p>
-                <div className="font-mono border border-stone-400 dark:border-neutral-700 rounded-md py-[2px] font-medium text-xs px-1 leading-none h-fit w-fit">
+                <div className="font-mono border border-blue-300 dark:border-neutral-700 rounded-md py-[2px] font-medium text-xs px-1 leading-none h-fit w-fit">
                     {ideVersion}
                 </div>{" "}
                 <span className="px-1">•</span>
                 <p>Compiler</p>
-                <div className="font-mono border border-stone-400 dark:border-neutral-700 rounded-md py-[2px] font-medium text-xs px-1 leading-none h-fit w-fit">
+                <div className="font-mono border border-blue-300 dark:border-neutral-700 rounded-md py-[2px] font-medium text-xs px-1 leading-none h-fit w-fit">
                     {compilerVersion}
                 </div>{" "}
             </div>
@@ -37,9 +37,9 @@ const BottomBar = () => {
                     <BsDatabaseFill />
                 </span>
                 <div
-                    className={`border rounded-full w-full bg-stone-600 dark:bg-idedark-900 bg-opacity-20 h-[10px] ${
+                    className={`border rounded-full w-full bg-black dark:bg-idedark-900 bg-opacity-20 h-[10px] ${
                         usedBytesPercentage >= 90
-                            ? "border-red-200"
+                            ? "border-red-300"
                             : "border-transparent dark:border-black"
                     }`}
                 >
@@ -52,7 +52,7 @@ const BottomBar = () => {
                                       ? "10px"
                                       : usedBytesPercentage + "%",
                         }}
-                        className="rounded-full h-full bg-white border border-stone-300 dark:bg-idedark-600 dark:border-idedark-600"
+                        className="rounded-full h-full bg-white"
                     />
                 </div>
                 <div className="flex flex-shrink-0 items-center h-full gap-2">
