@@ -26,19 +26,19 @@ body {
 }
 
 .ace_gutter {
-    @apply bg-stone-50 dark:bg-onedark-950 !important;
+    @apply bg-stone-50 dark:bg-idedark-950 !important;
 }
 
 .ace_gutter-active-line {
-    @apply bg-stone-200 dark:bg-onedark-900 !important;
+    @apply bg-stone-200 dark:bg-idedark-900 !important;
 }
 
 .ace_marker-layer .ace_active-line {
-    @apply bg-stone-100 dark:bg-onedark-800 !important;
+    @apply bg-stone-100 dark:bg-idedark-800 !important;
 }
 
 .ace_marker-layer .ace_selection {
-    @apply bg-stone-300 dark:bg-onedark-600 !important;
+    @apply bg-stone-300 dark:bg-idedark-600 !important;
 }
 
 #IBPSOutput.ace_editor {
@@ -50,7 +50,7 @@ body {
 }
 
 body {
-    @apply bg-stone-100 dark:bg-onedark-900 text-black dark:text-white select-none;
+    @apply bg-stone-100 dark:bg-idedark-900 text-black dark:text-white select-none;
 }
 
 @media (prefers-color-scheme: dark) {

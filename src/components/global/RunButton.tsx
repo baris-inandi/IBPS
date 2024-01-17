@@ -42,7 +42,7 @@ const RunButton = () => {
                 onClick={() => {
                     printExternal("/docs");
                 }}
-                className="flex-shrink-0 text-sm flex items-center gap-1 px-3 py-[3px] rounded-md mr-2 dark:text-white dark:bg-onedark-800 bg-blue-500 text-white"
+                className="flex-shrink-0 text-sm flex items-center gap-1 px-3 py-[3px] rounded-md mr-2 dark:text-white dark:bg-idedark-800 bg-blue-500 text-white"
             >
                 Download as PDF
             </button>
@@ -61,7 +61,7 @@ const RunButton = () => {
             ${
                 isRunning
                     ? "dark:bg-orange-400 dark:bg-opacity-50 bg-orange-600 text-white"
-                    : "dark:text-white dark:bg-onedark-800 bg-blue-500 text-white"
+                    : "dark:text-white dark:bg-idedark-800 bg-blue-500 text-white"
             }
             `}
             onClick={
@@ -88,3 +88,4 @@ const RunButton = () => {
 };
 
 export default RunButton;
+

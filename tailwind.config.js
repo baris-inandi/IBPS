@@ -28,7 +28,7 @@ module.exports = {
         },
         extend: {
             colors: {
-                onedark: {
+                idedark: {
                     50: "#D7DAE0",
                     100: "#CBCFD7",
                     200: "#B4BAC5",
@@ -60,3 +60,4 @@ module.exports = {
     },
     plugins: [],
 };
+

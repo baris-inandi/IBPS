@@ -1,6 +1,6 @@
 const Welcome: React.FC = () => {
     return (
-        <div className="select-text flex gap-5 flex-col p-9 bg-white dark:bg-onedark-900 h-full w-full overflow-y-scroll pb-20">
+        <div className="select-text flex gap-5 flex-col p-9 bg-white dark:bg-idedark-900 h-full w-full overflow-y-scroll pb-20">
             <p className="text-xl font-bold pb-1">
                 Welcome to the IBPS IDE for IB Pseudocode!
             </p>
@@ -29,7 +29,7 @@ const Welcome: React.FC = () => {
                 Here's an example of a simple IBPS program that prints "Hello,
                 World!":
             </p>
-            <pre className="bg-stone-200 text-stone-600 dark:bg-onedark-700 dark:text-onedark-50 px-4 py-2 rounded-sm">
+            <pre className="bg-stone-200 text-stone-600 dark:bg-idedark-700 dark:text-idedark-50 px-4 py-2 rounded-sm">
                 output "Hello, World!"
             </pre>
             <p>
@@ -49,3 +49,4 @@ const Welcome: React.FC = () => {
 };
 
 export default Welcome;
+

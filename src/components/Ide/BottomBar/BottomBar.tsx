@@ -9,7 +9,7 @@ const BottomBar = () => {
     const { compilerVersion, ideVersion } = useVersion();
 
     return (
-        <div className="border-t dark:border-black px-2 text-sm w-full bg-blue-500 text-white border-stone-300 dark:bg-onedark-1000 dark:text-neutral-500 flex justify-between">
+        <div className="border-t dark:border-black px-2 text-sm w-full bg-blue-500 text-white border-stone-300 dark:bg-idedark-1000 dark:text-neutral-500 flex justify-between">
             <p>
                 IBPS IDE{" "}
                 <code className="font-bold pl-[2px]">{ideVersion}</code> •
@@ -26,7 +26,7 @@ const BottomBar = () => {
             </p>
             <div className="flex items-center gap-2 w-64">
                 <div
-                    className={`rounded-full w-full bg-black dark:bg-onedark-900 bg-opacity-20 h-[8px] ${
+                    className={`rounded-full w-full bg-black dark:bg-idedark-900 bg-opacity-20 h-[8px] ${
                         usedBytesPercentage >= 90 ? "border border-red-200" : ""
                     }`}
                 >
@@ -39,7 +39,7 @@ const BottomBar = () => {
                                     ? "8px"
                                     : usedBytesPercentage + "%",
                         }}
-                        className="rounded-full h-full bg-white border border-stone-300 dark:bg-onedark-600 dark:border-black"
+                        className="rounded-full h-full bg-white border border-stone-300 dark:bg-idedark-600 dark:border-black"
                     />
                 </div>
                 <div className="flex flex-shrink-0 items-center h-full gap-2">
@@ -56,3 +56,4 @@ const BottomBar = () => {
 };
 
 export default BottomBar;
+

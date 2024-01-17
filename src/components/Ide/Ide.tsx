@@ -44,7 +44,7 @@ const Ide = () => {
                             <IBPSEditor />
                         </div>
                     </Panel>
-                    <PanelResizeHandle className="w-3 bg-stone-100 dark:bg-onedark-950">
+                    <PanelResizeHandle className="w-3 bg-stone-100 dark:bg-idedark-950">
                         <IDEPanelTopbar />
                         <div className="h-full w-full border-l border-stone-300 dark:border-black"></div>
                     </PanelResizeHandle>
@@ -57,7 +57,7 @@ const Ide = () => {
                 </PanelGroup>
                 <BottomBar />
             </div>
-            <div className="h-full w-full flex flex-col gap-2 sm:hidden bg-white dark:bg-onedark-950 px-16 items-center justify-center text-center">
+            <div className="h-full w-full flex flex-col gap-2 sm:hidden bg-white dark:bg-idedark-950 px-16 items-center justify-center text-center">
                 <p className="font-logo text-sm font-bold">IBPS IDE</p>
                 <h1 className="font-medium text-2xl">Window too small</h1>
                 <p className="text-stone-500 dark:text-stone-400 max-w-sm">
@@ -87,3 +87,4 @@ const Ide = () => {
 };
 
 export default Ide;
+
