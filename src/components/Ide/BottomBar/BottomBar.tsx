@@ -32,10 +32,22 @@ const BottomBar = () => {
                     {compilerVersion}
                 </div>{" "}
             </div>
-            <div className="flex items-center gap-2 w-72">
+            <div className="flex items-center gap-2 w-96">
+                <a
+                    className="shrink-0 font-medium underline underline-offset-2"
+                    href="https://github.com/baris-inandi/IBPS-IDE/issues/new"
+                    target="blank"
+                >
+                    Bugs & Feedback
+                </a>
                 <span className="h-fit">
                     <BsDatabaseFill />
                 </span>
+                <div className="flex flex-shrink-0 items-center h-full gap-2">
+                    <span>
+                        {usedBytesRepr} of {availableBytesRepr} used
+                    </span>
+                </div>
                 <div
                     className={`border rounded-full w-full bg-black dark:bg-idedark-900 bg-opacity-20 h-[10px] ${
                         usedBytesPercentage >= 90
@@ -55,14 +67,10 @@ const BottomBar = () => {
                         className="rounded-full h-full bg-white"
                     />
                 </div>
-                <div className="flex flex-shrink-0 items-center h-full gap-2">
-                    <span>
-                        {usedBytesRepr} of {availableBytesRepr} used
-                    </span>
-                </div>
             </div>
         </div>
     );
 };
 
 export default BottomBar;
+
