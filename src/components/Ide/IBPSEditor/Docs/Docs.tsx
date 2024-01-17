@@ -528,7 +528,7 @@ BAZ = String() // returns an empty string
                                 literal to initialize a Python{" "}
                                 <DocsCode>str</DocsCode> will work:
                             </p>
-                            <DocsCode>
+                            <DocsCode block>
                                 {`
 FOO = "Hello World!" // a Python str
 output FOO.length // Won't work because Python does not implement the "length" property.
