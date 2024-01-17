@@ -1,7 +1,10 @@
 "use client";
 
+import { useAtom } from "jotai";
+import { FiSidebar } from "react-icons/fi";
 import { PythonProvider } from "react-py";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+import { filePanelVisibleAtom } from "../../atoms/atoms";
 import { useVersion } from "../../hooks/useVersion";
 import FileName from "../global/FileName";
 import FontSizeButton from "../global/FontSizeButton";
@@ -15,6 +18,8 @@ import RightPanel from "./IDEPanels/RightPanel/RightPanel";
 
 const Ide = () => {
     const { compilerVersion, ideVersion } = useVersion();
+    const [filePanelVisible, setFilePanelVisible] =
+        useAtom(filePanelVisibleAtom);
 
     return (
         <PythonProvider>
@@ -24,9 +29,25 @@ const Ide = () => {
                     direction="horizontal"
                     className="flex-grow"
                 >
-                    <div className="w-52">
+                    <div
+                        className={`w-56 ${
+                            filePanelVisible ? "block" : "hidden"
+                        }`}
+                    >
                         <IDEPanelTopbar pl>
-                            <h1 className="font-bold font-logo">IBPS IDE</h1>
+                            <div className="flex gap-3 items-center">
+                                <div
+                                    className="cursor-pointer pl-1"
+                                    onClick={() =>
+                                        setFilePanelVisible(!filePanelVisible)
+                                    }
+                                >
+                                    <FiSidebar />
+                                </div>
+                                <h1 className="font-bold font-logo pt-[1px]">
+                                    IBPS IDE
+                                </h1>
+                            </div>
                         </IDEPanelTopbar>
                         <div className="w-full h-full border-r border-stone-300 dark:border-black">
                             <FilesPanel />
@@ -87,4 +108,3 @@ const Ide = () => {
 };
 
 export default Ide;
-

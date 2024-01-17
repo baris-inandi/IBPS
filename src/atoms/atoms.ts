@@ -56,3 +56,8 @@ export const codeFontSizeAtom = atomWithStorage<number>(
 );
 
 export const docsIdAtom = atom<Array<DocsHeader>>([]);
+
+export const filePanelVisibleAtom = atomWithStorage<boolean>(
+    "jotai__filePanelVisibleAtom",
+    true,
+);

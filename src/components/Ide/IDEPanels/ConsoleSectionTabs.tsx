@@ -32,4 +32,3 @@ const ConsoleSectionTabs = () => {
 };
 
 export default ConsoleSectionTabs;
-

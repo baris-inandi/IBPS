@@ -9,25 +9,38 @@ const BottomBar = () => {
     const { compilerVersion, ideVersion } = useVersion();
 
     return (
-        <div className="border-t dark:border-black px-2 text-sm w-full bg-blue-500 text-white border-stone-300 dark:bg-idedark-1000 dark:text-neutral-500 flex justify-between">
-            <p>
-                IBPS IDE{" "}
-                <code className="font-bold pl-[2px]">{ideVersion}</code> •
-                ibpscomp-rs{" "}
-                <code className="font-bold pl-[2px]">{compilerVersion}</code> •
-                created by{" "}
-                <a
-                    className="underline underline-offset-2 font-medium"
-                    target="blank"
-                    href="https://inandioglu.com"
-                >
-                    Baris
-                </a>
-            </p>
-            <div className="flex items-center gap-2 w-64">
+        <div className="text-stone-500 border-t dark:border-black px-2 py-[1px] text-sm w-full bg-stone-200 border-stone-300 dark:bg-idedark-1000 dark:text-neutral-400 flex justify-between">
+            <div className="flex items-center gap-1">
+                <p>
+                    Created by{" "}
+                    <a
+                        className="underline underline-offset-2 font-medium"
+                        target="blank"
+                        href="https://inandioglu.com"
+                    >
+                        Baris
+                    </a>
+                </p>
+                <span className="px-1">•</span>
+                <p>IDE</p>
+                <div className="font-mono border border-stone-400 dark:border-neutral-700 rounded-md py-[2px] font-medium text-xs px-1 leading-none h-fit w-fit">
+                    {ideVersion}
+                </div>{" "}
+                <span className="px-1">•</span>
+                <p>Compiler</p>
+                <div className="font-mono border border-stone-400 dark:border-neutral-700 rounded-md py-[2px] font-medium text-xs px-1 leading-none h-fit w-fit">
+                    {compilerVersion}
+                </div>{" "}
+            </div>
+            <div className="flex items-center gap-2 w-72">
+                <span className="h-fit">
+                    <BsDatabaseFill />
+                </span>
                 <div
-                    className={`rounded-full w-full bg-black dark:bg-idedark-900 bg-opacity-20 h-[8px] ${
-                        usedBytesPercentage >= 90 ? "border border-red-200" : ""
+                    className={`border rounded-full w-full bg-stone-600 dark:bg-idedark-900 bg-opacity-20 h-[10px] ${
+                        usedBytesPercentage >= 90
+                            ? "border-red-200"
+                            : "border-transparent dark:border-black"
                     }`}
                 >
                     <div
@@ -36,16 +49,13 @@ const BottomBar = () => {
                                 usedBytesPercentage >= 100
                                     ? "100%"
                                     : usedBytesPercentage < 10
-                                    ? "8px"
-                                    : usedBytesPercentage + "%",
+                                      ? "10px"
+                                      : usedBytesPercentage + "%",
                         }}
-                        className="rounded-full h-full bg-white border border-stone-300 dark:bg-idedark-600 dark:border-black"
+                        className="rounded-full h-full bg-white border border-stone-300 dark:bg-idedark-600 dark:border-idedark-600"
                     />
                 </div>
                 <div className="flex flex-shrink-0 items-center h-full gap-2">
-                    <span className="h-fit">
-                        <BsDatabaseFill />
-                    </span>
                     <span>
                         {usedBytesRepr} of {availableBytesRepr} used
                     </span>
@@ -56,4 +66,3 @@ const BottomBar = () => {
 };
 
 export default BottomBar;
-

@@ -799,7 +799,7 @@ BAR = Queue(1,2,3) // Queue[1,2,3]
                         Always prefer using IBPS classes instead of Python
                         classes. For example:
                     </p>
-                    <DocsCode>
+                    <DocsCode block>
                         {`
 DONT = [1,2,3] // Creates a Python list, not preferred.
 DO = Array.fromValues(1,2,3) // Preferred way. Has access to IBPS methods.
@@ -823,4 +823,3 @@ DO = String(42) // Preferred way. Has access to IBPS methods.
 };
 
 export default Docs;
-

@@ -3,7 +3,7 @@ import "ace-builds/src-noconflict/ext-code_lens";
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-searchbox";
 import "ace-builds/src-noconflict/mode-python";
-import "ace-builds/src-noconflict/theme-crimson_editor";
+import "ace-builds/src-noconflict/theme-cloud_editor";
 import "ace-builds/src-noconflict/theme-one_dark";
 import { useAtom } from "jotai";
 import AceEditor from "react-ace";
@@ -43,7 +43,7 @@ const IBPSEditor = () => {
                     theme={
                         prefersColorScheme === "dark"
                             ? "one_dark"
-                            : "crimson_editor"
+                            : "cloud_editor"
                     }
                     fontSize={codeFontSize}
                     onChange={(val) => {

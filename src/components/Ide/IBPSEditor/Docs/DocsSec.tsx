@@ -37,4 +37,3 @@ const DocsSec: React.FC<DocsSecProps> = (props) => {
 };
 
 export default DocsSec;
-
