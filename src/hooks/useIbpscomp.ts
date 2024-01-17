@@ -63,10 +63,7 @@ export const useIbpscomp = () => {
         logToConsole(`Compiling '${a}'`);
         setIsCompiling(true);
         const startCompiling = Date.now();
-        let pycode = "";
-        if (code.trim() !== "") {
-            pycode = await ibpsToPy(code);
-        }
+        const pycode = await ibpsToPy(code);
         const endCompiling = Date.now();
         setIsCompiling(false);
         const elapsedCompiling = endCompiling - startCompiling;
@@ -100,3 +97,4 @@ export const useIbpscomp = () => {
         sendInput,
     };
 };
+
