@@ -14,6 +14,13 @@ class Array(list):
         self.append(value)
 
     @classmethod
+    def fromList(cls, l):
+        obj = cls()
+        for V in l:
+            obj.push(V)
+        return obj
+
+    @classmethod
     def fromValues(cls, *values):
         obj = cls()
         for V in values:
@@ -27,4 +34,4 @@ class Array(list):
     def __repr__(self):
         from pprint import pformat
 
-        return pformat(super().copy())
+        return "Array" + pformat(super().copy())

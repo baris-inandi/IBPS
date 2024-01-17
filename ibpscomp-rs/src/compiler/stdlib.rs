@@ -15,23 +15,19 @@ pub fn generate_stdlib(code: &str) -> String {
 
     let stdlib_source = HashMap::from([
         ("Array", valid(std::include_str!("../../stdlib/Array.py"))),
-        (
-            "ArrayList",
-            valid(std::include_str!("../../stdlib/ArrayList.py")),
-        ),
         ("Queue", valid(std::include_str!("../../stdlib/Queue.py"))),
         ("Stack", valid(std::include_str!("../../stdlib/Stack.py"))),
         (
             "Collection",
             valid(std::include_str!("../../stdlib/Collection.py")),
         ),
+        ("String", valid(std::include_str!("../../stdlib/String.py"))),
         ("null", String::from("null = None")),
         ("none", String::from("none = None")),
         ("true", String::from("true = True")),
         ("false", String::from("false = False")),
         ("output", String::from("output = print")),
         ("Boolean", String::from("Boolean = bool")),
-        ("String", String::from("String = str")),
         ("Integer", String::from("Integer = int")),
         ("Float", String::from("Float = float")),
         ("Double", String::from("Double = float")),

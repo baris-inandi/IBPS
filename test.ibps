@@ -49,4 +49,7 @@ loop until X > 5
     X+=1
 end loop
 
-// input
+// I/O
+input X
+Integer input X
+output X

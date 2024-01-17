@@ -511,13 +511,317 @@ end if
                     </DocsSec>
                 </DocsSec>
                 <DocsSec level={3} text="Data Structures">
-                    <DocsSec level={4} text="String"></DocsSec>
-                    <DocsSec level={4} text="list"></DocsSec>
-                    <DocsSec level={4} text="Array"></DocsSec>
-                    <DocsSec level={4} text="Collection"></DocsSec>
-                    <DocsSec level={4} text="Stack"></DocsSec>
-                    <DocsSec level={4} text="Queue"></DocsSec>
-                    <DocsSec level={4} text="HashMap"></DocsSec>
+                    <DocsSec level={4} text="String">
+                        <DocsSec level={5} text="String Constructor">
+                            IBPS strings are initialized using the{" "}
+                            <DocsCode>String</DocsCode> constructor:
+                            <DocsCode block>
+                                {`
+FOO = String("Hello World!")
+BAR = String(42) // converts 42 to a string, returns "42"
+BAZ = String() // returns an empty string
+                                `}
+                            </DocsCode>
+                            <p>
+                                Even though you will lose access to
+                                IBPS-specific methods, in most cases, using a
+                                literal to initialize a Python{" "}
+                                <DocsCode>str</DocsCode> will work:
+                            </p>
+                            <DocsCode>
+                                {`
+FOO = "Hello World!" // a Python str
+output FOO.length // Won't work because Python does not the "length" property.
+                                `}
+                            </DocsCode>
+                        </DocsSec>
+                        <DocsSec level={5} text="Methods and Properties">
+                            <ul>
+                                <li>
+                                    <DocsCode>.length</DocsCode> returns the
+                                    length of the string.
+                                </li>
+                            </ul>
+                            <p>
+                                All other Python <DocsCode>str</DocsCode>{" "}
+                                methods and properties are inherited. See{" "}
+                                <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">
+                                    Python Docs.
+                                </a>
+                            </p>
+                        </DocsSec>
+                    </DocsSec>
+                    <DocsSec level={4} text="Array">
+                        <p>
+                            In IBPS, there are three ways to initialize an
+                            Array:
+                        </p>
+                        <ul>
+                            <li>
+                                <DocsCode>Array()</DocsCode>
+                            </li>
+                            <li>
+                                <DocsCode>Array.fromValues()</DocsCode>
+                            </li>
+                            <li>
+                                <DocsCode>Array.fromList()</DocsCode>
+                            </li>
+                        </ul>
+                        <DocsSec text="Array Constructor" level={5}>
+                            <p>
+                                The <DocsCode>Array</DocsCode> constructor can
+                                be used to create a null array of specified
+                                dimensions.
+                            </p>
+                            <DocsCode block>
+                                {`
+FOO = Array(4) // [null, null, null, null]
+BAR = Array(3, 3) // A 3x3 null array
+`}
+                            </DocsCode>
+                        </DocsSec>
+                        <DocsSec text="Initialize using 'fromValues'" level={5}>
+                            <p>
+                                Alternatively, the{" "}
+                                <DocsCode>fromValues</DocsCode> method can be
+                                used to initialize an array with specified
+                                values:
+                            </p>
+                            <DocsCode block>
+                                {`
+FOO = Array.fromValues("First", "Second", "Third")
+output FOO // ["First", "Second", "Third"]
+`}
+                            </DocsCode>
+                        </DocsSec>
+                        <DocsSec text="Initialize using 'fromList'" level={5}>
+                            <p>
+                                Note that Python list literals, like{" "}
+                                <DocsCode>[1,2,3]</DocsCode>, are not{" "}
+                                <DocsCode>Array</DocsCode> object. The Python
+                                'square bracket' syntax returns a Python{" "}
+                                <DocsCode>list</DocsCode> object that does not
+                                include IBPS-specific methods.
+                            </p>
+                            <p>
+                                As of compiler version 0.2.7, a Python{" "}
+                                <DocsCode>list</DocsCode> can be converted into
+                                an <DocsCode>Array</DocsCode>, using the
+                                <DocsCode>fromList</DocsCode> method:
+                            </p>
+                            <DocsCode block>
+                                {`
+FOO = [1,2,3] // This is a Python list. Cannot access IBPS methods.
+FOO = Array.fromList(FOO) // Now it is an IBPS Array.
+`}
+                            </DocsCode>
+                        </DocsSec>
+                    </DocsSec>
+                    <DocsSec level={5} text="Accessing Indices">
+                        <p>
+                            Indices can be used to access values in the array:
+                        </p>
+                        <DocsCode block>
+                            {`
+FOO = Array(4)
+FOO[0] = "First"
+FOO[1] = "Second"
+output FOO[0] // prints "First"
+`}
+                        </DocsCode>
+                    </DocsSec>
+                    <DocsSec text="Methods and Properties" level={5}>
+                        <ul>
+                            <li>
+                                <DocsCode>.push()</DocsCode> appends a value at
+                                the end of the array.
+                            </li>
+                            <li>
+                                <DocsCode>.length</DocsCode> returns the length
+                                of the array.
+                            </li>
+                        </ul>
+                        <p>
+                            All other Python <DocsCode>list</DocsCode> methods
+                            and properties are inherited. See{" "}
+                            <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">
+                                Python Docs.
+                            </a>
+                        </p>
+                    </DocsSec>
+                    <DocsSec level={4} text="Collection">
+                        <DocsSec level={5} text="Collection Constructor">
+                            <p>
+                                The <DocsCode>Collection</DocsCode> constructor
+                                can be used to create a new collection.
+                                Optionally, you can pass values to the
+                                constructor to initialize.
+                            </p>
+                            <DocsCode block>
+                                {`
+FOO = Collection() // Collection[]
+BAR = Collection(1,2,3) // Collection[1,2,3]
+                                `}
+                            </DocsCode>
+                        </DocsSec>
+                        <DocsSec level={5} text="Methods and Properties">
+                            <ul>
+                                <li>
+                                    <DocsCode>.addItem(value)</DocsCode> adds a
+                                    value to the collection.
+                                </li>
+                                <li>
+                                    <DocsCode>.isEmpty()</DocsCode> returns
+                                    whether the collection is empty.
+                                </li>
+                                <li>
+                                    <DocsCode>.hasNext()</DocsCode> returns
+                                    whether the collection has a next element.
+                                </li>
+                                <li>
+                                    <DocsCode>.getNext()</DocsCode> returns the
+                                    next element.
+                                </li>
+                                <li>
+                                    <DocsCode>.resetNext()</DocsCode> resets the
+                                    iterator.
+                                </li>
+                                <li>
+                                    <DocsCode>.pop()</DocsCode> removes and
+                                    returns the last element.
+                                </li>
+                                <li>
+                                    <DocsCode>.length</DocsCode> returns the
+                                    length of the collection.
+                                </li>
+                            </ul>
+                        </DocsSec>
+                    </DocsSec>
+                    <DocsSec level={4} text="Stack">
+                        <DocsSec level={5} text="Stack Constructor">
+                            <p>
+                                The <DocsCode>Stack</DocsCode> constructor can
+                                be used to create a new stack. Optionally, you
+                                can pass values to the constructor to
+                                initialize.
+                            </p>
+                            <DocsCode block>
+                                {`
+FOO = Stack() // Stack[]
+BAR = Stack(1,2,3) // Stack[1,2,3]
+                                `}
+                            </DocsCode>
+                        </DocsSec>
+                        <DocsSec level={5} text="Methods and Properties">
+                            <ul>
+                                <li>
+                                    <DocsCode>.addItem(value)</DocsCode> adds a
+                                    value to the collection.
+                                </li>
+                                <li>
+                                    <DocsCode>.isEmpty()</DocsCode> returns
+                                    whether the collection is empty.
+                                </li>
+                                <li>
+                                    <DocsCode>.hasNext()</DocsCode> returns
+                                    whether the collection has a next element.
+                                </li>
+                                <li>
+                                    <DocsCode>.getNext()</DocsCode> returns the
+                                    next element.
+                                </li>
+                                <li>
+                                    <DocsCode>.resetNext()</DocsCode> resets the
+                                    iterator.
+                                </li>
+                                <li>
+                                    <DocsCode>.pop()</DocsCode> removes and
+                                    returns the last element.
+                                </li>
+                                <li>
+                                    <DocsCode>.length</DocsCode> returns the
+                                    length of the collection.
+                                </li>
+                            </ul>
+                        </DocsSec>
+                    </DocsSec>
+                    <DocsSec level={4} text="Queue">
+                        <DocsSec level={5} text="Queue Constructor">
+                            <p>
+                                The <DocsCode>Queue</DocsCode> constructor can
+                                be used to create a new queue. Optionally, you
+                                can pass values to the constructor to
+                                initialize.
+                            </p>
+                            <DocsCode block>
+                                {`
+FOO = Queue() // Queue[]
+BAR = Queue(1,2,3) // Queue[1,2,3]
+                                `}
+                            </DocsCode>
+                        </DocsSec>
+                        <DocsSec level={5} text="Methods and Properties">
+                            <ul>
+                                <li>
+                                    <DocsCode>.enqueue(value)</DocsCode> adds a
+                                    value to the queue.
+                                </li>
+                                <li>
+                                    <DocsCode>.dequeue()</DocsCode> removes and
+                                    returns the last element of the queue.
+                                </li>
+                                <li>
+                                    <DocsCode>.isEmpty()</DocsCode> returns
+                                    whether the queue is empty.
+                                </li>
+                                <li>
+                                    <DocsCode>.length</DocsCode> returns the
+                                    length of the queue.
+                                </li>
+                            </ul>
+                        </DocsSec>
+                    </DocsSec>
+                    <DocsSec level={4} text="HashMap">
+                        <q>
+                            Dictionaries are sometimes found in other languages
+                            as “associative memories” or “associative arrays”.
+                            Unlike sequences, which are indexed by a range of
+                            numbers, dictionaries are indexed by keys, which can
+                            be any immutable type; strings and numbers can
+                            always be keys.
+                        </q>
+                        <p>
+                            <DocsCode>HashMap</DocsCode> is an alias for
+                            Python's <DocsCode>dict</DocsCode>.
+                        </p>
+                        <p>
+                            All methods and properties are inherited from{" "}
+                            <DocsCode>dict</DocsCode>. See{" "}
+                            <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">
+                                Python Docs.
+                            </a>
+                        </p>
+                    </DocsSec>
+                    <DocsSec level={4} text="Set">
+                        <q>
+                            A set is an unordered collection with no duplicate
+                            elements. Basic uses include membership testing and
+                            eliminating duplicate entries. Set objects also
+                            support mathematical operations like union,
+                            intersection, difference, and symmetric difference.
+                        </q>
+                        <p>
+                            <DocsCode>Set</DocsCode> is an alias for Python's{" "}
+                            <DocsCode>set</DocsCode>.
+                        </p>
+                        <p>
+                            All methods and properties are inherited from{" "}
+                            <DocsCode>set</DocsCode>. See{" "}
+                            <a href="https://docs.python.org/3/tutorial/datastructures.html#sets">
+                                Python Docs.
+                            </a>
+                        </p>
+                    </DocsSec>
                 </DocsSec>
             </DocsSec>
             <DocsSec level={2} text="Best Practices">
@@ -538,6 +842,22 @@ end if
                         </li>
                     </ul>
                 </DocsSec>
+                <DocsSec level={3} text="IBPS Standard Library Classes">
+                    <p>
+                        Always prefer using IBPS classes instead of Python
+                        classes. For example:
+                    </p>
+                    <DocsCode>
+                        {`
+DONT = [1,2,3] // Creates a Python list, not preferred.
+DO = Array.fromValues(1,2,3) // Preferred way. Has access to IBPS methods.
+
+FOO = 42
+DONT = str(42) // Creates a Python string, not preferred.
+DO = String(42) // Preferred way. Has access to IBPS methods.
+                        `}
+                    </DocsCode>
+                </DocsSec>
             </DocsSec>
             <DocsSec level={2} text="Further Help">
                 <p>
@@ -551,3 +871,4 @@ end if
 };
 
 export default Docs;
+
