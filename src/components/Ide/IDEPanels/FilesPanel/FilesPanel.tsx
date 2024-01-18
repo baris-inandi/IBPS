@@ -6,7 +6,7 @@ import {
     AiOutlineFileZip,
     AiOutlineUpload,
 } from "react-icons/ai";
-import { examplePickerShownAtom, ibpsCodeAtom } from "../../../../atoms/atoms";
+import { ibpsCodeAtom } from "../../../../atoms/atoms";
 import useFiles from "../../../../hooks/useFiles";
 import { fileExtension } from "../../../../lib/fileExtension";
 import FilesPanelFileButton from "./FilesPanelFileButton";
@@ -15,9 +15,9 @@ const FilesPanel = () => {
     const { allFilenames, newFile, activeFile, filesRaw, importIBPSorIBWS } =
         useFiles();
     const [ibpsCode] = useAtom(ibpsCodeAtom);
-    const [examplePickerShown, setExamplePickerShown] = useAtom(
+    /* const [examplePickerShown, setExamplePickerShown] = useAtom(
         examplePickerShownAtom,
-    );
+    ); */
 
     const onImport = () => {
         let input = document.createElement("input");
