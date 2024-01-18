@@ -112,11 +112,13 @@ const FilesPanel = () => {
             </div>
             <FilesPanelFileButton file="Welcome" />
             <FilesPanelFileButton file="Documentation" />
-            <FilesPanelFileButton
-                file="Examples"
-                onClick={() => setExamplePickerShown(true)}
-            />
-            {examplePickerShown && <ExamplePicker />}
+            <div className="hidden">
+                <FilesPanelFileButton
+                    file="Examples"
+                    onClick={() => setExamplePickerShown(true)}
+                />
+                {examplePickerShown && <ExamplePicker />}
+            </div>
             <span className="pl-2 font-medium pb-1 pt-4">Your Workspace</span>
             <div className="h-full overflow-y-scroll flex flex-col gap-1">
                 <div className="h-full flex-grow">

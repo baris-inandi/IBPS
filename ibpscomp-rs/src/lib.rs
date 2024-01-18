@@ -3,11 +3,9 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 pub fn ibps_to_py(code: &str) -> String {
-    format!(
-        "{}{}",
-        compiler::stdlib::generate_stdlib(code),
-        compiler::ibps_to_py(code)
-    )
+    let compiled = compiler::ibps_to_py(code);
+    let stdlib = compiler::stdlib::generate_stdlib(&compiled);
+    return format!("{}\n{}", stdlib, compiled);
 }
 
 #[wasm_bindgen]

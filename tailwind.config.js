@@ -5,9 +5,9 @@ module.exports = {
     theme: {
         fontFamily: {
             sans: [
+                "Arimo",
                 "-apple-system",
                 "BlinkMacSystemFont",
-                "Arimo",
                 "Inter",
                 "Roboto",
                 "Arial",
@@ -61,3 +61,4 @@ module.exports = {
     },
     plugins: [],
 };
+
