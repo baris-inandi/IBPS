@@ -1,0 +1,14 @@
+{
+  "name": "ibpscomp-rs",
+  "version": "0.2.15",
+  "files": [
+    "ibps_bg.wasm",
+    "ibps.js",
+    "ibps.d.ts"
+  ],
+  "module": "ibps.js",
+  "types": "ibps.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
