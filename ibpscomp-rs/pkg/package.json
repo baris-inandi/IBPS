@@ -1,6 +1,6 @@
 {
   "name": "ibpscomp-rs",
-  "version": "0.2.10",
+  "version": "0.2.12",
   "files": [
     "ibps_bg.wasm",
     "ibps.js",

@@ -30,4 +30,6 @@ class Collection:
         return len(self.inner)
 
     def __repr__(self):
-        return "Collection" + str(self.inner)
+        from pprint import pformat
+
+        return "Collection" + pformat(self.inner)

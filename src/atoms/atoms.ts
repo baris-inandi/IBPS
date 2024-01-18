@@ -61,3 +61,6 @@ export const filePanelVisibleAtom = atomWithStorage<boolean>(
     "jotai__filePanelVisibleAtom",
     true,
 );
+
+export const examplePickerShownAtom = atom(false);
+

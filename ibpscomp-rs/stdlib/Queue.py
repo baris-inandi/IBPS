@@ -22,4 +22,6 @@ class Queue:
         return len(self.inner)
 
     def __repr__(self):
-        return "Queue" + str(self.inner)
+        from pprint import pformat
+
+        return "Queue" + pformat(self.inner)

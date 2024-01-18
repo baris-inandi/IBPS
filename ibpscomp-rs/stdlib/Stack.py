@@ -50,4 +50,6 @@ class Stack:
         return len(self.list())
 
     def __repr__(self):
-        return "Stack" + str(self.list())
+        from pprint import pformat
+
+        return "Stack" + pformat(self.list())

@@ -552,54 +552,102 @@ output FOO.length // Won't work because Python does not implement the "length" p
                         </DocsSec>
                     </DocsSec>
                     <DocsSec level={4} text="Array">
-                        <DocsSec level={5} text="Array Constructor">
+                        <p>
+                            In IBPS, there are three ways to initialize an
+                            Array:
+                        </p>
+                        <ul>
+                            <li>
+                                <DocsCode>Array()</DocsCode>
+                            </li>
+                            <li>
+                                <DocsCode>Array.fromValues()</DocsCode>
+                            </li>
+                            <li>
+                                <DocsCode>Array.fromList()</DocsCode>
+                            </li>
+                        </ul>
+                        <DocsSec text="Array Constructor" level={5}>
                             <p>
                                 The <DocsCode>Array</DocsCode> constructor can
-                                be used to create a new collection. Optionally,
-                                you can pass values to the constructor to
-                                initialize.
+                                be used to create a null array of specified
+                                dimensions.
                             </p>
                             <DocsCode block>
                                 {`
-FOO = Array() // Array[]
-BAR = Array(1,2,3) // Array[1,2,3]
-                                `}
+FOO = Array(4) // [null, null, null, null]
+BAR = Array(3, 3) // A 3x3 null array
+`}
                             </DocsCode>
                         </DocsSec>
-                        <DocsSec level={5} text="Accessing Indices">
+                        <DocsSec text="Initialize using 'fromValues'" level={5}>
                             <p>
-                                Square bracket notation can be used to access
-                                and modify array elements:
+                                Alternatively, the{" "}
+                                <DocsCode>fromValues</DocsCode> method can be
+                                used to initialize an array with specified
+                                values:
                             </p>
                             <DocsCode block>
                                 {`
+FOO = Array.fromValues("First", "Second", "Third")
+output FOO // ["First", "Second", "Third"]
+`}
+                            </DocsCode>
+                        </DocsSec>
+                        <DocsSec text="Initialize using 'fromList'" level={5}>
+                            <p>
+                                Note that Python list literals, like{" "}
+                                <DocsCode>[1,2,3]</DocsCode>, are not{" "}
+                                <DocsCode>Array</DocsCode> object. The Python
+                                'square bracket' syntax returns a Python{" "}
+                                <DocsCode>list</DocsCode> object that does not
+                                include IBPS-specific methods.
+                            </p>
+                            <p>
+                                As of compiler version 0.2.7, a Python{" "}
+                                <DocsCode>list</DocsCode> can be converted into
+                                an <DocsCode>Array</DocsCode>, using the
+                                <DocsCode>fromList</DocsCode> method:
+                            </p>
+                            <DocsCode block>
+                                {`
+FOO = [1,2,3] // This is a Python list. Cannot access IBPS methods.
+FOO = Array.fromList(FOO) // Now it is an IBPS Array.
+`}
+                            </DocsCode>
+                        </DocsSec>
+                    </DocsSec>
+                    <DocsSec level={5} text="Accessing Indices">
+                        <p>
+                            Indices can be used to access values in the array:
+                        </p>
+                        <DocsCode block>
+                            {`
 FOO = Array(4)
 FOO[0] = "First"
 FOO[1] = "Second"
 output FOO[0] // prints "First"
 `}
-                            </DocsCode>
-                        </DocsSec>
-                        <DocsSec text="Methods and Properties" level={5}>
-                            <ul>
-                                <li>
-                                    <DocsCode>.push(values)</DocsCode> appends a
-                                    value at the end of the array. Mulitple
-                                    values are accepted.
-                                </li>
-                                <li>
-                                    <DocsCode>.length</DocsCode> returns the
-                                    length of the array.
-                                </li>
-                            </ul>
-                            <p>
-                                All other Python <DocsCode>list</DocsCode>{" "}
-                                methods and properties are inherited. See{" "}
-                                <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">
-                                    Python Docs.
-                                </a>
-                            </p>
-                        </DocsSec>
+                        </DocsCode>
+                    </DocsSec>
+                    <DocsSec text="Methods and Properties" level={5}>
+                        <ul>
+                            <li>
+                                <DocsCode>.push()</DocsCode> appends a value at
+                                the end of the array.
+                            </li>
+                            <li>
+                                <DocsCode>.length</DocsCode> returns the length
+                                of the array.
+                            </li>
+                        </ul>
+                        <p>
+                            All other Python <DocsCode>list</DocsCode> methods
+                            and properties are inherited. See{" "}
+                            <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">
+                                Python Docs.
+                            </a>
+                        </p>
                     </DocsSec>
                     <DocsSec level={4} text="Collection">
                         <DocsSec level={5} text="Collection Constructor">
@@ -823,3 +871,4 @@ DO = String(42) // Preferred way. Has access to IBPS methods.
 };
 
 export default Docs;
+

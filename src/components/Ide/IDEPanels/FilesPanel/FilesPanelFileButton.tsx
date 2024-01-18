@@ -1,6 +1,7 @@
 import { MouseEventHandler } from "react";
 import {
     AiOutlineBook,
+    AiOutlineCheckCircle,
     AiOutlineCoffee,
     AiOutlineFileText,
 } from "react-icons/ai";
@@ -29,7 +30,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
               ${
                   activeFile === props.file
                       ? "bg-stone-200 dark:bg-idedark-800 border-stone-300"
-                      : "hover:bg-stone-200 dark:hover:dark:bg-idedark-900"
+                      : "hover:bg-stone-300 dark:hover:dark:bg-idedark-900"
               }
               `}
         >
@@ -38,6 +39,8 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                     <AiOutlineCoffee className="inline"></AiOutlineCoffee>
                 ) : props.file === "Documentation" ? (
                     <AiOutlineBook className="inline"></AiOutlineBook>
+                ) : props.file === "Examples" ? (
+                    <AiOutlineCheckCircle className="inline"></AiOutlineCheckCircle>
                 ) : (
                     <AiOutlineFileText className="inline" />
                 )}
@@ -46,7 +49,8 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                 </p>
             </div>
             {props.file === "Welcome" ||
-            props.file === "Documentation" ? null : (
+            props.file === "Documentation" ||
+            props.file === "Examples" ? null : (
                 <div className="items-center gap-2 group-hover:flex hidden">
                     <LiaPencilAltSolid
                         onClick={() => {
@@ -74,3 +78,4 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
 };
 
 export default FilesPanelFileButton;
+

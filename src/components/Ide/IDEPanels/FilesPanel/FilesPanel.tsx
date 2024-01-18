@@ -6,7 +6,7 @@ import {
     AiOutlineFileZip,
     AiOutlineUpload,
 } from "react-icons/ai";
-import { ibpsCodeAtom } from "../../../../atoms/atoms";
+import { examplePickerShownAtom, ibpsCodeAtom } from "../../../../atoms/atoms";
 import useFiles from "../../../../hooks/useFiles";
 import { fileExtension } from "../../../../lib/fileExtension";
 import FilesPanelFileButton from "./FilesPanelFileButton";
@@ -15,6 +15,9 @@ const FilesPanel = () => {
     const { allFilenames, newFile, activeFile, filesRaw, importIBPSorIBWS } =
         useFiles();
     const [ibpsCode] = useAtom(ibpsCodeAtom);
+    const [examplePickerShown, setExamplePickerShown] = useAtom(
+        examplePickerShownAtom,
+    );
 
     const onImport = () => {
         let input = document.createElement("input");
@@ -108,6 +111,11 @@ const FilesPanel = () => {
             </div>
             <FilesPanelFileButton file="Welcome" />
             <FilesPanelFileButton file="Documentation" />
+            {/* <FilesPanelFileButton
+                file="Examples"
+                onClick={() => setExamplePickerShown(true)}
+            />
+            {examplePickerShown && <ExamplePicker />} */}
             <span className="pl-2 font-medium pb-1 pt-4">Your Workspace</span>
             <div className="h-full overflow-y-scroll flex flex-col gap-1">
                 <div className="h-full flex-grow">
@@ -123,3 +131,4 @@ const FilesPanel = () => {
     );
 };
 export default FilesPanel;
+

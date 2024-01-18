@@ -1,0 +1,5 @@
+# First, create an empty Array of length 7.
+# Each item will represent the temperature of
+# each day of the week.
+TEMPS = Array(7)
+
