@@ -20,7 +20,7 @@ pub fn ibps_to_py(code: &str) -> String {
         } else if l.starts_with("input ") {
             let spaces = line.split("input").next().unwrap();
             let args = line.split("input").nth(1).unwrap_or("").trim();
-            out.push_str(&format!("{}{} = input('>>> ')\n", spaces, args));
+            out.push_str(&format!("{}{} = String(input('>>> '))\n", spaces, args));
         } else if Regex::new(r"^(?m)\w+\s+input\s+[a-zA-Z_][a-zA-Z0-9_]*$")
             .unwrap()
             .is_match(l)
