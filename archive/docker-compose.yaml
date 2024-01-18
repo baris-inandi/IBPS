@@ -1,9 +1,0 @@
-version: "3.8"
-
-services:
-    app:
-        container_name: ibps
-        image: ibps
-        build:
-            context: .
-            target: production
