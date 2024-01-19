@@ -1,0 +1,20 @@
+sub matrixTranspose(M)
+    Y = M.length
+    X = M[0].length
+    NEW = Array()
+    loop I from 0 to NEW.length - 1
+        NEW.push(Array())
+        loop J from 0 to NEW[I].length - 1
+            NEW[I][J] = M[J][I]
+        end loop
+    end loop
+    return NEW
+end sub
+
+MATRIX = Array(
+    Array(1,2,3,4),
+    Array(5,6,7,8),
+    Array(1,2,3,4),
+)
+
+output matrixTranspose(MATRIX)

@@ -9,7 +9,7 @@ const BottomBar = () => {
     const { compilerVersion, ideVersion } = useVersion();
 
     return (
-        <div className="border-t dark:border-black px-2 py-[2px] text-sm w-full bg-blue-500 border-stone-300 dark:bg-idedark-1000 text-white dark:text-neutral-400 flex justify-between">
+        <div className="border-t dark:border-black px-2 py-[2px] text-xs md:text-sm w-full bg-blue-500 border-stone-300 dark:bg-idedark-1000 text-white dark:text-neutral-400 flex justify-between">
             <div className="flex items-center gap-1">
                 <p>
                     Created by{" "}
@@ -32,7 +32,7 @@ const BottomBar = () => {
                     {compilerVersion}
                 </div>{" "}
             </div>
-            <div className="flex items-center gap-2 w-96">
+            <div className="flex items-center gap-2">
                 <a
                     className="shrink-0 font-medium underline underline-offset-2"
                     href="https://github.com/baris-inandi/IBPS-IDE/issues/new"
@@ -49,7 +49,7 @@ const BottomBar = () => {
                     </span>
                 </div>
                 <div
-                    className={`border rounded-full w-full bg-black dark:bg-idedark-900 bg-opacity-20 h-[10px] ${
+                    className={`md:w-28 md:block hidden border rounded-full bg-black dark:bg-idedark-900 bg-opacity-20 h-[10px] ${
                         usedBytesPercentage >= 90
                             ? "border-red-300"
                             : "border-transparent dark:border-black"
@@ -64,7 +64,7 @@ const BottomBar = () => {
                                       ? "10px"
                                       : usedBytesPercentage + "%",
                         }}
-                        className="rounded-full h-full bg-white"
+                        className="rounded-full h-full bg-idedark-300"
                     />
                 </div>
             </div>

@@ -1,9 +1,9 @@
 import { MouseEventHandler } from "react";
 import {
     AiOutlineBook,
-    AiOutlineCheckCircle,
     AiOutlineCoffee,
     AiOutlineFileText,
+    AiOutlineStar,
 } from "react-icons/ai";
 import { LiaPencilAltSolid } from "react-icons/lia";
 import { SlTrash } from "react-icons/sl";
@@ -40,7 +40,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                 ) : props.file === "Documentation" ? (
                     <AiOutlineBook className="inline"></AiOutlineBook>
                 ) : props.file === "Examples" ? (
-                    <AiOutlineCheckCircle className="inline"></AiOutlineCheckCircle>
+                    <AiOutlineStar className="inline"></AiOutlineStar>
                 ) : (
                     <AiOutlineFileText className="inline" />
                 )}

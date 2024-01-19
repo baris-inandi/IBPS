@@ -1,8 +1,0 @@
-x = Collection(1,2,3,4)
-x.addItem(5)
-x.addItem(6)
-x.pop()
-
-loop while x.hasNext()
-    output x.getNext()
-end loop

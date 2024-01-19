@@ -2,33 +2,54 @@ import { useAtom } from "jotai";
 import { AiOutlineFileText } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
 import { examplePickerShownAtom } from "../../atoms/atoms";
+import useFiles from "../../hooks/useFiles";
 import exampleFiles from "../../lib/exampleFiles";
 
 interface ExamplePickerProps {}
 
 const ExamplePicker: React.FC<ExamplePickerProps> = () => {
     const [, setExamplePickerShown] = useAtom(examplePickerShownAtom);
+    const { newFile, filesRaw, setFilesRaw } = useFiles();
+
     return (
-        <div className="h-screen w-screen absolute top-0 left-0 z-10 bg-black bg-opacity-70">
-            <div className="bg-white dark:bg-idedark-950 rounded-b-md shadow-md pb-5">
-                <div className="dark:text-white flex justify-between items-center px-6 pt-8 pb-0">
-                    <span className="text-xl font-medium px-4">
-                        Example Scripts
-                    </span>
-                    <div
+        <div className="h-screen w-screen absolute top-0 left-0 z-10 bg-black bg-opacity-60">
+            <div className="flex flex-col bg-white dark:bg-idedark-950 shadow-lg w-5/6 max-w-screen-md h-full">
+                <div className="dark:text-white flex justify-between items-start px-3 pb-4 pt-6 bg-stone-100 border-b border-stone-200 dark:bg-idedark-1000 dark:border-black">
+                    <p className="text-xl px-4">
+                        <span className="text-medium">Example Scripts</span>
+                        <br />
+                        <span className="text-sm text-neutral-500 dark:text-neutral-400 pt-2 pb-5">
+                            Download official examples that demonstrate features
+                            of IBPS.
+                        </span>
+                    </p>
+                    <button
                         className="text-xl font-bold cursor-pointer pr-2"
                         onClick={() => setExamplePickerShown(false)}
                     >
                         <IoClose></IoClose>
-                    </div>
+                    </button>
                 </div>
-                <div className="flex flex-col py-5">
+                <div className="flex flex-col pb-7 overflow-y-scroll h-full">
+                    <div className="h-4 w-full" />
                     {Object.entries(exampleFiles).map(([name, data]) => (
-                        <div
-                            onClick={() => {
+                        <button
+                            key={name}
+                            onClick={async () => {
+                                const res = await fetch(data.url);
+                                const realName =
+                                    newFile("Example: " + name) ?? "";
+                                const content = await res.text();
+                                setFilesRaw({
+                                    allFiles: {
+                                        ...filesRaw.allFiles,
+                                        [realName]: content,
+                                    },
+                                    active: realName,
+                                });
                                 setExamplePickerShown(false);
                             }}
-                            className="flex items-center justify-between cursor-pointer hover:dark:bg-idedark-800 px-10 py-1 text-stone-800 dark:text-idedark-200 hover:bg-stone-200 dark:hover:dark:bg-idedark-900"
+                            className="flex items-center justify-between cursor-pointer hover:dark:bg-idedark-900 px-10 py-1 text-stone-800 dark:text-idedark-200 hover:bg-stone-200 dark:hover:dark:bg-idedark-900"
                         >
                             <div className="text-base flex gap-2 items-center">
                                 <AiOutlineFileText className="inline" />
@@ -37,7 +58,7 @@ const ExamplePicker: React.FC<ExamplePickerProps> = () => {
                             <span className="opacity-60">
                                 {data.description}
                             </span>
-                        </div>
+                        </button>
                     ))}
                 </div>
             </div>

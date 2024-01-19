@@ -1,9 +1,11 @@
 "use client";
 
 import { useAtom } from "jotai";
+import { useState } from "react";
 import { FiSidebar } from "react-icons/fi";
 import { PythonProvider } from "react-py";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+import usePrefersColorScheme from "use-prefers-color-scheme";
 import { filePanelVisibleAtom } from "../../atoms/atoms";
 import { useVersion } from "../../hooks/useVersion";
 import FileName from "../global/FileName";
@@ -20,10 +22,15 @@ const Ide = () => {
     const { compilerVersion, ideVersion } = useVersion();
     const [filePanelVisible, setFilePanelVisible] =
         useAtom(filePanelVisibleAtom);
+    const [forceView, setForceView] = useState(false);
+    const colorScheme = usePrefersColorScheme();
 
     return (
         <PythonProvider>
-            <div className="hidden sm:flex flex-col h-full w-full" id="ibpside">
+            <div
+                className={`${forceView ? "flex" : "hidden sm:flex"} flex-col h-full w-full`}
+                id="ibpside"
+            >
                 <PanelGroup
                     autoSaveId="IBPS_IDE_LAYOUT_SAVE"
                     direction="horizontal"
@@ -78,14 +85,20 @@ const Ide = () => {
                 </PanelGroup>
                 <BottomBar />
             </div>
-            <div className="h-full w-full flex flex-col gap-2 sm:hidden bg-white dark:bg-idedark-950 px-16 items-center justify-center text-center">
-                <p className="font-logo text-sm font-bold">IBPS IDE</p>
+            <div
+                className={`${forceView ? "flex" : "sm:hidden flex"} overflow-y-scroll h-full w-full flex-col gap-2 bg-white dark:bg-idedark-950 p-7 items-center text-center`}
+            >
+                <img
+                    src={`/img/window-${colorScheme === "dark" ? "dark" : "light"}.webp`}
+                    alt="Screenshot of the IBPS IDE"
+                />
+                <p className="pt-5 font-logo text-sm font-bold">IBPS IDE</p>
                 <h1 className="font-medium text-2xl">Window too small</h1>
-                <p className="text-stone-500 dark:text-stone-400 max-w-sm">
+                <p className="text-stone-500 dark:text-neutral-400 max-w-sm">
                     Please resize your window or switch to a desktop device to
                     use the IBPS IDE
                 </p>
-                <p className="text-sm text-stone-500 dark:text-stone-400 pt-3">
+                <p className="text-sm text-stone-500 dark:text-neutral-400 pt-2 pb-5">
                     IBPS IDE{" "}
                     <code className="font-bold pl-[2px]">{ideVersion}</code>
                     {"  •  "}
@@ -102,9 +115,16 @@ const Ide = () => {
                         Baris
                     </a>
                 </p>
+                <button
+                    onClick={() => setForceView(true)}
+                    className="w-full py-2 bg-blue-500 text-white rounded-md"
+                >
+                    Continue Anyway
+                </button>
             </div>
         </PythonProvider>
     );
 };
 
 export default Ide;
+

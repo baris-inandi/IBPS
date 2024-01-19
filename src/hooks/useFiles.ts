@@ -24,6 +24,7 @@ const useFiles = () => {
             active: dontChangeActive ? files.active : n,
             allFiles: { ...files.allFiles, [n]: "" },
         });
+        return n;
     };
 
     const importIBPSorIBWS = (filename: string, content: string) => {
@@ -147,8 +148,10 @@ const useFiles = () => {
         setActiveFile,
         isWelcomePage,
         filesRaw: files,
+        setFilesRaw: setFiles,
         importIBPSorIBWS,
     };
 };
 
 export default useFiles;
+
