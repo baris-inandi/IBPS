@@ -64,7 +64,7 @@ const BottomBar = () => {
                                       ? "10px"
                                       : usedBytesPercentage + "%",
                         }}
-                        className="rounded-full h-full bg-idedark-300"
+                        className="rounded-full h-full bg-white dark:bg-idedark-300"
                     />
                 </div>
             </div>

@@ -25,4 +25,4 @@ class Array(list):
     def __repr__(self):
         from pprint import pformat
 
-        return "Array" + pformat(super().copy())
+        return pformat(super().copy())

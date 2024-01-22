@@ -1,0 +1,23 @@
+from random import random
+
+sub bubbleSort(ARRAY)
+    N = ARRAY.length
+    loop I from 0 to N-2
+        loop J from 0 to N-2-I
+            if ARRAY[J] > ARRAY[J+1] then
+                TEMP = ARRAY[J]
+                ARRAY[J] = ARRAY[J+1]
+                ARRAY[J+1] = TEMP
+            end if
+        end loop
+    end loop
+    return ARRAY
+end sub
+
+# Generate an array of random numbers to sort
+RANDOM_ARRAY = Array(20)
+loop I from 0 to RANDOM_ARRAY.length - 1
+    RANDOM_ARRAY[I] = round(random() * 1000)
+end loop
+
+output bubbleSort(RANDOM_ARRAY)

@@ -1,0 +1,9 @@
+sub fac(N)
+    if N < 2 then
+        return 1
+    end if
+    return N * fac(N-1)
+end sub
+
+# output the factorial of N
+output fac(6)

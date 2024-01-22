@@ -44,9 +44,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                 ) : (
                     <AiOutlineFileText className="inline" />
                 )}
-                <p className="text-left overflow-hidden overflow-ellipsis">
-                    {props.file}
-                </p>
+                <p className="text-left">{props.file}</p>
             </div>
             {props.file === "Welcome" ||
             props.file === "Documentation" ||

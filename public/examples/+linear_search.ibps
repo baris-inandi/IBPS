@@ -1,0 +1,25 @@
+A = Collection(1,2,4,8,2,5,4,9,3,6,7,8)
+
+// returns the index of NUM in a collection, A. If not exists, return -1
+sub findNumInCollection(A, NUM)
+    IDX = 0
+    loop while A.hasNext()
+        if A.getNext() == NUM then
+            return IDX
+        end if
+        IDX += 1
+    end loop
+    return -1
+end sub
+
+// returns if collection A contains ITEM
+sub contains(A, ITEM)
+    loop while A.hasNext()
+        if A.getNext() == ITEM then
+            return true
+        end if
+    end loop
+    return false
+end sub
+
+output findNumInCollection(A, 3)

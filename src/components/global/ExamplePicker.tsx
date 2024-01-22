@@ -3,6 +3,7 @@ import { AiOutlineFileText } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
 import { examplePickerShownAtom } from "../../atoms/atoms";
 import useFiles from "../../hooks/useFiles";
+import { codeCopyrightText } from "../../lib/codeCopyrightText";
 import exampleFiles from "../../lib/exampleFiles";
 
 interface ExamplePickerProps {}
@@ -43,7 +44,10 @@ const ExamplePicker: React.FC<ExamplePickerProps> = () => {
                                 setFilesRaw({
                                     allFiles: {
                                         ...filesRaw.allFiles,
-                                        [realName]: content,
+                                        [realName]:
+                                            codeCopyrightText.trim() +
+                                            "\n\n" +
+                                            content,
                                     },
                                     active: realName,
                                 });

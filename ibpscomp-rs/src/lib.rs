@@ -10,5 +10,9 @@ pub fn ibps_to_py(code: &str) -> String {
 
 #[wasm_bindgen]
 pub fn ibpscomp_rs_version() -> String {
-    String::from(env!("CARGO_PKG_VERSION"))
+    format!(
+        "{}-s{}",
+        env!("CARGO_PKG_VERSION"),
+        include_str!("../stdlib/VERSION")
+    )
 }
