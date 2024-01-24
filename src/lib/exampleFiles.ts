@@ -10,4 +10,3 @@ const exampleFiles = {
 };
 
 export default exampleFiles;
-

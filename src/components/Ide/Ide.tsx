@@ -56,7 +56,7 @@ const Ide = () => {
                                 </h1>
                             </div>
                         </IDEPanelTopbar>
-                        <div className="w-full h-full border-r border-stone-300 dark:border-black">
+                        <div className="w-full h-full border-r border-neutral-300 dark:border-black">
                             <FilesPanel />
                         </div>
                     </div>
@@ -72,9 +72,9 @@ const Ide = () => {
                             <IBPSEditor />
                         </div>
                     </Panel>
-                    <PanelResizeHandle className="w-3 bg-stone-100 dark:bg-idedark-950">
+                    <PanelResizeHandle className="w-3 bg-neutral-100 dark:bg-idedark-950">
                         <IDEPanelTopbar />
-                        <div className="h-full w-full border-l border-stone-300 dark:border-black"></div>
+                        <div className="h-full w-full border-l border-neutral-300 dark:border-black"></div>
                     </PanelResizeHandle>
                     <Panel minSize={30} maxSize={60} defaultSize={40}>
                         <IDEPanelTopbar>
@@ -94,11 +94,11 @@ const Ide = () => {
                 />
                 <p className="pt-5 font-logo text-sm font-bold">IBPS IDE</p>
                 <h1 className="font-medium text-2xl">Window too small</h1>
-                <p className="text-stone-500 dark:text-neutral-400 max-w-sm">
+                <p className="text-neutral-500 dark:text-neutral-400 max-w-sm">
                     Please resize your window or switch to a desktop device to
                     use the IBPS IDE
                 </p>
-                <p className="text-sm text-stone-500 dark:text-neutral-400 pt-2 pb-5">
+                <p className="text-sm text-neutral-500 dark:text-neutral-400 pt-2 pb-5">
                     IBPS IDE{" "}
                     <code className="font-bold pl-[2px]">{ideVersion}</code>
                     {"  •  "}
@@ -127,4 +127,3 @@ const Ide = () => {
 };
 
 export default Ide;
-

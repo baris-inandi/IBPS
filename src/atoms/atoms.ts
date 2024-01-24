@@ -63,4 +63,3 @@ export const filePanelVisibleAtom = atomWithStorage<boolean>(
 );
 
 export const examplePickerShownAtom = atom(false);
-
