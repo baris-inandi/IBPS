@@ -26,19 +26,19 @@ body {
 }
 
 .ace_gutter {
-    @apply bg-stone-50 dark:bg-idedark-1000 !important;
+    @apply bg-white dark:bg-idedark-1000 !important;
 }
 
 .ace_gutter-active-line {
-    @apply bg-stone-200 dark:bg-idedark-900 border-none !important;
+    @apply bg-neutral-100 dark:bg-idedark-900 border-none !important;
 }
 
 .ace_marker-layer .ace_active-line {
-    @apply bg-stone-100 dark:bg-idedark-900 border-none !important;
+    @apply bg-neutral-100 dark:bg-idedark-900 border-none !important;
 }
 
 .ace_marker-layer .ace_selection {
-    @apply bg-stone-300 dark:bg-idedark-600 !important;
+    @apply bg-neutral-300 dark:bg-idedark-600 !important;
 }
 
 .ace_editor {
@@ -54,7 +54,7 @@ body {
 }
 
 body {
-    @apply bg-stone-100 dark:bg-idedark-900 text-black dark:text-white select-none;
+    @apply bg-neutral-100 dark:bg-idedark-900 text-black dark:text-white select-none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -74,3 +74,4 @@ body {
 .docscode {
     @apply font-mono;
 }
+

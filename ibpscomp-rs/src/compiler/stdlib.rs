@@ -1,7 +1,5 @@
 use std::collections::HashMap;
 
-const VERSION: &str = std::include_str!("../../stdlib/VERSION");
-
 pub fn generate_stdlib(code: &str) -> String {
     fn valid(code: &str) -> String {
         return format!(
@@ -34,7 +32,10 @@ pub fn generate_stdlib(code: &str) -> String {
         ("HashMap", String::from("HashMap = dict")),
         ("Set", String::from("Set = set")),
     ]);
-    let mut stdlib_treeshaken = format!("### IBPS stdlib {} implemented in Python ###\n", VERSION);
+    let mut stdlib_treeshaken = format!(
+        "### IBPS stdlib {} implemented in Python ###\n",
+        crate::ibpscomp_rs_version()
+    );
     for (name, source) in stdlib_source.iter() {
         if code.contains(name) {
             stdlib_treeshaken.push_str(source);
