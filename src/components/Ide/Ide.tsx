@@ -43,16 +43,17 @@ const Ide = () => {
                     >
                         <IDEPanelTopbar pl>
                             <div className="flex gap-3 items-center">
-                                <div
+                                <button
                                     className="cursor-pointer pl-1"
                                     onClick={() =>
                                         setFilePanelVisible(!filePanelVisible)
                                     }
                                 >
                                     <FiSidebar />
-                                </div>
+                                </button>
                                 <h1 className="font-bold font-logo pt-[1px]">
-                                    IBPS IDE
+                                    IBPS{" "}
+                                    <span className="font-normal">IDE</span>
                                 </h1>
                             </div>
                         </IDEPanelTopbar>
@@ -65,8 +66,10 @@ const Ide = () => {
                             <IDEPanelTopbar>
                                 <div className="flex justify-between w-full h-full py-1">
                                     <FileName />
-                                    <FontSizeButton />
-                                    <RunButton />
+                                    <div className="flex shrink-0">
+                                        <FontSizeButton />
+                                        <RunButton />
+                                    </div>
                                 </div>
                             </IDEPanelTopbar>
                             <IBPSEditor />
@@ -92,7 +95,9 @@ const Ide = () => {
                     src={`/img/window-${colorScheme === "dark" ? "dark" : "light"}.webp`}
                     alt="Screenshot of the IBPS IDE"
                 />
-                <p className="pt-5 font-logo text-sm font-bold">IBPS IDE</p>
+                <p className="pt-5 font-logo text-sm font-bold">
+                    IBPS <span className="font-normal">IDE</span>
+                </p>
                 <h1 className="font-medium text-2xl">Window too small</h1>
                 <p className="text-neutral-500 dark:text-neutral-400 max-w-sm">
                     Please resize your window or switch to a desktop device to
@@ -127,3 +132,4 @@ const Ide = () => {
 };
 
 export default Ide;
+

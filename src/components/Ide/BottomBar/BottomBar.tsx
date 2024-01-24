@@ -34,7 +34,7 @@ const BottomBar = () => {
             </div>
             <div className="flex items-center gap-2">
                 <a
-                    className="shrink-0 font-medium underline underline-offset-2"
+                    className="shrink-0 font-medium underline underline-offset-2 pr-3"
                     href="https://github.com/baris-inandi/IBPS-IDE/issues/new"
                     target="blank"
                 >

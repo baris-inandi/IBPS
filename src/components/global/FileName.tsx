@@ -10,23 +10,24 @@ const FileName = () => {
         useAtom(filePanelVisibleAtom);
 
     return (
-        <div className="pr-5 h-full flex gap-2 items-center text-sm">
+        <div className="pr-5 h-full max-w-[50%] flex gap-2 items-center text-sm">
             {!filePanelVisible && (
-                <div
+                <button
                     className="pl-4 pr-3 cursor-pointer"
                     onClick={() => setFilePanelVisible(!filePanelVisible)}
                 >
                     <FiSidebar />
-                </div>
+                </button>
             )}
             <div className="flex items-center gap-2">
                 <div className="shrink-0">
                     <AiOutlineFileText />
                 </div>
-                <span className="overflow-hidden">{activeFile}</span>
+                <span className="overflow-hidden shrink">{activeFile}</span>
             </div>
         </div>
     );
 };
 
 export default FileName;
+

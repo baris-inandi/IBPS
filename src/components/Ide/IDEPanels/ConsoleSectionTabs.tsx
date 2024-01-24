@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { SlTrash } from "react-icons/sl";
+import { IoTrashBinOutline } from "react-icons/io5";
 import { outputAtom } from "../../../atoms/atoms";
 import useFiles from "../../../hooks/useFiles";
 
@@ -21,10 +21,10 @@ const ConsoleSectionTabs = () => {
             >
                 <button
                     onClick={() => setOutput({ "0": "" })}
-                    className="text-sm flex items-center gap-1 px-3 py-[1px] dark:text-idedark-200 dark:bg-idedark-800 bg-neutral-200 text-black rounded-md"
+                    className="text-sm flex items-center gap-2 px-4 py-[1px] dark:text-idedark-200 dark:bg-idedark-700 bg-neutral-200 text-black rounded-md"
                 >
-                    <SlTrash />
-                    Clear
+                    <IoTrashBinOutline />
+                    <span>Clear</span>
                 </button>
             </div>
         </div>
@@ -32,3 +32,4 @@ const ConsoleSectionTabs = () => {
 };
 
 export default ConsoleSectionTabs;
+

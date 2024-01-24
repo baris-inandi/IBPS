@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { BiSolidDownload } from "react-icons/bi";
-import { IoPlaySharp, IoSquareSharp } from "react-icons/io5";
+import { IoPlay, IoSquare } from "react-icons/io5";
 import useFiles from "../../hooks/useFiles";
 import { useIbpscomp } from "../../hooks/useIbpscomp";
 import { printExternal } from "../../lib/printExternal";
@@ -43,7 +43,7 @@ const RunButton = () => {
                 onClick={() => {
                     printExternal("/docs");
                 }}
-                className="flex-shrink-0 text-sm flex items-center gap-1 px-3 py-[3px] rounded-md mr-2 dark:text-idedark-200 dark:bg-idedark-800 bg-blue-500 text-white"
+                className="flex-shrink-0 text-sm flex items-center gap-2 px-4 py-[3px] rounded-md mr-2 dark:text-idedark-200 dark:bg-idedark-700 bg-blue-500 text-white"
             >
                 <BiSolidDownload className="inline" />
                 Download as PDF
@@ -57,13 +57,13 @@ const RunButton = () => {
             className={`flex-shrink-0 text-sm flex items-center gap-1 px-3 py-[3px] rounded-md mr-2
             ${
                 isLoading || isCompiling
-                    ? "opacity-50 cursor-default"
+                    ? "opacity-60 cursor-default"
                     : "cursor-pointer"
             }
             ${
                 isRunning
-                    ? "dark:bg-orange-400 dark:bg-opacity-50 bg-orange-600 text-white"
-                    : "dark:text-idedark-200 dark:bg-idedark-800 bg-blue-500 text-white"
+                    ? "dark:bg-orange-400 dark:bg-opacity-60 bg-orange-600 text-white"
+                    : "dark:text-idedark-200 dark:bg-idedark-700 bg-blue-500 text-white"
             }
             `}
             onClick={
@@ -76,12 +76,12 @@ const RunButton = () => {
                 <span>Compiling...</span>
             ) : isRunning ? (
                 <>
-                    <IoSquareSharp className="inline" />
+                    <IoSquare className="inline" />
                     <span>Stop</span>
                 </>
             ) : (
                 <>
-                    <IoPlaySharp className="inline" />
+                    <IoPlay className="inline" />
                     <span>Run</span>
                 </>
             )}
@@ -90,3 +90,4 @@ const RunButton = () => {
 };
 
 export default RunButton;
+

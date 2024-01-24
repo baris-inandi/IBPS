@@ -46,7 +46,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                         <AiOutlineFileText className="inline" />
                     )}
                 </div>
-                <p className="text-left shrink overflow-hidden">{props.file}</p>
+                <p className="text-left grow overflow-hidden">{props.file}</p>
                 <div className="shrink-0">
                     {props.file === "Welcome" ||
                     props.file === "Documentation" ||
@@ -82,3 +82,4 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
 };
 
 export default FilesPanelFileButton;
+
