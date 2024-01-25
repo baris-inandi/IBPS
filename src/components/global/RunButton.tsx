@@ -1,6 +1,5 @@
 import { useCallback, useEffect } from "react";
-import { BiSolidDownload } from "react-icons/bi";
-import { IoPlay, IoSquare } from "react-icons/io5";
+import { IoDownloadOutline, IoPlay, IoSquare } from "react-icons/io5";
 import useFiles from "../../hooks/useFiles";
 import { useIbpscomp } from "../../hooks/useIbpscomp";
 import { printExternal } from "../../lib/printExternal";
@@ -45,7 +44,7 @@ const RunButton = () => {
                 }}
                 className="flex-shrink-0 text-sm flex items-center gap-2 px-4 py-[3px] rounded-md mr-2 dark:text-idedark-200 dark:bg-idedark-700 bg-blue-500 text-white"
             >
-                <BiSolidDownload className="inline" />
+                <IoDownloadOutline className="inline" />
                 Download as PDF
             </button>
         );
@@ -90,3 +89,4 @@ const RunButton = () => {
 };
 
 export default RunButton;
+

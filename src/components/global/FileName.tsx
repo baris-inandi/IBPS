@@ -1,8 +1,8 @@
 import { useAtom } from "jotai";
-import { AiOutlineFileText } from "react-icons/ai";
 import { FiSidebar } from "react-icons/fi";
 import { filePanelVisibleAtom } from "../../atoms/atoms";
 import useFiles from "../../hooks/useFiles";
+import FileIcon from "./FileIcon";
 
 const FileName = () => {
     const { activeFile } = useFiles();
@@ -20,8 +20,8 @@ const FileName = () => {
                 </button>
             )}
             <div className="flex items-center gap-2">
-                <div className="shrink-0">
-                    <AiOutlineFileText />
+                <div className="shrink-0 flex items-center">
+                    <FileIcon fileName={activeFile} />
                 </div>
                 <span className="overflow-hidden shrink">{activeFile}</span>
             </div>
@@ -30,3 +30,4 @@ const FileName = () => {
 };
 
 export default FileName;
+

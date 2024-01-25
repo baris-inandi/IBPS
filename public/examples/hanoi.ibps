@@ -1,0 +1,11 @@
+sub hanoi(N , SRC, DEST, AUX)
+    if N == 1 then
+        output "Move 1 from", SRC, "to", DEST
+        return
+    end if
+    hanoi(N-1, SRC, AUX, DEST)
+    output "Move", N, "from", SRC, "to", DEST
+    hanoi(N-1, AUX, DEST, SRC)
+end sub
+
+hanoi(4, "A", "B", "C")

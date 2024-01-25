@@ -1,13 +1,8 @@
 import { MouseEventHandler } from "react";
-import {
-    AiOutlineBook,
-    AiOutlineCoffee,
-    AiOutlineFileText,
-    AiOutlineStar,
-} from "react-icons/ai";
+import { IoTrashOutline } from "react-icons/io5";
 import { LiaPencilAltSolid } from "react-icons/lia";
-import { SlTrash } from "react-icons/sl";
 import useFiles from "../../../../hooks/useFiles";
+import FileIcon from "../../../global/FileIcon";
 
 interface FilesPanelFileButtonProps {
     file: string;
@@ -36,15 +31,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
         >
             <div className="flex w-full items-center gap-2 pl-2">
                 <div className="shrink-0 self-start">
-                    {props.file === "Welcome" ? (
-                        <AiOutlineCoffee className="inline"></AiOutlineCoffee>
-                    ) : props.file === "Documentation" ? (
-                        <AiOutlineBook className="inline"></AiOutlineBook>
-                    ) : props.file === "Examples" ? (
-                        <AiOutlineStar className="inline"></AiOutlineStar>
-                    ) : (
-                        <AiOutlineFileText className="inline" />
-                    )}
+                    <FileIcon fileName={props.file} />
                 </div>
                 <p className="text-left grow overflow-hidden">{props.file}</p>
                 <div className="shrink-0">
@@ -62,7 +49,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                                     renameFile(props.file, n);
                                 }}
                             ></LiaPencilAltSolid>
-                            <SlTrash
+                            <IoTrashOutline
                                 onClick={() => {
                                     if (
                                         window.confirm(
@@ -72,7 +59,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                                         deleteFile(props.file);
                                     }
                                 }}
-                            ></SlTrash>
+                            ></IoTrashOutline>
                         </div>
                     )}
                 </div>
@@ -82,3 +69,4 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
 };
 
 export default FilesPanelFileButton;
+

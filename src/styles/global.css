@@ -30,15 +30,15 @@ body {
 }
 
 .ace_gutter-active-line {
-    @apply bg-neutral-100 dark:bg-idedark-900 border-none !important;
+    @apply bg-neutral-100 dark:bg-idedark-950 border-none !important;
 }
 
 .ace_marker-layer .ace_active-line {
-    @apply bg-neutral-100 dark:bg-idedark-900 border-none !important;
+    @apply bg-neutral-100 dark:bg-idedark-950 border-none !important;
 }
 
 .ace_marker-layer .ace_selection {
-    @apply bg-neutral-300 dark:bg-idedark-600 !important;
+    @apply bg-blue-500 bg-opacity-30 !important;
 }
 
 .ace_editor {
@@ -74,3 +74,4 @@ body {
 .docscode {
     @apply font-mono;
 }
+

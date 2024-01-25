@@ -1,4 +1,6 @@
 sub biggestRow(MATRIX)
+    # returns the index at which
+    # the row has the highest sum
     MAX = 0
     MAX_IDX = -1
     loop I from 0 to MATRIX.length - 1
@@ -15,13 +17,11 @@ sub biggestRow(MATRIX)
     return MAX_IDX
 end sub
 
-TEST = [
-    [1,2,5,6],
-    [8,9,4,10,11],
-    [1,2],
-    [5,6,3],
-    [6,5,3,6,8,2],
-    [1,8,91,2,2]
-]
+TEST = Array.fromValues(
+    Array.fromValues(1,2,4,1,94,2),
+    Array.fromValues(3,4,8),
+    Array.fromValues(29,499,193),
+    Array.fromValues(4,99)
+)
 
 output biggestRow(TEST)

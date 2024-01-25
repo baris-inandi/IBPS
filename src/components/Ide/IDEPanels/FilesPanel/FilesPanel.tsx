@@ -1,11 +1,11 @@
 import { useAtom } from "jotai";
 import { compress } from "lz-string";
 import {
-    AiOutlineDownload,
-    AiOutlineFileAdd,
-    AiOutlineFileZip,
-    AiOutlineUpload,
-} from "react-icons/ai";
+    IoAddCircleOutline,
+    IoArchiveOutline,
+    IoDownloadOutline,
+    IoShareOutline,
+} from "react-icons/io5";
 import { examplePickerShownAtom, ibpsCodeAtom } from "../../../../atoms/atoms";
 import useFiles from "../../../../hooks/useFiles";
 import { fileExtension } from "../../../../lib/fileExtension";
@@ -68,14 +68,14 @@ const FilesPanel = () => {
                         }}
                         className="flex items-center gap-2 w-full hover:dark:bg-idedark-900 pl-4 py-1 text-neutral-800 dark:text-idedark-200 hover:bg-neutral-300 dark:hover:dark:bg-idedark-900"
                     >
-                        <AiOutlineFileAdd className="inline" />
+                        <IoAddCircleOutline className="inline" />
                         <span className="text-left">New File</span>
                     </button>
                     <button
                         className="flex items-center gap-2 w-full hover:dark:bg-idedark-900 pl-4 py-1 text-neutral-800 dark:text-idedark-200 hover:bg-neutral-300 dark:hover:dark:bg-idedark-900"
                         onClick={onImport}
                     >
-                        <AiOutlineDownload className="inline" />
+                        <IoDownloadOutline className="inline" />
                         <span className="text-left">Import</span>
                     </button>
                     <button
@@ -84,7 +84,7 @@ const FilesPanel = () => {
                         }}
                         className="flex items-center gap-2 w-full hover:dark:bg-idedark-900 pl-4 py-1 text-neutral-800 dark:text-idedark-200 hover:bg-neutral-300 dark:hover:dark:bg-idedark-900"
                     >
-                        <AiOutlineUpload className="inline" />
+                        <IoShareOutline className="inline" />
                         <span className="text-left">Export File</span>
                     </button>
                     <button
@@ -105,20 +105,18 @@ const FilesPanel = () => {
                         }}
                         className="flex items-center gap-2 w-full hover:dark:bg-idedark-900 pl-4 py-1 text-neutral-800 dark:text-idedark-200 hover:bg-neutral-300 dark:hover:dark:bg-idedark-900"
                     >
-                        <AiOutlineFileZip className="inline" />
+                        <IoArchiveOutline className="inline" />
                         <span className="text-left">Export Workspace</span>
                     </button>
                 </div>
             </div>
             <FilesPanelFileButton file="Welcome" />
             <FilesPanelFileButton file="Documentation" />
-            <div className="hidden">
-                <FilesPanelFileButton
-                    file="Examples"
-                    onClick={() => setExamplePickerShown(true)}
-                />
-                {examplePickerShown && <ExamplePicker />}
-            </div>
+            <FilesPanelFileButton
+                file="Examples"
+                onClick={() => setExamplePickerShown(true)}
+            />
+            {examplePickerShown && <ExamplePicker />}
             <span className="pl-2 font-medium pb-1 pt-4">Your Workspace</span>
             <div className="h-full overflow-y-scroll flex flex-col gap-1">
                 <div className="h-full flex-grow">
@@ -134,3 +132,4 @@ const FilesPanel = () => {
     );
 };
 export default FilesPanel;
+

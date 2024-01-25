@@ -1,7 +1,8 @@
 import { useAtom } from "jotai";
-import { IoTrashBinOutline } from "react-icons/io5";
+import { IoTrashOutline } from "react-icons/io5";
 import { outputAtom } from "../../../atoms/atoms";
 import useFiles from "../../../hooks/useFiles";
+import { CONSOLE_WELCOME_MSG } from "../../../lib/welcome";
 
 const ConsoleSectionTabs = () => {
     const [, setOutput] = useAtom(outputAtom);
@@ -20,10 +21,10 @@ const ConsoleSectionTabs = () => {
                 }`}
             >
                 <button
-                    onClick={() => setOutput({ "0": "" })}
-                    className="text-sm flex items-center gap-2 px-4 py-[1px] dark:text-idedark-200 dark:bg-idedark-700 bg-neutral-200 text-black rounded-md"
+                    onClick={() => setOutput({ "0": CONSOLE_WELCOME_MSG })}
+                    className="text-sm flex items-center gap-1 px-3 py-[1px] dark:text-idedark-200 dark:bg-idedark-700 bg-neutral-200 text-black rounded-md"
                 >
-                    <IoTrashBinOutline />
+                    <IoTrashOutline />
                     <span>Clear</span>
                 </button>
             </div>
@@ -32,3 +33,4 @@ const ConsoleSectionTabs = () => {
 };
 
 export default ConsoleSectionTabs;
+
