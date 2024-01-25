@@ -29,7 +29,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
             className={`group flex items-center justify-between w-full px-2 py-[2px] border-y border-transparent text-neutral-800 dark:text-idedark-200
               ${
                   activeFile === props.file
-                      ? "bg-neutral-200 dark:bg-idedark-800 border-neutral-300"
+                      ? "bg-neutral-200 dark:bg-idedark-800 border-neutral-300 text-black dark:text-white"
                       : "hover:bg-neutral-300 dark:hover:dark:bg-idedark-900"
               }
               `}
@@ -82,4 +82,3 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
 };
 
 export default FilesPanelFileButton;
-
