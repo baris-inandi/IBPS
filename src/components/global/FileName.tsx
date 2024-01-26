@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { FiSidebar } from "react-icons/fi";
+import { PiSidebar } from "react-icons/pi";
 import { filePanelVisibleAtom } from "../../atoms/atoms";
 import useFiles from "../../hooks/useFiles";
 import FileIcon from "./FileIcon";
@@ -13,10 +13,10 @@ const FileName = () => {
         <div className="pr-5 h-full max-w-[50%] flex gap-2 items-center text-sm">
             {!filePanelVisible && (
                 <button
-                    className="pl-4 pr-3 cursor-pointer"
+                    className="pl-4 pr-3 cursor-pointer text-lg"
                     onClick={() => setFilePanelVisible(!filePanelVisible)}
                 >
-                    <FiSidebar />
+                    <PiSidebar />
                 </button>
             )}
             <div className="flex items-center gap-2">

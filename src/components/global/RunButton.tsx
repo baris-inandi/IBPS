@@ -1,5 +1,7 @@
+import { useAtom } from "jotai";
 import { useCallback, useEffect } from "react";
 import { IoDownloadOutline, IoPlay, IoSquare } from "react-icons/io5";
+import { rightPanelVisibleAtom } from "../../atoms/atoms";
 import useFiles from "../../hooks/useFiles";
 import { useIbpscomp } from "../../hooks/useIbpscomp";
 import { printExternal } from "../../lib/printExternal";
@@ -15,6 +17,7 @@ const RunButton = () => {
         sendInput,
     } = useIbpscomp();
     const { activeFile } = useFiles();
+    const [, setRightPanelVisible] = useAtom(rightPanelVisibleAtom);
 
     const handleKeyPress = useCallback((event: KeyboardEvent) => {
         if (event.altKey && event.key === "Enter") {
@@ -42,7 +45,7 @@ const RunButton = () => {
                 onClick={() => {
                     printExternal("/docs");
                 }}
-                className="flex-shrink-0 text-sm flex items-center gap-2 px-4 py-[3px] rounded-md mr-2 dark:text-idedark-200 dark:bg-idedark-700 bg-blue-500 text-white"
+                className="flex-shrink-0 text-sm flex items-center gap-2 px-4 h-full rounded-md mr-2 dark:text-idedark-200 dark:bg-idedark-700 bg-blue-500 text-white"
             >
                 <IoDownloadOutline className="inline" />
                 Download as PDF
@@ -53,7 +56,7 @@ const RunButton = () => {
     return (
         <button
             id="runbutton"
-            className={`flex-shrink-0 text-sm flex items-center gap-1 px-3 py-[3px] rounded-md mr-2
+            className={`flex-shrink-0 text-sm flex items-center gap-1 px-3 h-full rounded-md mr-2
             ${
                 isLoading || isCompiling
                     ? "opacity-60 cursor-default"
@@ -65,9 +68,18 @@ const RunButton = () => {
                     : "dark:text-idedark-200 dark:bg-idedark-700 bg-blue-500 text-white"
             }
             `}
-            onClick={
-                isLoading || isCompiling ? () => {} : isRunning ? stop : run
-            }
+            onClick={() => {
+                // force the panel visible
+                if (!(isLoading || isCompiling)) {
+                    setRightPanelVisible(true);
+                }
+                // call the required function
+                (isLoading || isCompiling
+                    ? () => {}
+                    : isRunning
+                      ? stop
+                      : run)();
+            }}
         >
             {isLoading ? (
                 <span>Please Wait</span>

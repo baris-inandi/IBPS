@@ -2,11 +2,11 @@
 
 import { useAtom } from "jotai";
 import { useState } from "react";
-import { FiSidebar } from "react-icons/fi";
+import { PiSidebar } from "react-icons/pi";
 import { PythonProvider } from "react-py";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import usePrefersColorScheme from "use-prefers-color-scheme";
-import { filePanelVisibleAtom } from "../../atoms/atoms";
+import { filePanelVisibleAtom, rightPanelVisibleAtom } from "../../atoms/atoms";
 import { useVersion } from "../../hooks/useVersion";
 import FileName from "../global/FileName";
 import FontSizeButton from "../global/FontSizeButton";
@@ -22,6 +22,9 @@ const Ide = () => {
     const { compilerVersion, ideVersion } = useVersion();
     const [filePanelVisible, setFilePanelVisible] =
         useAtom(filePanelVisibleAtom);
+    const [rightPanelVisible, setRightPanelVisible] = useAtom(
+        rightPanelVisibleAtom,
+    );
     const [forceView, setForceView] = useState(false);
     const colorScheme = usePrefersColorScheme();
 
@@ -42,14 +45,14 @@ const Ide = () => {
                         }`}
                     >
                         <IDEPanelTopbar pl>
-                            <div className="flex gap-3 items-center">
+                            <div className="flex gap-4 items-center">
                                 <button
-                                    className="cursor-pointer pl-1"
+                                    className="cursor-pointer pl-1 text-lg"
                                     onClick={() =>
                                         setFilePanelVisible(!filePanelVisible)
                                     }
                                 >
-                                    <FiSidebar />
+                                    <PiSidebar />
                                 </button>
                                 <h1 className="font-bold font-logo pt-[1px]">
                                     IBPS{" "}
@@ -64,27 +67,45 @@ const Ide = () => {
                     <Panel>
                         <div className="flex flex-col w-full h-full">
                             <IDEPanelTopbar>
-                                <div className="flex justify-between w-full h-full py-1">
+                                <div className="flex justify-between w-full h-full">
                                     <FileName />
                                     <div className="flex shrink-0">
                                         <FontSizeButton />
                                         <RunButton />
+                                        {!rightPanelVisible && (
+                                            <button
+                                                className="cursor-pointer pl-1 ml-1 text-lg mr-4"
+                                                onClick={() =>
+                                                    setRightPanelVisible(
+                                                        !rightPanelVisible,
+                                                    )
+                                                }
+                                            >
+                                                <div className="-scale-x-100">
+                                                    <PiSidebar />
+                                                </div>
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             </IDEPanelTopbar>
                             <IBPSEditor />
                         </div>
                     </Panel>
-                    <PanelResizeHandle className="w-3 bg-neutral-100 dark:bg-idedark-950">
-                        <IDEPanelTopbar />
-                        <div className="h-full w-full border-l border-neutral-300 dark:border-black"></div>
-                    </PanelResizeHandle>
-                    <Panel minSize={30} maxSize={60} defaultSize={40}>
-                        <IDEPanelTopbar>
-                            <ConsoleSectionTabs />
-                        </IDEPanelTopbar>
-                        <RightPanel />
-                    </Panel>
+                    {rightPanelVisible && (
+                        <>
+                            <PanelResizeHandle className="w-3 bg-neutral-100 dark:bg-idedark-950">
+                                <IDEPanelTopbar />
+                                <div className="h-full w-full border-l border-neutral-300 dark:border-black"></div>
+                            </PanelResizeHandle>
+                            <Panel minSize={30} maxSize={60} defaultSize={40}>
+                                <IDEPanelTopbar>
+                                    <ConsoleSectionTabs />
+                                </IDEPanelTopbar>
+                                <RightPanel />
+                            </Panel>
+                        </>
+                    )}
                 </PanelGroup>
                 <BottomBar />
             </div>
@@ -132,3 +153,4 @@ const Ide = () => {
 };
 
 export default Ide;
+
