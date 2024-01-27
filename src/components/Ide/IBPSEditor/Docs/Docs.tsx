@@ -723,8 +723,8 @@ BAR = Stack(1,2,3) // Stack[1,2,3]
                                     whether the stack is empty.
                                 </li>
                                 <li>
-                                    <DocsCode>.peek()</DocsCode> returns
-                                    the next element
+                                    <DocsCode>.peek()</DocsCode> returns the
+                                    next element
                                 </li>
                                 <li>
                                     <DocsCode>.pop()</DocsCode> removes and
@@ -863,3 +863,4 @@ DO = String(42) // Preferred way. Has access to IBPS methods.
 };
 
 export default Docs;
+

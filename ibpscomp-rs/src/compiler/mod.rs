@@ -16,7 +16,7 @@ pub fn ibps_to_py(code: &str) -> String {
         if l.starts_with("output ") || l == "output" {
             let spaces = line.split("output").next().unwrap();
             let args = line.split("output").nth(1).unwrap_or("").trim();
-            out.push_str(&format!("{}output({})\n", spaces, args));
+            out.push_str(&format!("{}print({})\n", spaces, args));
         } else if l.starts_with("input ") {
             let spaces = line.split("input").next().unwrap();
             let args = line.split("input").nth(1).unwrap_or("").trim();
@@ -65,7 +65,7 @@ pub fn ibps_to_py(code: &str) -> String {
             ));
         } else if l.starts_with("loop ") {
             let spaces = line.split("loop").next().unwrap();
-            let re = Regex::new(r"loop \w from \s*.*\s* to \s*.*\s*$").unwrap();
+            let re = Regex::new(r"loop \w+ from \s*.*\s* to \s*.*\s*$").unwrap();
             let is_range = re.is_match(l);
             if is_range {
                 // Split the input string into tokens
