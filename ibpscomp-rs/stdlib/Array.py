@@ -1,6 +1,6 @@
 class Array(list):
-    def __init__(self, length=0):
-        super().__init__(None for _ in range(length))
+    def __init__(self, length=0, initial=None):
+        super().__init__(initial for _ in range(length))
 
     @classmethod
     def fromValues(cls, *values):

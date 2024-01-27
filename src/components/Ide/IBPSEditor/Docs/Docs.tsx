@@ -573,10 +573,15 @@ output FOO.length // Won't work because Python does not implement the "length" p
                                 be used to create a null array of specified
                                 dimensions.
                             </p>
+                            <p>
+                                An optional second argument can be passed to set
+                                the initial value of each item of the{" "}
+                                <DocsCode>Array</DocsCode>.
+                            </p>
                             <DocsCode block>
                                 {`
 FOO = Array(4) // [null, null, null, null]
-BAR = Array(3, 3) // A 3x3 null array
+BAR = Array(3, 0) // [0, 0, 0]
 `}
                             </DocsCode>
                         </DocsSec>
