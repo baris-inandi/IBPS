@@ -3,7 +3,7 @@
   "collaborators": [
     "Baris Inandioglu"
   ],
-  "version": "0.2.17",
+  "version": "0.2.18",
   "files": [
     "ibps_bg.wasm",
     "ibps.js",
