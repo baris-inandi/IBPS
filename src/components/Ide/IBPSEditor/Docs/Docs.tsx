@@ -715,24 +715,16 @@ BAR = Stack(1,2,3) // Stack[1,2,3]
                         <DocsSec level={5} text="Methods and Properties">
                             <ul>
                                 <li>
-                                    <DocsCode>.addItem(value)</DocsCode> adds a
-                                    value to the collection.
+                                    <DocsCode>.push(value)</DocsCode> adds a
+                                    value to the stack.
                                 </li>
                                 <li>
                                     <DocsCode>.isEmpty()</DocsCode> returns
-                                    whether the collection is empty.
+                                    whether the stack is empty.
                                 </li>
                                 <li>
-                                    <DocsCode>.hasNext()</DocsCode> returns
-                                    whether the collection has a next element.
-                                </li>
-                                <li>
-                                    <DocsCode>.getNext()</DocsCode> returns the
-                                    next element.
-                                </li>
-                                <li>
-                                    <DocsCode>.resetNext()</DocsCode> resets the
-                                    iterator.
+                                    <DocsCode>.peek()</DocsCode> returns
+                                    the next element
                                 </li>
                                 <li>
                                     <DocsCode>.pop()</DocsCode> removes and
