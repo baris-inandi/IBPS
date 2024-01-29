@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { usePython } from "react-py";
 import { ibpsCodeAtom, outputAtom } from "../atoms/atoms";
 import ibpsToPy from "../lib/ibpscomp-rs/ibpscomp";
+import { resolveIbpsIncludes } from "../lib/resolveIbpsIncludes";
 import { WELCOME_CODE } from "../lib/welcome";
 import useFiles from "./useFiles";
 
@@ -11,7 +12,7 @@ export const useIbpscomp = () => {
     const [output, setOutput] = useAtom(outputAtom);
     const [isCompiling, setIsCompiling] = useState(false);
     const [runId, setRunId] = useState(-1);
-    const { activeFile, isWelcomePage } = useFiles();
+    const { activeFile, isWelcomePage, filesRaw } = useFiles();
 
     const {
         runPython,
@@ -63,7 +64,12 @@ export const useIbpscomp = () => {
         logToConsole(`Compiling '${a}'`);
         setIsCompiling(true);
         const startCompiling = Date.now();
-        const pycode = await ibpsToPy(code);
+        const codewithIncludes = resolveIbpsIncludes(
+            code,
+            [a],
+            filesRaw.allFiles,
+        );
+        const pycode = await ibpsToPy(codewithIncludes);
         const endCompiling = Date.now();
         setIsCompiling(false);
         const elapsedCompiling = endCompiling - startCompiling;
@@ -97,3 +103,4 @@ export const useIbpscomp = () => {
         sendInput,
     };
 };
+

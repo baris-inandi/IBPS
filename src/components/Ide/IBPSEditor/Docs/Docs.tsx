@@ -399,9 +399,32 @@ end class
                     <p>
                         To use object oriented patterns, refer to{" "}
                         <a href="https://docs.python.org/3/tutorial/classes.html">
-                            Python documentation
+                            Python documentation.
                         </a>
-                        .
+                    </p>
+                </DocsSec>
+                <DocsSec level={3} text="Includes">
+                    <p>
+                        Since IDE version <DocsCode>0.6.3</DocsCode>, IBPS
+                        supports importing other IBPS files using the{" "}
+                        <DocsCode>include</DocsCode> keyword:
+                    </p>
+                    <DocsCode block>
+                        {`
+include otherfile
+# Runs all code in IBPS file 'otherfile'.
+# All objects inside 'otherfile' is now available.
+`}
+                    </DocsCode>
+                    <p>
+                        Note that the <DocsCode>import</DocsCode> keyword
+                        imports Python modules, not IBPS files.{" "}
+                        <DocsCode>include</DocsCode> and{" "}
+                        <DocsCode>import</DocsCode> are not interchangeable.
+                    </p>
+                    <p>
+                        When including, IBPS checks for circular dependencies.
+                        Do not let two IBPS files include each other.
                     </p>
                 </DocsSec>
                 <DocsSec level={3} text="The 'end' Keyword">
