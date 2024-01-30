@@ -558,7 +558,7 @@ output FOO.length // Won't work because Python does not implement the "length" p
                                 `}
                             </DocsCode>
                         </DocsSec>
-                        <DocsSec level={5} text="Methods and Properties">
+                        <DocsSec level={5} text="String Methods and Properties">
                             <ul>
                                 <li>
                                     <DocsCode>.length</DocsCode> returns the
@@ -658,7 +658,7 @@ output FOO[0] // prints "First"
 `}
                         </DocsCode>
                     </DocsSec>
-                    <DocsSec text="Methods and Properties" level={5}>
+                    <DocsSec text="Array Methods and Properties" level={5}>
                         <ul>
                             <li>
                                 <DocsCode>.push()</DocsCode> appends a value at
@@ -692,7 +692,10 @@ BAR = Collection(1,2,3) // Collection[1,2,3]
                                 `}
                             </DocsCode>
                         </DocsSec>
-                        <DocsSec level={5} text="Methods and Properties">
+                        <DocsSec
+                            level={5}
+                            text="Collection Methods and Properties"
+                        >
                             <ul>
                                 <li>
                                     <DocsCode>.addItem(value)</DocsCode> adds a
@@ -740,7 +743,7 @@ BAR = Stack(1,2,3) // Stack[1,2,3]
                                 `}
                             </DocsCode>
                         </DocsSec>
-                        <DocsSec level={5} text="Methods and Properties">
+                        <DocsSec level={5} text="Stack Methods and Properties">
                             <ul>
                                 <li>
                                     <DocsCode>.push(value)</DocsCode> adds a
@@ -780,7 +783,7 @@ BAR = Queue(1,2,3) // Queue[1,2,3]
                                 `}
                             </DocsCode>
                         </DocsSec>
-                        <DocsSec level={5} text="Methods and Properties">
+                        <DocsSec level={5} text="Queue Methods and Properties">
                             <ul>
                                 <li>
                                     <DocsCode>.enqueue(value)</DocsCode> adds a
@@ -802,14 +805,14 @@ BAR = Queue(1,2,3) // Queue[1,2,3]
                         </DocsSec>
                     </DocsSec>
                     <DocsSec level={4} text="HashMap">
-                        <q>
+                        <blockquote>
                             Dictionaries are sometimes found in other languages
                             as “associative memories” or “associative arrays”.
                             Unlike sequences, which are indexed by a range of
                             numbers, dictionaries are indexed by keys, which can
                             be any immutable type; strings and numbers can
                             always be keys.
-                        </q>
+                        </blockquote>
                         <p>
                             <DocsCode>HashMap</DocsCode> is an alias for
                             Python's <DocsCode>dict</DocsCode>.
@@ -823,13 +826,13 @@ BAR = Queue(1,2,3) // Queue[1,2,3]
                         </p>
                     </DocsSec>
                     <DocsSec level={4} text="Set">
-                        <q>
+                        <blockquote>
                             A set is an unordered collection with no duplicate
                             elements. Basic uses include membership testing and
                             eliminating duplicate entries. Set objects also
                             support mathematical operations like union,
                             intersection, difference, and symmetric difference.
-                        </q>
+                        </blockquote>
                         <p>
                             <DocsCode>Set</DocsCode> is an alias for Python's{" "}
                             <DocsCode>set</DocsCode>.
