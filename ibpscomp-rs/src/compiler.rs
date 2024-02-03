@@ -2,10 +2,11 @@ use regex::Regex;
 
 use self::preprocess::preprocess_ibps;
 mod preprocess;
+pub mod resolve_include;
 pub mod stdlib;
 
-pub fn ibps_to_py(code: &str) -> String {
-    let preprocessed_code = preprocess_ibps(code);
+pub fn ibps_to_py(code: &str, filename: &str, is_native: bool) -> String {
+    let preprocessed_code: String = preprocess_ibps(code);
     let mut out = String::new();
 
     for line in preprocessed_code.lines() {
@@ -131,6 +132,11 @@ pub fn ibps_to_py(code: &str) -> String {
             let spaces = line.split("sub").next().unwrap();
             let colon = if l.ends_with(":") { "" } else { ":" };
             out.push_str(&format!("{}def {}{}\n", spaces, args, colon));
+        } else if is_native && l.starts_with("include") {
+            out.push_str(&resolve_include::resolve_include(
+                line,
+                &mut vec![String::from(filename)],
+            ))
         } else {
             out.push_str(&format!("{}\n", line));
         }

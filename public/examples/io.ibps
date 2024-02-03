@@ -1,0 +1,11 @@
+# Get user input as an integer
+Integer input AGE
+
+# Check the user's age and output accordingly
+if AGE > 21 then
+    output "You are over 21!"
+else if AGE > 18 then
+    output "You are over 18!"
+else
+    output "You are under 18."
+end if

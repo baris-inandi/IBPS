@@ -3,7 +3,7 @@ use std::fs;
 use std::path::Path;
 use std::process::exit;
 
-use ibps::ibps_to_py;
+use ibps::ibps_to_py_native;
 mod runpy;
 
 fn main() {
@@ -25,7 +25,8 @@ fn main() {
         exit(1)
     });
 
-    let pycode = ibps_to_py(contents);
+    // TODO: make this an absolute path to resolve includes correctly.
+    let pycode = ibps_to_py_native(contents, &filename);
 
     match runpy::runpy(&pycode, &filename) {
         Ok(_) => {}

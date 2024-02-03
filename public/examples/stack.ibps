@@ -1,0 +1,20 @@
+sub reverse(S)
+    # Uses `Stack` to reverse  string `s`
+    # returns the reversed string.
+
+    X = Stack()
+
+    loop I from 0 to S.length - 1
+        X.push(S[I])
+    end loop
+
+    NEW = String()
+    loop while not X.isEmpty()
+        NEW += X.pop()
+    end loop
+
+    return NEW
+end sub
+
+HELLO = String("Hello World!")
+output reverse(HELLO)

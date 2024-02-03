@@ -1,11 +1,11 @@
 # Returns the nth number
 # in the fibonacci sequenece
 
-sub fib(n)
-  if n <= 1 then
-    return n
+sub fib(N)
+  if N <= 1 then
+    return N
   else
-    return fib(n-1) + fib(n-2)
+    return fib(N-1) + fib(N-2)
   end if
 end sub
 

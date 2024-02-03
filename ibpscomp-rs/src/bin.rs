@@ -14,7 +14,7 @@ fn main() {
         exit(1)
     });
 
-    let pycode = ibps::ibps_to_py(contents);
+    let pycode = ibps::ibps_to_py_native(contents, &filepath);
 
     println!("{}", pycode);
     println!("### START OF PYTHON OUTPUT ###");

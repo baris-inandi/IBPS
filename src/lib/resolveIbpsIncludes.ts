@@ -51,4 +51,3 @@ ${includedCode}
     }
     return lines.join("\n");
 };
-
