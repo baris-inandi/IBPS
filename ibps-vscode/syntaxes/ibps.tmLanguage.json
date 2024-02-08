@@ -1,0 +1,196 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "IB Pseudocode",
+    "patterns": [
+        {
+            "include": "#end"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#function"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#comment"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#methods"
+        },
+        {
+            "include": "#numeric-literal"
+        },
+        {
+            "include": "#boolean-literal"
+        }
+    ],
+    "repository": {
+        "function": {
+            "patterns": [
+                {
+                    "name": "keyword.js",
+                    "match": "\\b(function|sub|class)\\b"
+                },
+                {
+                    "name": "support.js",
+                    "match": "=|<|>"
+                }
+            ]
+        },
+        "end": {
+            "patterns": [
+                {
+                    "name": "keyword.other.unit.js",
+                    "match": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))(end)(?![_$[:alnum:]])(?:(?=\\.\\.\\.)|(?!\\.))"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.conditional.js",
+                    "match": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))(else|if|then\\ if)(?![_$[:alnum:]])(?:(?=\\.\\.\\.)|(?!\\.))"
+                },
+                {
+                    "name": "keyword.control.loop.js",
+                    "match": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))(loop|to|break|continue|while|until|from|new)(?![_$[:alnum:]])(?:(?=\\.\\.\\.)|(?!\\.))"
+                },
+                {
+                    "name": "keyword.control.flow.js",
+                    "match": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))(return)(?![_$[:alnum:]])(?:(?=\\.\\.\\.)|(?!\\.))"
+                },
+                {
+                    "name": "entity.name.type.instance.js",
+                    "match": "\\b(output|input|AND|OR|NOT|div|mod)\\b"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.js",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.js",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "comment": {
+            "patterns": [
+                {
+                    "begin": "(^[ \\t]+)?((//)(?:\\s*((@)internal)(?=\\s|$))?)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.whitespace.comment.leading.js"
+                        },
+                        "2": {
+                            "name": "comment.line.double-slash.js"
+                        },
+                        "3": {
+                            "name": "punctuation.definition.comment.js"
+                        },
+                        "4": {
+                            "name": "storage.type.internaldeclaration.js"
+                        },
+                        "5": {
+                            "name": "punctuation.decorator.internaldeclaration.js"
+                        }
+                    },
+                    "end": "(?=$)",
+                    "contentName": "comment.line.double-slash.js"
+                },
+                {
+                    "name": "comment.block.js",
+                    "begin": "(/\\*)(?:\\s*((@)internal)(?=\\s|(\\*/)))?",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.definition.comment.js"
+                        },
+                        "2": {
+                            "name": "storage.type.internaldeclaration.js"
+                        },
+                        "3": {
+                            "name": "punctuation.decorator.internaldeclaration.js"
+                        }
+                    },
+                    "end": "\\*/",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.js"
+                        }
+                    }
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.name.js",
+                    "match": "\\b[A-Z][A-Z0-9_]+\\b|\\b[A-Z]+\\b"
+                }
+            ]
+        },
+        "numeric-literal": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.hex.js",
+                    "match": "\\b(?<!\\$)0(x|X)[0-9a-fA-F][0-9a-fA-F_]*\\b(?!\\$)"
+                },
+                {
+                    "name": "constant.numeric.binary.js",
+                    "match": "\\b(?<!\\$)0(b|B)[01][01_]*\\b(?!\\$)"
+                },
+                {
+                    "name": "constant.numeric.octal.js",
+                    "match": "\\b(?<!\\$)0(o|O)?[0-7][0-7_]*\\b(?!\\$)"
+                },
+                {
+                    "match": "(?x)\n(?<!\\$)(?:\n  (?:\\b[0-9][0-9_]*(\\.)[0-9][0-9_]*[eE][+-]?[0-9][0-9_]*\\b)| # 1.1E+3\n  (?:\\b[0-9][0-9_]*(\\.)[eE][+-]?[0-9][0-9_]*\\b)|             # 1.E+3\n  (?:\\B(\\.)[0-9][0-9_]*[eE][+-]?[0-9][0-9_]*\\b)|             # .1E+3\n  (?:\\b[0-9][0-9_]*[eE][+-]?[0-9][0-9_]*\\b)|                 # 1E+3\n  (?:\\b[0-9][0-9_]*(\\.)[0-9][0-9_]*\\b)|                      # 1.1\n  (?:\\b[0-9][0-9_]*(\\.)\\B)|                                  # 1.\n  (?:\\B(\\.)[0-9][0-9_]*\\b)|                                  # .1\n  (?:\\b[0-9][0-9_]*\\b(?!\\.))                                 # 1\n)(?!\\$)",
+                    "captures": {
+                        "0": {
+                            "name": "constant.numeric.decimal.js"
+                        },
+                        "1": {
+                            "name": "meta.delimiter.decimal.period.js"
+                        },
+                        "2": {
+                            "name": "meta.delimiter.decimal.period.js"
+                        },
+                        "3": {
+                            "name": "meta.delimiter.decimal.period.js"
+                        },
+                        "4": {
+                            "name": "meta.delimiter.decimal.period.js"
+                        },
+                        "5": {
+                            "name": "meta.delimiter.decimal.period.js"
+                        },
+                        "6": {
+                            "name": "meta.delimiter.decimal.period.js"
+                        }
+                    }
+                }
+            ]
+        },
+        "boolean-literal": {
+            "patterns": [
+                {
+                    "name": "constant.language.boolean.true.js",
+                    "match": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))true(?![_$[:alnum:]])(?:(?=\\.\\.\\.)|(?!\\.))"
+                },
+                {
+                    "name": "constant.language.boolean.false.js",
+                    "match": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))false(?![_$[:alnum:]])(?:(?=\\.\\.\\.)|(?!\\.))"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.ibps"
+}

@@ -22,4 +22,3 @@ const FileIcon: React.FC<FileIconProps> = (props) => {
 };
 
 export default FileIcon;
-

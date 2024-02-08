@@ -894,4 +894,3 @@ DO = String(42) // Preferred way. Has access to IBPS methods.
 };
 
 export default Docs;
-

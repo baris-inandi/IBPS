@@ -7,4 +7,3 @@ export const codeCopyrightText = `
 # in this example.
 #######################################
 `;
-

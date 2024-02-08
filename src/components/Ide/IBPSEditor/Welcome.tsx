@@ -50,7 +50,7 @@ const Welcome: React.FC = () => {
                     <a
                         target="blank"
                         className="underline underline-offset-2"
-                        href="https://github.com/baris-inandi/IBPS-IDE"
+                        href="https://github.com/baris-inandi/IBPS"
                     >
                         See GitHub Repo
                     </a>
