@@ -4,14 +4,11 @@ IBPS is a scripting language based on the pseudocode specification of the Intern
 
 ## Building the IBPS IDE
 
-- **yarn**: Download and install yarn from [https://yarnpkg.com/](https://yarnpkg.com/)
-
-Run `yarn install` in the root directory to install all dependencies.
-
-Either:
-
-1. Run `yarn dev` to start a developer server at `localhost:3000`.
-2. Or `yarn build` to create an optimized build for production in the build/ directory. Run any web server on the build/ directory to serve the application.
+1. Download and install yarn from [https://yarnpkg.com/](https://yarnpkg.com/)
+2. Run `yarn install` in the root directory to install all dependencies.
+3. Either:
+    1. Run `yarn dev` to start a developer server at `localhost:3000`.
+    2. or run `yarn build` to create an optimized build for production in the build/ directory. Run any web server on the build/ directory to serve the application.
 
 ## Contents
 
