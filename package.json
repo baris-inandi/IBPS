@@ -1,6 +1,6 @@
 {
     "name": "ibps-ide",
-    "version": "0.6.4",
+    "version": "0.6.5",
     "license": "AGPL-3.0-only",
     "dependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",

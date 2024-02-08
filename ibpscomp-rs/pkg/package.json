@@ -3,7 +3,8 @@
   "collaborators": [
     "Baris Inandioglu"
   ],
-  "version": "0.2.18",
+  "version": "0.2.19",
+  "license": "AGPL-3.0-only",
   "files": [
     "ibps_bg.wasm",
     "ibps.js",
