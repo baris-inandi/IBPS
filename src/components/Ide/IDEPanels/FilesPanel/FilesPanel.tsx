@@ -56,38 +56,42 @@ const FilesPanel = () => {
     };
 
     return (
-        <div className="h-full bg-neutral-100 dark:bg-idedark-950 text-sm flex flex-col dark:text-idedark-200 text-neutral-800">
+        <div
+            className={`h-full bg-neutral-100 dark:bg-idedark-950 text-sm flex flex-col dark:text-idedark-200 text-neutral-800
+                ${window.__TAURI__ ? "bg-opacity-80 dark:bg-opacity-80" : "bg-opacity-100"}
+            `}
+        >
             <div className="pt-2 pb-4 flex flex-col gap-1">
                 <span className="pl-2 font-medium">Files</span>
                 <div className="flex flex-col">
-                    <button
+                    <FilesPanelFileButton
+                        text="New File"
+                        isControlled
+                        forceIcon={IoAddCircleOutline}
                         onClick={() => {
                             const n =
                                 prompt("Enter a name for the new file") ?? "";
                             newFile(n);
                         }}
-                        className="flex items-center gap-2 w-full hover:dark:bg-idedark-900 pl-4 py-1 text-neutral-800 dark:text-idedark-200 hover:bg-neutral-300 dark:hover:dark:bg-idedark-900"
-                    >
-                        <IoAddCircleOutline className="inline" />
-                        <span className="text-left">New File</span>
-                    </button>
-                    <button
-                        className="flex items-center gap-2 w-full hover:dark:bg-idedark-900 pl-4 py-1 text-neutral-800 dark:text-idedark-200 hover:bg-neutral-300 dark:hover:dark:bg-idedark-900"
+                    ></FilesPanelFileButton>
+                    <FilesPanelFileButton
+                        text="Import"
+                        isControlled
+                        forceIcon={IoDownloadOutline}
                         onClick={onImport}
-                    >
-                        <IoDownloadOutline className="inline" />
-                        <span className="text-left">Import</span>
-                    </button>
-                    <button
+                    ></FilesPanelFileButton>
+                    <FilesPanelFileButton
+                        text="Export File"
+                        isControlled
+                        forceIcon={IoShareOutline}
                         onClick={() => {
                             download(fileExtension(activeFile), ibpsCode);
                         }}
-                        className="flex items-center gap-2 w-full hover:dark:bg-idedark-900 pl-4 py-1 text-neutral-800 dark:text-idedark-200 hover:bg-neutral-300 dark:hover:dark:bg-idedark-900"
-                    >
-                        <IoShareOutline className="inline" />
-                        <span className="text-left">Export File</span>
-                    </button>
-                    <button
+                    ></FilesPanelFileButton>
+                    <FilesPanelFileButton
+                        text="Export Workspace"
+                        isControlled
+                        forceIcon={IoArchiveOutline}
                         onClick={() => {
                             let name = prompt("Name your workspace");
                             if (name) {
@@ -103,17 +107,13 @@ const FilesPanel = () => {
                                 );
                             }
                         }}
-                        className="flex items-center gap-2 w-full hover:dark:bg-idedark-900 pl-4 py-1 text-neutral-800 dark:text-idedark-200 hover:bg-neutral-300 dark:hover:dark:bg-idedark-900"
-                    >
-                        <IoArchiveOutline className="inline" />
-                        <span className="text-left">Export Workspace</span>
-                    </button>
+                    ></FilesPanelFileButton>
                 </div>
             </div>
-            <FilesPanelFileButton file="Welcome" />
-            <FilesPanelFileButton file="Documentation" />
+            <FilesPanelFileButton text="Welcome" />
+            <FilesPanelFileButton text="Documentation" />
             <FilesPanelFileButton
-                file="Examples"
+                text="Examples"
                 onClick={() => setExamplePickerShown(true)}
             />
             {examplePickerShown && <ExamplePicker />}
@@ -123,7 +123,7 @@ const FilesPanel = () => {
                     {allFilenames()
                         .reverse()
                         .map((file) => (
-                            <FilesPanelFileButton file={file} key={file} />
+                            <FilesPanelFileButton text={file} key={file} />
                         ))}
                     <div className="w-full h-20"></div>
                 </div>
@@ -132,3 +132,4 @@ const FilesPanel = () => {
     );
 };
 export default FilesPanel;
+

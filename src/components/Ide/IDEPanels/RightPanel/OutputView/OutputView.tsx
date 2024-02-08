@@ -4,7 +4,7 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-searchbox";
 import "ace-builds/src-noconflict/mode-plain_text";
 import "ace-builds/src-noconflict/theme-cloud_editor";
-import "ace-builds/src-noconflict/theme-one_dark";
+import "ace-builds/src-noconflict/theme-tomorrow_night";
 import { useAtom } from "jotai";
 import { useEffect, useRef } from "react";
 import AceEditor from "react-ace";
@@ -44,8 +44,12 @@ const IBPSEditor = () => {
             }
             mode="plain_text"
             showPrintMargin={false}
-            theme={prefersColorScheme === "dark" ? "one_dark" : "cloud_editor"}
-            fontSize={codeFontSize - 2}
+            theme={
+                prefersColorScheme === "dark"
+                    ? "tomorrow_night"
+                    : "cloud_editor"
+            }
+            fontSize={codeFontSize - codeFontSize / 8}
             name="IBPSOutput"
             height="100%"
             width="100%"
@@ -55,3 +59,4 @@ const IBPSEditor = () => {
 };
 
 export default IBPSEditor;
+

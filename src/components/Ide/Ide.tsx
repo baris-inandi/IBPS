@@ -8,6 +8,7 @@ import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import usePrefersColorScheme from "use-prefers-color-scheme";
 import { filePanelVisibleAtom, rightPanelVisibleAtom } from "../../atoms/atoms";
 import { useVersion } from "../../hooks/useVersion";
+import DragRegion from "../global/DragRegion";
 import FileName from "../global/FileName";
 import FontSizeButton from "../global/FontSizeButton";
 import RunButton from "../global/RunButton";
@@ -34,6 +35,7 @@ const Ide = () => {
                 className={`${forceView ? "flex" : "hidden sm:flex"} flex-col h-full w-full`}
                 id="ibpside"
             >
+                {window.__TAURI__ ? <DragRegion /> : null}
                 <PanelGroup
                     autoSaveId="IBPS_IDE_LAYOUT_SAVE"
                     direction="horizontal"
@@ -44,7 +46,10 @@ const Ide = () => {
                             filePanelVisible ? "block" : "hidden"
                         }`}
                     >
-                        <IDEPanelTopbar pl>
+                        <IDEPanelTopbar
+                            pl
+                            desktopUI={window.__TAURI__ ? true : false}
+                        >
                             <div className="flex gap-4 items-center">
                                 <button
                                     className="cursor-pointer pl-1 text-lg"
@@ -55,8 +60,18 @@ const Ide = () => {
                                     <PiSidebar />
                                 </button>
                                 <h1 className="font-bold font-logo pt-[1px]">
-                                    IBPS{" "}
-                                    <span className="font-normal">IDE</span>
+                                    {window.__TAURI__ ? (
+                                        <span className="font-normal">
+                                            Files Pane
+                                        </span>
+                                    ) : (
+                                        <>
+                                            IBPS{" "}
+                                            <span className="font-normal">
+                                                IDE
+                                            </span>
+                                        </>
+                                    )}
                                 </h1>
                             </div>
                         </IDEPanelTopbar>
@@ -64,7 +79,7 @@ const Ide = () => {
                             <FilesPanel />
                         </div>
                     </div>
-                    <Panel>
+                    <Panel className={window.__TAURI__ ? "shadow-md" : ""}>
                         <div className="flex flex-col w-full h-full">
                             <IDEPanelTopbar>
                                 <div className="flex justify-between w-full h-full">
@@ -153,3 +168,4 @@ const Ide = () => {
 };
 
 export default Ide;
+

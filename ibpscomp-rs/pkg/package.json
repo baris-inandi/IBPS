@@ -1,10 +1,14 @@
 {
   "name": "ibpscomp-rs",
   "collaborators": [
-    "Baris Inandioglu"
+    "baris-inandi"
   ],
   "version": "0.2.19",
   "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baris-inandi/ibps"
+  },
   "files": [
     "ibps_bg.wasm",
     "ibps.js",

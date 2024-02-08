@@ -11,33 +11,7 @@ import { CONSOLE_WELCOME_MSG, WELCOME_CODE } from "../lib/welcome";
 
 export const INITIAL_FILES = {
     active: "Welcome",
-    allFiles: {
-        Fibonacci: `
-# Welcome to the IBPS IDE for IB Pseudocode!
-# We created an example file to help you get started.
-
-# Here, you can write code and press the run button
-# above to see the output.
-
-# You can also create your own files by clicking the
-# "New File" button on the left-hand side.
-
-sub fib(N)
-    # This is a function that
-    # returns the nth element
-    # of the fibonacci sequence.
-    if N <= 1 then
-        return N
-    else
-        return fib(N-1) + fib(N-2)
-    end if
-end sub
-
-ANSWER = fib(10)
-output "The tenth element of the Fibonacci sequence is:"
-output ANSWER
-`.trimStart(),
-    },
+    allFiles: {},
 };
 
 export const usedDiskSpaceAtom = atom((get) => {
@@ -94,3 +68,4 @@ export const rightPanelVisibleAtom = atomWithStorage<boolean>(
 );
 
 export const examplePickerShownAtom = atom(false);
+

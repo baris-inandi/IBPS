@@ -11,14 +11,15 @@ interface FileIconProps {
 
 const FileIcon: React.FC<FileIconProps> = (props) => {
     return props.fileName === "Welcome" ? (
-        <IoCafeOutline className="inline"></IoCafeOutline>
+        <IoCafeOutline />
     ) : props.fileName === "Documentation" ? (
-        <IoFileTrayFullOutline className="inline"></IoFileTrayFullOutline>
+        <IoFileTrayFullOutline />
     ) : props.fileName === "Examples" ? (
-        <IoBookOutline className="inline"></IoBookOutline>
+        <IoBookOutline />
     ) : (
-        <IoDocumentOutline className="inline" />
+        <IoDocumentOutline />
     );
 };
 
 export default FileIcon;
+

@@ -43,7 +43,7 @@ const Welcome: React.FC = () => {
                         className="underline underline-offset-2"
                         href="https://inandioglu.com"
                     >
-                        Baris Inandioglu
+                        baris-inandi
                     </a>
                 </p>
                 <p>

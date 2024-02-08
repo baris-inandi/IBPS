@@ -15,7 +15,9 @@ const ExamplePicker: React.FC<ExamplePickerProps> = () => {
         <div className="h-screen w-screen absolute top-0 left-0 z-10 bg-black bg-opacity-60">
             <div className="flex flex-col bg-white dark:bg-idedark-950 shadow-lg w-5/6 max-w-md h-full border-r border-neutral-200 dark:border-black">
                 <div className="dark:text-white flex justify-between items-start px-3 pb-4 pt-6 bg-neutral-100 border-b border-neutral-200 dark:bg-idedark-1000 dark:border-black">
-                    <p className="text-xl px-4">
+                    <p
+                        className={`text-xl px-4 ${window.__TAURI__ ? "pt-5" : ""}`}
+                    >
                         <span className="font-medium">Example Scripts</span>
                         <br />
                         <span className="leading-snug text-sm text-neutral-500 dark:text-neutral-400 pt-2 pb-5">
@@ -69,3 +71,4 @@ const ExamplePicker: React.FC<ExamplePickerProps> = () => {
 };
 
 export default ExamplePicker;
+

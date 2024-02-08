@@ -1,0 +1,38 @@
+[package]
+name = "app"
+version = "0.1.0"
+description = "IBPS IDE. Now on desktop."
+authors = ["baris-inandi"]
+license = "AGPL-3.0-only"
+repository = "https://github.com/baris-inandi/ibps"
+default-run = "app"
+edition = "2021"
+rust-version = "1.60"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.5.1", features = [] }
+
+[dependencies]
+tauri = { version = "1.5.4", features = [ "shell-open",
+    "macos-private-api",
+    "window-maximize",
+    "window-print",
+    "window-minimize",
+    "window-start-dragging",
+    "window-unmaximize",
+    "dialog-all",
+    "window-unminimize",
+] }
+serde_json = "1.0"
+window-vibrancy = "0.4.0"
+serde = { version = "1.0", features = ["derive"] }
+ibpscomp-rs = { path = "../ibpscomp-rs" }
+
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.
+# If you use cargo directly instead of tauri's cli you can use this feature flag to switch between tauri's `dev` and `build` modes.
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]

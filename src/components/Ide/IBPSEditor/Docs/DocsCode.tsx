@@ -1,4 +1,4 @@
-import { Code, CodeBlock, anOldHope, monoBlue } from "react-code-blocks";
+import { Code, CodeBlock, codepen, monoBlue } from "react-code-blocks";
 import usePrefersColorScheme from "use-prefers-color-scheme";
 
 interface DocsCodeProps {
@@ -17,7 +17,7 @@ const DocsCode: React.FC<DocsCodeProps> = (props) => {
                     language="text"
                     text={code}
                     showLineNumbers={true}
-                    theme={colorScheme === "dark" ? anOldHope : monoBlue}
+                    theme={colorScheme === "dark" ? codepen : monoBlue}
                 />
             </div>
         );
@@ -26,7 +26,7 @@ const DocsCode: React.FC<DocsCodeProps> = (props) => {
             <Code
                 language="text"
                 text={code}
-                theme={colorScheme === "dark" ? anOldHope : monoBlue}
+                theme={colorScheme === "dark" ? codepen : monoBlue}
             />
         </div>
     );

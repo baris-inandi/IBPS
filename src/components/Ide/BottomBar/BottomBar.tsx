@@ -9,7 +9,7 @@ const BottomBar = () => {
     const { compilerVersion, ideVersion } = useVersion();
 
     return (
-        <div className="border-t dark:border-black px-2 py-[2px] text-xs md:text-sm w-full bg-blue-500 border-neutral-300 dark:bg-idedark-1000 text-white dark:text-neutral-400 flex justify-between">
+        <div className="border-t dark:border-black px-2 py-[2px] text-xs lg:text-sm w-full bg-blue-500 border-neutral-300 dark:bg-idedark-1100 text-white dark:text-neutral-400 flex justify-between">
             <div className="flex items-center gap-1">
                 <p>
                     Created by{" "}
@@ -73,3 +73,4 @@ const BottomBar = () => {
 };
 
 export default BottomBar;
+

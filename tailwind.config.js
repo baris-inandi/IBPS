@@ -5,16 +5,16 @@ module.exports = {
     theme: {
         fontFamily: {
             sans: [
-                "Arimo",
                 "-apple-system",
                 "BlinkMacSystemFont",
+                "Arimo",
                 "Inter",
                 "Roboto",
                 "Arial",
                 "ui-sans-serif",
                 "system-ui",
             ],
-            mono: ["Fira Mono", "Menlo", "Cascadia Mono", "mono"],
+            mono: ["Fira Mono", "SF Mono", "Menlo", "Cascadia Mono", "mono"],
             logo: [
                 "Arimo",
                 "-apple-system",
@@ -29,6 +29,21 @@ module.exports = {
         extend: {
             colors: {
                 idedark: {
+                    50: "#FBFBFB",
+                    100: "#EBEBEB",
+                    200: "#C9C9C9",
+                    300: "#A8A8A8",
+                    400: "#878787",
+                    500: "#666666",
+                    600: "#575757",
+                    700: "#474747",
+                    800: "#383838",
+                    900: "#292929",
+                    950: "#212121",
+                    1000: "#171717",
+                    1100: "#121212",
+                },
+                sidedark: {
                     50: "#D7DAE0",
                     100: "#CBCFD7",
                     200: "#B4BAC5",
@@ -40,24 +55,11 @@ module.exports = {
                     800: "#3A404B",
                     900: "#282C34",
                     950: "#1C1F24",
-                    975: "#191B1F",
                     1000: "#14171A",
-                },
-                light: {
-                    50: "#FFFFFF",
-                    100: "#FFFFFF",
-                    200: "#F5F2E8",
-                    300: "#E8E3CC",
-                    400: "#D7CEA5",
-                    500: "#C5B97F",
-                    600: "#B4A358",
-                    700: "#928442",
-                    800: "#6B6130",
-                    900: "#453E1F",
-                    950: "#312C16",
                 },
             },
         },
     },
     plugins: [],
 };
+

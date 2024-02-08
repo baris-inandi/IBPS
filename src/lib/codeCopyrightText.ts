@@ -1,6 +1,6 @@
 export const codeCopyrightText = `
 #######################################
-# IBPS Examples by Baris Inandioglu
+# IBPS Examples by baris-inandi
 #######################################
 # Feel free to play around, experiment,
 # and explore the features showcased

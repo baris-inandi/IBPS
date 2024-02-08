@@ -1,6 +1,12 @@
 body {
     height: 100%;
     overflow: hidden;
+    @apply text-black dark:text-white select-none;
+}
+
+html,
+body {
+    background: transparent;
 }
 
 #ibps-ide {
@@ -53,10 +59,6 @@ body {
     @apply bg-transparent !important;
 }
 
-body {
-    @apply bg-neutral-100 dark:bg-idedark-900 text-black dark:text-white select-none;
-}
-
 @media (prefers-color-scheme: dark) {
     body {
         color-scheme: dark;
@@ -74,3 +76,4 @@ body {
 .docscode {
     @apply font-mono;
 }
+

@@ -1,10 +1,9 @@
 import { useAtom } from "jotai";
 import { useCallback, useEffect } from "react";
-import { IoDownloadOutline, IoPlay, IoSquare } from "react-icons/io5";
+import { IoPlay, IoSquare } from "react-icons/io5";
 import { rightPanelVisibleAtom } from "../../atoms/atoms";
 import useFiles from "../../hooks/useFiles";
 import { useIbpscomp } from "../../hooks/useIbpscomp";
-import { printExternal } from "../../lib/printExternal";
 
 const RunButton = () => {
     const {
@@ -16,8 +15,8 @@ const RunButton = () => {
         isAwaitingInput,
         sendInput,
     } = useIbpscomp();
-    const { activeFile } = useFiles();
     const [, setRightPanelVisible] = useAtom(rightPanelVisibleAtom);
+    const { activeFile } = useFiles();
 
     const handleKeyPress = useCallback((event: KeyboardEvent) => {
         if (event.altKey && event.key === "Enter") {
@@ -39,8 +38,11 @@ const RunButton = () => {
         };
     }, [handleKeyPress]);
 
+    // Printing pdf docs is disabled for now
+
     if (activeFile === "Documentation") {
-        return (
+        return null;
+        /* return (
             <button
                 onClick={() => {
                     printExternal("/docs");
@@ -50,7 +52,7 @@ const RunButton = () => {
                 <IoDownloadOutline className="inline" />
                 Download as PDF
             </button>
-        );
+        ); */
     }
 
     return (
@@ -101,3 +103,4 @@ const RunButton = () => {
 };
 
 export default RunButton;
+

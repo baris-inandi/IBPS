@@ -19,14 +19,27 @@ const FileName = () => {
                     <PiSidebar />
                 </button>
             )}
-            <div className="flex items-center gap-2">
-                <div className="shrink-0 flex items-center">
-                    <FileIcon fileName={activeFile} />
-                </div>
-                <span className="overflow-hidden shrink">{activeFile}</span>
+            <div
+                className={`flex items-center w-full gap-2 ${window.__TAURI__ && filePanelVisible ? "pl-3" : ""}`}
+            >
+                {!window.__TAURI__ ? (
+                    <div className="shrink-0 flex items-center">
+                        <FileIcon fileName={activeFile} />
+                    </div>
+                ) : (
+                    ""
+                )}
+                <span className="overflow-hidden truncate shrink">
+                    {window.__TAURI__ &&
+                    activeFile !== "Documentation" &&
+                    activeFile !== "Welcome"
+                        ? "Editor"
+                        : activeFile}
+                </span>
             </div>
         </div>
     );
 };
 
 export default FileName;
+
