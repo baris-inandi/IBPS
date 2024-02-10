@@ -23,4 +23,3 @@ const DragRegion: React.FC = () => {
 };
 
 export default DragRegion;
-

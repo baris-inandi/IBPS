@@ -29,4 +29,3 @@ export const getCompilerVersion = async () => {
 };
 
 export default ibpsToPy;
-

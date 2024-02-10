@@ -21,4 +21,3 @@ const IDEPanelTopbar: React.FC<IDEPanelTopbarProps> = (props) => {
 };
 
 export default IDEPanelTopbar;
-
