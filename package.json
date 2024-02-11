@@ -2,13 +2,15 @@
     "name": "ibps-ide",
     "version": "0.7.0",
     "license": "AGPL-3.0-only",
+    "author": {
+        "name": "baris-inandi",
+        "url": "https://inandioglu.com"
+    },
     "scripts": {
-        "dev": "BROWSER=none react-scripts start",
-        "start": "craco start",
+        "dev": "BROWSER=None craco start",
         "build": "craco build",
         "test": "craco test",
         "buildall": "yarn wasm-prod && yarn build",
-        "eject": "react-scripts eject",
         "prettier": "prettier --write .",
         "wasm-dev": "cd ibpscomp-rs && wasm-pack build . --target web --dev && cd .. && yarn add file:./ibpscomp-rs/pkg",
         "wasm-prod": "cd ibpscomp-rs && wasm-pack build . --target web --release && cd .. && yarn add file:./ibpscomp-rs/pkg",
@@ -39,6 +41,7 @@
         "react-py": "^1.10.6",
         "react-resizable-panels": "^0.0.55",
         "react-router-dom": "^6.21.1",
+        "react-scripts": "^5.0.1",
         "typescript": "5.1.6",
         "use-prefers-color-scheme": "^1.1.3",
         "web-vitals": "^2.1.4",
@@ -55,6 +58,13 @@
         "workbox-strategies": "^6.6.0",
         "workbox-streams": "^6.6.0"
     },
+    "devDependencies": {
+        "@tauri-apps/cli": "^1.5.9",
+        "@tsconfig/strictest": "^2.0.2",
+        "prettier": "^3.0.3",
+        "tailwindcss": "^3.3.3",
+        "wasm-pack": "^0.12.1"
+    },
     "browserslist": {
         "production": [
             ">0.2%",
@@ -66,12 +76,5 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    },
-    "devDependencies": {
-        "@tauri-apps/cli": "^1.5.9",
-        "@tsconfig/strictest": "^2.0.2",
-        "prettier": "^3.0.3",
-        "tailwindcss": "^3.3.3",
-        "wasm-pack": "^0.12.1"
     }
 }
