@@ -1,5 +1,3 @@
-"use client";
-
 import { useAtom } from "jotai";
 import { useState } from "react";
 import { PiSidebar } from "react-icons/pi";
