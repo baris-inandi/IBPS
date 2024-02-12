@@ -11,9 +11,9 @@ const IDEPanelTopbar: React.FC<IDEPanelTopbarProps> = (props) => {
             className={`
         ${props.pl ? "pl-3" : ""}
         ${props.pr ? "pr-3" : ""}
-        ${props.desktopUI ? "border-r mr-[-1px] border-neutral-300 dark:border-black" : ""}
+        ${props.desktopUI ? "mr-[-1px] border-r border-neutral-300 dark:border-black" : ""}
         ${props.desktopUI ? "bg-opacity-80 dark:bg-opacity-80" : ""}
-        flex-shrink-0 border-b border-neutral-300 dark:border-black flex justify-between items-center h-9 py-[5px] text-sm w-full bg-neutral-50 text-black dark:text-white dark:bg-idedark-900`}
+        flex h-9 w-full flex-shrink-0 items-center justify-between border-b border-neutral-300 bg-neutral-50 py-[5px] text-sm text-black dark:border-black dark:bg-idedark-900 dark:text-white`}
         >
             {props.children}
         </div>

@@ -6,13 +6,13 @@ const DragRegion: React.FC = () => {
     return (
         <div
             data-tauri-drag-region
-            className="w-screen h-[28px] bg-white dark:bg-idedark-700 bg-opacity-85 dark:bg-opacity-85 border-b border-neutral-300 dark:border-black"
+            className="h-[28px] w-screen border-b border-neutral-300 bg-white bg-opacity-85 dark:border-black dark:bg-idedark-700 dark:bg-opacity-85"
         >
-            <div className="h-full w-full flex items-center justify-center text-sm font-medium pointer-events-none">
+            <div className="pointer-events-none flex h-full w-full items-center justify-center text-sm font-medium">
                 <div className="font-bold">IBPS IDE</div>
                 <div className="px-1">•</div>
                 <div
-                    className="grow-0 shrink overflow-hidden truncate"
+                    className="shrink grow-0 overflow-hidden truncate"
                     style={{ maxWidth: "50%" }}
                 >
                     {activeFile}

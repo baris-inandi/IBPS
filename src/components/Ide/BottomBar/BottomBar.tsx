@@ -9,12 +9,12 @@ const BottomBar = () => {
     const { compilerVersion, ideVersion } = useVersion();
 
     return (
-        <div className="border-t dark:border-black px-2 py-[2px] text-xs lg:text-sm w-full bg-blue-500 border-neutral-300 dark:bg-idedark-1100 text-white dark:text-neutral-400 flex justify-between">
+        <div className="flex w-full justify-between border-t border-neutral-300 bg-blue-500 px-2 py-[2px] text-xs text-white lg:text-sm dark:border-black dark:bg-idedark-1100 dark:text-neutral-400">
             <div className="flex items-center gap-1">
                 <p>
                     Created by{" "}
                     <a
-                        className="underline underline-offset-2 font-medium"
+                        className="font-medium underline underline-offset-2"
                         target="blank"
                         href="https://inandioglu.com"
                     >
@@ -23,18 +23,18 @@ const BottomBar = () => {
                 </p>
                 <span className="px-1">•</span>
                 <p>IDE</p>
-                <div className="font-mono border border-blue-300 dark:border-neutral-700 rounded-md py-[2px] font-medium text-xs px-1 leading-none h-fit w-fit">
+                <div className="h-fit w-fit rounded-md border border-blue-300 px-1 py-[2px] font-mono text-xs font-medium leading-none dark:border-neutral-700">
                     {ideVersion}
                 </div>{" "}
                 <span className="px-1">•</span>
                 <p>Compiler</p>
-                <div className="font-mono border border-blue-300 dark:border-neutral-700 rounded-md py-[2px] font-medium text-xs px-1 leading-none h-fit w-fit">
+                <div className="h-fit w-fit rounded-md border border-blue-300 px-1 py-[2px] font-mono text-xs font-medium leading-none dark:border-neutral-700">
                     {compilerVersion}
                 </div>{" "}
             </div>
             <div className="flex items-center gap-2">
                 <a
-                    className="shrink-0 font-medium underline underline-offset-2 pr-3"
+                    className="shrink-0 pr-3 font-medium underline underline-offset-2"
                     href="https://github.com/baris-inandi/IBPS/issues/new"
                     target="blank"
                 >
@@ -43,13 +43,13 @@ const BottomBar = () => {
                 <span className="h-fit">
                     <BsDatabaseFill />
                 </span>
-                <div className="flex flex-shrink-0 items-center h-full gap-2">
+                <div className="flex h-full flex-shrink-0 items-center gap-2">
                     <span>
                         {usedBytesRepr} of {availableBytesRepr} used
                     </span>
                 </div>
                 <div
-                    className={`md:w-28 md:block hidden border rounded-full bg-black dark:bg-idedark-900 bg-opacity-20 h-[10px] ${
+                    className={`hidden h-[10px] rounded-full border bg-black bg-opacity-20 md:block md:w-28 dark:bg-idedark-900 ${
                         usedBytesPercentage >= 90
                             ? "border-red-300"
                             : "border-transparent dark:border-black"
@@ -64,7 +64,7 @@ const BottomBar = () => {
                                       ? "10px"
                                       : usedBytesPercentage + "%",
                         }}
-                        className="rounded-full h-full bg-white dark:bg-idedark-300"
+                        className="h-full rounded-full bg-white dark:bg-idedark-300"
                     />
                 </div>
             </div>

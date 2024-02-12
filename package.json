@@ -29,6 +29,7 @@
         "@types/react-dom": "^18.2.11",
         "@vercel/analytics": "^1.1.1",
         "@vercel/speed-insights": "^1.0.1",
+        "craco-swc": "^0.5.1",
         "ibpscomp-rs": "file:./ibpscomp-rs/pkg",
         "jotai": "^2.4.3",
         "lz-string": "^1.5.0",
@@ -61,7 +62,8 @@
     "devDependencies": {
         "@tauri-apps/cli": "^1.5.9",
         "@tsconfig/strictest": "^2.0.2",
-        "prettier": "^3.0.3",
+        "prettier": "^3.2.5",
+        "prettier-plugin-tailwindcss": "^0.5.11",
         "tailwindcss": "^3.3.3",
         "wasm-pack": "^0.12.1"
     },

@@ -13,13 +13,13 @@ const ConsoleSectionTabs = () => {
     );
 
     return (
-        <div className="text-sm flex w-full items-center justify-between h-full">
+        <div className="flex h-full w-full items-center justify-between text-sm">
             <p className="leading-3">
                 {activeFile === "Documentation"
                     ? "Documentation Navigator"
                     : "Code Output"}
             </p>
-            <div className="flex h-full gap-3 px-4 items-center">
+            <div className="flex h-full items-center gap-3 px-4">
                 <div
                     className={
                         activeFile === "Documentation"
@@ -29,7 +29,7 @@ const ConsoleSectionTabs = () => {
                 >
                     <button
                         onClick={() => setOutput({ "0": CONSOLE_WELCOME_MSG })}
-                        className="text-sm flex items-center gap-1 px-3 h-full py-[1px] dark:text-idedark-200 dark:bg-idedark-700 bg-neutral-200 text-black rounded-md"
+                        className="flex h-full items-center gap-1 rounded-md bg-neutral-200 px-3 py-[1px] text-sm text-black dark:bg-idedark-700 dark:text-idedark-200"
                     >
                         <IoTrashOutline />
                         <span>Clear</span>

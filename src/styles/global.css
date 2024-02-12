@@ -1,7 +1,7 @@
 body {
     height: 100%;
     overflow: hidden;
-    @apply text-black dark:text-white select-none;
+    @apply select-none text-black dark:text-white;
 }
 
 html,
@@ -36,11 +36,11 @@ body {
 }
 
 .ace_gutter-active-line {
-    @apply bg-neutral-100 dark:bg-idedark-950 border-none !important;
+    @apply border-none bg-neutral-100 dark:bg-idedark-950 !important;
 }
 
 .ace_marker-layer .ace_active-line {
-    @apply bg-neutral-100 dark:bg-idedark-950 border-none !important;
+    @apply border-none bg-neutral-100 dark:bg-idedark-950 !important;
 }
 
 .ace_marker-layer .ace_selection {

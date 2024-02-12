@@ -46,7 +46,7 @@ const Docs: React.FC<{
             style={{
                 zoom: props.print ? 0.8 : "unset",
             }}
-            className={`scroll-smooth markdown select-text flex gap-5 flex-col px-9 pt-3 bg-white dark:bg-idedark-1000 ${
+            className={`markdown flex select-text flex-col gap-5 scroll-smooth bg-white px-9 pt-3 dark:bg-idedark-1000 ${
                 props.print ? "leading-snug" : "h-full w-full overflow-y-scroll"
             } pb-40 ${props.className}`}
         >

@@ -8,7 +8,7 @@
 
 .markdown h1,
 .markdown .h1 {
-    @apply text-2xl font-bold pt-8;
+    @apply pt-8 text-2xl font-bold;
 }
 
 .markdown h2 {
@@ -40,7 +40,7 @@
 }
 
 .markdown mark {
-    @apply bg-yellow-300 text-yellow-900 px-1 rounded-sm;
+    @apply rounded-sm bg-yellow-300 px-1 text-yellow-900;
 }
 
 .markdown ul {
@@ -71,7 +71,7 @@
 }
 
 .markdown blockquote {
-    @apply border-l-4 border-gray-400 px-4 py-2 my-3 bg-gray-100 rounded-sm text-gray-600 dark:bg-idedark-900 dark:border-idedark-700 dark:text-idedark-200;
+    @apply my-3 rounded-sm border-l-4 border-gray-400 bg-gray-100 px-4 py-2 text-gray-600 dark:border-idedark-700 dark:bg-idedark-900 dark:text-idedark-200;
 }
 
 .markdown blockquote p {
@@ -83,7 +83,7 @@
 }
 
 .markdown a {
-    @apply underline leading-snug pt-1 underline-offset-4;
+    @apply pt-1 leading-snug underline underline-offset-4;
 }
 
 .react-syntax-highlighter-line-number {

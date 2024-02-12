@@ -58,16 +58,16 @@ const RunButton = () => {
     return (
         <button
             id="runbutton"
-            className={`flex-shrink-0 text-sm flex items-center gap-1 px-3 h-full rounded-md mr-2
+            className={`mr-2 flex h-full flex-shrink-0 items-center gap-1 rounded-md px-3 text-sm
             ${
                 isLoading || isCompiling
-                    ? "opacity-60 cursor-default"
+                    ? "cursor-default opacity-60"
                     : "cursor-pointer"
             }
             ${
                 isRunning
-                    ? "dark:bg-orange-400 dark:bg-opacity-60 bg-orange-600 text-white"
-                    : "dark:text-idedark-200 dark:bg-idedark-700 bg-blue-500 text-white"
+                    ? "bg-orange-600 text-white dark:bg-orange-400 dark:bg-opacity-60"
+                    : "bg-blue-500 text-white dark:bg-idedark-700 dark:text-idedark-200"
             }
             `}
             onClick={() => {

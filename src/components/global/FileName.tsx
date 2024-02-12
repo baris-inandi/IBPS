@@ -10,26 +10,26 @@ const FileName = () => {
         useAtom(filePanelVisibleAtom);
 
     return (
-        <div className="pr-5 h-full max-w-[50%] flex gap-2 items-center text-sm">
+        <div className="flex h-full max-w-[50%] items-center gap-2 pr-5 text-sm">
             {!filePanelVisible && (
                 <button
-                    className="pl-4 pr-3 cursor-pointer text-lg"
+                    className="cursor-pointer pl-4 pr-3 text-lg"
                     onClick={() => setFilePanelVisible(!filePanelVisible)}
                 >
                     <PiSidebar />
                 </button>
             )}
             <div
-                className={`flex items-center w-full gap-2 ${window.__TAURI__ && filePanelVisible ? "pl-3" : ""}`}
+                className={`flex w-full items-center gap-2 ${window.__TAURI__ && filePanelVisible ? "pl-3" : ""}`}
             >
                 {!window.__TAURI__ ? (
-                    <div className="shrink-0 flex items-center">
+                    <div className="flex shrink-0 items-center">
                         <FileIcon fileName={activeFile} />
                     </div>
                 ) : (
                     ""
                 )}
-                <span className="overflow-hidden truncate shrink">
+                <span className="shrink overflow-hidden truncate">
                     {window.__TAURI__ &&
                     activeFile !== "Documentation" &&
                     activeFile !== "Welcome"

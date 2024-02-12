@@ -57,11 +57,11 @@ const FilesPanel = () => {
 
     return (
         <div
-            className={`h-full bg-neutral-100 dark:bg-idedark-950 text-sm flex flex-col dark:text-idedark-200 text-neutral-800
+            className={`flex h-full flex-col bg-neutral-100 text-sm text-neutral-800 dark:bg-idedark-950 dark:text-idedark-200
                 ${window.__TAURI__ ? "bg-opacity-80 dark:bg-opacity-80" : "bg-opacity-100"}
             `}
         >
-            <div className="pt-2 pb-4 flex flex-col gap-1">
+            <div className="flex flex-col gap-1 pb-4 pt-2">
                 <span className="pl-2 font-medium">Files</span>
                 <div className="flex flex-col">
                     <FilesPanelFileButton
@@ -117,15 +117,15 @@ const FilesPanel = () => {
                 onClick={() => setExamplePickerShown(true)}
             />
             {examplePickerShown && <ExamplePicker />}
-            <span className="pl-2 font-medium pb-1 pt-4">Your Workspace</span>
-            <div className="h-full overflow-y-scroll flex flex-col gap-1">
+            <span className="pb-1 pl-2 pt-4 font-medium">Your Workspace</span>
+            <div className="flex h-full flex-col gap-1 overflow-y-scroll">
                 <div className="h-full flex-grow">
                     {allFilenames()
                         .reverse()
                         .map((file) => (
                             <FilesPanelFileButton text={file} key={file} />
                         ))}
-                    <div className="w-full h-20"></div>
+                    <div className="h-20 w-full"></div>
                 </div>
             </div>
         </div>

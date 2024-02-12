@@ -24,11 +24,11 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                     setActiveFile(props.text);
                 })
             }
-            className={`group flex items-center justify-between w-full px-2 py-[2px] border-y border-transparent
+            className={`group flex w-full items-center justify-between border-y border-transparent px-2 py-[2px]
               ${
                   activeFile === props.text
-                      ? "bg-black bg-opacity-5 dark:bg-idedark-400 dark:bg-opacity-30 border-neutral-300 text-neutral-800 dark:text-white"
-                      : "hover:bg-black hover:bg-opacity-10  dark:hover:bg-idedark-400 dark:hover:bg-opacity-20 text-neutral-700 dark:text-idedark-200"
+                      ? "border-neutral-300 bg-black bg-opacity-5 text-neutral-800 dark:bg-idedark-400 dark:bg-opacity-30 dark:text-white"
+                      : "text-neutral-700 hover:bg-black  hover:bg-opacity-10 dark:text-idedark-200 dark:hover:bg-idedark-400 dark:hover:bg-opacity-20"
               }
               `}
         >
@@ -40,12 +40,12 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                         <FileIcon fileName={props.text} />
                     )}
                 </div>
-                <p className="text-left grow overflow-hidden truncate">
+                <p className="grow overflow-hidden truncate text-left">
                     {props.text}
                 </p>
                 <div className="shrink-0">
                     {props.isControlled ? null : (
-                        <div className="items-center gap-2 relative group-hover:flex hidden">
+                        <div className="relative hidden items-center gap-2 group-hover:flex">
                             <LiaPencilAltSolid
                                 onClick={() => {
                                     const n =

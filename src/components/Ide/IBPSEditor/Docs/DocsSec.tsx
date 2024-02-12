@@ -25,7 +25,7 @@ const DocsSec: React.FC<DocsSecProps> = (props) => {
             <summary
                 className={`${
                     props.level <= 2 ? "pt-7" : "pt-5"
-                } select-none cursor-pointer`}
+                } cursor-pointer select-none`}
             >
                 <Header id={_id} className="inline">
                     {props.text}
