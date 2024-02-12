@@ -31,7 +31,7 @@ const ExamplePicker: React.FC<ExamplePickerProps> = () => {
                         <IoClose></IoClose>
                     </button>
                 </div>
-                <div className="flex h-full flex-col overflow-y-scroll pb-7">
+                <div className="flex h-full flex-col overflow-y-auto pb-7">
                     <div className="h-4 w-full" />
                     {Object.entries(exampleFiles).map(([name, url]) => (
                         <button

@@ -118,7 +118,7 @@ const FilesPanel = () => {
             />
             {examplePickerShown && <ExamplePicker />}
             <span className="pb-1 pl-2 pt-4 font-medium">Your Workspace</span>
-            <div className="flex h-full flex-col gap-1 overflow-y-scroll">
+            <div className="flex h-full flex-col gap-1 overflow-y-auto">
                 <div className="h-full flex-grow">
                     {allFilenames()
                         .reverse()

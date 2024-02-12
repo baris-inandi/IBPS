@@ -8,7 +8,7 @@ const DocsCode: React.FC<DocsCodeProps> = (props) => {
 
     if (props.block)
         return (
-            <pre className="my-1 w-full overflow-x-scroll whitespace-pre-line rounded-sm bg-neutral-100 py-2 pl-4 pr-4 font-mono text-neutral-600 dark:bg-idedark-900 dark:text-idedark-300">
+            <pre className="my-1 w-full overflow-x-auto whitespace-pre-line rounded-sm bg-neutral-100 py-2 pl-4 pr-4 font-mono text-neutral-600 dark:bg-idedark-900 dark:text-idedark-300">
                 <pre className="fit-content pr-4">{code}</pre>
             </pre>
         );
