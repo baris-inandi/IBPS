@@ -15,15 +15,11 @@
 
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import IBPSProvider from "./IBPSProvider";
+import IBPSProvider from "./components/IBPSProvider";
 import DocsPdf from "./components/Ide/IBPSEditor/Docs/DocsPdf";
 import Ide from "./components/Ide/Ide";
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-import "./styles/fonts.css";
-import "./styles/global.css";
-import "./styles/markdown.css";
-import "./styles/tailwind.css";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement,
