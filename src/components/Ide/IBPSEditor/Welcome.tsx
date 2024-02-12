@@ -1,3 +1,5 @@
+import DocsCode from "./Docs/DocsCode";
+
 const Welcome: React.FC = () => {
     return (
         <div className="flex h-full w-full select-text flex-col gap-5 overflow-y-scroll bg-white p-9 pb-20 dark:bg-idedark-1000">
@@ -29,9 +31,7 @@ const Welcome: React.FC = () => {
                 Here's an example of a simple IBPS program that prints "Hello,
                 World!":
             </p>
-            <div className="rounded-md bg-neutral-200 px-5 py-2 font-mono text-neutral-600 dark:bg-idedark-900 dark:text-idedark-300">
-                {'output "Hello World!"'}
-            </div>
+            <DocsCode block>{'output "Hello World!"'}</DocsCode>
             <p>
                 Now click the <b>Run</b> button to see the output!
             </p>

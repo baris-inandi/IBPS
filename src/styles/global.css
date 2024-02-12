@@ -72,7 +72,3 @@ body {
         background-color: #282c34;
     }
 }
-
-.docscode {
-    @apply font-mono;
-}

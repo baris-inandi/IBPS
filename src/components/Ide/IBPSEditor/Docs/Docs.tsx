@@ -12,7 +12,6 @@ export interface DocsTitle {
 
 const Docs: React.FC<{
     className?: string;
-    print?: boolean;
 }> = (props) => {
     const docsRef = useRef<HTMLDivElement>(null);
     const [, setDocsId] = useAtom(docsIdAtom);
@@ -43,12 +42,12 @@ const Docs: React.FC<{
         <div
             id="ibpsdocs"
             ref={docsRef}
-            style={{
-                zoom: props.print ? 0.8 : "unset",
-            }}
-            className={`markdown flex select-text flex-col gap-5 scroll-smooth bg-white px-9 pt-3 dark:bg-idedark-1000 ${
-                props.print ? "leading-snug" : "h-full w-full overflow-y-scroll"
-            } pb-40 ${props.className}`}
+            className={`
+                markdown flex h-full w-full select-text flex-col gap-5 overflow-y-scroll scroll-smooth
+                bg-white px-9 pb-40 pt-3
+                dark:bg-idedark-1000
+                ${props.className}
+            `}
         >
             <div className="h1">The IBPS Programming Language</div>
             <p>

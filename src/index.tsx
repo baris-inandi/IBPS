@@ -16,7 +16,6 @@
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import IBPSProvider from "./components/IBPSProvider";
-import DocsPdf from "./components/Ide/IBPSEditor/Docs/DocsPdf";
 import Ide from "./components/Ide/Ide";
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
@@ -29,10 +28,6 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Ide />,
-    },
-    {
-        path: "docs",
-        element: <DocsPdf />,
     },
 ]);
 

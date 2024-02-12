@@ -38,21 +38,8 @@ const RunButton = () => {
         };
     }, [handleKeyPress]);
 
-    // Printing pdf docs is disabled for now
-
     if (activeFile === "Documentation") {
         return null;
-        /* return (
-            <button
-                onClick={() => {
-                    printExternal("/docs");
-                }}
-                className="flex-shrink-0 text-sm flex items-center gap-2 px-4 h-full rounded-md mr-2 dark:text-idedark-200 dark:bg-idedark-700 bg-blue-500 text-white"
-            >
-                <IoDownloadOutline className="inline" />
-                Download as PDF
-            </button>
-        ); */
     }
 
     return (
@@ -89,12 +76,12 @@ const RunButton = () => {
                 <span>Compiling...</span>
             ) : isRunning ? (
                 <>
-                    <IoSquare className="inline" />
+                    <IoSquare />
                     <span>Stop</span>
                 </>
             ) : (
                 <>
-                    <IoPlay className="inline" />
+                    <IoPlay />
                     <span>Run</span>
                 </>
             )}
