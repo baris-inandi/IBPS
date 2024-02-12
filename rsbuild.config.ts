@@ -1,5 +1,5 @@
 import { defineConfig } from "@rsbuild/core";
-import { pluginReact } from "@rsbuild/plugin-react";
+import { pluginPreact } from "@rsbuild/plugin-preact";
 
 export default defineConfig({
     html: {
@@ -10,5 +10,9 @@ export default defineConfig({
             root: "build",
         },
     },
-    plugins: [pluginReact()],
+    plugins: [
+        pluginPreact({
+            reactAliasesEnabled: true,
+        }),
+    ],
 });

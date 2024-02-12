@@ -22,7 +22,7 @@ This Rust crate includes a library and a binary. The library is used to compile 
 
 ### The IBPS IDE
 
-The online IBPS IDE. This is a React application written in Typescript that allows users to write and execute IBPS code in their browser.
+The online IBPS IDE. This is a Preact application written in Typescript that allows users to write and execute IBPS code in their browser.
 
 The IDE ships `ibpscomp-rs` compiled using `wasm-pack`. The IDE uses WebAssembly to compile and run the IBPS code.
 

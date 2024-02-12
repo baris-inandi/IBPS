@@ -1,6 +1,6 @@
 {
     "name": "ibps-ide",
-    "version": "0.7.1",
+    "version": "0.7.2",
     "license": "AGPL-3.0-only",
     "author": {
         "name": "baris-inandi",
@@ -23,11 +23,10 @@
         "ibpscomp-rs": "file:./ibpscomp-rs/pkg",
         "jotai": "^2.4.3",
         "lz-string": "^1.5.0",
+        "preact": "^10.19.4",
         "pretty-bytes": "^6.1.1",
-        "react": "^18.2.0",
         "react-ace": "^10.1.0",
         "react-code-blocks": "^0.1.5",
-        "react-dom": "^18.2.0",
         "react-icons": "^4.11.0",
         "react-py": "^1.10.6",
         "react-resizable-panels": "^0.0.55",
@@ -50,11 +49,9 @@
     },
     "devDependencies": {
         "@rsbuild/core": "^0.4.1",
-        "@rsbuild/plugin-react": "^0.4.1",
+        "@rsbuild/plugin-preact": "^0.4.1",
         "@tauri-apps/cli": "^1.5.9",
         "@tsconfig/strictest": "^2.0.2",
-        "@types/react": "^18.2.25",
-        "@types/react-dom": "^18.2.11",
         "autoprefixer": "^10.4.17",
         "postcss": "^8.4.35",
         "prettier": "^3.2.5",
