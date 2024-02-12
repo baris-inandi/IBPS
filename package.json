@@ -1,6 +1,6 @@
 {
     "name": "ibps-ide",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "license": "AGPL-3.0-only",
     "author": {
         "name": "baris-inandi",
@@ -17,7 +17,6 @@
         "wasm-hard-reset": "rm -rf ibpscomp-rs/target && rm -rf ibpscomp-rs/pkg && yarn remove ibpscomp-rs && yarn wasm-prod"
     },
     "dependencies": {
-        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
         "@tauri-apps/api": "^1.5.3",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^13.0.0",
@@ -61,9 +60,11 @@
         "@rsbuild/plugin-react": "^0.4.1",
         "@tauri-apps/cli": "^1.5.9",
         "@tsconfig/strictest": "^2.0.2",
+        "autoprefixer": "^10.4.17",
+        "postcss": "^8.4.35",
         "prettier": "^3.2.5",
         "prettier-plugin-tailwindcss": "^0.5.11",
-        "tailwindcss": "^3.3.3",
+        "tailwindcss": "^3.4.1",
         "wasm-pack": "^0.12.1"
     },
     "browserslist": {
