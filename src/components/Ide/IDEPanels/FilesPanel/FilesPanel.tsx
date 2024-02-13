@@ -58,7 +58,7 @@ const FilesPanel = () => {
     return (
         <div
             className={`flex h-full flex-col bg-neutral-100 text-sm text-neutral-800 dark:bg-idedark-950 dark:text-idedark-200
-                ${window.__TAURI__ ? "bg-opacity-80 dark:bg-opacity-80" : "bg-opacity-100"}
+                ${window.__TAURI__ ? "bg-opacity-75 dark:bg-opacity-75" : "bg-opacity-100"}
             `}
         >
             <div className="flex flex-col gap-1 pb-4 pt-2">
