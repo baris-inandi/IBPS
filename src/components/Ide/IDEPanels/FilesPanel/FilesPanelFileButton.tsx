@@ -47,7 +47,8 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                 <div className="shrink-0">
                     {props.isControlled ? null : (
                         <div className="relative hidden items-center gap-2 group-hover:flex">
-                            <LiaPencilAltSolid
+                            <button
+                                type="button"
                                 onClick={() => {
                                     const n =
                                         prompt(
@@ -56,8 +57,11 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                                         ) ?? "";
                                     renameFile(props.text, n);
                                 }}
-                            ></LiaPencilAltSolid>
-                            <IoTrashOutline
+                            >
+                                <LiaPencilAltSolid></LiaPencilAltSolid>
+                            </button>
+                            <button
+                                type="button"
                                 onClick={() => {
                                     if (
                                         window.confirm(
@@ -67,7 +71,9 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
                                         deleteFile(props.text);
                                     }
                                 }}
-                            ></IoTrashOutline>
+                            >
+                                <IoTrashOutline></IoTrashOutline>
+                            </button>
                         </div>
                     )}
                 </div>

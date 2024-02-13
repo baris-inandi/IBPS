@@ -38,6 +38,7 @@ const ConsoleSectionTabs = () => {
                 </div>
                 <button
                     type="button"
+                    label="Hide Output Pane"
                     className="cursor-pointer pl-1 text-lg"
                     onClick={() => setRightPanelVisible(!rightPanelVisible)}
                 >
