@@ -51,7 +51,7 @@ const Ide = () => {
                             <div className="flex items-center gap-4">
                                 <button
                                     type="button"
-                                    label="Hide Files Pane"
+                                    aria-label="Hide Files Pane"
                                     className="cursor-pointer pl-1 text-lg"
                                     onClick={() =>
                                         setFilePanelVisible(!filePanelVisible)
@@ -90,7 +90,7 @@ const Ide = () => {
                                         {!rightPanelVisible && (
                                             <button
                                                 type="button"
-                                                label="Show Output Pane"
+                                                aria-label="Show Output Pane"
                                                 className="ml-1 mr-4 cursor-pointer pl-1 text-lg"
                                                 onClick={() =>
                                                     setRightPanelVisible(

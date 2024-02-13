@@ -13,7 +13,7 @@ const FileName = () => {
         <div className="flex h-full max-w-[50%] items-center gap-2 pr-5 text-sm">
             {!filePanelVisible && (
                 <button
-                    label="Show Files Pane"
+                    aria-label="Show Files Pane"
                     type="button"
                     className="cursor-pointer pl-4 pr-3 text-lg"
                     onClick={() => setFilePanelVisible(!filePanelVisible)}

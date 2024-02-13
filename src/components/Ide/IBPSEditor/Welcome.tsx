@@ -2,7 +2,7 @@ import DocsCode from "./Docs/DocsCode";
 
 const Welcome: React.FC = () => {
     return (
-        <div className="flex h-full w-full select-text flex-col gap-5 overflow-y-scroll bg-white p-9 pb-20 dark:bg-idedark-1000">
+        <div className="flex h-full w-full select-text flex-col gap-5 overflow-y-auto bg-white p-9 pb-20 dark:bg-idedark-1000">
             <p className="pb-1 text-xl font-bold">
                 Welcome to the IBPS IDE for IB Pseudocode!
             </p>

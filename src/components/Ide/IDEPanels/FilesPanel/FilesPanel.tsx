@@ -26,7 +26,7 @@ const FilesPanel = () => {
         input.accept = ".ibps,.ibws";
         input.multiple = true;
         input.onchange = (_) => {
-            let files = Array.from(input.files ?? []);
+            let files = input.files ? [...input.files] : [];
             files.forEach((file) => {
                 if (file) {
                     let reader = new FileReader();
@@ -66,7 +66,7 @@ const FilesPanel = () => {
                 <div className="flex flex-col">
                     <FilesPanelFileButton
                         text="New File"
-                        isControlled
+                        cannotRenameOrDelete
                         forceIcon={IoAddCircleOutline}
                         onClick={() => {
                             const n =
@@ -76,13 +76,13 @@ const FilesPanel = () => {
                     ></FilesPanelFileButton>
                     <FilesPanelFileButton
                         text="Import"
-                        isControlled
+                        cannotRenameOrDelete
                         forceIcon={IoDownloadOutline}
                         onClick={onImport}
                     ></FilesPanelFileButton>
                     <FilesPanelFileButton
                         text="Export File"
-                        isControlled
+                        cannotRenameOrDelete
                         forceIcon={IoShareOutline}
                         onClick={() => {
                             download(fileExtension(activeFile), ibpsCode);
@@ -90,7 +90,7 @@ const FilesPanel = () => {
                     ></FilesPanelFileButton>
                     <FilesPanelFileButton
                         text="Export Workspace"
-                        isControlled
+                        cannotRenameOrDelete
                         forceIcon={IoArchiveOutline}
                         onClick={() => {
                             let name = prompt("Name your workspace");
@@ -110,9 +110,10 @@ const FilesPanel = () => {
                     ></FilesPanelFileButton>
                 </div>
             </div>
-            <FilesPanelFileButton text="Welcome" />
-            <FilesPanelFileButton text="Documentation" />
+            <FilesPanelFileButton cannotRenameOrDelete text="Welcome" />
+            <FilesPanelFileButton cannotRenameOrDelete text="Documentation" />
             <FilesPanelFileButton
+                cannotRenameOrDelete
                 text="Examples"
                 onClick={() => setExamplePickerShown(true)}
             />

@@ -13,7 +13,9 @@ const IBPSProvider: React.FC<{ children?: React.ReactNode }> = (props) => {
             <Analytics />
             <SpeedInsights />
             <ThemeColorChangeProvider>
-                <div className="h-screen w-screen">{props.children}</div>
+                <main className="h-screen w-screen antialiased">
+                    {props.children}
+                </main>
             </ThemeColorChangeProvider>
         </React.StrictMode>
     );
