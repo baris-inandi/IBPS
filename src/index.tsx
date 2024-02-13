@@ -13,29 +13,28 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import ReactDOM from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { render } from "preact";
+import { Route, Switch } from "wouter-preact";
 import IBPSProvider from "./components/IBPSProvider";
 import Ide from "./components/Ide/Ide";
+import NotFound from "./components/global/NotFound";
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
-const root = ReactDOM.createRoot(
-    document.getElementById("root") as HTMLElement,
-);
+const root = document.getElementById("root");
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Ide />,
-    },
-]);
-
-root.render(
+const node = (
     <IBPSProvider>
-        <RouterProvider router={router} />
-    </IBPSProvider>,
+        <Switch>
+            <Route path="/" component={Ide} />
+            <Route>
+                <NotFound />
+            </Route>
+        </Switch>
+    </IBPSProvider>
 );
+
+render(node, root);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -1,6 +1,4 @@
 import "ace-builds/src-noconflict/ace";
-import "ace-builds/src-noconflict/ext-code_lens";
-import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-searchbox";
 import "ace-builds/src-noconflict/mode-plain_text";
 import "ace-builds/src-noconflict/theme-cloud_editor";
@@ -38,10 +36,7 @@ const IBPSEditor = () => {
             ref={aceRef}
             className="font-mono"
             readOnly
-            value={
-                Object.values(output).join("\n") + "\n\n\n"
-                /* JSON.stringify(output, null, 2) */
-            }
+            value={Object.values(output).join("\n") + "\n\n\n"}
             mode="plain_text"
             showPrintMargin={false}
             theme={
