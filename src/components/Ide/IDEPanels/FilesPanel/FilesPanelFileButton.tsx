@@ -13,7 +13,6 @@ interface FilesPanelFileButtonProps {
 
 const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
     const { activeFile, deleteFile, renameFile, setActiveFile } = useFiles();
-    console.log(props.text, props.cannotRenameOrDelete);
 
     return (
         <div className="px-2 py-[1px]">

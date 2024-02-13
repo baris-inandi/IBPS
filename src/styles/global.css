@@ -72,3 +72,7 @@ body {
         background-color: #282c34;
     }
 }
+
+.transition-fontsize {
+    transition: font-size 90ms ease;
+}

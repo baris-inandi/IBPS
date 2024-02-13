@@ -21,19 +21,21 @@ const IBPSEditor = () => {
 
     return (
         <div className="h-full w-full" id="ibpseditor">
-            <Docs
+            <div
                 className={
                     activeFile === "Documentation"
-                        ? "block overflow-y-scroll"
+                        ? "block h-full"
                         : "hidden"
                 }
-            />
+            >
+                <Docs />
+            </div>
             {activeFile === "Documentation" ? null : activeFile ===
               "Welcome" ? (
                 <Welcome />
             ) : (
                 <AceEditor
-                    className="font-mono"
+                    className="font-mono transition-fontsize"
                     readOnly={isWelcomePage()}
                     value={ibpsCode}
                     mode="python"

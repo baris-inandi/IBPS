@@ -2,19 +2,16 @@ import DocsCode from "./Docs/DocsCode";
 
 const Welcome: React.FC = () => {
     return (
-        <div className="flex h-full w-full select-text flex-col gap-5 overflow-y-auto bg-white p-9 pb-20 dark:bg-idedark-1000">
-            <p className="pb-1 text-xl font-bold">
-                Welcome to the IBPS IDE for IB Pseudocode!
+        <div className="flex h-full w-full select-text flex-col gap-5 overflow-y-auto bg-white p-10 pb-20 dark:bg-idedark-1000">
+            <p className="pb-1 text-2xl font-bold">Welcome to the IBPS IDE!</p>
+            <p>
+                This integrated development environment lets you create, edit,
+                run, and share your IBPS scripts right on your browser.
             </p>
             <p>
-                The International Baccalaureate Diploma Program Computer Science
-                course has a very specific Pseudocode specification.
-            </p>
-            <p>
-                This IDE integrates the IBPS Interpreter and REPL{" "}
-                <b>
-                    that can run IB-compliant pseudocode scripts on the browser.
-                </b>
+                IBPS is a scripting language based on the pseudocode
+                specification of the International Baccalaureate Diploma Program
+                Computer Science course.
             </p>
             <p>
                 Use the <b>files pane</b> on the left-hand side to create,

@@ -12,6 +12,7 @@
         "paths": {
             "react": ["./node_modules/preact/compat"],
             "react-dom": ["./node_modules/preact/compat"]
-        }
+        },
+        "target": "ES2015"
     }
 }

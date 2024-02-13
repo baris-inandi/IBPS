@@ -4,6 +4,7 @@ import { examplePickerShownAtom } from "../../atoms/atoms";
 import useFiles from "../../hooks/useFiles";
 import { codeCopyrightText } from "../../lib/codeCopyrightText";
 import exampleFiles from "../../lib/exampleFiles";
+import FilesPanelFileButton from "../Ide/IDEPanels/FilesPanel/FilesPanelFileButton";
 
 interface ExamplePickerProps {}
 
@@ -34,12 +35,16 @@ const ExamplePicker: React.FC<ExamplePickerProps> = () => {
                 </div>
                 <div className="flex h-full flex-col overflow-y-auto pb-7">
                     <div className="h-4 w-full" />
-                    {Object.entries(exampleFiles).map(([name, url]) => (
-                        <button
-                            type="button"
+                    {Object.keys(exampleFiles).map((name) => (
+                        <FilesPanelFileButton
+                            cannotRenameOrDelete
+                            forceIcon={IoCloudDownloadOutline}
                             key={name}
+                            text={name}
                             onClick={async () => {
-                                const res = await fetch(url);
+                                const res = await fetch(
+                                    exampleFiles[name] as string,
+                                );
                                 const realName =
                                     newFile("Example: " + name) ?? "";
                                 const content = await res.text();
@@ -55,16 +60,7 @@ const ExamplePicker: React.FC<ExamplePickerProps> = () => {
                                 });
                                 setExamplePickerShown(false);
                             }}
-                            className="flex cursor-pointer items-center justify-between px-10 py-1 text-neutral-800 hover:bg-neutral-200 dark:text-idedark-200 dark:hover:dark:bg-idedark-900 hover:dark:bg-idedark-900"
-                        >
-                            <div className="flex items-center gap-2 text-base">
-                                <IoCloudDownloadOutline className="inline" />
-                                {name}
-                            </div>
-                            {/* <span className="opacity-60">
-                                {data.description}
-                            </span> */}
-                        </button>
+                        ></FilesPanelFileButton>
                     ))}
                 </div>
             </div>

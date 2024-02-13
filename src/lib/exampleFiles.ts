@@ -1,4 +1,4 @@
-const exampleFiles = {
+const exampleFiles: Record<string, string> = {
     // Data Structures and features
     "Collection": "/examples/collection.ibps",
     "Matrix": "/examples/matrix.ibps",

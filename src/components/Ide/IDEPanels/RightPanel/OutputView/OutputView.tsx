@@ -34,9 +34,13 @@ const IBPSEditor = () => {
     ) : (
         <AceEditor
             ref={aceRef}
-            className="font-mono"
+            className="font-mono transition-fontsize"
             readOnly
-            value={Object.values(output).join("\n") + "\n\n\n"}
+            value={
+                Object.keys(output)
+                    .map((key) => output[Number(key)])
+                    .join("\n") + "\n\n\n"
+            }
             mode="plain_text"
             showPrintMargin={false}
             theme={
