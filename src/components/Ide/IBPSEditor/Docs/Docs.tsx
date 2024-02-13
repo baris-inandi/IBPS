@@ -10,7 +10,7 @@ export interface DocsTitle {
     id: string;
 }
 
-const Docs: React.FC = (props) => {
+const Docs: React.FC = () => {
     const docsRef = useRef<HTMLDivElement>(null);
     const [, setDocsId] = useAtom(docsIdAtom);
 
