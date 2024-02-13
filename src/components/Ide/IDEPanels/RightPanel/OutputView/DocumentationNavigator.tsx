@@ -10,6 +10,7 @@ const DocumentationNavigator: React.FC = () => {
                 ? docsId.map((docsHeading) => {
                       return (
                           <button
+                              type="button"
                               data-points-to={docsHeading.id}
                               onClick={() => {
                                   Array.from(

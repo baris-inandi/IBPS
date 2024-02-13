@@ -13,6 +13,7 @@ const NotFound: React.FC = () => {
                 That's an error.
             </p>
             <button
+                type="button"
                 onClick={() => setLocation("/")}
                 className="w-fit rounded-md bg-blue-500 px-6 py-2 text-white"
             >

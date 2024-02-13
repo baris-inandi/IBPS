@@ -25,6 +25,7 @@ const ExamplePicker: React.FC<ExamplePickerProps> = () => {
                         </span>
                     </p>
                     <button
+                        type="button"
                         className="cursor-pointer pr-2 text-xl font-bold"
                         onClick={() => setExamplePickerShown(false)}
                     >
@@ -35,6 +36,7 @@ const ExamplePicker: React.FC<ExamplePickerProps> = () => {
                     <div className="h-4 w-full" />
                     {Object.entries(exampleFiles).map(([name, url]) => (
                         <button
+                            type="button"
                             key={name}
                             onClick={async () => {
                                 const res = await fetch(url);

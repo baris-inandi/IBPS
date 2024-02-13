@@ -17,6 +17,7 @@ const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
 
     return (
         <button
+            type="button"
             key={props.text}
             onClick={
                 props.onClick ??

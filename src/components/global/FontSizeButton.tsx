@@ -26,6 +26,7 @@ const FontSizeButton: React.FC = () => {
     return (
         <div className="mr-2 flex flex-shrink-0 items-center rounded-md bg-neutral-200 text-sm text-black dark:bg-idedark-700 dark:text-idedark-200">
             <button
+                type="button"
                 onClick={() => changeFontSize(-2)}
                 className="w-full pl-3 pr-2 text-[0.65rem]"
             >
@@ -33,6 +34,7 @@ const FontSizeButton: React.FC = () => {
             </button>
             <div className="h-3/5 border-r border-neutral-500 dark:border-idedark-500" />
             <button
+                type="button"
                 onClick={() => setCodeFontSize(16)}
                 className="w-full pl-2 pr-2 text-xs"
             >
@@ -40,6 +42,7 @@ const FontSizeButton: React.FC = () => {
             </button>
             <div className="h-3/5 border-r border-neutral-500 dark:border-idedark-500" />
             <button
+                type="button"
                 onClick={() => changeFontSize(+2)}
                 className="w-full pl-2 pr-3"
             >

@@ -50,6 +50,7 @@ const Ide = () => {
                         >
                             <div className="flex items-center gap-4">
                                 <button
+                                    type="button"
                                     className="cursor-pointer pl-1 text-lg"
                                     onClick={() =>
                                         setFilePanelVisible(!filePanelVisible)
@@ -87,6 +88,7 @@ const Ide = () => {
                                         <RunButton />
                                         {!rightPanelVisible && (
                                             <button
+                                                type="button"
                                                 className="ml-1 mr-4 cursor-pointer pl-1 text-lg"
                                                 onClick={() =>
                                                     setRightPanelVisible(
@@ -155,6 +157,7 @@ const Ide = () => {
                     </a>
                 </p>
                 <button
+                    type="button"
                     onClick={() => setForceView(true)}
                     className="w-full rounded-md bg-blue-500 py-2 text-white"
                 >
