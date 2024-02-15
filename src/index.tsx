@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { render } from "preact";
+import { ContainerNode, render } from "preact";
 import { Route, Switch } from "wouter-preact";
 import IBPSProvider from "./components/IBPSProvider";
 import Ide from "./components/Ide/Ide";
@@ -21,7 +21,7 @@ import NotFound from "./components/global/NotFound";
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
-const root = document.getElementById("root");
+const root = document.getElementById("root") as ContainerNode;
 
 const node = (
     <IBPSProvider>

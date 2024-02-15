@@ -3,7 +3,7 @@ import { codeFontSizeAtom } from "../../atoms/atoms";
 import useFiles from "../../hooks/useFiles";
 
 const MIN_FONTSIZE = 10;
-const MAX_FONTSIZE = 28;
+const MAX_FONTSIZE = 32;
 
 const FontSizeButton: React.FC = () => {
     const [, setCodeFontSize] = useAtom(codeFontSizeAtom);

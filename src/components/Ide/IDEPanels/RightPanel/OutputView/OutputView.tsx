@@ -34,7 +34,7 @@ const IBPSEditor = () => {
     ) : (
         <AceEditor
             ref={aceRef}
-            className="font-mono transition-fontsize"
+            className="transition-fontsize font-mono"
             readOnly
             value={
                 Object.keys(output)

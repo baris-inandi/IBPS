@@ -61,8 +61,8 @@ const FilesPanel = () => {
                 ${window.__TAURI__ ? "bg-opacity-75 dark:bg-opacity-75" : "bg-opacity-100"}
             `}
         >
-            <div className="flex flex-col gap-1 pb-4 pt-2">
-                <span className="pl-2 font-medium">Files</span>
+            <div className="flex flex-col pb-4 pt-3">
+                <span className="pl-3 font-medium opacity-60">Files</span>
                 <div className="flex flex-col">
                     <FilesPanelFileButton
                         text="New File"
@@ -118,7 +118,9 @@ const FilesPanel = () => {
                 onClick={() => setExamplePickerShown(true)}
             />
             {examplePickerShown && <ExamplePicker />}
-            <span className="pb-1 pl-2 pt-4 font-medium">Your Workspace</span>
+            <span className="pl-3 pt-4 font-medium opacity-60">
+                Your Workspace
+            </span>
             <div className="flex h-full flex-col gap-1 overflow-y-auto">
                 <div className="h-full flex-grow">
                     {allFilenames()

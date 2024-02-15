@@ -23,9 +23,7 @@ const IBPSEditor = () => {
         <div className="h-full w-full" id="ibpseditor">
             <div
                 className={
-                    activeFile === "Documentation"
-                        ? "block h-full"
-                        : "hidden"
+                    activeFile === "Documentation" ? "block h-full" : "hidden"
                 }
             >
                 <Docs />
@@ -35,7 +33,7 @@ const IBPSEditor = () => {
                 <Welcome />
             ) : (
                 <AceEditor
-                    className="font-mono transition-fontsize"
+                    className="transition-fontsize font-mono"
                     readOnly={isWelcomePage()}
                     value={ibpsCode}
                     mode="python"
