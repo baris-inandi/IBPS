@@ -74,5 +74,5 @@ body {
 }
 
 .transition-fontsize {
-    transition: font-size 90ms ease;
+    transition: font-size 125ms ease;
 }

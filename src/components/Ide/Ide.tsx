@@ -40,7 +40,7 @@ const Ide = () => {
                     className="flex-grow"
                 >
                     <div
-                        className={`w-56 ${
+                        className={`w-60 ${
                             filePanelVisible ? "block" : "hidden"
                         }`}
                     >

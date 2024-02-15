@@ -9,7 +9,7 @@ const BottomBar = () => {
     const { compilerVersion, ideVersion } = useVersion();
 
     return (
-        <div className="flex w-full justify-between border-t border-neutral-300 bg-blue-500 px-2 py-[2px] text-xs text-white lg:text-sm dark:border-black dark:bg-idedark-1100 dark:text-neutral-400">
+        <div className="flex w-full justify-between border-t border-neutral-300 bg-blue-500 px-2 py-[3px] text-sm text-white dark:border-black dark:bg-idedark-1100 dark:text-neutral-400">
             <div className="flex items-center gap-1">
                 <p>
                     Created by{" "}

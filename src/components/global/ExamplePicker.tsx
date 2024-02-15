@@ -13,7 +13,12 @@ const ExamplePicker: React.FC<ExamplePickerProps> = () => {
     const { newFile, filesRaw, setFilesRaw } = useFiles();
 
     return (
-        <div className="absolute left-0 top-0 z-10 h-screen w-screen bg-black bg-opacity-60">
+        <div
+            className="absolute left-0 top-0 z-10 h-screen w-screen bg-black bg-opacity-60"
+            onClick={() => {
+                setExamplePickerShown(false);
+            }}
+        >
             <div className="flex h-full w-5/6 max-w-md flex-col border-r border-neutral-200 bg-white shadow-lg dark:border-black dark:bg-idedark-950">
                 <div className="flex items-start justify-between border-b border-neutral-200 bg-neutral-100 px-3 pb-4 pt-6 dark:border-black dark:bg-idedark-1000 dark:text-white">
                     <p
