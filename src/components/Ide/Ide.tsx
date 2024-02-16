@@ -6,16 +6,16 @@ import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import usePrefersColorScheme from "use-prefers-color-scheme";
 import { filePanelVisibleAtom, rightPanelVisibleAtom } from "../../atoms/atoms";
 import { useVersion } from "../../hooks/useVersion";
-import DragRegion from "../global/DragRegion";
-import FileName from "../global/FileName";
-import FontSizeButton from "../global/FontSizeButton";
-import RunButton from "../global/RunButton";
+import DragRegion from "../DesktopDragRegion";
 import BottomBar from "./BottomBar/BottomBar";
 import IBPSEditor from "./IBPSEditor/IBPSEditor";
 import ConsoleSectionTabs from "./IDEPanels/ConsoleSectionTabs";
 import FilesPanel from "./IDEPanels/FilesPanel/FilesPanel";
 import IDEPanelTopbar from "./IDEPanels/IDEPanelTopbar";
 import RightPanel from "./IDEPanels/RightPanel/RightPanel";
+import FileName from "./global/FileName";
+import FontSizeButton from "./global/FontSizeButton";
+import RunButton from "./global/RunButton";
 
 const Ide = () => {
     const { compilerVersion, ideVersion } = useVersion();

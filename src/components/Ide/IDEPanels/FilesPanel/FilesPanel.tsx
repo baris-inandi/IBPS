@@ -9,7 +9,7 @@ import {
 import { examplePickerShownAtom, ibpsCodeAtom } from "../../../../atoms/atoms";
 import useFiles from "../../../../hooks/useFiles";
 import { fileExtension } from "../../../../lib/fileExtension";
-import ExamplePicker from "../../../global/ExamplePicker";
+import ExamplePicker from "../../global/ExamplePicker";
 import FilesPanelFileButton from "./FilesPanelFileButton";
 
 const FilesPanel = () => {

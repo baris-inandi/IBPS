@@ -5,7 +5,7 @@ import "../styles/fonts.css";
 import "../styles/global.css";
 import "../styles/markdown.css";
 import "../styles/tailwind.css";
-import ThemeColorChangeProvider from "./global/ThemeColorChangeProvider";
+import ThemeColorChangeProvider from "./Ide/global/ThemeColorChangeProvider";
 
 const IBPSProvider: React.FC<{ children?: React.ReactNode }> = (props) => {
     return (

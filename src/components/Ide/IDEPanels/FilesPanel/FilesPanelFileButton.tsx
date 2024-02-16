@@ -2,7 +2,7 @@ import { IoTrashOutline } from "react-icons/io5";
 import { LiaPencilAltSolid } from "react-icons/lia";
 import { IconType } from "react-icons/lib";
 import useFiles from "../../../../hooks/useFiles";
-import FileIcon from "../../../global/FileIcon";
+import FileIcon from "../../global/FileIcon";
 
 interface FilesPanelFileButtonProps {
     text: string;
