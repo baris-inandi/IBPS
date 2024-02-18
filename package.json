@@ -14,7 +14,7 @@
         "build:analyze": "BUNDLE_ANALYZE=true yarn build",
         "build:tauri": "tauri build",
         "build:all": "yarn wasm-prod && yarn build",
-        "icon": "tauri icon src-tauri/icon.png",
+        "icon": "tauri icon icons/appicon.png",
         "preview": "rsbuild preview",
         "prettier": "prettier --write .",
         "wasm-dev": "cd ibpscomp-rs && wasm-pack build . --target web --dev && cd .. && yarn add file:./ibpscomp-rs/pkg",
