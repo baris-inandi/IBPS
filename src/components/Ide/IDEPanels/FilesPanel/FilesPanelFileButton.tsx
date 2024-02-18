@@ -1,3 +1,4 @@
+import { FunctionalComponent } from "preact";
 import { IoTrashOutline } from "react-icons/io5";
 import { LiaPencilAltSolid } from "react-icons/lia";
 import { IconType } from "react-icons/lib";

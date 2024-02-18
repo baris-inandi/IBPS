@@ -76,3 +76,7 @@ body {
 .transition-fontsize {
     transition: font-size 120ms ease;
 }
+
+.highlight {
+    box-shadow: inset 0 1px 1px 0 #ffffff15;
+}
