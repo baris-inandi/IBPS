@@ -7,7 +7,7 @@ const NotFound = () => {
         <div className="flex h-screen w-screen flex-col items-center justify-center bg-white text-center text-black dark:bg-idedark-1000 dark:text-white">
             <img
                 draggable={false}
-                src="/img/icon.webp"
+                src="/favicon.png"
                 alt="IBPS IDE Icon"
                 className="h-20 w-20"
             />
