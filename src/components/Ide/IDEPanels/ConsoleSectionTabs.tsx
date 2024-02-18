@@ -30,7 +30,7 @@ const ConsoleSectionTabs = () => {
                     <button
                         type="button"
                         onClick={() => setOutput({ "0": CONSOLE_WELCOME_MSG })}
-                        className="flex h-full items-center gap-1 rounded-md bg-neutral-200 px-3 py-[1px] text-sm text-black dark:bg-idedark-700 dark:text-idedark-200"
+                        className="highlight flex h-full items-center gap-1 rounded-md bg-neutral-200 px-3 py-[1px] text-sm text-black dark:bg-idedark-700 dark:text-idedark-200"
                     >
                         <IoTrashOutline />
                         <span>Clear</span>
