@@ -5,6 +5,7 @@ export default defineConfig({
     dev: {
         hmr: true,
         liveReload: false,
+        startUrl: false,
     },
     html: {
         template: "./public/index.html",

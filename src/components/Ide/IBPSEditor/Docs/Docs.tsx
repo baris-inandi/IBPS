@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "preact/hooks";
 import { docsIdAtom } from "../../../../atoms/atoms";
 import DocsCode from "./DocsCode";
 import DocsSec from "./DocsSec";
@@ -10,7 +10,7 @@ export interface DocsTitle {
     id: string;
 }
 
-const Docs: React.FC = () => {
+const Docs = () => {
     const docsRef = useRef<HTMLDivElement>(null);
     const [, setDocsId] = useAtom(docsIdAtom);
 

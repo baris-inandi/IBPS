@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" href="<%= assetPrefix %>/favicon.png" />
+        <link rel="icon" href="<%= assetPrefix %>/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
             name="theme-color"
@@ -22,6 +22,7 @@
         <title>IBPS IDE</title>
         <script>
             if ("serviceWorker" in navigator) {
+                // TODO: this didnt work on Arc one time? idk why
                 navigator.serviceWorker
                     .register("/react-py-sw.js")
                     .then(function (registration) {

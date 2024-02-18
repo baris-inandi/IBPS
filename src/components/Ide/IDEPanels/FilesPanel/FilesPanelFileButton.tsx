@@ -11,7 +11,9 @@ interface FilesPanelFileButtonProps {
     forceIcon?: IconType;
 }
 
-const FilesPanelFileButton: React.FC<FilesPanelFileButtonProps> = (props) => {
+const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (
+    props,
+) => {
     const { activeFile, deleteFile, renameFile, setActiveFile } = useFiles();
 
     return (

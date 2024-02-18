@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
-import { useEffect } from "react";
+import { FunctionalComponent, JSX } from "preact";
+import { useEffect } from "preact/hooks";
 import { docsIdAtom } from "../../../../atoms/atoms";
 
 interface DocsSecProps {
@@ -8,7 +9,7 @@ interface DocsSecProps {
     children?: React.ReactNode;
 }
 
-const DocsSec: React.FC<DocsSecProps> = (props) => {
+const DocsSec: FunctionalComponent<DocsSecProps> = (props) => {
     const Header = `h${props.level}` as keyof JSX.IntrinsicElements;
     const _id = `docs-${props.text.toLowerCase().replace(/ /g, "-")}-${
         props.level

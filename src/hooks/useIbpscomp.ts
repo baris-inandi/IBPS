@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "preact/hooks";
 import { usePython } from "react-py";
 import { ibpsCodeAtom, outputAtom } from "../atoms/atoms";
 import ibpsToPy from "../lib/ibpscomp-rs/ibpscomp";

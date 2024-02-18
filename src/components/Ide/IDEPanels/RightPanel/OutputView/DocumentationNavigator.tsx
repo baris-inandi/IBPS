@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import { docsIdAtom } from "../../../../../atoms/atoms";
 
-const DocumentationNavigator: React.FC = () => {
+const DocumentationNavigator = () => {
     const [docsId] = useAtom(docsIdAtom);
 
     return (

@@ -1,6 +1,6 @@
 {
     "name": "ibps-ide",
-    "version": "0.7.6",
+    "version": "0.7.7",
     "license": "AGPL-3.0-only",
     "author": {
         "name": "baris-inandi",
@@ -8,15 +8,20 @@
     },
     "scripts": {
         "dev": "rsbuild dev",
+        "dev:tauri": "tauri dev",
         "build": "rsbuild build",
+        "build:analyze": "BUNDLE_ANALYZE=true yarn build",
+        "build:tauri": "tauri build",
+        "build:all": "yarn wasm-prod && yarn build",
+        "icon": "tauri icon src-tauri/icon.png",
         "preview": "rsbuild preview",
-        "buildall": "yarn wasm-prod && yarn build",
         "prettier": "prettier --write .",
         "wasm-dev": "cd ibpscomp-rs && wasm-pack build . --target web --dev && cd .. && yarn add file:./ibpscomp-rs/pkg",
         "wasm-prod": "cd ibpscomp-rs && wasm-pack build . --target web --release && cd .. && yarn add file:./ibpscomp-rs/pkg",
         "wasm-hard-reset": "rm -rf ibpscomp-rs/target && rm -rf ibpscomp-rs/pkg && yarn remove ibpscomp-rs && yarn wasm-prod"
     },
     "dependencies": {
+        "@monaco-editor/react": "^4.6.0",
         "@tauri-apps/api": "^1.5.3",
         "@vercel/analytics": "^1.1.1",
         "@vercel/speed-insights": "^1.0.1",
@@ -35,7 +40,7 @@
     },
     "devDependencies": {
         "@rsbuild/core": "^0.4.1",
-        "@rsbuild/plugin-preact": "^0.4.1",
+        "@rsbuild/plugin-preact": "^0.4.2",
         "@tauri-apps/cli": "^1.5.9",
         "@tsconfig/strictest": "^2.0.2",
         "autoprefixer": "^10.4.17",

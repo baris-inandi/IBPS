@@ -5,7 +5,7 @@ interface IDEPanelTopbarProps {
     desktopUI?: boolean;
 }
 
-const IDEPanelTopbar: React.FC<IDEPanelTopbarProps> = (props) => {
+const IDEPanelTopbar: FunctionalComponent<IDEPanelTopbarProps> = (props) => {
     return (
         <div
             className={`

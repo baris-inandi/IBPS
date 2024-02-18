@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "preact/hooks";
 import packagejson from "../../package.json";
 import { getCompilerVersion } from "../lib/ibpscomp-rs/ibpscomp";
 

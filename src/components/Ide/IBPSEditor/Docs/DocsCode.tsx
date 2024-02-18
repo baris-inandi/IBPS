@@ -1,9 +1,11 @@
+import { FunctionalComponent } from "preact";
+
 interface DocsCodeProps {
     children?: React.ReactNode;
     block?: boolean;
 }
 
-const DocsCode: React.FC<DocsCodeProps> = (props) => {
+const DocsCode: FunctionalComponent<DocsCodeProps> = (props) => {
     const code = (props.children?.toString() ?? "").trim();
 
     if (props.block)
