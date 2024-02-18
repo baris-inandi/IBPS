@@ -88,16 +88,21 @@ const useFiles = () => {
     };
 
     const writeToFile = (name: string, content: string) => {
-        // IA: Algorithm here
         const oldFiles = { active: files.active, allFiles: files.allFiles };
         const newFiles = {
             ...files,
             allFiles: { ...files.allFiles, [name]: content },
         };
+
+        // calculate the file sizes of both objects
         const oldFilesSize = jsonSizeInBytes(oldFiles);
         const newFilesSize = jsonSizeInBytes(newFiles);
         const oldActiveFileLength = ibpsCode.length;
         const newActiveFileLength = content.length;
+
+        // Cancel the transaction and roll back if:
+        //   - new file storage object exceeds the disk usage cap
+        //   - or the new file content exceeds max file length
         if (
             (jsonExceedsDiskUsageCap(newFiles) &&
                 newFilesSize > oldFilesSize) ||
@@ -107,6 +112,8 @@ const useFiles = () => {
             setFiles({ active: files.active, allFiles: files.allFiles });
             return;
         }
+
+        // if all checks pass, continue the transaction and auto-save the file.
         setFiles(newFiles);
     };
 
