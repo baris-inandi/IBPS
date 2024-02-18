@@ -128,13 +128,9 @@ const Ide = () => {
                 <BottomBar />
             </div>
             <div
-                className={`${forceView ? "flex" : "flex sm:hidden"} h-full w-full flex-col items-center gap-2 overflow-y-scroll bg-white p-7 text-center dark:bg-idedark-950`}
+                className={`${forceView ? "flex" : "flex sm:hidden"} h-full w-full flex-col items-center justify-center gap-2 overflow-y-scroll bg-white p-7 text-center dark:bg-idedark-950`}
             >
-                <img
-                    src={`/img/window-${colorScheme === "dark" ? "dark" : "light"}.webp`}
-                    alt="Screenshot of the IBPS IDE"
-                />
-                <p className="pt-5 font-logo text-sm font-bold">
+                <p className="pt-8 font-logo text-sm font-bold">
                     IBPS <span className="font-normal">IDE</span>
                 </p>
                 <h1 className="text-2xl font-medium">Window too small</h1>

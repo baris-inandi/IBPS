@@ -28,9 +28,11 @@ const useFiles = () => {
     };
 
     const importIBPSorIBWS = (filename: string, content: string) => {
+        // indicates whether the file is a valid IBPS workspace file.
         let isIBWS = false;
+
+        // utility function to check if the file size is safe to import
         const isFileSizeSafe = (filename: string, content: string): boolean => {
-            // IA: Error handling to avoid exceeding localStorage quota.
             if (!fileExceedsFileDiskUsageCap(content)) return true;
             else
                 alert(
@@ -38,32 +40,56 @@ const useFiles = () => {
                 );
             return false;
         };
+
         try {
+            // will raise an exception if the file is not a valid IBWS file.
+
+            // IBWS files must be valid JSON files.
             let c = JSON.parse(content);
+
+            // IBWS files must have a special property __ibps_filetype__.
             if (c.__ibps_filetype__ === "ibws") {
+                // All checks passed.
                 isIBWS = true;
             }
         } catch (_) {}
+
         if (isIBWS) {
-            // is a workspace
+            // is a workspace (IBWS)
+            // this is the parser for IBWS files.
+
+            // parse and decompress the workspace contents
             let c = JSON.parse(decompress(JSON.parse(content).content));
+
+            // This object stores all files inside the workspace.
             let IBWSRecord: Record<string, string> = {};
-            for (const [key, value] of Object.entries(c)) {
+
+            for (const key of Object.keys(c)) {
+                // Avoid overwriting existing files.
                 const n = toValidFilename(allFilenames(), key);
-                const content = String(value);
-                if (isFileSizeSafe(key, content)) IBWSRecord[n] = content;
+                const currentFileContent = String(c[key]);
+
+                // Add current file to the workspace record if the file size does not exceed the limit.
+                if (isFileSizeSafe(key, currentFileContent)) {
+                    IBWSRecord[n] = currentFileContent;
+                }
             }
             setFiles({
                 active: files.active,
                 allFiles: { ...IBWSRecord, ...files.allFiles },
             });
         } else {
-            // is a file, not a workspace
+            // This is a singular IBPS file, not a workspace
+
             let f = filename;
             if (filename.endsWith(".ibps")) {
                 f = filename.slice(0, -5);
             }
+
+            // Avoid overwriting existing files.
             const n = toValidFilename(allFilenames(), f);
+
+            // Write current file if the file size does not exceed the limit.
             if (isFileSizeSafe(n, content)) {
                 setFiles({
                     active: n,
@@ -133,7 +159,7 @@ const useFiles = () => {
 
     const setActiveFile = (name: string) => {
         if (
-            allFilenames().includes(name) ||
+            files.allFiles[name] ||
             name === "Welcome" ||
             name === "Documentation"
         ) {
