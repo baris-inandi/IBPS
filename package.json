@@ -21,7 +21,6 @@
         "wasm-hard-reset": "rm -rf ibpscomp-rs/target && rm -rf ibpscomp-rs/pkg && yarn remove ibpscomp-rs && yarn wasm-prod"
     },
     "dependencies": {
-        "@monaco-editor/react": "^4.6.0",
         "@tauri-apps/api": "^1.5.3",
         "@vercel/analytics": "^1.1.1",
         "@vercel/speed-insights": "^1.0.1",
