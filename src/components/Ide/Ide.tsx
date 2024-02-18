@@ -29,6 +29,7 @@ const Ide = () => {
 
     return (
         <PythonProvider>
+            {/* <Modal /> */}
             <div
                 className={`${forceView ? "flex" : "hidden sm:flex"} h-full w-full flex-col`}
                 id="ibpside"
