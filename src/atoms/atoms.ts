@@ -68,3 +68,5 @@ export const rightPanelVisibleAtom = atomWithStorage<boolean>(
 );
 
 export const examplePickerShownAtom = atom(false);
+
+export const promptAtom = atom(true);

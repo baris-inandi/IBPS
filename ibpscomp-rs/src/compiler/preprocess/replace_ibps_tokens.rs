@@ -7,7 +7,7 @@ pub fn regex_replace(code: &str) -> String {
         ("AND", "and"),
         ("OR", "or"),
         ("NOT", "not"),
-        ("div", "/"),
+        ("div", "//"),
         ("mul", "*"),
         ("mod", "%"),
     ]);

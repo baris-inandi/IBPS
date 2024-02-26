@@ -3,7 +3,6 @@ import { useState } from "preact/hooks";
 import { PiSidebar } from "react-icons/pi";
 import { PythonProvider } from "react-py";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-import usePrefersColorScheme from "use-prefers-color-scheme";
 import { filePanelVisibleAtom, rightPanelVisibleAtom } from "../../atoms/atoms";
 import { useVersion } from "../../hooks/useVersion";
 import DragRegion from "../DesktopDragRegion";
@@ -25,7 +24,6 @@ const Ide = () => {
         rightPanelVisibleAtom,
     );
     const [forceView, setForceView] = useState(false);
-    const colorScheme = usePrefersColorScheme();
 
     return (
         <PythonProvider>
