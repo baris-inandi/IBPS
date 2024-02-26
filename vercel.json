@@ -1,0 +1,9 @@
+{
+    "buildCommand": "yarn run build",
+    "devCommand": "yarn run dev",
+    "installCommand": "yarn install",
+    "framework": "preact",
+    "outputDirectory": "build",
+    "public": true,
+    "trailingSlash": false
+}
