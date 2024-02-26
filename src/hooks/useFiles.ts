@@ -130,8 +130,7 @@ const useFiles = () => {
         //   - new file storage object exceeds the disk usage cap
         //   - or the new file content exceeds max file length
         if (
-            (jsonExceedsDiskUsageCap(newFiles) &&
-                newFilesSize > oldFilesSize) ||
+            (jsonExceedsDiskUsageCap(newFiles) && newFilesSize > oldFilesSize) ||
             (newActiveFileLength >= MAX_FILE_LENGTH_BITS &&
                 newActiveFileLength > oldActiveFileLength)
         ) {
@@ -158,11 +157,7 @@ const useFiles = () => {
     };
 
     const setActiveFile = (name: string) => {
-        if (
-            files.allFiles[name] ||
-            name === "Welcome" ||
-            name === "Documentation"
-        ) {
+        if (files.allFiles[name] || name === "Welcome" || name === "Documentation") {
             setFiles({ ...files, active: name });
         }
     };

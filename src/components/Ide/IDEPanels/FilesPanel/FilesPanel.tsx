@@ -8,18 +8,17 @@ import {
     IoShareOutline,
 } from "react-icons/io5";
 import { examplePickerShownAtom, ibpsCodeAtom } from "../../../../atoms/atoms";
+import { useIsTauriMacOS } from "../../../../hooks/isTauriMac";
 import useFiles from "../../../../hooks/useFiles";
 import { fileExtension } from "../../../../lib/fileExtension";
 import ExamplePicker from "../../global/ExamplePicker";
 import FilesPanelFileButton from "./FilesPanelFileButton";
 
 const FilesPanel = () => {
-    const { allFilenames, newFile, activeFile, filesRaw, importIBPSorIBWS } =
-        useFiles();
+    const { allFilenames, newFile, activeFile, filesRaw, importIBPSorIBWS } = useFiles();
     const [ibpsCode] = useAtom(ibpsCodeAtom);
-    const [examplePickerShown, setExamplePickerShown] = useAtom(
-        examplePickerShownAtom,
-    );
+    const [examplePickerShown, setExamplePickerShown] = useAtom(examplePickerShownAtom);
+    const isTauriMacOS = useIsTauriMacOS();
 
     const onImport = () => {
         let input = document.createElement("input");
@@ -54,6 +53,7 @@ const FilesPanel = () => {
             if (saveTo) {
                 await fs.writeFile(saveTo, content);
             }
+            return;
         }
 
         const data = new Blob([content]);
@@ -69,7 +69,7 @@ const FilesPanel = () => {
     return (
         <div
             className={`flex h-full flex-col bg-neutral-100 text-sm text-neutral-800 dark:bg-idedark-950 dark:text-idedark-200
-                ${window.__TAURI__ ? "bg-opacity-75 dark:bg-opacity-75" : "bg-opacity-100"}
+                ${isTauriMacOS ? "bg-opacity-75 dark:bg-opacity-75" : "bg-opacity-100"}
             `}
         >
             <div className="flex flex-col pb-4 pt-3">
@@ -80,8 +80,7 @@ const FilesPanel = () => {
                         cannotRenameOrDelete
                         forceIcon={IoAddCircleOutline}
                         onClick={() => {
-                            const n =
-                                prompt("Enter a name for the new file") ?? "";
+                            const n = prompt("Enter a name for the new file") ?? "";
                             newFile(n);
                         }}
                     ></FilesPanelFileButton>
@@ -104,18 +103,18 @@ const FilesPanel = () => {
                         cannotRenameOrDelete
                         forceIcon={IoArchiveOutline}
                         onClick={() => {
+                            const ibwsFileContent = JSON.stringify({
+                                __ibps_filetype__: "ibws",
+                                __ibws_version__: 1,
+                                content: compress(JSON.stringify(filesRaw.allFiles)),
+                            });
+                            if (window.__TAURI__) {
+                                download("workspace.ibws", ibwsFileContent);
+                                return;
+                            }
                             let name = prompt("Name your workspace");
                             if (name) {
-                                download(
-                                    `${name}.ibws`,
-                                    JSON.stringify({
-                                        __ibps_filetype__: "ibws",
-                                        __ibws_version__: 1,
-                                        content: compress(
-                                            JSON.stringify(filesRaw.allFiles),
-                                        ),
-                                    }),
-                                );
+                                download(`${name}.ibws`, ibwsFileContent);
                             }
                         }}
                     ></FilesPanelFileButton>
@@ -129,9 +128,7 @@ const FilesPanel = () => {
                 onClick={() => setExamplePickerShown(true)}
             />
             {examplePickerShown && <ExamplePicker />}
-            <span className="pl-3 pt-4 font-medium opacity-60">
-                Your Workspace
-            </span>
+            <span className="pl-3 pt-4 font-medium opacity-60">Your Workspace</span>
             <div className="flex h-full flex-col gap-1 overflow-y-auto">
                 <div className="h-full flex-grow">
                     {allFilenames()

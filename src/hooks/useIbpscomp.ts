@@ -47,11 +47,7 @@ export const useIbpscomp = () => {
         }
     }, [stderr, setOutput, runId]);
 
-    const logToConsole = (
-        msg: string,
-        newline: boolean = false,
-        shift: number = 0,
-    ) => {
+    const logToConsole = (msg: string, newline: boolean = false, shift: number = 0) => {
         setOutput((output) => ({
             ...output,
             [Date.now() + shift]: `[${msg}]${newline ? "\n" : ""}`,
@@ -64,11 +60,7 @@ export const useIbpscomp = () => {
         logToConsole(`Compiling '${a}'`);
         setIsCompiling(true);
         const startCompiling = Date.now();
-        const codewithIncludes = resolveIbpsIncludes(
-            code,
-            [a],
-            filesRaw.allFiles,
-        );
+        const codewithIncludes = resolveIbpsIncludes(code, [a], filesRaw.allFiles);
         const pycode = await ibpsToPy(codewithIncludes);
         const endCompiling = Date.now();
         setIsCompiling(false);

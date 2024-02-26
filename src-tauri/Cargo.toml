@@ -1,21 +1,27 @@
 [package]
-name = "app"
+name = "ibps-ide"
 version = "0.1.0"
 description = "IBPS IDE. Now on desktop."
 authors = ["baris-inandi"]
 license = "AGPL-3.0-only"
 repository = "https://github.com/baris-inandi/ibps"
-default-run = "app"
+default-run = "ibps-ide"
 edition = "2021"
 rust-version = "1.60"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "ibps-ide"
+path = "src/tauri.rs"
+
 
 [build-dependencies]
 tauri-build = { version = "1.5.1", features = [] }
 
 [dependencies]
 tauri = { version = "1.5.4", features = [
+    "os-all",
     "shell-open",
     "macos-private-api",
     "window-maximize",

@@ -32,9 +32,7 @@ var __awaiter =
                     ? resolve(result.value)
                     : adopt(result.value).then(fulfilled, rejected);
             }
-            step(
-                (generator = generator.apply(thisArg, _arguments || [])).next(),
-            );
+            step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
     };
 var __generator =
@@ -77,8 +75,7 @@ var __generator =
                                 op[0] & 2
                                     ? y["return"]
                                     : op[0]
-                                      ? y["throw"] ||
-                                        ((t = y["return"]) && t.call(y), 0)
+                                      ? y["throw"] || ((t = y["return"]) && t.call(y), 0)
                                       : y.next) &&
                             !(t = t.call(y, op[1])).done)
                     )
@@ -103,17 +100,13 @@ var __generator =
                             continue;
                         default:
                             if (
-                                !((t = _.trys),
-                                (t = t.length > 0 && t[t.length - 1])) &&
+                                !((t = _.trys), (t = t.length > 0 && t[t.length - 1])) &&
                                 (op[0] === 6 || op[0] === 2)
                             ) {
                                 _ = 0;
                                 continue;
                             }
-                            if (
-                                op[0] === 3 &&
-                                (!t || (op[1] > t[0] && op[1] < t[3]))
-                            ) {
+                            if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) {
                                 _.label = op[1];
                                 break;
                             }
@@ -152,8 +145,7 @@ var __read =
             ar = [],
             e;
         try {
-            while ((n === void 0 || n-- > 0) && !(r = i.next()).done)
-                ar.push(r.value);
+            while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
         } catch (error) {
             e = { error: error };
         } finally {

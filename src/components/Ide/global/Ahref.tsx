@@ -2,27 +2,24 @@ import { shell } from "@tauri-apps/api";
 import { FunctionalComponent } from "preact";
 import { HTMLAttributes } from "preact/compat";
 
-interface AhrefProps extends HTMLAttributes<HTMLAnchorElement> {}
+interface AhrefProps extends HTMLAttributes<HTMLAnchorElement | HTMLButtonElement> {}
 
 const Ahref: FunctionalComponent<AhrefProps> = (props) => {
     if (window.__TAURI__) {
-        const href = String(props.href);
-        delete props.href;
         return (
-            <a
-                data-tauri-ahref={href}
+            <button
                 onClick={() => {
                     if (props.href) {
-                        shell.open(href, "open");
+                        shell.open(String(props.href));
                     }
                 }}
                 {...{
                     ...props,
-                    className: props.className + " cursor-pointer",
+                    className: props.className + " cursor-pointer inline tauri-ahref",
                 }}
             >
                 {props.children}
-            </a>
+            </button>
         );
     }
     return <a {...props}>{props.children}</a>;

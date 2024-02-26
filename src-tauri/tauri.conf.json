@@ -1,8 +1,8 @@
 {
     "$schema": "../node_modules/@tauri-apps/cli/schema.json",
     "build": {
-        "beforeBuildCommand": "bun build:all",
-        "beforeDevCommand": "bun dev",
+        "beforeBuildCommand": "bun run build || yarn run build || npm run build",
+        "beforeDevCommand": "bun run dev || yarn run dev || npm run dev",
         "devPath": "http://localhost:8080",
         "distDir": "../build"
     },
@@ -14,6 +14,9 @@
         "macOSPrivateApi": true,
         "allowlist": {
             "all": false,
+            "os": {
+                "all": true
+            },
             "shell": {
                 "open": true
             },
@@ -64,6 +67,7 @@
         },
         "bundle": {
             "active": true,
+            "publisher": "@baris-inandi",
             "category": "DeveloperTool",
             "copyright": "AGPL-v3.0-only",
             "deb": {
@@ -103,11 +107,15 @@
         },
         "windows": [
             {
-                "fullscreen": false,
-                "height": 600,
-                "resizable": true,
+                "width": 1260,
+                "height": 720,
+                "minWidth": 700,
+                "minHeight": 400,
+                "acceptFirstMouse": false,
+                "decorations": true,
                 "title": "IBPS IDE",
-                "width": 800,
+                "fullscreen": false,
+                "resizable": true,
                 "titleBarStyle": "Overlay",
                 "hiddenTitle": true,
                 "transparent": true

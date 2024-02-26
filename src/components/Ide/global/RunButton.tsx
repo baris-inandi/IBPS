@@ -6,15 +6,8 @@ import useFiles from "../../../hooks/useFiles";
 import { useIbpscomp } from "../../../hooks/useIbpscomp";
 
 const RunButton = () => {
-    const {
-        run,
-        isLoading,
-        isRunning,
-        isCompiling,
-        stop,
-        isAwaitingInput,
-        sendInput,
-    } = useIbpscomp();
+    const { run, isLoading, isRunning, isCompiling, stop, isAwaitingInput, sendInput } =
+        useIbpscomp();
     const [, setRightPanelVisible] = useAtom(rightPanelVisibleAtom);
     const { activeFile } = useFiles();
 
@@ -47,11 +40,7 @@ const RunButton = () => {
             type="button"
             id="runbutton"
             className={`highlight mr-2 flex h-full flex-shrink-0 items-center gap-1 rounded-md px-3 text-sm
-            ${
-                isLoading || isCompiling
-                    ? "cursor-default opacity-60"
-                    : "cursor-pointer"
-            }
+            ${isLoading || isCompiling ? "cursor-default opacity-60" : "cursor-pointer"}
             ${
                 isRunning
                     ? "bg-orange-600 text-white dark:bg-orange-400 dark:bg-opacity-60"
@@ -64,11 +53,7 @@ const RunButton = () => {
                     setRightPanelVisible(true);
                 }
                 // call the required function
-                (isLoading || isCompiling
-                    ? () => {}
-                    : isRunning
-                      ? stop
-                      : run)();
+                (isLoading || isCompiling ? () => {} : isRunning ? stop : run)();
             }}
         >
             {isLoading ? (

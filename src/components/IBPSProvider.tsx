@@ -6,16 +6,12 @@ import "../styles/global.css";
 import "../styles/markdown.css";
 import "../styles/tailwind.css";
 
-const IBPSProvider: FunctionalComponent<{ children?: React.ReactNode }> = (
-    props,
-) => {
+const IBPSProvider: FunctionalComponent<{ children?: React.ReactNode }> = (props) => {
     return (
         <>
             <Analytics />
             <SpeedInsights />
-            <main className="h-screen w-screen antialiased">
-                {props.children}
-            </main>
+            <main className="h-screen w-screen antialiased">{props.children}</main>
         </>
     );
 };

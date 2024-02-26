@@ -17,9 +17,7 @@ const Docs = () => {
 
     useEffect(() => {
         const outline = () => {
-            const headers = docsRef.current?.querySelectorAll(
-                "h1, h2, h3, h4, h5, h6",
-            );
+            const headers = docsRef.current?.querySelectorAll("h1, h2, h3, h4, h5, h6");
             if (!headers) return;
             const newDocsId: Array<DocsTitle> = [];
             headers.forEach((header) => {
@@ -45,11 +43,11 @@ const Docs = () => {
         >
             <div className="h1">The IBPS Programming Language</div>
             <p>
-                The International Baccalaureate (IB) Diploma Program Computer
-                Science course has a very specific Pseudocode specification. The
-                IBPS Programming Language is a high-level programming language
-                that is designed to be similar to the IB Pseudocode and fully
-                compliant with the IB's rules for writing pseudocode:
+                The International Baccalaureate (IB) Diploma Program Computer Science
+                course has a very specific Pseudocode specification. The IBPS Programming
+                Language is a high-level programming language that is designed to be
+                similar to the IB Pseudocode and fully compliant with the IB's rules for
+                writing pseudocode:
             </p>
             <ul>
                 <li>
@@ -65,15 +63,14 @@ const Docs = () => {
             </ul>
             <DocsSec level={2} text="General Syntax">
                 <p>
-                    IBPS is a superset of Python and is compliant to the IB
-                    Pseudocode standards. Therefore IBPS is an indented,
-                    strongly and dynamically typed programming language.
+                    IBPS is a superset of Python and is compliant to the IB Pseudocode
+                    standards. Therefore IBPS is an indented, strongly and dynamically
+                    typed programming language.
                 </p>
                 <DocsSec level={3} text="Indentation">
                     <p>
-                        IBPS requires scripts to be indented. It is
-                        indentation-sensitive, so code should be properly
-                        indented to run.
+                        IBPS requires scripts to be indented. It is indentation-sensitive,
+                        so code should be properly indented to run.
                     </p>
                     <DocsCode block>
                         {`
@@ -84,8 +81,7 @@ end if
 `}
                     </DocsCode>
                     <p>
-                        When indenting, prefer using <b>4 spaces</b> or one{" "}
-                        <b>tab</b>.
+                        When indenting, prefer using <b>4 spaces</b> or one <b>tab</b>.
                     </p>
                 </DocsSec>
                 <DocsSec level={3} text="Comments">
@@ -112,10 +108,7 @@ a multiline comment!
 """
 `}
                     </DocsCode>
-                    <p>
-                        All text inside comments will be ignored by the
-                        compiler.
-                    </p>
+                    <p>All text inside comments will be ignored by the compiler.</p>
                 </DocsSec>
             </DocsSec>
             <DocsSec level={2} text="Basics">
@@ -134,8 +127,8 @@ AGE = 21
                 <DocsSec level={3} text="Input/Output">
                     <DocsSec level={4} text="Output">
                         <p>
-                            Use the <DocsCode>output</DocsCode> keyword to write
-                            a value to the console.
+                            Use the <DocsCode>output</DocsCode> keyword to write a value
+                            to the console.
                         </p>
                         <DocsCode block>
                             {`
@@ -145,8 +138,8 @@ output X
 `}
                         </DocsCode>
                         <p>
-                            Alternatively, <DocsCode>output</DocsCode> can be
-                            called as a function:
+                            Alternatively, <DocsCode>output</DocsCode> can be called as a
+                            function:
                         </p>
                         <DocsCode block>
                             {`
@@ -156,11 +149,10 @@ output("Hello World!")
                     </DocsSec>
                     <DocsSec level={4} text="Input">
                         <p>
-                            Use the <DocsCode>input</DocsCode> keyword to read a
-                            value from the console. The value will be stored in
-                            the variable proceeding the keyword.{" "}
-                            <DocsCode>input</DocsCode> will always return a{" "}
-                            <DocsCode>String</DocsCode>.
+                            Use the <DocsCode>input</DocsCode> keyword to read a value
+                            from the console. The value will be stored in the variable
+                            proceeding the keyword. <DocsCode>input</DocsCode> will always
+                            return a <DocsCode>String</DocsCode>.
                         </p>
                         <DocsCode block>
                             {`
@@ -170,8 +162,8 @@ output "Hello " + NAME + "!"
 `}
                         </DocsCode>
                         <p>
-                            Similarly, <DocsCode>input</DocsCode> can be called
-                            as a funciton:{" "}
+                            Similarly, <DocsCode>input</DocsCode> can be called as a
+                            funciton:{" "}
                         </p>
                         <DocsCode block>
                             {`
@@ -181,8 +173,8 @@ output "Hello " + NAME + "!"
                         </DocsCode>
                         <DocsSec level={4} text="Input Casting">
                             <p>
-                                As of compiler version 0.2.3, inputs can have a
-                                specified type. For example:
+                                As of compiler version 0.2.3, inputs can have a specified
+                                type. For example:
                             </p>
                             <DocsCode block>
                                 {`
@@ -196,30 +188,27 @@ input AGE
 AGE = Integer(AGE)
                                 `}
                             </DocsCode>
-                            <p>
-                                Input casting can be used to cast an input to
-                                any type:
-                            </p>
+                            <p>Input casting can be used to cast an input to any type:</p>
                             <DocsCode block>{`
 Double input FOO
 Boolean input BAR
 Integer input BAZ
                             `}</DocsCode>
                             <p>
-                                Note that if the given input cannot be converted
-                                to the specified type, for example, if the user
-                                inputs "Hello" to an integer-cast input, a{" "}
-                                <DocsCode>ValueError</DocsCode> will be raised.
+                                Note that if the given input cannot be converted to the
+                                specified type, for example, if the user inputs "Hello" to
+                                an integer-cast input, a <DocsCode>ValueError</DocsCode>{" "}
+                                will be raised.
                             </p>
                         </DocsSec>
                     </DocsSec>
                 </DocsSec>
                 <DocsSec level={3} text="Functions (Submethods)">
                     <p>
-                        IBPS functions are defined using the{" "}
-                        <DocsCode>sub</DocsCode> keyword. The body of a function
-                        should be indented and the function should be ended
-                        using the <DocsCode>end</DocsCode> keyword.
+                        IBPS functions are defined using the <DocsCode>sub</DocsCode>{" "}
+                        keyword. The body of a function should be indented and the
+                        function should be ended using the <DocsCode>end</DocsCode>{" "}
+                        keyword.
                     </p>
                     <p>Function calls are made using the paranthesis syntax</p>
                     <DocsCode block>
@@ -231,10 +220,7 @@ end sub
 greet() // prints "Hello World!"
 `}
                     </DocsCode>
-                    <p>
-                        Function parameters can be defined inside the
-                        parantheses:
-                    </p>
+                    <p>Function parameters can be defined inside the parantheses:</p>
                     <DocsCode block>
                         {`
 sub greet(NAME, LAST_NAME)
@@ -289,10 +275,9 @@ end loop
                             `}
                         </DocsCode>
                         <p>
-                            Note that ranges in IBPS for-loops are inclusive.
-                            Therefore, iterating over an{" "}
-                            <DocsCode>Array</DocsCode> using the index can be
-                            done like so:
+                            Note that ranges in IBPS for-loops are inclusive. Therefore,
+                            iterating over an <DocsCode>Array</DocsCode> using the index
+                            can be done like so:
                         </p>
                         <DocsCode block>
                             {`
@@ -313,10 +298,10 @@ end loop
 `}
                         </DocsCode>
                         <p>
-                            Even though the IB Pseudocode specification does not
-                            implement this feature, to directly iterate over
-                            elements of an iterable (instead of its indices),
-                            Python notation for-loops can be used:
+                            Even though the IB Pseudocode specification does not implement
+                            this feature, to directly iterate over elements of an iterable
+                            (instead of its indices), Python notation for-loops can be
+                            used:
                         </p>
                         <DocsCode block>
                             {`
@@ -345,16 +330,16 @@ end loop
 `}
                         </DocsCode>
                         <p>
-                            The code block will be repeated until the condition
-                            is no longer met. Note that the condition is checked
-                            before execution, so the code block will never run
-                            if the condition is not met initially.
+                            The code block will be repeated until the condition is no
+                            longer met. Note that the condition is checked before
+                            execution, so the code block will never run if the condition
+                            is not met initially.
                         </p>
                     </DocsSec>
                     <DocsSec level={4} text="Until Loops (do...while)">
                         <p>
-                            Until loops (called <DocsCode>do...while</DocsCode>{" "}
-                            in some languages) are formatted like so:
+                            Until loops (called <DocsCode>do...while</DocsCode> in some
+                            languages) are formatted like so:
                         </p>
                         <DocsCode block>
                             {`
@@ -367,17 +352,17 @@ end loop
 `}
                         </DocsCode>
                         <p>
-                            The only difference between a while loop and an
-                            until loop is that the condition is checked after
-                            the code block is executed. This guarantees that the
-                            code block will run at least once.
+                            The only difference between a while loop and an until loop is
+                            that the condition is checked after the code block is
+                            executed. This guarantees that the code block will run at
+                            least once.
                         </p>
                     </DocsSec>
                 </DocsSec>
                 <DocsSec level={3} text="Classes">
                     <p>
-                        Classes can be defined using Python syntax. Submethods
-                        can be defined using IBPS notation:
+                        Classes can be defined using Python syntax. Submethods can be
+                        defined using IBPS notation:
                     </p>
                     <DocsCode block>
                         {`
@@ -398,9 +383,9 @@ end class
                 </DocsSec>
                 <DocsSec level={3} text="Includes">
                     <p>
-                        Since IDE version <DocsCode>0.6.3</DocsCode>, IBPS
-                        supports importing other IBPS files using the{" "}
-                        <DocsCode>include</DocsCode> keyword:
+                        Since IDE version <DocsCode>0.6.3</DocsCode>, IBPS supports
+                        importing other IBPS files using the <DocsCode>include</DocsCode>{" "}
+                        keyword:
                     </p>
                     <DocsCode block>
                         {`
@@ -410,28 +395,25 @@ include otherfile
 `}
                     </DocsCode>
                     <p>
-                        Note that the <DocsCode>import</DocsCode> keyword
-                        imports Python modules, not IBPS files.{" "}
-                        <DocsCode>include</DocsCode> and{" "}
+                        Note that the <DocsCode>import</DocsCode> keyword imports Python
+                        modules, not IBPS files. <DocsCode>include</DocsCode> and{" "}
                         <DocsCode>import</DocsCode> are not interchangeable.
                     </p>
                     <p>
-                        When including, IBPS checks for circular dependencies.
-                        Do not let two IBPS files include each other.
+                        When including, IBPS checks for circular dependencies. Do not let
+                        two IBPS files include each other.
                     </p>
                 </DocsSec>
                 <DocsSec level={3} text="The 'end' Keyword">
                     <p>
-                        IBPS uses the <DocsCode>end</DocsCode> keyword to end a
-                        scope.
+                        IBPS uses the <DocsCode>end</DocsCode> keyword to end a scope.
                     </p>
                     <p>
-                        <b>Pro Tip: </b>While the IB Pseudocode specification
-                        requires the usage of the <DocsCode>end</DocsCode>{" "}
-                        keyword, IBPS tolerates the omission of{" "}
-                        <DocsCode>end</DocsCode> statements. Hence, the
-                        following example should compile as long as indentation
-                        is correct:
+                        <b>Pro Tip: </b>While the IB Pseudocode specification requires the
+                        usage of the <DocsCode>end</DocsCode> keyword, IBPS tolerates the
+                        omission of <DocsCode>end</DocsCode> statements. Hence, the
+                        following example should compile as long as indentation is
+                        correct:
                     </p>
                     <DocsCode block>
                         {`
@@ -446,16 +428,15 @@ if true then
                     <DocsSec level={4} text="Boolean">
                         <p>
                             Booleans literals are represented using the{" "}
-                            <DocsCode>true</DocsCode> and{" "}
-                            <DocsCode>false</DocsCode> singletons.
+                            <DocsCode>true</DocsCode> and <DocsCode>false</DocsCode>{" "}
+                            singletons.
                         </p>
                     </DocsSec>
                     <DocsSec level={4} text="Integer">
                         <p>
-                            The <DocsCode>Integer</DocsCode> class is used to
-                            represent integers. To convert any compatible type
-                            to an integer, call the constructor and pass the
-                            value:
+                            The <DocsCode>Integer</DocsCode> class is used to represent
+                            integers. To convert any compatible type to an integer, call
+                            the constructor and pass the value:
                         </p>
                         <DocsCode block>
                             {`
@@ -470,10 +451,9 @@ BAZ = Integer(3.14) // Removes all decimal places, returns 3
                             Floating-point values are represented using the{" "}
                             <DocsCode>Double</DocsCode> class. In IBPS,{" "}
                             <DocsCode>Float</DocsCode> is an alias for{" "}
-                            <DocsCode>Double</DocsCode>. All floating-point
-                            values are double-precision. To convert any
-                            compatible type to a double, call the constructor
-                            and pass the value:
+                            <DocsCode>Double</DocsCode>. All floating-point values are
+                            double-precision. To convert any compatible type to a double,
+                            call the constructor and pass the value:
                         </p>
                         <DocsCode block>
                             {`
@@ -486,16 +466,13 @@ QUX = Float("3.14") // returns 3.14
                     </DocsSec>
                     <DocsSec level={4} text="NoneType">
                         <p>
-                            In IBPS, the <DocsCode>null</DocsCode> singleton
-                            represents a value that does not exist.{" "}
-                            <DocsCode>NoneType</DocsCode> is the type of{" "}
-                            <DocsCode>null</DocsCode>.
+                            In IBPS, the <DocsCode>null</DocsCode> singleton represents a
+                            value that does not exist. <DocsCode>NoneType</DocsCode> is
+                            the type of <DocsCode>null</DocsCode>.
                         </p>
                         <p>
-                            Note that <DocsCode>null</DocsCode>,{" "}
-                            <DocsCode>none</DocsCode>, and{" "}
-                            <DocsCode>None</DocsCode> can be used
-                            interchangeably.
+                            Note that <DocsCode>null</DocsCode>, <DocsCode>none</DocsCode>
+                            , and <DocsCode>None</DocsCode> can be used interchangeably.
                         </p>
                         <p>
                             For example, a function is equivalent to{" "}
@@ -511,8 +488,8 @@ X = doesNotReturn() // X is null.
 `}
                         </DocsCode>
                         <p>
-                            <DocsCode>null</DocsCode> also can be used to
-                            initialize an object:
+                            <DocsCode>null</DocsCode> also can be used to initialize an
+                            object:
                         </p>
                         <DocsCode block>
                             {`
@@ -539,9 +516,8 @@ BAZ = String() // returns an empty string
                                 `}
                             </DocsCode>
                             <p>
-                                Even though you will lose access to
-                                IBPS-specific methods, in most cases, using a
-                                literal to initialize a Python{" "}
+                                Even though you will lose access to IBPS-specific methods,
+                                in most cases, using a literal to initialize a Python{" "}
                                 <DocsCode>str</DocsCode> will work:
                             </p>
                             <DocsCode block>
@@ -554,13 +530,13 @@ output FOO.length // Won't work because Python does not implement the "length" p
                         <DocsSec level={5} text="String Methods and Properties">
                             <ul>
                                 <li>
-                                    <DocsCode>.length</DocsCode> returns the
-                                    length of the string.
+                                    <DocsCode>.length</DocsCode> returns the length of the
+                                    string.
                                 </li>
                             </ul>
                             <p>
-                                All other Python <DocsCode>str</DocsCode>{" "}
-                                methods and properties are inherited. See{" "}
+                                All other Python <DocsCode>str</DocsCode> methods and
+                                properties are inherited. See{" "}
                                 <Ahref href="https://docs.python.org/3/library/stdtypes.html#string-methods">
                                     Python Docs.
                                 </Ahref>
@@ -568,10 +544,7 @@ output FOO.length // Won't work because Python does not implement the "length" p
                         </DocsSec>
                     </DocsSec>
                     <DocsSec level={4} text="Array">
-                        <p>
-                            In IBPS, there are three ways to initialize an
-                            Array:
-                        </p>
+                        <p>In IBPS, there are three ways to initialize an Array:</p>
                         <ul>
                             <li>
                                 <DocsCode>Array()</DocsCode>
@@ -585,13 +558,12 @@ output FOO.length // Won't work because Python does not implement the "length" p
                         </ul>
                         <DocsSec text="Array Constructor" level={5}>
                             <p>
-                                The <DocsCode>Array</DocsCode> constructor can
-                                be used to create a null array of specified
-                                dimensions.
+                                The <DocsCode>Array</DocsCode> constructor can be used to
+                                create a null array of specified dimensions.
                             </p>
                             <p>
-                                An optional second argument can be passed to set
-                                the initial value of each item of the{" "}
+                                An optional second argument can be passed to set the
+                                initial value of each item of the{" "}
                                 <DocsCode>Array</DocsCode>.
                             </p>
                             <DocsCode block>
@@ -603,10 +575,8 @@ BAR = Array(3, 0) // [0, 0, 0]
                         </DocsSec>
                         <DocsSec text="Initialize using 'fromValues'" level={5}>
                             <p>
-                                Alternatively, the{" "}
-                                <DocsCode>fromValues</DocsCode> method can be
-                                used to initialize an array with specified
-                                values:
+                                Alternatively, the <DocsCode>fromValues</DocsCode> method
+                                can be used to initialize an array with specified values:
                             </p>
                             <DocsCode block>
                                 {`
@@ -619,15 +589,14 @@ output FOO // ["First", "Second", "Third"]
                             <p>
                                 Note that Python list literals, like{" "}
                                 <DocsCode>[1,2,3]</DocsCode>, are not{" "}
-                                <DocsCode>Array</DocsCode> object. The Python
-                                'square bracket' syntax returns a Python{" "}
-                                <DocsCode>list</DocsCode> object that does not
-                                include IBPS-specific methods.
+                                <DocsCode>Array</DocsCode> object. The Python 'square
+                                bracket' syntax returns a Python <DocsCode>list</DocsCode>{" "}
+                                object that does not include IBPS-specific methods.
                             </p>
                             <p>
                                 As of compiler version 0.2.7, a Python{" "}
-                                <DocsCode>list</DocsCode> can be converted into
-                                an <DocsCode>Array</DocsCode>, using the
+                                <DocsCode>list</DocsCode> can be converted into an{" "}
+                                <DocsCode>Array</DocsCode>, using the
                                 <DocsCode>fromList</DocsCode> method:
                             </p>
                             <DocsCode block>
@@ -639,9 +608,7 @@ FOO = Array.fromList(FOO) // Now it is an IBPS Array.
                         </DocsSec>
                     </DocsSec>
                     <DocsSec level={5} text="Accessing Indices">
-                        <p>
-                            Indices can be used to access values in the array:
-                        </p>
+                        <p>Indices can be used to access values in the array:</p>
                         <DocsCode block>
                             {`
 FOO = Array(4)
@@ -654,17 +621,17 @@ output FOO[0] // prints "First"
                     <DocsSec text="Array Methods and Properties" level={5}>
                         <ul>
                             <li>
-                                <DocsCode>.push()</DocsCode> appends a value at
-                                the end of the array.
+                                <DocsCode>.push()</DocsCode> appends a value at the end of
+                                the array.
                             </li>
                             <li>
-                                <DocsCode>.length</DocsCode> returns the length
-                                of the array.
+                                <DocsCode>.length</DocsCode> returns the length of the
+                                array.
                             </li>
                         </ul>
                         <p>
-                            All other Python <DocsCode>list</DocsCode> methods
-                            and properties are inherited. See{" "}
+                            All other Python <DocsCode>list</DocsCode> methods and
+                            properties are inherited. See{" "}
                             <Ahref href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">
                                 Python Docs.
                             </Ahref>
@@ -673,10 +640,9 @@ output FOO[0] // prints "First"
                     <DocsSec level={4} text="Collection">
                         <DocsSec level={5} text="Collection Constructor">
                             <p>
-                                The <DocsCode>Collection</DocsCode> constructor
-                                can be used to create a new collection.
-                                Optionally, you can pass values to the
-                                constructor to initialize.
+                                The <DocsCode>Collection</DocsCode> constructor can be
+                                used to create a new collection. Optionally, you can pass
+                                values to the constructor to initialize.
                             </p>
                             <DocsCode block>
                                 {`
@@ -685,38 +651,34 @@ BAR = Collection(1,2,3) // Collection[1,2,3]
                                 `}
                             </DocsCode>
                         </DocsSec>
-                        <DocsSec
-                            level={5}
-                            text="Collection Methods and Properties"
-                        >
+                        <DocsSec level={5} text="Collection Methods and Properties">
                             <ul>
                                 <li>
-                                    <DocsCode>.addItem(value)</DocsCode> adds a
-                                    value to the collection.
+                                    <DocsCode>.addItem(value)</DocsCode> adds a value to
+                                    the collection.
                                 </li>
                                 <li>
-                                    <DocsCode>.isEmpty()</DocsCode> returns
-                                    whether the collection is empty.
+                                    <DocsCode>.isEmpty()</DocsCode> returns whether the
+                                    collection is empty.
                                 </li>
                                 <li>
-                                    <DocsCode>.hasNext()</DocsCode> returns
-                                    whether the collection has a next element.
+                                    <DocsCode>.hasNext()</DocsCode> returns whether the
+                                    collection has a next element.
                                 </li>
                                 <li>
-                                    <DocsCode>.getNext()</DocsCode> returns the
-                                    next element.
+                                    <DocsCode>.getNext()</DocsCode> returns the next
+                                    element.
                                 </li>
                                 <li>
-                                    <DocsCode>.resetNext()</DocsCode> resets the
-                                    iterator.
+                                    <DocsCode>.resetNext()</DocsCode> resets the iterator.
                                 </li>
                                 <li>
-                                    <DocsCode>.pop()</DocsCode> removes and
-                                    returns the last element.
+                                    <DocsCode>.pop()</DocsCode> removes and returns the
+                                    last element.
                                 </li>
                                 <li>
-                                    <DocsCode>.length</DocsCode> returns the
-                                    length of the collection.
+                                    <DocsCode>.length</DocsCode> returns the length of the
+                                    collection.
                                 </li>
                             </ul>
                         </DocsSec>
@@ -724,10 +686,9 @@ BAR = Collection(1,2,3) // Collection[1,2,3]
                     <DocsSec level={4} text="Stack">
                         <DocsSec level={5} text="Stack Constructor">
                             <p>
-                                The <DocsCode>Stack</DocsCode> constructor can
-                                be used to create a new stack. Optionally, you
-                                can pass values to the constructor to
-                                initialize.
+                                The <DocsCode>Stack</DocsCode> constructor can be used to
+                                create a new stack. Optionally, you can pass values to the
+                                constructor to initialize.
                             </p>
                             <DocsCode block>
                                 {`
@@ -739,24 +700,23 @@ BAR = Stack(1,2,3) // Stack[1,2,3]
                         <DocsSec level={5} text="Stack Methods and Properties">
                             <ul>
                                 <li>
-                                    <DocsCode>.push(value)</DocsCode> adds a
-                                    value to the stack.
+                                    <DocsCode>.push(value)</DocsCode> adds a value to the
+                                    stack.
                                 </li>
                                 <li>
-                                    <DocsCode>.isEmpty()</DocsCode> returns
-                                    whether the stack is empty.
+                                    <DocsCode>.isEmpty()</DocsCode> returns whether the
+                                    stack is empty.
                                 </li>
                                 <li>
-                                    <DocsCode>.peek()</DocsCode> returns the
-                                    next element
+                                    <DocsCode>.peek()</DocsCode> returns the next element
                                 </li>
                                 <li>
-                                    <DocsCode>.pop()</DocsCode> removes and
-                                    returns the last element.
+                                    <DocsCode>.pop()</DocsCode> removes and returns the
+                                    last element.
                                 </li>
                                 <li>
-                                    <DocsCode>.length</DocsCode> returns the
-                                    length of the collection.
+                                    <DocsCode>.length</DocsCode> returns the length of the
+                                    collection.
                                 </li>
                             </ul>
                         </DocsSec>
@@ -764,10 +724,9 @@ BAR = Stack(1,2,3) // Stack[1,2,3]
                     <DocsSec level={4} text="Queue">
                         <DocsSec level={5} text="Queue Constructor">
                             <p>
-                                The <DocsCode>Queue</DocsCode> constructor can
-                                be used to create a new queue. Optionally, you
-                                can pass values to the constructor to
-                                initialize.
+                                The <DocsCode>Queue</DocsCode> constructor can be used to
+                                create a new queue. Optionally, you can pass values to the
+                                constructor to initialize.
                             </p>
                             <DocsCode block>
                                 {`
@@ -779,36 +738,35 @@ BAR = Queue(1,2,3) // Queue[1,2,3]
                         <DocsSec level={5} text="Queue Methods and Properties">
                             <ul>
                                 <li>
-                                    <DocsCode>.enqueue(value)</DocsCode> adds a
-                                    value to the queue.
+                                    <DocsCode>.enqueue(value)</DocsCode> adds a value to
+                                    the queue.
                                 </li>
                                 <li>
-                                    <DocsCode>.dequeue()</DocsCode> removes and
-                                    returns the last element of the queue.
+                                    <DocsCode>.dequeue()</DocsCode> removes and returns
+                                    the last element of the queue.
                                 </li>
                                 <li>
-                                    <DocsCode>.isEmpty()</DocsCode> returns
-                                    whether the queue is empty.
+                                    <DocsCode>.isEmpty()</DocsCode> returns whether the
+                                    queue is empty.
                                 </li>
                                 <li>
-                                    <DocsCode>.length</DocsCode> returns the
-                                    length of the queue.
+                                    <DocsCode>.length</DocsCode> returns the length of the
+                                    queue.
                                 </li>
                             </ul>
                         </DocsSec>
                     </DocsSec>
                     <DocsSec level={4} text="HashMap">
                         <blockquote>
-                            Dictionaries are sometimes found in other languages
-                            as “associative memories” or “associative arrays”.
-                            Unlike sequences, which are indexed by a range of
-                            numbers, dictionaries are indexed by keys, which can
-                            be any immutable type; strings and numbers can
-                            always be keys.
+                            Dictionaries are sometimes found in other languages as
+                            “associative memories” or “associative arrays”. Unlike
+                            sequences, which are indexed by a range of numbers,
+                            dictionaries are indexed by keys, which can be any immutable
+                            type; strings and numbers can always be keys.
                         </blockquote>
                         <p>
-                            <DocsCode>HashMap</DocsCode> is an alias for
-                            Python's <DocsCode>dict</DocsCode>.
+                            <DocsCode>HashMap</DocsCode> is an alias for Python's{" "}
+                            <DocsCode>dict</DocsCode>.
                         </p>
                         <p>
                             All methods and properties are inherited from{" "}
@@ -820,11 +778,11 @@ BAR = Queue(1,2,3) // Queue[1,2,3]
                     </DocsSec>
                     <DocsSec level={4} text="Set">
                         <blockquote>
-                            A set is an unordered collection with no duplicate
-                            elements. Basic uses include membership testing and
-                            eliminating duplicate entries. Set objects also
-                            support mathematical operations like union,
-                            intersection, difference, and symmetric difference.
+                            A set is an unordered collection with no duplicate elements.
+                            Basic uses include membership testing and eliminating
+                            duplicate entries. Set objects also support mathematical
+                            operations like union, intersection, difference, and symmetric
+                            difference.
                         </blockquote>
                         <p>
                             <DocsCode>Set</DocsCode> is an alias for Python's{" "}
@@ -860,8 +818,8 @@ BAR = Queue(1,2,3) // Queue[1,2,3]
                 </DocsSec>
                 <DocsSec level={3} text="IBPS Standard Library Classes">
                     <p>
-                        Always prefer using IBPS classes instead of Python
-                        classes. For example:
+                        Always prefer using IBPS classes instead of Python classes. For
+                        example:
                     </p>
                     <DocsCode block>
                         {`
@@ -877,8 +835,8 @@ DO = String(42) // Preferred way. Has access to IBPS methods.
             </DocsSec>
             <DocsSec level={2} text="Further Help">
                 <p>
-                    <b>Pro Tip: </b>To get help on a specific class or function,
-                    call the <DocsCode>help</DocsCode> function. Try{" "}
+                    <b>Pro Tip: </b>To get help on a specific class or function, call the{" "}
+                    <DocsCode>help</DocsCode> function. Try{" "}
                     <DocsCode>help(Stack)</DocsCode>!
                 </p>
             </DocsSec>

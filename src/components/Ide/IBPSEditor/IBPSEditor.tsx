@@ -21,15 +21,10 @@ const IBPSEditor = () => {
 
     return (
         <div className="h-full w-full" id="ibpseditor">
-            <div
-                className={
-                    activeFile === "Documentation" ? "block h-full" : "hidden"
-                }
-            >
+            <div className={activeFile === "Documentation" ? "block h-full" : "hidden"}>
                 <Docs />
             </div>
-            {activeFile === "Documentation" ? null : activeFile ===
-              "Welcome" ? (
+            {activeFile === "Documentation" ? null : activeFile === "Welcome" ? (
                 <Welcome />
             ) : (
                 <AceEditor
@@ -38,11 +33,7 @@ const IBPSEditor = () => {
                     value={ibpsCode}
                     mode="python"
                     showPrintMargin={false}
-                    theme={
-                        prefersColorScheme === "dark"
-                            ? "dracula"
-                            : "cloud_editor"
-                    }
+                    theme={prefersColorScheme === "dark" ? "dracula" : "cloud_editor"}
                     fontSize={codeFontSize}
                     onChange={(val) => {
                         if (!isWelcomePage()) {

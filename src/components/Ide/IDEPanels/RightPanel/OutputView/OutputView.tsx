@@ -43,11 +43,7 @@ const IBPSEditor = () => {
             }
             mode="plain_text"
             showPrintMargin={false}
-            theme={
-                prefersColorScheme === "dark"
-                    ? "tomorrow_night"
-                    : "cloud_editor"
-            }
+            theme={prefersColorScheme === "dark" ? "tomorrow_night" : "cloud_editor"}
             fontSize={codeFontSize - codeFontSize / 8}
             name="IBPSOutput"
             height="100%"

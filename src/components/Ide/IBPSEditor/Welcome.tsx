@@ -6,29 +6,23 @@ const Welcome = () => {
         <div className="flex h-full w-full select-text flex-col gap-5 overflow-y-auto bg-white p-10 pb-20 dark:bg-idedark-1000">
             <p className="pb-1 text-2xl font-bold">Welcome to the IBPS IDE!</p>
             <p>
-                This integrated development environment lets you create, edit,
-                run, and share your IBPS scripts right on your browser.
+                This integrated development environment lets you create, edit, run, and
+                share your IBPS scripts right on your browser.
             </p>
             <p>
-                IBPS is a scripting language based on the pseudocode
-                specification of the International Baccalaureate Diploma Program
-                Computer Science course.
+                IBPS is a scripting language based on the pseudocode specification of the
+                International Baccalaureate Diploma Program Computer Science course.
             </p>
             <p>
-                Use the <b>files pane</b> on the left-hand side to create,
-                rename, delete, import, or export any IBPS files. Use this pane
-                to edit the selected file. All progress is automatically saved
-                on your computer.
+                Use the <b>files pane</b> on the left-hand side to create, rename, delete,
+                import, or export any IBPS files. Use this pane to edit the selected file.
+                All progress is automatically saved on your computer.
             </p>
             <p>
-                Finally, click the "Run" button above to run the code in the
-                active file. The <b>output</b> will be shown on the{" "}
-                <b>output pane</b> to the right.
+                Finally, click the "Run" button above to run the code in the active file.
+                The <b>output</b> will be shown on the <b>output pane</b> to the right.
             </p>
-            <p>
-                Here's an example of a simple IBPS program that prints "Hello,
-                World!":
-            </p>
+            <p>Here's an example of a simple IBPS program that prints "Hello, World!":</p>
             <DocsCode block>{'output "Hello World!"'}</DocsCode>
             <p>
                 Now click the <b>Run</b> button to see the output!

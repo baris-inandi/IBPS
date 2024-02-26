@@ -11,9 +11,7 @@ interface DocsSecProps {
 
 const DocsSec: FunctionalComponent<DocsSecProps> = (props) => {
     const Header = `h${props.level}` as keyof JSX.IntrinsicElements;
-    const _id = `docs-${props.text.toLowerCase().replace(/ /g, "-")}-${
-        props.level
-    }`;
+    const _id = `docs-${props.text.toLowerCase().replace(/ /g, "-")}-${props.level}`;
 
     const [, setDocsId] = useAtom(docsIdAtom);
 
@@ -24,9 +22,7 @@ const DocsSec: FunctionalComponent<DocsSecProps> = (props) => {
     return (
         <details open={true} id={_id + "-details"}>
             <summary
-                className={`${
-                    props.level <= 2 ? "pt-7" : "pt-5"
-                } cursor-pointer select-none`}
+                className={`${props.level <= 2 ? "pt-7" : "pt-5"} cursor-pointer select-none`}
             >
                 <Header id={_id} className="inline">
                     {props.text}

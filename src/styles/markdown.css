@@ -82,7 +82,8 @@
     @apply ml-4;
 }
 
-.markdown a {
+.markdown a,
+.markdown .tauri-ahref {
     @apply pt-1 leading-snug underline underline-offset-4;
 }
 

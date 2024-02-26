@@ -4,7 +4,7 @@
     "singleQuote": false,
     "trailingComma": "all",
     "endOfLine": "lf",
-    "printWidth": 80,
+    "printWidth": 90,
     "semi": true,
     "quoteProps": "consistent",
     "bracketSameLine": false,

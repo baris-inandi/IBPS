@@ -22,23 +22,23 @@ fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_window_state::Builder::default().build())
         .setup(|app| {
+            #[allow(unused_variables)]
             let window = app.get_window("main").unwrap();
 
             #[allow(dead_code)]
             #[cfg(target_os = "macos")]
             apply_vibrancy(&window, NSVisualEffectMaterial::HudWindow, None, None)
-                .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
+                .expect("Unsupported platform.");
 
             #[allow(dead_code)]
             #[cfg(target_os = "windows")]
-            apply_mica(&window, None)
-                .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
+            apply_mica(&window, None).expect("Unsupported platform.");
 
             Ok(())
         })
         .on_window_event(|e| {
             if let WindowEvent::Resized(_) = e.event() {
-                std::thread::sleep(std::time::Duration::from_millis(4));
+                std::thread::sleep(std::time::Duration::from_millis(5));
             }
         })
         .invoke_handler(tauri::generate_handler![

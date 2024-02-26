@@ -18,9 +18,8 @@ const DocumentationNavigator = () => {
                                   ).forEach((x) => (x.open = true));
                                   document.getElementById("ibpsdocs")?.scroll({
                                       top:
-                                          (document.getElementById(
-                                              docsHeading.id,
-                                          )?.offsetTop ?? 0) - 40,
+                                          (document.getElementById(docsHeading.id)
+                                              ?.offsetTop ?? 0) - 40,
                                   });
                               }}
                               style={{

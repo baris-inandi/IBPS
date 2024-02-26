@@ -13,9 +13,7 @@ interface FilesPanelFileButtonProps {
     forceIcon?: IconType;
 }
 
-const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (
-    props,
-) => {
+const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (props) => {
     const { activeFile, deleteFile, renameFile, setActiveFile } = useFiles();
 
     return (
@@ -55,10 +53,8 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (
                                     type="button"
                                     onClick={() => {
                                         const n =
-                                            prompt(
-                                                `Rename ${props.text}`,
-                                                props.text,
-                                            ) ?? "";
+                                            prompt(`Rename ${props.text}`, props.text) ??
+                                            "";
                                         renameFile(props.text, n);
                                     }}
                                 >

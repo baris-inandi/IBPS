@@ -8,9 +8,7 @@ import { CONSOLE_WELCOME_MSG } from "../../../lib/welcome";
 const ConsoleSectionTabs = () => {
     const [, setOutput] = useAtom(outputAtom);
     const { activeFile } = useFiles();
-    const [rightPanelVisible, setRightPanelVisible] = useAtom(
-        rightPanelVisibleAtom,
-    );
+    const [rightPanelVisible, setRightPanelVisible] = useAtom(rightPanelVisibleAtom);
 
     return (
         <div className="flex h-full w-full items-center justify-between text-sm">
@@ -22,9 +20,7 @@ const ConsoleSectionTabs = () => {
             <div className="flex h-full items-center gap-3 px-4">
                 <div
                     className={
-                        activeFile === "Documentation"
-                            ? "hidden h-full"
-                            : "h-full"
+                        activeFile === "Documentation" ? "hidden h-full" : "h-full"
                     }
                 >
                     <button

@@ -3,10 +3,7 @@ import { atomWithStorage } from "jotai/utils";
 import prettyBytes from "pretty-bytes";
 import { DocsTitle as DocsHeader } from "../components/Ide/IBPSEditor/Docs/Docs";
 import IFiles from "../lib/IFiles";
-import {
-    DISK_USAGE_CAP_BYTES,
-    jsonSizeInBytes,
-} from "../lib/jsonDiskUsageUtils";
+import { DISK_USAGE_CAP_BYTES, jsonSizeInBytes } from "../lib/jsonDiskUsageUtils";
 import { CONSOLE_WELCOME_MSG, WELCOME_CODE } from "../lib/welcome";
 
 export const INITIAL_FILES = {
@@ -22,9 +19,7 @@ export const usedDiskSpaceAtom = atom((get) => {
     return {
         usedBytes: usedSpace,
         usedBytesRepr: prettyBytes(
-            usedSpace >= DISK_USAGE_CAP_BYTES
-                ? DISK_USAGE_CAP_BYTES
-                : usedSpace,
+            usedSpace >= DISK_USAGE_CAP_BYTES ? DISK_USAGE_CAP_BYTES : usedSpace,
         ),
         availableBytes: DISK_USAGE_CAP_BYTES,
         availableBytesRepr: prettyBytes(DISK_USAGE_CAP_BYTES),
@@ -41,19 +36,13 @@ export const ibpsCodeAtom = atom((get) => {
     return code ?? "";
 });
 
-export const filesAtom = atomWithStorage<IFiles>(
-    "jotai__filesAtom",
-    INITIAL_FILES,
-);
+export const filesAtom = atomWithStorage<IFiles>("jotai__filesAtom", INITIAL_FILES);
 
 export const outputAtom = atom<Record<number, string>>({
     "0": CONSOLE_WELCOME_MSG,
 });
 
-export const codeFontSizeAtom = atomWithStorage<number>(
-    "jotai__codeFontSizeAtom",
-    16,
-);
+export const codeFontSizeAtom = atomWithStorage<number>("jotai__codeFontSizeAtom", 16);
 
 export const docsIdAtom = atom<Array<DocsHeader>>([]);
 

@@ -13,15 +13,10 @@ const IBPSEditor = () => {
 
     return (
         <div className="h-full w-full" id="ibpseditor">
-            <div
-                className={
-                    activeFile === "Documentation" ? "block h-full" : "hidden"
-                }
-            >
+            <div className={activeFile === "Documentation" ? "block h-full" : "hidden"}>
                 <Docs />
             </div>
-            {activeFile === "Documentation" ? null : activeFile ===
-              "Welcome" ? (
+            {activeFile === "Documentation" ? null : activeFile === "Welcome" ? (
                 <Welcome />
             ) : (
                 <div className="h-full w-full bg-white font-mono dark:bg-idedark-1000">
