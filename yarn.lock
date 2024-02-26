@@ -1202,8 +1202,8 @@ __metadata:
 
 "ibpscomp-rs@file:./ibpscomp-rs/pkg::locator=ibps-ide%40workspace%3A.":
   version: 0.2.20
-  resolution: "ibpscomp-rs@file:./ibpscomp-rs/pkg#./ibpscomp-rs/pkg::hash=fd407d&locator=ibps-ide%40workspace%3A."
-  checksum: 10c0/7edabecaf3b0a6deb4c8920fb96bf4eb7e360e3e3c390f352352e675d2cf9f9faa4ced05eca1205773560036df6a79f3a3da8672d2f5021098ffee71c322f44a
+  resolution: "ibpscomp-rs@file:./ibpscomp-rs/pkg#./ibpscomp-rs/pkg::hash=29b408&locator=ibps-ide%40workspace%3A."
+  checksum: 10c0/42302053df561753ae808146c86b172ab87705b2d29c0412c7c4839bbbdf29c0af3bd9f6690aaaa6ee7ca52cfd071827eb0cc9b586ca237308147f829440b135
   languageName: node
   linkType: hard
 

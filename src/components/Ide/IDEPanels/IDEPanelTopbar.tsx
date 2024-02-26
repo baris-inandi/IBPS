@@ -1,3 +1,5 @@
+import { FunctionalComponent } from "preact";
+
 interface IDEPanelTopbarProps {
     children?: React.ReactNode;
     pl?: boolean;

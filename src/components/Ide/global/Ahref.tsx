@@ -6,14 +6,20 @@ interface AhrefProps extends HTMLAttributes<HTMLAnchorElement> {}
 
 const Ahref: FunctionalComponent<AhrefProps> = (props) => {
     if (window.__TAURI__) {
+        const href = String(props.href);
+        delete props.href;
         return (
             <a
+                data-tauri-ahref={href}
                 onClick={() => {
                     if (props.href) {
-                        shell.open(String(props.href));
+                        shell.open(href, "open");
                     }
                 }}
-                {...{ ...props, href: "javascript:;" }}
+                {...{
+                    ...props,
+                    className: props.className + " cursor-pointer",
+                }}
             >
                 {props.children}
             </a>
