@@ -79,7 +79,7 @@
             ],
             "identifier": "com.ibps.ide",
             "shortDescription": "IBPS IDE. Now on desktop.",
-            "longDescription": "IBPS IDE. Now on desktop. Write, edit, share, and run IB Pseudocode scripts with ease.",
+            "longDescription": "IBPS IDE. Now on desktop. Write, edit, share, and run IBPS scripts with ease.",
             "macOS": {
                 "entitlements": null,
                 "exceptionDomain": "",

@@ -33,7 +33,7 @@ const IBPSEditor = () => {
                 <Welcome />
             ) : (
                 <AceEditor
-                    className="transition-fontsize font-mono"
+                    className="font-mono"
                     readOnly={isWelcomePage()}
                     value={ibpsCode}
                     mode="python"

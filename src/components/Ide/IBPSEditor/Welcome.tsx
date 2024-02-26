@@ -1,3 +1,4 @@
+import Ahref from "../global/Ahref";
 import DocsCode from "./Docs/DocsCode";
 
 const Welcome = () => {
@@ -35,22 +36,22 @@ const Welcome = () => {
             <div className="pt-5 text-neutral-400">
                 <p>
                     <span>Created by </span>
-                    <a
+                    <Ahref
                         target="blank"
                         className="underline underline-offset-2"
                         href="https://inandioglu.com"
                     >
                         baris-inandi
-                    </a>
+                    </Ahref>
                 </p>
                 <p>
-                    <a
+                    <Ahref
                         target="blank"
                         className="underline underline-offset-2"
                         href="https://github.com/baris-inandi/IBPS"
                     >
                         See GitHub Repo
-                    </a>
+                    </Ahref>
                 </p>
             </div>
         </div>

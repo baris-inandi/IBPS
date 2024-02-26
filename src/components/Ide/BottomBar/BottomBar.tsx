@@ -2,6 +2,7 @@ import { useAtom } from "jotai";
 import { BsDatabaseFill } from "react-icons/bs";
 import { usedDiskSpaceAtom } from "../../../atoms/atoms";
 import { useVersion } from "../../../hooks/useVersion";
+import Ahref from "../global/Ahref";
 
 const BottomBar = () => {
     const [{ usedBytesRepr, availableBytesRepr, usedBytesPercentage }] =
@@ -13,13 +14,13 @@ const BottomBar = () => {
             <div className="flex items-center gap-1">
                 <p>
                     Created by{" "}
-                    <a
+                    <Ahref
                         className="font-medium underline underline-offset-2"
                         target="blank"
                         href="https://inandioglu.com"
                     >
                         Baris
-                    </a>
+                    </Ahref>
                 </p>
                 <span className="px-1">•</span>
                 <p>IDE</p>
@@ -33,13 +34,13 @@ const BottomBar = () => {
                 </div>{" "}
             </div>
             <div className="flex items-center gap-2">
-                <a
+                <Ahref
                     className="shrink-0 pr-3 font-medium underline underline-offset-2"
                     href="https://github.com/baris-inandi/IBPS/issues/new"
                     target="blank"
                 >
                     Bugs & Feedback
-                </a>
+                </Ahref>
                 <span className="h-fit">
                     <BsDatabaseFill />
                 </span>

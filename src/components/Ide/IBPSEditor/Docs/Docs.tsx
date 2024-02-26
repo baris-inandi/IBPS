@@ -1,6 +1,7 @@
 import { useAtom } from "jotai";
 import { useEffect, useRef } from "preact/hooks";
 import { docsIdAtom } from "../../../../atoms/atoms";
+import Ahref from "../../global/Ahref";
 import DocsCode from "./DocsCode";
 import DocsSec from "./DocsSec";
 
@@ -52,14 +53,14 @@ const Docs = () => {
             </p>
             <ul>
                 <li>
-                    <a href="https://ib.compscihub.net/wp-content/uploads/2015/04/IB-Pseudocode-rules-more.pdf">
+                    <Ahref href="https://ib.compscihub.net/wp-content/uploads/2015/04/IB-Pseudocode-rules-more.pdf">
                         Approved notation for devleoping pseudocode
-                    </a>
+                    </Ahref>
                 </li>
                 <li>
-                    <a href="https://ib.compscihub.net/wp-content/uploads/2015/04/IB-Pseudocode-rules.pdf">
+                    <Ahref href="https://ib.compscihub.net/wp-content/uploads/2015/04/IB-Pseudocode-rules.pdf">
                         Pseudocode in Examinations
-                    </a>
+                    </Ahref>
                 </li>
             </ul>
             <DocsSec level={2} text="General Syntax">
@@ -390,9 +391,9 @@ end class
                     </DocsCode>
                     <p>
                         To use object oriented patterns, refer to{" "}
-                        <a href="https://docs.python.org/3/tutorial/classes.html">
+                        <Ahref href="https://docs.python.org/3/tutorial/classes.html">
                             Python documentation.
-                        </a>
+                        </Ahref>
                     </p>
                 </DocsSec>
                 <DocsSec level={3} text="Includes">
@@ -560,9 +561,9 @@ output FOO.length // Won't work because Python does not implement the "length" p
                             <p>
                                 All other Python <DocsCode>str</DocsCode>{" "}
                                 methods and properties are inherited. See{" "}
-                                <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">
+                                <Ahref href="https://docs.python.org/3/library/stdtypes.html#string-methods">
                                     Python Docs.
-                                </a>
+                                </Ahref>
                             </p>
                         </DocsSec>
                     </DocsSec>
@@ -664,9 +665,9 @@ output FOO[0] // prints "First"
                         <p>
                             All other Python <DocsCode>list</DocsCode> methods
                             and properties are inherited. See{" "}
-                            <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">
+                            <Ahref href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">
                                 Python Docs.
-                            </a>
+                            </Ahref>
                         </p>
                     </DocsSec>
                     <DocsSec level={4} text="Collection">
@@ -812,9 +813,9 @@ BAR = Queue(1,2,3) // Queue[1,2,3]
                         <p>
                             All methods and properties are inherited from{" "}
                             <DocsCode>dict</DocsCode>. See{" "}
-                            <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">
+                            <Ahref href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">
                                 Python Docs.
-                            </a>
+                            </Ahref>
                         </p>
                     </DocsSec>
                     <DocsSec level={4} text="Set">
@@ -832,9 +833,9 @@ BAR = Queue(1,2,3) // Queue[1,2,3]
                         <p>
                             All methods and properties are inherited from{" "}
                             <DocsCode>set</DocsCode>. See{" "}
-                            <a href="https://docs.python.org/3/tutorial/datastructures.html#sets">
+                            <Ahref href="https://docs.python.org/3/tutorial/datastructures.html#sets">
                                 Python Docs.
-                            </a>
+                            </Ahref>
                         </p>
                     </DocsSec>
                 </DocsSec>

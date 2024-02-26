@@ -12,6 +12,7 @@ import ConsoleSectionTabs from "./IDEPanels/ConsoleSectionTabs";
 import FilesPanel from "./IDEPanels/FilesPanel/FilesPanel";
 import IDEPanelTopbar from "./IDEPanels/IDEPanelTopbar";
 import RightPanel from "./IDEPanels/RightPanel/RightPanel";
+import Ahref from "./global/Ahref";
 import FileName from "./global/FileName";
 import FontSizeButton from "./global/FontSizeButton";
 import RunButton from "./global/RunButton";
@@ -23,7 +24,7 @@ const Ide = () => {
     const [rightPanelVisible, setRightPanelVisible] = useAtom(
         rightPanelVisibleAtom,
     );
-    const [forceView, setForceView] = useState(false);
+    const [forceView, setForceView] = useState(window.__TAURI__ ? true : false);
 
     return (
         <PythonProvider>
@@ -145,13 +146,13 @@ const Ide = () => {
                         {compilerVersion}
                     </code>{" "}
                     <br /> Created by{" "}
-                    <a
+                    <Ahref
                         className="font-medium underline underline-offset-2"
                         target="blank"
                         href="https://inandioglu.com"
                     >
                         Baris
-                    </a>
+                    </Ahref>
                 </p>
                 <button
                     type="button"

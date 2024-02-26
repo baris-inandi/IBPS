@@ -1180,7 +1180,7 @@ __metadata:
     "@vercel/analytics": "npm:^1.1.1"
     "@vercel/speed-insights": "npm:^1.0.1"
     autoprefixer: "npm:^10.4.17"
-    ibpscomp-rs: "file:./ibpscomp-rs/pkg"
+    ibpscomp-rs: ./ibpscomp-rs/pkg
     jotai: "npm:^2.4.3"
     lz-string: "npm:^1.5.0"
     postcss: "npm:^8.4.35"
@@ -1201,9 +1201,9 @@ __metadata:
   linkType: soft
 
 "ibpscomp-rs@file:./ibpscomp-rs/pkg::locator=ibps-ide%40workspace%3A.":
-  version: 0.2.19
-  resolution: "ibpscomp-rs@file:./ibpscomp-rs/pkg#./ibpscomp-rs/pkg::hash=7a4adf&locator=ibps-ide%40workspace%3A."
-  checksum: 10c0/5975ba2019936ae5d2f12be450c6127631cdbab35e8da00e82b4f154f5dddd5083a378e4ccd6cd24409a0ae3de9b3947f0cb10e56ba5f7f782fa019ac3b1e9de
+  version: 0.2.20
+  resolution: "ibpscomp-rs@file:./ibpscomp-rs/pkg#./ibpscomp-rs/pkg::hash=fd407d&locator=ibps-ide%40workspace%3A."
+  checksum: 10c0/7edabecaf3b0a6deb4c8920fb96bf4eb7e360e3e3c390f352352e675d2cf9f9faa4ced05eca1205773560036df6a79f3a3da8672d2f5021098ffee71c322f44a
   languageName: node
   linkType: hard
 

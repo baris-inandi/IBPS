@@ -28,7 +28,8 @@ const ExamplePicker: FunctionalComponent<ExamplePickerProps> = () => {
                         <span className="font-medium">Example Scripts</span>
                         <br />
                         <span className="pb-5 pt-2 text-sm leading-snug text-neutral-500 dark:text-neutral-400">
-                            Download the official examples.
+                            {window.__TAURI__ ? "Get" : "Download"} the official
+                            examples.
                         </span>
                     </p>
                     <button

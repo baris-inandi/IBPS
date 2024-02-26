@@ -32,7 +32,7 @@ fn main() {
         })
         .on_window_event(|e| {
             if let WindowEvent::Resized(_) = e.event() {
-                std::thread::sleep(std::time::Duration::from_millis(5));
+                std::thread::sleep(std::time::Duration::from_millis(3));
             }
         })
         .invoke_handler(tauri::generate_handler![

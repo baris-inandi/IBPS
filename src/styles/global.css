@@ -1,7 +1,7 @@
 body {
     height: 100%;
     overflow: hidden;
-    @apply select-none text-black dark:text-white;
+    @apply cursor-default select-none text-black dark:text-white;
 }
 
 html,
@@ -71,10 +71,6 @@ body {
     body::-webkit-scrollbar-thumb {
         background-color: #282c34;
     }
-}
-
-.transition-fontsize {
-    transition: font-size 120ms ease;
 }
 
 .highlight {

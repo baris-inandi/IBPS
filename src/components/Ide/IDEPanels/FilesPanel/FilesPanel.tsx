@@ -1,3 +1,4 @@
+import { dialog, fs } from "@tauri-apps/api";
 import { useAtom } from "jotai";
 import { compress } from "lz-string";
 import {
@@ -44,7 +45,17 @@ const FilesPanel = () => {
         input.click();
     };
 
-    const download = (filename: string, content: string) => {
+    const download = async (filename: string, content: string) => {
+        if (window.__TAURI__) {
+            const saveTo = await dialog.save({
+                title: "Export file to...",
+                defaultPath: filename.replace(/[^\w.]/g, ""),
+            });
+            if (saveTo) {
+                await fs.writeFile(saveTo, content);
+            }
+        }
+
         const data = new Blob([content]);
         const url = window.URL.createObjectURL(data);
         const link = document.createElement("a");
