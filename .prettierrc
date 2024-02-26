@@ -3,7 +3,7 @@
     "tabWidth": 4,
     "singleQuote": false,
     "trailingComma": "all",
-    "endOfLine": "lf",
+    "endOfLine": "crlf",
     "printWidth": 80,
     "semi": true,
     "quoteProps": "consistent",
