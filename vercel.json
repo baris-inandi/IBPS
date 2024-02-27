@@ -1,9 +1,9 @@
 {
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "framework": "preact",
-    "buildCommand": "bun run build",
-    "devCommand": "bun run dev",
-    "installCommand": "bun install",
+    "buildCommand": "bun run build || yarn run build || npm run build",
+    "devCommand": "bun run dev || yarn run dev || npm run dev",
+    "installCommand": "bun install || yarn install || npm install",
     "outputDirectory": "build",
     "public": true,
     "trailingSlash": false
