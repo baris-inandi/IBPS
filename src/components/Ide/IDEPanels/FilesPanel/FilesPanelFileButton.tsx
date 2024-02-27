@@ -1,4 +1,3 @@
-import { confirm } from "@tauri-apps/api/dialog";
 import { FunctionalComponent } from "preact";
 import { IoTrashOutline } from "react-icons/io5";
 import { LiaPencilAltSolid } from "react-icons/lia";
@@ -64,19 +63,6 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
                                     type="button"
                                     onClick={() => {
                                         const msg = `Are you sure you want to delete ${props.text}?`;
-                                        if (window.__TAURI__) {
-                                            confirm("yass", {
-                                                title: "Are you sure bro",
-                                                type: "warning",
-                                                okLabel: "Delete",
-                                                cancelLabel: "Cancel",
-                                            }).then((confirmed) => {
-                                                if (confirmed) {
-                                                    deleteFile(props.text);
-                                                }
-                                            });
-                                            return;
-                                        }
                                         if (window.confirm(msg)) {
                                             deleteFile(props.text);
                                         }
