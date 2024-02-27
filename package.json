@@ -8,10 +8,8 @@
     },
     "scripts": {
         "dev": "rsbuild dev",
-        "dev:tauri": "tauri dev",
         "build": "rsbuild build",
         "build:analyze": "BUNDLE_ANALYZE=true bun run build",
-        "build:tauri": "tauri build",
         "build:all": "bun run wasm-prod && bun run build",
         "tauri": "tauri",
         "icon": "tauri icon icons/appicon.png",
