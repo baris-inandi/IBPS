@@ -4,7 +4,7 @@ import { PiSidebar } from "react-icons/pi";
 import { PythonProvider } from "react-py";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import { filePanelVisibleAtom, rightPanelVisibleAtom } from "../../atoms/atoms";
-import { useIsTauriMacOS } from "../../hooks/isTauriMac";
+import { useIsTauriMacOS } from "../../hooks/useIsTauriMacOS";
 import { useVersion } from "../../hooks/useVersion";
 import DragRegion from "../DesktopDragRegion";
 import BottomBar from "./BottomBar/BottomBar";

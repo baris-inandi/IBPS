@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import { FunctionalComponent } from "preact";
 import { IoClose, IoCloudDownloadOutline } from "react-icons/io5";
 import { examplePickerShownAtom } from "../../../atoms/atoms";
-import { useIsTauriMacOS } from "../../../hooks/isTauriMac";
+import { useIsTauriMacOS } from "../../../hooks/useIsTauriMacOS";
 import useFiles from "../../../hooks/useFiles";
 import { codeCopyrightText } from "../../../lib/codeCopyrightText";
 import exampleFiles from "../../../lib/exampleFiles";

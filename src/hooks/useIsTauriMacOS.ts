@@ -8,7 +8,6 @@ export const useIsTauriMacOS = () => {
 
     useEffect(() => {
         const f = async () => {
-            // TODO: Fix this
             setIs(window.__TAURI__ && (await os.type()) === "Darwin");
         };
         f();

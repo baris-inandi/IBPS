@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import { PiSidebar } from "react-icons/pi";
 import { filePanelVisibleAtom } from "../../../atoms/atoms";
-import { useIsTauriMacOS } from "../../../hooks/isTauriMac";
+import { useIsTauriMacOS } from "../../../hooks/useIsTauriMacOS";
 import useFiles from "../../../hooks/useFiles";
 import FileIcon from "./FileIcon";
 

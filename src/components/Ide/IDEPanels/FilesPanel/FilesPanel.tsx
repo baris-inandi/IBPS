@@ -8,7 +8,7 @@ import {
     IoShareOutline,
 } from "react-icons/io5";
 import { examplePickerShownAtom, ibpsCodeAtom } from "../../../../atoms/atoms";
-import { useIsTauriMacOS } from "../../../../hooks/isTauriMac";
+import { useIsTauriMacOS } from "../../../../hooks/useIsTauriMacOS";
 import useFiles from "../../../../hooks/useFiles";
 import { fileExtension } from "../../../../lib/fileExtension";
 import ExamplePicker from "../../global/ExamplePicker";
