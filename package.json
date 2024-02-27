@@ -13,6 +13,7 @@
         "build:analyze": "BUNDLE_ANALYZE=true bun run build",
         "build:tauri": "tauri build",
         "build:all": "bun run wasm-prod && bun run build",
+        "tauri": "tauri",
         "icon": "tauri icon icons/appicon.png",
         "preview": "rsbuild preview",
         "prettier": "prettier --write .",
@@ -40,7 +41,7 @@
     "devDependencies": {
         "@rsbuild/core": "^0.4.1",
         "@rsbuild/plugin-preact": "^0.4.2",
-        "@tauri-apps/cli": "^1.5.9",
+        "@tauri-apps/cli": "next",
         "@tsconfig/strictest": "^2.0.2",
         "autoprefixer": "^10.4.17",
         "postcss": "^8.4.35",
