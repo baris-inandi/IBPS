@@ -24,13 +24,8 @@ tauri = { version = "1.5.4", features = [
     "os-all",
     "shell-open",
     "macos-private-api",
-    "window-maximize",
-    "window-print",
-    "window-minimize",
-    "window-start-dragging",
-    "window-unmaximize",
+    "window-all",
     "dialog-all",
-    "window-unminimize",
 ] }
 tauri-plugin-window-state = "0.1"
 serde_json = "1.0"
