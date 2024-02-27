@@ -6,7 +6,7 @@ IBPS is a scripting language based on the pseudocode specification of the Intern
 
 This repository contains the following contents:
 
-### `ibpscomp-rs`: The Rust-based IBPS Compiler
+### `ibps-comp`: The Rust-based IBPS Compiler
 
 The Rust-based implementation of the IBPS compiler.
 
@@ -16,11 +16,11 @@ This Rust crate includes a library and a binary. The library is used to compile 
 
 The online IBPS IDE. This is a Preact application written in Typescript that allows users to write and execute IBPS code in their browser.
 
-The IDE ships `ibpscomp-rs` compiled using `wasm-pack`. The IDE uses WebAssembly to compile and run the IBPS code.
+The IDE ships `ibps-comp` compiled using `wasm-pack`. The IDE uses WebAssembly to compile and run the IBPS code.
 
 ### The IBPS CLI
 
-`ibps-cli` is a command line interface that allows users to run IBPS code using `ibpscomp-rs` on their local machine. Not a part of IBPS IDE.
+`ibps-cli` is a command line interface that allows users to run IBPS code using `ibps-comp` on their local machine. Not a part of IBPS IDE.
 
 ### IBPS Language Support for Visual Studio Code
 

@@ -1,0 +1,93 @@
+.markdown {
+  @apply text-base;
+}
+
+.markdown p {
+  @apply py-2;
+}
+
+.markdown h1,
+.markdown .h1 {
+  @apply pt-8 text-2xl font-bold;
+}
+
+.markdown h2 {
+  @apply text-2xl font-bold;
+}
+
+.markdown h3 {
+  @apply text-xl font-bold;
+}
+
+.markdown h4 {
+  @apply text-lg font-medium;
+}
+
+.markdown h5 {
+  @apply text-base font-medium;
+}
+
+.markdown h6 {
+  @apply text-base font-medium;
+}
+
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  margin-left: 8px;
+}
+
+.markdown mark {
+  @apply rounded-sm bg-yellow-300 px-1 text-yellow-900;
+}
+
+.markdown ul {
+  list-style-type: circle;
+}
+
+.markdown ol.d {
+  list-style-type: arabic-indic;
+}
+
+.markdown table {
+  text-align: left;
+  border-collapse: collapse;
+  width: 100%;
+  @apply rounded-md;
+}
+
+.markdown table,
+.markdown tr,
+.markdown td,
+.markdown th {
+  @apply border border-gray-300;
+}
+
+.markdown td,
+.markdown th {
+  padding: 0.33rem 0.5rem;
+}
+
+.markdown blockquote {
+  @apply my-3 rounded-sm border-l-4 border-gray-400 bg-gray-100 px-4 py-2 text-gray-600 dark:border-idedark-700 dark:bg-idedark-900 dark:text-idedark-200;
+}
+
+.markdown blockquote p {
+  @apply my-0;
+}
+
+.markdown li {
+  @apply ml-4;
+}
+
+.markdown a,
+.markdown .tauri-ahref {
+  @apply pt-1 leading-snug underline underline-offset-4;
+}
+
+.react-syntax-highlighter-line-number {
+  font-style: inherit !important;
+  width: 3em !important;
+}

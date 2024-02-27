@@ -1,18 +1,18 @@
 {
-    "include": ["src"],
-    "extends": "@tsconfig/strictest/tsconfig.json",
-    "compilerOptions": {
-        "outDir": "./build",
-        "allowJs": true,
-        "jsx": "preserve",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true,
-        "paths": {
-            "react": ["./node_modules/preact/compat"],
-            "react-dom": ["./node_modules/preact/compat"]
-        },
-        "target": "ES2015"
-    }
+  "include": ["ibps-ide"],
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./build",
+    "allowJs": true,
+    "jsx": "preserve",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "react": ["./node_modules/preact/compat"],
+      "react-dom": ["./node_modules/preact/compat"]
+    },
+    "target": "ES2015"
+  }
 }

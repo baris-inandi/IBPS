@@ -1,7 +1,7 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use ibps::{ibps_to_py, ibpscomp_rs_version};
+use ibpscomp::{compiler_version, ibps_to_py};
 use tauri::Manager;
 use tauri::WindowEvent;
 
@@ -14,8 +14,8 @@ fn ibps_to_py_tauri(code: &str) -> String {
 }
 
 #[tauri::command]
-fn ibpscomp_rs_version_tauri() -> String {
-    ibpscomp_rs_version()
+fn compiler_version_tauri() -> String {
+    compiler_version()
 }
 
 fn main() {
@@ -43,7 +43,7 @@ fn main() {
         })
         .invoke_handler(tauri::generate_handler![
             ibps_to_py_tauri,
-            ibpscomp_rs_version_tauri
+            compiler_version_tauri
         ])
         .run(tauri::generate_context!())
         .expect("error while running IBPS IDE");

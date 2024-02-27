@@ -1,57 +1,57 @@
 {
-    "name": "ib-pseudocode",
-    "displayName": "IB Pseudocode",
-    "description": "Provides syntax highlighting for IB's pseudocode definition",
-    "icon": "icon.png",
-    "version": "1.0.1",
-    "publisher": "baris-inandi",
-    "engines": {
-        "vscode": "^1.73.0"
-    },
-    "scripts": {
-        "build": "vsce package"
-    },
-    "categories": [
-        "Programming Languages"
+  "name": "ib-pseudocode",
+  "displayName": "IB Pseudocode",
+  "description": "Provides syntax highlighting for IB's pseudocode definition",
+  "icon": "icon.png",
+  "version": "1.0.1",
+  "publisher": "baris-inandi",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "scripts": {
+    "build": "vsce package"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baris-inandi/ibps"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "ibps",
+        "path": "./snippets/keywords.code-snippets"
+      },
+      {
+        "language": "ibps",
+        "path": "./snippets/control-flow.code-snippets"
+      },
+      {
+        "language": "ibps",
+        "path": "./snippets/methods.code-snippets"
+      }
     ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/baris-inandi/ibps"
-    },
-    "contributes": {
-        "snippets": [
-            {
-                "language": "ibps",
-                "path": "./snippets/keywords.code-snippets"
-            },
-            {
-                "language": "ibps",
-                "path": "./snippets/control-flow.code-snippets"
-            },
-            {
-                "language": "ibps",
-                "path": "./snippets/methods.code-snippets"
-            }
+    "languages": [
+      {
+        "id": "ibps",
+        "aliases": [
+          "IB Pseudocode",
+          "ibps"
         ],
-        "languages": [
-            {
-                "id": "ibps",
-                "aliases": [
-                    "IB Pseudocode",
-                    "ibps"
-                ],
-                "extensions": [
-                    "ibps"
-                ],
-                "configuration": "./language-configuration.json"
-            }
+        "extensions": [
+          "ibps"
         ],
-        "grammars": [
-            {
-                "language": "ibps",
-                "scopeName": "source.ibps",
-                "path": "./syntaxes/ibps.tmLanguage.json"
-            }
-        ]
-    }
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ibps",
+        "scopeName": "source.ibps",
+        "path": "./syntaxes/ibps.tmLanguage.json"
+      }
+    ]
+  }
 }

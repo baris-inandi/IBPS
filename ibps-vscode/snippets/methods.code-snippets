@@ -1,57 +1,57 @@
 {
-    "add item to collection": {
-        "prefix": ".additem",
-        "body": ".addItem($1)",
-        "description": "Add item to collection",
-    },
-    "get next from collection": {
-        "prefix": ".getnext",
-        "body": ".getNext()",
-        "description": "Get next item from collection",
-    },
-    "to collection start": {
-        "prefix": ".resetnext",
-        "body": ".resetNext()",
-        "description": "Move to collection start",
-    },
-    "collection has next item?": {
-        "prefix": ".hasnext",
-        "body": ".hasNext()",
-        "description": "Check if collection has next item",
-    },
-    "collection is empty?": {
-        "prefix": ".isempty",
-        "body": ".isEmpty()",
-        "description": "Check if collection is empty",
-    },
-    "push to stack": {
-        "prefix": ".push",
-        "body": ".push($1)",
-        "description": "Push item to stack",
-    },
-    "pop from stack": {
-        "prefix": ".pop",
-        "body": ".pop()",
-        "description": "Pop item from stack",
-    },
-    "stack is empty?": {
-        "prefix": ".stackisempty",
-        "body": ".isEmpty()",
-        "description": "Check if stack is empty",
-    },
-    "enqueue item": {
-        "prefix": ".enqueue",
-        "body": ".enqueue($1)",
-        "description": "Enqueue item",
-    },
-    "dequeue item": {
-        "prefix": ".dequeue",
-        "body": ".dequeue()",
-        "description": "Dequeue item",
-    },
-    "queue is empty?": {
-        "prefix": ".queueisempty",
-        "body": ".isEmpty()",
-        "description": "Check if queue is empty",
-    },
+  "add item to collection": {
+    "prefix": ".additem",
+    "body": ".addItem($1)",
+    "description": "Add item to collection",
+  },
+  "get next from collection": {
+    "prefix": ".getnext",
+    "body": ".getNext()",
+    "description": "Get next item from collection",
+  },
+  "to collection start": {
+    "prefix": ".resetnext",
+    "body": ".resetNext()",
+    "description": "Move to collection start",
+  },
+  "collection has next item?": {
+    "prefix": ".hasnext",
+    "body": ".hasNext()",
+    "description": "Check if collection has next item",
+  },
+  "collection is empty?": {
+    "prefix": ".isempty",
+    "body": ".isEmpty()",
+    "description": "Check if collection is empty",
+  },
+  "push to stack": {
+    "prefix": ".push",
+    "body": ".push($1)",
+    "description": "Push item to stack",
+  },
+  "pop from stack": {
+    "prefix": ".pop",
+    "body": ".pop()",
+    "description": "Pop item from stack",
+  },
+  "stack is empty?": {
+    "prefix": ".stackisempty",
+    "body": ".isEmpty()",
+    "description": "Check if stack is empty",
+  },
+  "enqueue item": {
+    "prefix": ".enqueue",
+    "body": ".enqueue($1)",
+    "description": "Enqueue item",
+  },
+  "dequeue item": {
+    "prefix": ".dequeue",
+    "body": ".dequeue()",
+    "description": "Dequeue item",
+  },
+  "queue is empty?": {
+    "prefix": ".queueisempty",
+    "body": ".isEmpty()",
+    "description": "Check if queue is empty",
+  },
 }

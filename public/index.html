@@ -1,53 +1,43 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" href="<%= assetPrefix %>/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#292929" />
-        <meta
-            name="theme-color"
-            media="(prefers-color-scheme: light)"
-            content="#FAFAFA"
-        />
-        <meta name="description" content="Write and run IBPS code in your browser." />
-        <meta property="og:title" content="IBPS IDE" />
-        <meta property="og:url" content="https://ibps.inandioglu.com" />
-        <meta
-            property="og:description"
-            content="Write and run IBPS code in your browser."
-        />
-        <meta property="og:image" content="https://ibps.inandioglu.com/og/image.jpeg" />
-        <meta property="twitter:title" content="IBPS IDE" />
-        <meta
-            property="twitter:description"
-            content="Write and run IBPS code in your browser."
-        />
-        <meta
-            property="twitter:image"
-            content="https://ibps.inandioglu.com/og/image.jpeg"
-        />
-        <meta property="twitter:card" content="summary_large_image" />
-        <link rel="manifest" href="<%= assetPrefix %>/manifest.json" />
-        <title>IBPS IDE</title>
-        <script>
-            if ("serviceWorker" in navigator) {
-                navigator.serviceWorker
-                    .register("/react-py-sw.js")
-                    .then(function (registration) {
-                        console.log(
-                            "Service Worker registration successful with scope: ",
-                            registration.scope,
-                        );
-                    })
-                    .catch(function (err) {
-                        console.log("Service Worker registration failed: ", err);
-                    });
-            }
-        </script>
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="<%= mountId %>"></div>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="<%= assetPrefix %>/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#292929" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FAFAFA" />
+    <meta name="description" content="Write and run IBPS code in your browser." />
+    <meta property="og:title" content="IBPS IDE" />
+    <meta property="og:url" content="https://ibps.inandioglu.com" />
+    <meta property="og:description" content="Write and run IBPS code in your browser." />
+    <meta property="og:image" content="https://ibps.inandioglu.com/og/image.jpeg" />
+    <meta property="twitter:title" content="IBPS IDE" />
+    <meta
+      property="twitter:description"
+      content="Write and run IBPS code in your browser."
+    />
+    <meta property="twitter:image" content="https://ibps.inandioglu.com/og/image.jpeg" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="<%= assetPrefix %>/manifest.json" />
+    <title>IBPS IDE</title>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/react-py-sw.js")
+          .then(function (registration) {
+            console.log(
+              "Service Worker registration successful with scope: ",
+              registration.scope,
+            );
+          })
+          .catch(function (err) {
+            console.log("Service Worker registration failed: ", err);
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="<%= mountId %>"></div>
+  </body>
 </html>

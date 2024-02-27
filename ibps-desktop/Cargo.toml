@@ -1,18 +1,18 @@
 [package]
-name = "ibps-ide"
+name = "ibps-ide-desktop"
 version = "0.1.0"
 description = "IBPS IDE. Now on desktop."
 authors = ["baris-inandi"]
 license = "AGPL-3.0-only"
 repository = "https://github.com/baris-inandi/ibps"
-default-run = "ibps-ide"
+default-run = "ibps-ide-desktop"
 edition = "2021"
 rust-version = "1.60"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [[bin]]
-name = "ibps-ide"
+name = "ibps-ide-desktop"
 path = "src/tauri.rs"
 
 
@@ -20,17 +20,23 @@ path = "src/tauri.rs"
 tauri-build = { version = "1.5.1", features = [] }
 
 [dependencies]
-tauri = { version = "1.6.0", features = [ "window-start-dragging", "window-minimize", "window-unminimize", "window-print", "window-maximize", "window-unmaximize",
-    "os-all",
-    "shell-open",
-    "macos-private-api",
-    "dialog-all",
+tauri = { version = "1.6.0", features = [
+  "window-start-dragging",
+  "window-minimize",
+  "window-unminimize",
+  "window-print",
+  "window-maximize",
+  "window-unmaximize",
+  "os-all",
+  "shell-open",
+  "macos-private-api",
+  "dialog-all",
 ] }
 tauri-plugin-window-state = "0.1"
 serde_json = "1.0"
 window-vibrancy = "0.4.0"
 serde = { version = "1.0", features = ["derive"] }
-ibpscomp-rs = { path = "../ibpscomp-rs" }
+ibps-comp = { path = "../ibps-comp" }
 
 
 [features]

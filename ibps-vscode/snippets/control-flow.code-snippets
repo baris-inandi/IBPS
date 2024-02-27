@@ -1,17 +1,17 @@
 {
-    "if block": {
-        "prefix": "/if",
-        "body": ["if $1 then", "\t$2", "end if\n"],
-        "description": "if block",
-    },
-    "while block": {
-        "prefix": "/while",
-        "body": ["loop while $1", "\t$2", "end loop\n"],
-        "description": "while block",
-    },
-    "until block": {
-        "prefix": "/until",
-        "body": ["loop until $1", "\t$2", "end loop\n"],
-        "description": "until block",
-    },
+  "if block": {
+    "prefix": "/if",
+    "body": ["if $1 then", "\t$2", "end if\n"],
+    "description": "if block",
+  },
+  "while block": {
+    "prefix": "/while",
+    "body": ["loop while $1", "\t$2", "end loop\n"],
+    "description": "while block",
+  },
+  "until block": {
+    "prefix": "/until",
+    "body": ["loop until $1", "\t$2", "end loop\n"],
+    "description": "until block",
+  },
 }

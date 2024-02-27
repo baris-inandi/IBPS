@@ -1,0 +1,3 @@
+[workspace]
+members = ["ibps-cli", "ibps-comp", "ibps-desktop"]
+resolver = "2"

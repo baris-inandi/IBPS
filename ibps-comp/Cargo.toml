@@ -1,0 +1,28 @@
+[package]
+name = "ibps-comp"
+authors = ["baris-inandi"]
+version = "0.2.22"
+edition = "2021"
+repository = "https://github.com/baris-inandi/ibps"
+license = "AGPL-3.0-only"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "ibpscomp"
+crate-type = ["cdylib", "rlib"]
+path = "src/lib.rs"
+
+[[bin]]
+name = "ibps-comp-cli"
+path = "src/bin.rs"
+
+[dependencies]
+fancy-regex = "0.13.0"
+regex = "1.10.0"
+wasm-bindgen = "0.2.87"
+
+[profile.release]
+lto = true
+opt-level = "s"
+strip = "debuginfo"

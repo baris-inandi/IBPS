@@ -3,7 +3,7 @@ use std::fs;
 use std::path::Path;
 use std::process::exit;
 
-use ibps::ibps_to_py_native;
+use ibpscomp::ibps_to_py_native;
 mod runpy;
 
 fn main() {

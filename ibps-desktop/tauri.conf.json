@@ -1,125 +1,125 @@
 {
-    "$schema": "../node_modules/@tauri-apps/cli/schema.json",
-    "build": {
-        "beforeBuildCommand": "(bun install && bun run build) || (npm install && npm run build)",
-        "beforeDevCommand": "bun run dev || npm run dev",
-        "devPath": "http://localhost:8080",
-        "distDir": "../build"
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "beforeBuildCommand": "(bun install && bun run build) || (npm install && npm run build)",
+    "beforeDevCommand": "bun run dev || npm run dev",
+    "devPath": "http://localhost:8080",
+    "distDir": "../build"
+  },
+  "package": {
+    "productName": "IBPS IDE",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "macOSPrivateApi": true,
+    "allowlist": {
+      "all": false,
+      "os": {
+        "all": true
+      },
+      "shell": {
+        "open": true
+      },
+      "dialog": {
+        "all": true,
+        "ask": true,
+        "confirm": true,
+        "message": true,
+        "open": true,
+        "save": true
+      },
+      "window": {
+        "all": false,
+        "center": false,
+        "close": false,
+        "create": false,
+        "hide": false,
+        "maximize": true,
+        "minimize": true,
+        "print": true,
+        "requestUserAttention": false,
+        "setAlwaysOnTop": false,
+        "setClosable": false,
+        "setContentProtected": false,
+        "setCursorGrab": false,
+        "setCursorIcon": false,
+        "setCursorPosition": false,
+        "setCursorVisible": false,
+        "setDecorations": false,
+        "setFocus": false,
+        "setFullscreen": false,
+        "setIcon": false,
+        "setIgnoreCursorEvents": false,
+        "setMaxSize": false,
+        "setMaximizable": false,
+        "setMinSize": false,
+        "setMinimizable": false,
+        "setPosition": false,
+        "setResizable": false,
+        "setSize": false,
+        "setSkipTaskbar": false,
+        "setTitle": false,
+        "show": false,
+        "startDragging": true,
+        "unmaximize": true,
+        "unminimize": true
+      }
     },
-    "package": {
-        "productName": "IBPS IDE",
-        "version": "0.1.0"
+    "bundle": {
+      "active": true,
+      "publisher": "@baris-inandi",
+      "category": "DeveloperTool",
+      "copyright": "AGPL-v3.0-only",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.ibps.ide",
+      "shortDescription": "IBPS IDE. Now on desktop.",
+      "longDescription": "IBPS IDE. Now on desktop. Write, edit, share, and run IBPS scripts with ease.",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
     },
-    "tauri": {
-        "macOSPrivateApi": true,
-        "allowlist": {
-            "all": false,
-            "os": {
-                "all": true
-            },
-            "shell": {
-                "open": true
-            },
-            "dialog": {
-                "all": true,
-                "ask": true,
-                "confirm": true,
-                "message": true,
-                "open": true,
-                "save": true
-            },
-            "window": {
-                "all": false,
-                "center": false,
-                "close": false,
-                "create": false,
-                "hide": false,
-                "maximize": true,
-                "minimize": true,
-                "print": true,
-                "requestUserAttention": false,
-                "setAlwaysOnTop": false,
-                "setClosable": false,
-                "setContentProtected": false,
-                "setCursorGrab": false,
-                "setCursorIcon": false,
-                "setCursorPosition": false,
-                "setCursorVisible": false,
-                "setDecorations": false,
-                "setFocus": false,
-                "setFullscreen": false,
-                "setIcon": false,
-                "setIgnoreCursorEvents": false,
-                "setMaxSize": false,
-                "setMaximizable": false,
-                "setMinSize": false,
-                "setMinimizable": false,
-                "setPosition": false,
-                "setResizable": false,
-                "setSize": false,
-                "setSkipTaskbar": false,
-                "setTitle": false,
-                "show": false,
-                "startDragging": true,
-                "unmaximize": true,
-                "unminimize": true
-            }
-        },
-        "bundle": {
-            "active": true,
-            "publisher": "@baris-inandi",
-            "category": "DeveloperTool",
-            "copyright": "AGPL-v3.0-only",
-            "deb": {
-                "depends": []
-            },
-            "externalBin": [],
-            "icon": [
-                "icons/32x32.png",
-                "icons/128x128.png",
-                "icons/128x128@2x.png",
-                "icons/icon.icns",
-                "icons/icon.ico"
-            ],
-            "identifier": "com.ibps.ide",
-            "shortDescription": "IBPS IDE. Now on desktop.",
-            "longDescription": "IBPS IDE. Now on desktop. Write, edit, share, and run IBPS scripts with ease.",
-            "macOS": {
-                "entitlements": null,
-                "exceptionDomain": "",
-                "frameworks": [],
-                "providerShortName": null,
-                "signingIdentity": null
-            },
-            "resources": [],
-            "targets": "all",
-            "windows": {
-                "certificateThumbprint": null,
-                "digestAlgorithm": "sha256",
-                "timestampUrl": ""
-            }
-        },
-        "security": {
-            "csp": null
-        },
-        "updater": {
-            "active": false
-        },
-        "windows": [
-            {
-                "width": 1260,
-                "height": 720,
-                "minWidth": 700,
-                "minHeight": 400,
-                "acceptFirstMouse": false,
-                "decorations": true,
-                "title": "IBPS IDE",
-                "fullscreen": false,
-                "resizable": true,
-                "titleBarStyle": "Overlay",
-                "hiddenTitle": true,
-                "transparent": true
-            }
-        ]
-    }
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "width": 1260,
+        "height": 720,
+        "minWidth": 700,
+        "minHeight": 400,
+        "acceptFirstMouse": false,
+        "decorations": true,
+        "title": "IBPS IDE",
+        "fullscreen": false,
+        "resizable": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true,
+        "transparent": true
+      }
+    ]
+  }
 }
