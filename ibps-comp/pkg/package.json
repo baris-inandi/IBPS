@@ -1,0 +1,22 @@
+{
+  "name": "ibps-comp",
+  "collaborators": [
+    "baris-inandi"
+  ],
+  "version": "0.2.22",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baris-inandi/ibps"
+  },
+  "files": [
+    "ibpscomp_bg.wasm",
+    "ibpscomp.js",
+    "ibpscomp.d.ts"
+  ],
+  "module": "ibpscomp.js",
+  "types": "ibpscomp.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

@@ -11,7 +11,6 @@
     "build": "rsbuild build",
     "build:analyze": "BUNDLE_ANALYZE=true bun run build",
     "build:all": "bun run wasm-prod && bun run build",
-    "tauri": "tauri",
     "icon": "tauri icon icons/appicon.png",
     "preview": "rsbuild preview",
     "prettier": "prettier --write .",
@@ -54,6 +53,7 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.1",
     "typescript-eslint": "^7.1.0",
+    "vercel": "^33.5.2",
     "wasm-pack": "^0.12.1"
   },
   "browserslist": {
