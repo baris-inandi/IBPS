@@ -17,7 +17,7 @@
     "wasm-dev": "cd ibps-comp && wasm-pack build . --target web --dev && cd .. && bun add file:ibps-comp/pkg",
     "wasm-prod": "cd ibps-comp && wasm-pack build . --target web --release && cd .. && bun add file:ibps-comp/pkg",
     "wasm-hard-reset": "rm -rf ibps-comp/target && rm -rf ibps-comp/pkg && bun remove ibps-comp && bun wasm-prod",
-    "clean": "rm -rf build node_modules ./**/target/",
+    "clean": "rm -rf build node_modules ./**/target/ .vercel",
     "cleanrust": "rm -rf ./**/target/",
     "lint": "eslint \"ibps-ide/**/*.{js,ts,jsx,tsx}\"",
     "fix": "eslint \"ibps-ide/**/*.{js,ts,jsx,tsx}\" && prettier --write ."
