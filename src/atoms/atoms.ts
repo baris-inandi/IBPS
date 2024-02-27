@@ -1,4 +1,4 @@
-import { atom } from "jotai";
+import { Atom, atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 import prettyBytes from "pretty-bytes";
 import { DocsTitle as DocsHeader } from "../components/Ide/IBPSEditor/Docs/Docs";
@@ -59,3 +59,5 @@ export const rightPanelVisibleAtom = atomWithStorage<boolean>(
 export const examplePickerShownAtom = atom(false);
 
 export const promptAtom = atom(true);
+
+export const isMacOSAtom: Atom<boolean | undefined> = atom(undefined);

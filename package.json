@@ -17,7 +17,9 @@
         "prettier": "prettier --write .",
         "wasm-dev": "cd ibpscomp-rs && wasm-pack build . --target web --dev && cd .. && bun add ./ibpscomp-rs/pkg",
         "wasm-prod": "cd ibpscomp-rs && wasm-pack build . --target web --release && cd .. && bun add ./ibpscomp-rs/pkg",
-        "wasm-hard-reset": "rm -rf ibpscomp-rs/target && rm -rf ibpscomp-rs/pkg && bun remove ibpscomp-rs && bun wasm-prod"
+        "wasm-hard-reset": "rm -rf ibpscomp-rs/target && rm -rf ibpscomp-rs/pkg && bun remove ibpscomp-rs && bun wasm-prod",
+        "clean": "rm -rf build node_modules ./**/target/",
+        "cleanrust": "rm -rf ./**/target/"
     },
     "dependencies": {
         "@tauri-apps/api": "^1.5.3",
@@ -39,7 +41,7 @@
     "devDependencies": {
         "@rsbuild/core": "^0.4.1",
         "@rsbuild/plugin-preact": "^0.4.2",
-        "@tauri-apps/cli": "next",
+        "@tauri-apps/cli": "^1.5.10",
         "@tsconfig/strictest": "^2.0.2",
         "autoprefixer": "^10.4.17",
         "postcss": "^8.4.35",

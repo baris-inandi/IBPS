@@ -20,11 +20,10 @@ path = "src/tauri.rs"
 tauri-build = { version = "1.5.1", features = [] }
 
 [dependencies]
-tauri = { version = "1.5.4", features = [
+tauri = { version = "1.6.0", features = [ "window-start-dragging", "window-minimize", "window-unminimize", "window-print", "window-maximize", "window-unmaximize",
     "os-all",
     "shell-open",
     "macos-private-api",
-    "window-all",
     "dialog-all",
 ] }
 tauri-plugin-window-state = "0.1"
