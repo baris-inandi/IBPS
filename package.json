@@ -1,6 +1,6 @@
 {
   "name": "ibps-ide",
-  "version": "0.7.10",
+  "version": "0.7.11",
   "license": "AGPL-3.0-only",
   "author": {
     "name": "baris-inandi",
@@ -42,7 +42,7 @@
     "pretty-bytes": "^6.1.1",
     "react-ace": "^10.1.0",
     "react-icons": "^4.11.0",
-    "react-py": "file:ibps-ide/lib/react-py",
+    "react-py": "^1.10.6",
     "react-resizable-panels": "^0.0.55",
     "typescript": "^5.3.3",
     "use-prefers-color-scheme": "^1.1.3",

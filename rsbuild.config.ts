@@ -14,6 +14,10 @@ export default defineConfig({
   },
   html: {
     template: "./public/index.html",
+    templateParameters: {
+      baseUrl: "https://ibps.inandioglu.com",
+      description: "Write and run IBPS code in your browser.",
+    },
   },
   output: {
     distPath: {
