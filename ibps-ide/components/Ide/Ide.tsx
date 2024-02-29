@@ -33,14 +33,14 @@ const Ide = () => {
     <PythonProvider>
       {/* <Modal /> */}
       <div
-        className={`${forceView ? "flex" : "hidden sm:flex"} h-full w-full flex-col ${window.__TAURI__ ? "border-t border-neutral-300 dark:border-black" : ""}`}
+        className={`${forceView ? "flex" : "hidden sm:flex"} h-full w-full flex-col`}
         id="ibpside"
       >
         {platform.isMacOS ? <DragRegion /> : null}
         <PanelGroup
           autoSaveId="IBPS_IDE_LAYOUT_SAVE"
           direction="horizontal"
-          className="flex-grow"
+          className={`flex-grow ${window.__TAURI__ ? "border-t border-neutral-300 dark:border-black" : ""}`}
         >
           <div className={`w-60 ${filePanelVisible ? "block" : "hidden"}`}>
             <IDEPanelTopbar pl desktopUI={platform.isMacOS}>
