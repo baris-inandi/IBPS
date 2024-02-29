@@ -33,7 +33,7 @@ const Ide = () => {
     <PythonProvider>
       {/* <Modal /> */}
       <div
-        className={`${forceView ? "flex" : "hidden sm:flex"} h-full w-full flex-col ${platform.isWindows ? "border-t border-neutral-300 dark:border-black" : ""}`}
+        className={`${forceView ? "flex" : "hidden sm:flex"} h-full w-full flex-col ${window.__TAURI__ ? "border-t border-neutral-300 dark:border-black" : ""}`}
         id="ibpside"
       >
         {platform.isMacOS ? <DragRegion /> : null}

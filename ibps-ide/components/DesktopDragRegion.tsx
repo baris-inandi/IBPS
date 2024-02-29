@@ -6,7 +6,7 @@ const DragRegion = () => {
   return (
     <div
       data-tauri-drag-region
-      className="h-[28px] w-screen border-b border-neutral-300 bg-white bg-opacity-85 dark:border-black dark:bg-idedark-700 dark:bg-opacity-85"
+      className="h-[28px] w-screen bg-white bg-opacity-85 dark:bg-idedark-700 dark:bg-opacity-85"
     >
       <div className="pointer-events-none flex h-full w-full items-center justify-center text-sm font-medium">
         <div className="font-bold">IBPS IDE</div>
