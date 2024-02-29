@@ -7,21 +7,12 @@ module.exports = {
       sans: [
         "-apple-system",
         "BlinkMacSystemFont",
-        "Arimo",
+        "Roboto",
         "Inter",
         "ui-sans-serif",
         "system-ui",
       ],
       mono: ["Jetbrains Mono", "SF Mono", "Menlo", "Cascadia Mono", "mono"],
-      logo: [
-        "Arimo",
-        "-apple-system",
-        "BlinkMacSystemFont",
-        "Arimo",
-        "Inter",
-        "ui-sans-serif",
-        "system-ui",
-      ],
     },
     extend: {
       colors: {

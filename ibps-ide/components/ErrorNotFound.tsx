@@ -11,7 +11,7 @@ const NotFound = () => {
         alt="IBPS IDE Icon"
         className="h-20 w-20"
       />
-      <p className="pt-10 font-logo text-sm font-bold">
+      <p className="pt-10 text-sm font-bold">
         IBPS <span className="font-normal">IDE</span>
       </p>
       <h1 className="text-2xl font-medium">Not Found</h1>

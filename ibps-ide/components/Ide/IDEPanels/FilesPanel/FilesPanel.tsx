@@ -9,7 +9,7 @@ import {
 } from "react-icons/io5";
 import { examplePickerShownAtom, ibpsCodeAtom } from "../../../../atoms/atoms";
 import useFiles from "../../../../hooks/useFiles";
-import { useIsTauriMacOS } from "../../../../hooks/useIsTauriMacOS";
+import { useTauriOS } from "../../../../hooks/useTauriOS";
 import { fileExtension } from "../../../../lib/fileExtension";
 import ExamplePicker from "../../global/ExamplePicker";
 import FilesPanelFileButton from "./FilesPanelFileButton";
@@ -18,7 +18,7 @@ const FilesPanel = () => {
   const { allFilenames, newFile, activeFile, filesRaw, importIBPSorIBWS } = useFiles();
   const [ibpsCode] = useAtom(ibpsCodeAtom);
   const [examplePickerShown, setExamplePickerShown] = useAtom(examplePickerShownAtom);
-  const isTauriMacOS = useIsTauriMacOS();
+  const platform = useTauriOS();
 
   const onImport = () => {
     const input = document.createElement("input");
@@ -69,8 +69,7 @@ const FilesPanel = () => {
   return (
     <div
       className={`flex h-full flex-col bg-neutral-100 text-sm text-neutral-800 dark:bg-idedark-950 dark:text-idedark-200
-                ${isTauriMacOS ? "bg-opacity-75 dark:bg-opacity-75" : "bg-opacity-100"}
-            `}
+                ${platform.isMacOS ? "bg-opacity-75 dark:bg-opacity-75" : "bg-opacity-100"}`}
     >
       <div className="flex flex-col pb-4 pt-3">
         <span className="pl-3 font-medium opacity-60">Files</span>

@@ -10,7 +10,7 @@ const BottomBar = () => {
   const { compilerVersion, ideVersion } = useVersion();
 
   return (
-    <div className="flex w-full justify-between border-t border-neutral-300 bg-blue-500 px-2 py-[3px] text-sm text-white dark:border-black dark:bg-idedark-1100 dark:text-neutral-400">
+    <div className="flex w-full justify-between border-t border-neutral-300 bg-white px-2 py-[2px] text-sm text-neutral-500 dark:border-black dark:bg-idedark-1100 dark:text-neutral-400">
       <div className="flex items-center gap-1">
         <p>
           Created by{" "}
@@ -24,18 +24,18 @@ const BottomBar = () => {
         </p>
         <span className="px-1">•</span>
         <p>IDE</p>
-        <div className="h-fit w-fit rounded-md border border-blue-300 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
+        <div className="h-fit w-fit rounded-md border border-neutral-400 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
           {ideVersion}
         </div>{" "}
         <span className="px-1">•</span>
         <p>Compiler</p>
-        <div className="h-fit w-fit rounded-md border border-blue-300 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
+        <div className="h-fit w-fit rounded-md border border-neutral-400 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
           {compilerVersion}
         </div>{" "}
       </div>
       <div className="flex items-center gap-2">
         <Ahref
-          className="shrink-0 pr-3 font-medium underline underline-offset-2"
+          className="shrink-0 pr-3 text-xs font-medium underline underline-offset-2"
           href="https://github.com/baris-inandi/IBPS/issues/new"
           target="blank"
         >

@@ -1,10 +1,10 @@
 import { useAtom } from "jotai";
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { PiSidebar } from "react-icons/pi";
 import { PythonProvider } from "react-py";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import { filePanelVisibleAtom, rightPanelVisibleAtom } from "../../atoms/atoms";
-import { useIsTauriMacOS } from "../../hooks/useIsTauriMacOS";
+import { useTauriOS } from "../../hooks/useTauriOS";
 import { useVersion } from "../../hooks/useVersion";
 import DragRegion from "../DesktopDragRegion";
 import BottomBar from "./BottomBar/BottomBar";
@@ -22,24 +22,28 @@ const Ide = () => {
   const { compilerVersion, ideVersion } = useVersion();
   const [filePanelVisible, setFilePanelVisible] = useAtom(filePanelVisibleAtom);
   const [rightPanelVisible, setRightPanelVisible] = useAtom(rightPanelVisibleAtom);
-  const [forceView, setForceView] = useState(window.__TAURI__ ? true : false);
-  const isTauriMacOS = useIsTauriMacOS();
+  const [forceView, setForceView] = useState(window.__TAURI__ !== undefined);
+  const platform = useTauriOS();
+
+  useEffect(() => {
+    console.table(platform);
+  }, [platform]);
 
   return (
     <PythonProvider>
       {/* <Modal /> */}
       <div
-        className={`${forceView ? "flex" : "hidden sm:flex"} h-full w-full flex-col`}
+        className={`${forceView ? "flex" : "hidden sm:flex"} h-full w-full flex-col ${platform.isWindows ? "border-t border-neutral-300 dark:border-black" : ""}`}
         id="ibpside"
       >
-        {isTauriMacOS ? <DragRegion /> : null}
+        {platform.isMacOS ? <DragRegion /> : null}
         <PanelGroup
           autoSaveId="IBPS_IDE_LAYOUT_SAVE"
           direction="horizontal"
           className="flex-grow"
         >
           <div className={`w-60 ${filePanelVisible ? "block" : "hidden"}`}>
-            <IDEPanelTopbar pl desktopUI={isTauriMacOS}>
+            <IDEPanelTopbar pl desktopUI={platform.isMacOS}>
               <div className="flex items-center gap-4">
                 <button
                   type="button"
@@ -49,7 +53,7 @@ const Ide = () => {
                 >
                   <PiSidebar />
                 </button>
-                <h1 className="pt-[1px] font-logo font-bold">
+                <h1 className="pt-[1px] font-bold">
                   {window.__TAURI__ ? (
                     <span className="font-normal">Files Pane</span>
                   ) : (
@@ -64,7 +68,7 @@ const Ide = () => {
               <FilesPanel />
             </div>
           </div>
-          <Panel className={window.__TAURI__ ? "shadow-md" : ""}>
+          <Panel className={platform.isMacOS ? "shadow-md" : ""}>
             <div className="flex h-full w-full flex-col">
               <IDEPanelTopbar>
                 <div className="flex h-full w-full justify-between">
@@ -110,7 +114,7 @@ const Ide = () => {
       <div
         className={`${forceView ? "flex" : "flex sm:hidden"} h-full w-full flex-col items-center justify-center gap-2 overflow-y-scroll bg-white p-7 text-center dark:bg-idedark-950`}
       >
-        <p className="pt-8 font-logo text-sm font-bold">
+        <p className="pt-8 text-sm font-bold">
           IBPS <span className="font-normal">IDE</span>
         </p>
         <h1 className="text-2xl font-medium">Window too small</h1>

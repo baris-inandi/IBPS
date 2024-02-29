@@ -62,7 +62,7 @@
 .markdown tr,
 .markdown td,
 .markdown th {
-  @apply border border-gray-300;
+  @apply border border-neutral-300;
 }
 
 .markdown td,
@@ -71,7 +71,7 @@
 }
 
 .markdown blockquote {
-  @apply my-3 rounded-sm border-l-4 border-gray-400 bg-gray-100 px-4 py-2 text-gray-600 dark:border-idedark-700 dark:bg-idedark-900 dark:text-idedark-200;
+  @apply my-3 rounded-sm border-l-4 border-neutral-400 bg-neutral-100 px-4 py-2 text-neutral-600 dark:border-idedark-700 dark:bg-idedark-900 dark:text-idedark-200;
 }
 
 .markdown blockquote p {

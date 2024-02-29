@@ -2,8 +2,8 @@ import { useAtom } from "jotai";
 import { FunctionalComponent } from "preact";
 import { IoClose, IoCloudDownloadOutline } from "react-icons/io5";
 import { examplePickerShownAtom } from "../../../atoms/atoms";
-import { useIsTauriMacOS } from "../../../hooks/useIsTauriMacOS";
 import useFiles from "../../../hooks/useFiles";
+import { useTauriOS } from "../../../hooks/useTauriOS";
 import { codeCopyrightText } from "../../../lib/codeCopyrightText";
 import exampleFiles from "../../../lib/exampleFiles";
 import FilesPanelFileButton from "../IDEPanels/FilesPanel/FilesPanelFileButton";
@@ -13,7 +13,7 @@ interface ExamplePickerProps {}
 const ExamplePicker: FunctionalComponent<ExamplePickerProps> = () => {
   const [, setExamplePickerShown] = useAtom(examplePickerShownAtom);
   const { newFile, filesRaw, setFilesRaw } = useFiles();
-  const isTauriMacOS = useIsTauriMacOS();
+  const platform = useTauriOS();
 
   return (
     <div
@@ -24,7 +24,7 @@ const ExamplePicker: FunctionalComponent<ExamplePickerProps> = () => {
     >
       <div className="flex h-full w-5/6 max-w-md flex-col border-r border-neutral-200 bg-white shadow-lg dark:border-black dark:bg-idedark-950">
         <div className="flex items-start justify-between border-b border-neutral-200 bg-neutral-100 px-3 pb-4 pt-6 dark:border-black dark:bg-idedark-1000 dark:text-white">
-          <p className={`px-4 text-xl ${isTauriMacOS ? "pt-5" : ""}`}>
+          <p className={`px-4 text-xl ${platform.isMacOS ? "pt-5" : ""}`}>
             <span className="font-medium">Example Scripts</span>
             <br />
             <span className="pb-5 pt-2 text-sm leading-snug text-neutral-500 dark:text-neutral-400">

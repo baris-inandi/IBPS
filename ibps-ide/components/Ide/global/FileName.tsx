@@ -1,14 +1,14 @@
 import { useAtom } from "jotai";
 import { PiSidebar } from "react-icons/pi";
 import { filePanelVisibleAtom } from "../../../atoms/atoms";
-import { useIsTauriMacOS } from "../../../hooks/useIsTauriMacOS";
 import useFiles from "../../../hooks/useFiles";
+import { useTauriOS } from "../../../hooks/useTauriOS";
 import FileIcon from "./FileIcon";
 
 const FileName = () => {
   const { activeFile } = useFiles();
   const [filePanelVisible, setFilePanelVisible] = useAtom(filePanelVisibleAtom);
-  const isTauriMacOS = useIsTauriMacOS();
+  const platform = useTauriOS();
 
   return (
     <div className="flex h-full max-w-[50%] items-center gap-2 pr-5 text-sm">
@@ -33,7 +33,7 @@ const FileName = () => {
           ""
         )}
         <span className="shrink overflow-hidden truncate">
-          {isTauriMacOS && activeFile !== "Documentation" && activeFile !== "Welcome"
+          {platform.isMacOS && activeFile !== "Documentation" && activeFile !== "Welcome"
             ? "Editor"
             : activeFile}
         </span>

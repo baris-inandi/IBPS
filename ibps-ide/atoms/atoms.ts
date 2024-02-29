@@ -60,4 +60,4 @@ export const examplePickerShownAtom = atom(false);
 
 export const promptAtom = atom(true);
 
-export const isMacOSAtom = atom(false);
+export const tauriTestAtom = atom("");
