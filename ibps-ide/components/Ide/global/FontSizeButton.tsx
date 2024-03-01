@@ -28,25 +28,17 @@ const FontSizeButton = () => {
       <button
         type="button"
         onClick={() => changeFontSize(-2)}
-        className="w-full pl-3 pr-2 text-[0.6rem]"
-      >
-        A-
-      </button>
-      <div className="h-3/5 border-r border-neutral-500 dark:border-idedark-500" />
-      <button
-        type="button"
-        onClick={() => setCodeFontSize(16)}
-        className="w-full pl-2 pr-2 text-xs"
+        className="w-full pl-3 pr-2 text-[0.7rem]"
       >
         A
       </button>
-      <div className="h-3/5 border-r border-neutral-500 dark:border-idedark-500" />
+      <div className="h-3/5 border-r border-neutral-400 dark:border-idedark-500" />
       <button
         type="button"
         onClick={() => changeFontSize(+2)}
         className="w-full pl-2 pr-3"
       >
-        A+
+        A
       </button>
     </div>
   );

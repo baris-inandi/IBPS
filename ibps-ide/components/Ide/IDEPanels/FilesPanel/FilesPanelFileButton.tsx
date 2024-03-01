@@ -1,5 +1,5 @@
-import { useSignal } from "@preact/signals";
 import { FunctionalComponent } from "preact";
+import { useState } from "preact/hooks";
 import { IoTrashOutline } from "react-icons/io5";
 import { LiaPencilAltSolid } from "react-icons/lia";
 import { IconType } from "react-icons/lib";
@@ -16,28 +16,34 @@ interface FilesPanelFileButtonProps {
 
 const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (props) => {
   const { activeFile, deleteFile, renameFile, setActiveFile } = useFiles();
-  const renameModalVisible = useSignal(false);
-  const deleteModalVisible = useSignal(false);
+  const [renameModalVisible, setRenameModalVisible] = useState(false);
+  const [deleteModalVisible, setDeleteModalVisible] = useState(false);
 
   return (
     <div className="px-2 py-[1px]">
       <Modal
-        visibleState={renameModalVisible}
+        key={new Date().valueOf()}
+        visible={renameModalVisible}
+        setVisible={setRenameModalVisible}
         onSubmit={(newName) => {
           renameFile(props.text, newName);
         }}
         requestStringInput="Enter new file name"
       >
-        'Rename file {props.text}'
+        <b>Rename file:</b>
+        <br />'{props.text}'
       </Modal>
       <Modal
-        visibleState={deleteModalVisible}
+        key={new Date().valueOf()}
+        visible={deleteModalVisible}
+        setVisible={setDeleteModalVisible}
         onSubmit={() => {
           deleteFile(props.text);
         }}
         dangerous
       >
-        Are you sure you want to delete file '{props.text}'? <br />
+        Are you sure you want to delete file:
+        <br />'{props.text}'? <br />
         <b>This action is cannot be undone.</b>
       </Modal>
       <button
@@ -68,7 +74,8 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
                 <button
                   type="button"
                   onClick={() => {
-                    renameModalVisible.value = true;
+                    const oldActiveFile = activeFile;
+                    setRenameModalVisible(true);
                   }}
                 >
                   <LiaPencilAltSolid></LiaPencilAltSolid>
@@ -76,7 +83,8 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
                 <button
                   type="button"
                   onClick={() => {
-                    deleteModalVisible.value = true;
+                    const oldActiveFile = activeFile;
+                    setDeleteModalVisible(true);
                   }}
                 >
                   <IoTrashOutline></IoTrashOutline>

@@ -1,6 +1,5 @@
-import { useSignal } from "@preact/signals";
 import { useAtom } from "jotai";
-import { useCallback, useEffect } from "preact/hooks";
+import { useCallback, useEffect, useState } from "preact/hooks";
 import { IoPlay, IoSquare } from "react-icons/io5";
 import { rightPanelVisibleAtom } from "../../../atoms/atoms";
 import useFiles from "../../../hooks/useFiles";
@@ -12,7 +11,7 @@ const RunButton = () => {
     useIbpscomp();
   const [, setRightPanelVisible] = useAtom(rightPanelVisibleAtom);
   const { activeFile } = useFiles();
-  const inputModalVisible = useSignal(false);
+  const [inputModalVisible, setInputModalVisible] = useState(false);
 
   const handleKeyPress = useCallback((event: KeyboardEvent) => {
     if (event.altKey && event.key === "Enter") {
@@ -22,7 +21,7 @@ const RunButton = () => {
 
   useEffect(() => {
     if (isAwaitingInput) {
-      inputModalVisible.value = true;
+      setInputModalVisible(true);
     }
   }, [isAwaitingInput, sendInput]);
 
@@ -40,6 +39,7 @@ const RunButton = () => {
   return (
     <>
       <Modal
+        key={new Date().valueOf()}
         onSubmit={(stdin) => {
           sendInput(stdin);
         }}
@@ -47,7 +47,8 @@ const RunButton = () => {
           sendInput("");
         }}
         requestStringInput="Enter input"
-        visibleState={inputModalVisible}
+        visible={inputModalVisible}
+        setVisible={setInputModalVisible}
       >
         '{activeFile}' is requesting input.
       </Modal>

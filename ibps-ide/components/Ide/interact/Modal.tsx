@@ -1,7 +1,7 @@
 import { useSignal } from "@preact/signals";
 import { FunctionalComponent } from "preact";
 import { ReactNode, useEffect, useRef } from "preact/compat";
-import { StateUpdater } from "preact/hooks";
+import { StateUpdater, useCallback } from "preact/hooks";
 import { useDidClickInside } from "../../../hooks/useDidClickInside";
 
 interface ModalProps {
@@ -18,6 +18,22 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
   if (!props.visible) {
     return null;
   }
+
+  const cancelHandler = () => {
+    if (props.onCancel) props.onCancel(text.value);
+    props.setVisible(false);
+  };
+
+  const handleKeyPress = useCallback((event: KeyboardEvent) => {
+    if (event.key === "Escape") cancelHandler();
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleKeyPress]);
 
   const { ref, didClickInside } = useDidClickInside();
   const text = useSignal("");
@@ -59,11 +75,8 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
             <div className="flex gap-2 pt-5">
               <button
                 type="button"
-                onClick={() => {
-                  if (props.onCancel) props.onCancel(text.value);
-                  props.setVisible(false);
-                }}
-                className="highlight w-full rounded-md bg-neutral-500 py-2 text-white"
+                onClick={cancelHandler}
+                className="highlight w-full rounded-md bg-neutral-300 py-2 text-neutral-700 dark:bg-neutral-500 dark:text-white"
               >
                 Cancel
               </button>

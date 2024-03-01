@@ -1,7 +1,7 @@
-import { useSignal } from "@preact/signals";
 import { dialog, fs } from "@tauri-apps/api";
 import { useAtom } from "jotai";
 import { compress } from "lz-string";
+import { useState } from "preact/hooks";
 import {
   IoAddCircleOutline,
   IoArchiveOutline,
@@ -82,8 +82,9 @@ const FilesPanel = () => {
     }
   };
 
-  const downloadWorkspaceModalVisible = useSignal(false);
-  const newFileModalVisible = useSignal(false);
+  const [downloadWorkspaceModalVisible, setDownloadWorkspaceModalVisible] =
+    useState(false);
+  const [newFileModalVisible, setNewFileModalVisible] = useState(false);
 
   return (
     <div
@@ -91,7 +92,9 @@ const FilesPanel = () => {
                 ${platform.isMacOS ? "bg-opacity-75 dark:bg-opacity-75" : "bg-opacity-100"}`}
     >
       <Modal
-        visibleState={downloadWorkspaceModalVisible}
+        key={new Date().valueOf()}
+        visible={downloadWorkspaceModalVisible}
+        setVisible={setDownloadWorkspaceModalVisible}
         requestStringInput="Name your workspace"
         onSubmit={(name) => {
           downloadWorkspace(name);
@@ -100,7 +103,9 @@ const FilesPanel = () => {
         Exporting IBPS Workspace
       </Modal>
       <Modal
-        visibleState={newFileModalVisible}
+        key={new Date().valueOf()}
+        visible={newFileModalVisible}
+        setVisible={setNewFileModalVisible}
         requestStringInput="Name your new file"
         onSubmit={(name) => {
           newFile(name);
@@ -116,7 +121,7 @@ const FilesPanel = () => {
             cannotRenameOrDelete
             forceIcon={IoAddCircleOutline}
             onClick={() => {
-              newFileModalVisible.value = true;
+              setNewFileModalVisible(true);
             }}
           ></FilesPanelFileButton>
           <FilesPanelFileButton
@@ -138,7 +143,7 @@ const FilesPanel = () => {
             cannotRenameOrDelete
             forceIcon={IoArchiveOutline}
             onClick={() => {
-              downloadWorkspaceModalVisible.value = true;
+              setDownloadWorkspaceModalVisible(true);
             }}
           ></FilesPanelFileButton>
         </div>
