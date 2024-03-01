@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
 import { FunctionalComponent } from "preact";
+import { useEffect, useRef } from "preact/hooks";
 import { IoChevronBack, IoCloudDownloadOutline } from "react-icons/io5";
 import { examplePickerShownAtom } from "../../../atoms/atoms";
 import useFiles from "../../../hooks/useFiles";
@@ -13,8 +14,22 @@ const ExamplePicker: FunctionalComponent<ExamplePickerProps> = () => {
   const [, setExamplePickerShown] = useAtom(examplePickerShownAtom);
   const { newFile, filesRaw, setFilesRaw } = useFiles();
 
+  const ref = useRef(null);
+  const mosueDownHandler = (e: MouseEvent) => {
+    if (ref.current && !(ref.current as Node).contains(e.target as Node)) {
+      setExamplePickerShown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", mosueDownHandler);
+    return () => {
+      document.removeEventListener("mousedown", mosueDownHandler);
+    };
+  }, [setExamplePickerShown]);
+
   return (
-    <div className="flex h-full flex-col overflow-y-auto pb-7">
+    <div className="flex h-full flex-col overflow-y-auto pb-7" ref={ref}>
       <button
         onClick={() => setExamplePickerShown(false)}
         className="flex cursor-pointer items-center pl-3 pt-4 text-left font-medium underline underline-offset-2 opacity-60"
@@ -24,7 +39,7 @@ const ExamplePicker: FunctionalComponent<ExamplePickerProps> = () => {
       </button>
       <p className="pl-4 pt-2 text-base font-bold">Example Scripts</p>
       <span className="font pb-4 pl-4 opacity-60">
-        Download the official example scripts.
+        {window.__TAURI__ ? "Get" : "Download"} the official example scripts.
       </span>
       <div className="flex h-full flex-col gap-1 overflow-y-auto">
         <div className="h-full flex-grow">

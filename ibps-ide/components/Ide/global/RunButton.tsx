@@ -50,7 +50,8 @@ const RunButton = () => {
         visible={inputModalVisible}
         setVisible={setInputModalVisible}
       >
-        '{activeFile}' is requesting input.
+        <b>Input requested</b>
+        <br />'{activeFile}' is requesting input.
       </Modal>
       <button
         type="button"

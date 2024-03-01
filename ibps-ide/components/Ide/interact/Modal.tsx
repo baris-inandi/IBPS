@@ -12,6 +12,8 @@ interface ModalProps {
   children?: ReactNode;
   requestStringInput?: string;
   dangerous?: boolean;
+  cancelText?: string;
+  submitText?: string;
 }
 
 const Modal: FunctionalComponent<ModalProps> = (props) => {
@@ -56,7 +58,7 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
       }}
       className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-neutral-400 bg-opacity-40 dark:bg-black dark:bg-opacity-30"
     >
-      <div className="min-w-72 max-w-96 p-4" ref={ref}>
+      <div className="min-w-80 max-w-96 p-4" ref={ref}>
         <div className="w-full rounded-md border border-neutral-400 bg-neutral-100 p-4 shadow-lg dark:border-idedark-700 dark:bg-idedark-900">
           <div className="w-full pb-3 pt-1">{props.children}</div>
           <form
@@ -80,15 +82,15 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
               <button
                 type="button"
                 onClick={cancelHandler}
-                className="highlight w-full rounded-md bg-neutral-300 px-8 py-2 text-neutral-700 dark:bg-neutral-500 dark:text-white"
+                className="highlight w-full flex-1 rounded-md bg-neutral-300 py-2 text-neutral-700 dark:bg-neutral-500 dark:text-white"
               >
-                Cancel
+                {props.cancelText ?? "Cancel"}
               </button>
               <button
                 type="submit"
-                className={`highlight w-full rounded-md px-8 py-2 text-white ${props.dangerous ? "bg-red-600" : "bg-blue-500"}`}
+                className={`highlight w-full flex-1 text-nowrap rounded-md py-2 text-white ${props.dangerous ? "bg-red-600" : "bg-blue-500"}`}
               >
-                Confirm
+                {props.submitText ?? "Confirm"}
               </button>
             </div>
           </form>

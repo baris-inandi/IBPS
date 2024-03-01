@@ -30,8 +30,7 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
         }}
         requestStringInput="Enter new file name"
       >
-        <b>Rename file:</b>
-        <br />'{props.text}'
+        Renaming file <b>'{props.text}'</b>
       </Modal>
       <Modal
         key={new Date().valueOf()}
@@ -42,9 +41,12 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
         }}
         dangerous
       >
-        Are you sure you want to delete file:
+        <b>Delete file</b>
+        <br />
+        Are you sure you want to delete:
         <br />'{props.text}'? <br />
-        <b>This action is cannot be undone.</b>
+        <br />
+        This action is cannot be undone.
       </Modal>
       <button
         type="button"

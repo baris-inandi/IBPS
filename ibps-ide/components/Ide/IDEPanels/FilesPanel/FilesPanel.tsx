@@ -103,6 +103,7 @@ const FilesPanel = () => {
             onSubmit={(name) => {
               downloadWorkspace(name);
             }}
+            submitText="Export"
           >
             Exporting IBPS Workspace
           </Modal>
@@ -114,6 +115,7 @@ const FilesPanel = () => {
             onSubmit={(name) => {
               newFile(name);
             }}
+            submitText="Create file"
           >
             Creating new IBPS script
           </Modal>

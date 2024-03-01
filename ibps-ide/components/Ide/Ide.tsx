@@ -53,7 +53,14 @@ const Ide = () => {
                     <span className="font-normal">Files Pane</span>
                   ) : (
                     <>
-                      IBPS <span className="font-normal">IDE</span>
+                      IBPS <span className="font-normal">IDE</span>{" "}
+                      <span className="text-xs">
+                        {window.__TAURI__ === undefined &&
+                        (location.hostname === "localhost" ||
+                          location.hostname === "127.0.0.1")
+                          ? "DEBUG"
+                          : ""}
+                      </span>
                     </>
                   )}
                 </h1>

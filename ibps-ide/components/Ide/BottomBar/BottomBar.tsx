@@ -24,12 +24,12 @@ const BottomBar = () => {
         </p>
         <span className="px-1">•</span>
         <p>IDE</p>
-        <div className="h-fit w-fit rounded-md border border-neutral-400 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
+        <div className="h-fit w-fit rounded-md border border-neutral-300 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
           {ideVersion}
         </div>{" "}
         <span className="px-1">•</span>
         <p>Compiler</p>
-        <div className="h-fit w-fit rounded-md border border-neutral-400 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
+        <div className="h-fit w-fit rounded-md border border-neutral-300 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
           {compilerVersion}
         </div>{" "}
       </div>
