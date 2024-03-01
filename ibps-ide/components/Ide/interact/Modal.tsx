@@ -1,31 +1,80 @@
-import { FunctionalComponent, VNode } from "preact";
-import { IoClose } from "react-icons/io5";
+import { useSignal } from "@preact/signals";
+import { FunctionalComponent } from "preact";
+import { ReactNode, useEffect, useRef } from "preact/compat";
+import { StateUpdater } from "preact/hooks";
+import { useDidClickInside } from "../../../hooks/useDidClickInside";
 
-export interface ModalAtom {
-  title: string;
-  content: VNode;
+interface ModalProps {
+  visible: boolean;
+  setVisible: StateUpdater<boolean>;
+  onSubmit: (inputValue: string) => void;
+  onCancel?: (inputValue: string) => void;
+  children?: ReactNode;
+  requestStringInput?: string;
+  dangerous?: boolean;
 }
 
-interface ModalProps {}
+const Modal: FunctionalComponent<ModalProps> = (props) => {
+  if (!props.visible) {
+    return null;
+  }
 
-const Modal: FunctionalComponent<ModalProps> = () => {
+  const { ref, didClickInside } = useDidClickInside();
+  const text = useSignal("");
+  const inputElement = useRef(null);
+
+  useEffect(() => {
+    if (inputElement.current) {
+      (inputElement.current as HTMLInputElement).focus();
+    }
+  }, []);
+
   return (
-    <div className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-neutral-900 bg-opacity-70">
-      <div className="min-w-80 p-4">
-        <div className="min-h-60 w-full rounded-md border border-neutral-500 bg-neutral-100 shadow-lg dark:border-idedark-700 dark:bg-idedark-900">
-          <div className="flex w-full items-center justify-between rounded-t-md py-1 text-neutral-700 dark:text-white">
-            <div className="px-2 font-medium"></div>
-            <button
-              type="button"
-              className="cursor-pointer pr-2 text-xl font-bold"
-              onClick={() => {}}
-            >
-              <IoClose></IoClose>
-            </button>
-          </div>
-          <div className="flex w-full justify-center px-3 py-2 text-neutral-600 dark:text-idedark-100">
-            <img src="/favicon.png" className="h-20" alt="" />
-          </div>
+    <div
+      onClick={(e) => {
+        if (!didClickInside(e)) props.setVisible(false);
+      }}
+      className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-neutral-900 bg-opacity-70"
+    >
+      <div className="min-w-80 max-w-96 p-4" ref={ref}>
+        <div className="w-full rounded-md border border-neutral-500 bg-neutral-100 p-4 shadow-lg dark:border-idedark-700 dark:bg-idedark-900">
+          <div className="w-full pb-3 pt-1">{props.children}</div>
+          <form
+            className="flex h-full w-full flex-grow flex-col items-stretch gap-2"
+            onSubmit={() => {
+              props.onSubmit(text.value);
+              props.setVisible(false);
+            }}
+          >
+            <input
+              ref={inputElement}
+              className={`${props.requestStringInput ? "" : "hidden"} rounded-md border border-neutral-300 px-3 py-1 dark:border-idedark-700`}
+              type="text"
+              placeholder={props.requestStringInput}
+              onInput={(input) => {
+                text.value = input.currentTarget.value;
+              }}
+              value={text.value}
+            />
+            <div className="flex gap-2 pt-5">
+              <button
+                type="button"
+                onClick={() => {
+                  if (props.onCancel) props.onCancel(text.value);
+                  props.setVisible(false);
+                }}
+                className="highlight w-full rounded-md bg-neutral-500 py-2 text-white"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className={`highlight w-full rounded-md py-2 text-white ${props.dangerous ? "bg-red-500" : "bg-blue-500"}`}
+              >
+                Confirm
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

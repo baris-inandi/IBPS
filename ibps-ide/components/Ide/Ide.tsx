@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { useEffect, useState } from "preact/hooks";
+import { useState } from "preact/hooks";
 import { PiSidebar } from "react-icons/pi";
 import { PythonProvider } from "react-py";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
@@ -25,13 +25,8 @@ const Ide = () => {
   const [forceView, setForceView] = useState(window.__TAURI__ !== undefined);
   const platform = useTauriOS();
 
-  useEffect(() => {
-    console.table(platform);
-  }, [platform]);
-
   return (
     <PythonProvider>
-      {/* <Modal /> */}
       <div
         className={`${forceView ? "flex" : "hidden sm:flex"} h-full w-full flex-col`}
         id="ibpside"
@@ -138,7 +133,7 @@ const Ide = () => {
         <button
           type="button"
           onClick={() => setForceView(true)}
-          className="w-full rounded-md bg-blue-500 py-2 text-white"
+          className="highlight w-full rounded-md bg-blue-500 py-2 text-white"
         >
           Continue Anyway
         </button>

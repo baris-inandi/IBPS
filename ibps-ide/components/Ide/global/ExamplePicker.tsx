@@ -2,6 +2,7 @@ import { useAtom } from "jotai";
 import { FunctionalComponent } from "preact";
 import { IoClose, IoCloudDownloadOutline } from "react-icons/io5";
 import { examplePickerShownAtom } from "../../../atoms/atoms";
+import { useDidClickInside } from "../../../hooks/useDidClickInside";
 import useFiles from "../../../hooks/useFiles";
 import { useTauriOS } from "../../../hooks/useTauriOS";
 import { codeCopyrightText } from "../../../lib/codeCopyrightText";
@@ -14,15 +15,19 @@ const ExamplePicker: FunctionalComponent<ExamplePickerProps> = () => {
   const [, setExamplePickerShown] = useAtom(examplePickerShownAtom);
   const { newFile, filesRaw, setFilesRaw } = useFiles();
   const platform = useTauriOS();
+  const { ref, didClickInside } = useDidClickInside();
 
   return (
     <div
-      className="absolute left-0 top-0 z-10 h-screen w-screen bg-black bg-opacity-60"
-      onClick={() => {
-        setExamplePickerShown(false);
+      onClick={(e) => {
+        if (!didClickInside(e)) setExamplePickerShown(false);
       }}
+      className="absolute left-0 top-0 z-10 h-screen w-screen bg-black bg-opacity-60"
     >
-      <div className="flex h-full w-5/6 max-w-md flex-col border-r border-neutral-200 bg-white shadow-lg dark:border-black dark:bg-idedark-950">
+      <div
+        ref={ref}
+        className="flex h-full w-5/6 max-w-md flex-col border-r border-neutral-200 bg-white shadow-lg dark:border-black dark:bg-idedark-950"
+      >
         <div className="flex items-start justify-between border-b border-neutral-200 bg-neutral-100 px-3 pb-4 pt-6 dark:border-black dark:bg-idedark-1000 dark:text-white">
           <p className={`px-4 text-xl ${platform.isMacOS ? "pt-5" : ""}`}>
             <span className="font-medium">Example Scripts</span>

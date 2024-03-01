@@ -31,6 +31,7 @@
     "fix": "eslint \"ibps-ide/**/*.{js,ts,jsx,tsx}\" && prettier --write ."
   },
   "dependencies": {
+    "@preact/signals": "^1.2.2",
     "@tauri-apps/api": "^1.5.3",
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.1",

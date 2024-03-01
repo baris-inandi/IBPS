@@ -1,9 +1,11 @@
+import { useSignal } from "@preact/signals";
 import { FunctionalComponent } from "preact";
 import { IoTrashOutline } from "react-icons/io5";
 import { LiaPencilAltSolid } from "react-icons/lia";
 import { IconType } from "react-icons/lib";
 import useFiles from "../../../../hooks/useFiles";
 import FileIcon from "../../global/FileIcon";
+import Modal from "../../interact/Modal";
 
 interface FilesPanelFileButtonProps {
   text: string;
@@ -14,9 +16,30 @@ interface FilesPanelFileButtonProps {
 
 const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (props) => {
   const { activeFile, deleteFile, renameFile, setActiveFile } = useFiles();
+  const renameModalVisible = useSignal(false);
+  const deleteModalVisible = useSignal(false);
 
   return (
     <div className="px-2 py-[1px]">
+      <Modal
+        visibleState={renameModalVisible}
+        onSubmit={(newName) => {
+          renameFile(props.text, newName);
+        }}
+        requestStringInput="Enter new file name"
+      >
+        'Rename file {props.text}'
+      </Modal>
+      <Modal
+        visibleState={deleteModalVisible}
+        onSubmit={() => {
+          deleteFile(props.text);
+        }}
+        dangerous
+      >
+        Are you sure you want to delete file '{props.text}'? <br />
+        <b>This action is cannot be undone.</b>
+      </Modal>
       <button
         type="button"
         key={props.text}
@@ -45,8 +68,7 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
                 <button
                   type="button"
                   onClick={() => {
-                    const n = prompt(`Rename ${props.text}`, props.text) ?? "";
-                    renameFile(props.text, n);
+                    renameModalVisible.value = true;
                   }}
                 >
                   <LiaPencilAltSolid></LiaPencilAltSolid>
@@ -54,10 +76,7 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
                 <button
                   type="button"
                   onClick={() => {
-                    const msg = `Are you sure you want to delete ${props.text}?`;
-                    if (window.confirm(msg)) {
-                      deleteFile(props.text);
-                    }
+                    deleteModalVisible.value = true;
                   }}
                 >
                   <IoTrashOutline></IoTrashOutline>

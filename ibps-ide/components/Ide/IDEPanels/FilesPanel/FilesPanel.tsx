@@ -1,3 +1,4 @@
+import { useSignal } from "@preact/signals";
 import { dialog, fs } from "@tauri-apps/api";
 import { useAtom } from "jotai";
 import { compress } from "lz-string";
@@ -12,6 +13,7 @@ import useFiles from "../../../../hooks/useFiles";
 import { useTauriOS } from "../../../../hooks/useTauriOS";
 import { fileExtension } from "../../../../lib/fileExtension";
 import ExamplePicker from "../../global/ExamplePicker";
+import Modal from "../../interact/Modal";
 import FilesPanelFileButton from "./FilesPanelFileButton";
 
 const FilesPanel = () => {
@@ -55,7 +57,6 @@ const FilesPanel = () => {
       }
       return;
     }
-
     const data = new Blob([content]);
     const url = window.URL.createObjectURL(data);
     const link = document.createElement("a");
@@ -66,11 +67,47 @@ const FilesPanel = () => {
     link.remove();
   };
 
+  const downloadWorkspace = (name: string) => {
+    const ibwsFileContent = JSON.stringify({
+      __ibps_filetype__: "ibws",
+      __ibws_version__: 1,
+      content: compress(JSON.stringify(filesRaw.allFiles)),
+    });
+    if (window.__TAURI__) {
+      download("workspace.ibws", ibwsFileContent);
+      return;
+    }
+    if (name) {
+      download(`${name}.ibws`, ibwsFileContent);
+    }
+  };
+
+  const downloadWorkspaceModalVisible = useSignal(false);
+  const newFileModalVisible = useSignal(false);
+
   return (
     <div
       className={`flex h-full flex-col bg-neutral-100 text-sm text-neutral-800 dark:bg-idedark-950 dark:text-idedark-200
                 ${platform.isMacOS ? "bg-opacity-75 dark:bg-opacity-75" : "bg-opacity-100"}`}
     >
+      <Modal
+        visibleState={downloadWorkspaceModalVisible}
+        requestStringInput="Name your workspace"
+        onSubmit={(name) => {
+          downloadWorkspace(name);
+        }}
+      >
+        Exporting IBPS Workspace
+      </Modal>
+      <Modal
+        visibleState={newFileModalVisible}
+        requestStringInput="Name your new file"
+        onSubmit={(name) => {
+          newFile(name);
+        }}
+      >
+        Creating new IBPS script
+      </Modal>
       <div className="flex flex-col pb-4 pt-3">
         <span className="pl-3 font-medium opacity-60">Files</span>
         <div className="flex flex-col">
@@ -79,8 +116,7 @@ const FilesPanel = () => {
             cannotRenameOrDelete
             forceIcon={IoAddCircleOutline}
             onClick={() => {
-              const n = prompt("Enter a name for the new file") ?? "";
-              newFile(n);
+              newFileModalVisible.value = true;
             }}
           ></FilesPanelFileButton>
           <FilesPanelFileButton
@@ -102,19 +138,7 @@ const FilesPanel = () => {
             cannotRenameOrDelete
             forceIcon={IoArchiveOutline}
             onClick={() => {
-              const ibwsFileContent = JSON.stringify({
-                __ibps_filetype__: "ibws",
-                __ibws_version__: 1,
-                content: compress(JSON.stringify(filesRaw.allFiles)),
-              });
-              if (window.__TAURI__) {
-                download("workspace.ibws", ibwsFileContent);
-                return;
-              }
-              const name = prompt("Name your workspace");
-              if (name) {
-                download(`${name}.ibws`, ibwsFileContent);
-              }
+              downloadWorkspaceModalVisible.value = true;
             }}
           ></FilesPanelFileButton>
         </div>

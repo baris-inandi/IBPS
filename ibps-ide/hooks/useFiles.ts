@@ -151,7 +151,7 @@ const useFiles = () => {
     deleteFile(name);
     newFile(newName);
     setFiles({
-      active: files.active === name ? newName : files.active,
+      active: files.active,
       allFiles: { ...files.allFiles, [newName]: fileContent },
     });
   };

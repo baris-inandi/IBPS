@@ -21,7 +21,7 @@ const NotFound = () => {
       <button
         type="button"
         onClick={() => setLocation("/")}
-        className="w-fit rounded-md bg-blue-500 px-6 py-2 text-white"
+        className="highlight w-fit rounded-md bg-blue-500 px-6 py-2 text-white"
       >
         Back to IBPS IDE
       </button>
