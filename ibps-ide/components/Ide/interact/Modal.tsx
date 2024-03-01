@@ -50,10 +50,10 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
       onClick={(e) => {
         if (!didClickInside(e)) props.setVisible(false);
       }}
-      className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-neutral-900 bg-opacity-70"
+      className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-neutral-400 bg-opacity-40 dark:bg-black dark:bg-opacity-30"
     >
       <div className="min-w-80 max-w-96 p-4" ref={ref}>
-        <div className="w-full rounded-md border border-neutral-500 bg-neutral-100 p-4 shadow-lg dark:border-idedark-700 dark:bg-idedark-900">
+        <div className="w-full rounded-md border border-neutral-400 bg-neutral-100 p-4 shadow-lg dark:border-idedark-700 dark:bg-idedark-900">
           <div className="w-full pb-3 pt-1">{props.children}</div>
           <form
             className="flex h-full w-full flex-grow flex-col items-stretch gap-2"
