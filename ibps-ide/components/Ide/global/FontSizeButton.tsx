@@ -24,19 +24,19 @@ const FontSizeButton = () => {
   };
 
   return (
-    <div className="highlight mr-2 flex flex-shrink-0 items-center rounded-md bg-neutral-200 text-sm text-black dark:bg-idedark-700 dark:text-idedark-200">
+    <div className="mr-3 flex h-full flex-shrink-0 items-center text-sm text-neutral-700 dark:text-idedark-200 ">
       <button
         type="button"
         onClick={() => changeFontSize(-2)}
-        className="w-full pl-3 pr-2 text-[0.7rem]"
+        className="mr-[3px] h-full w-full rounded-md px-3 text-xs hover:bg-neutral-200 hover:dark:bg-idedark-700"
       >
         A
       </button>
-      <div className="h-3/5 border-r border-neutral-400 dark:border-idedark-500" />
+      <div className="h-3/5 border-r border-neutral-300 dark:border-idedark-500" />
       <button
         type="button"
         onClick={() => changeFontSize(+2)}
-        className="w-full pl-2 pr-3"
+        className="ml-[3px] h-full w-full rounded-md px-3 text-base hover:bg-neutral-200 hover:dark:bg-idedark-700"
       >
         A
       </button>

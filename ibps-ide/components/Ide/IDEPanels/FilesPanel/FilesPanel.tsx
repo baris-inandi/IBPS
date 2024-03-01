@@ -91,82 +91,87 @@ const FilesPanel = () => {
       className={`flex h-full flex-col bg-neutral-100 text-sm text-neutral-800 dark:bg-idedark-950 dark:text-idedark-200
                 ${platform.isMacOS ? "bg-opacity-75 dark:bg-opacity-75" : "bg-opacity-100"}`}
     >
-      <Modal
-        key={new Date().valueOf()}
-        visible={downloadWorkspaceModalVisible}
-        setVisible={setDownloadWorkspaceModalVisible}
-        requestStringInput="Name your workspace"
-        onSubmit={(name) => {
-          downloadWorkspace(name);
-        }}
-      >
-        Exporting IBPS Workspace
-      </Modal>
-      <Modal
-        key={new Date().valueOf()}
-        visible={newFileModalVisible}
-        setVisible={setNewFileModalVisible}
-        requestStringInput="Name your new file"
-        onSubmit={(name) => {
-          newFile(name);
-        }}
-      >
-        Creating new IBPS script
-      </Modal>
-      <div className="flex flex-col pb-4 pt-3">
-        <span className="pl-3 font-medium opacity-60">Files</span>
-        <div className="flex flex-col">
-          <FilesPanelFileButton
-            text="New File"
-            cannotRenameOrDelete
-            forceIcon={IoAddCircleOutline}
-            onClick={() => {
-              setNewFileModalVisible(true);
+      {examplePickerShown ? (
+        <ExamplePicker />
+      ) : (
+        <>
+          <Modal
+            key={new Date().valueOf()}
+            visible={downloadWorkspaceModalVisible}
+            setVisible={setDownloadWorkspaceModalVisible}
+            requestStringInput="Name your workspace"
+            onSubmit={(name) => {
+              downloadWorkspace(name);
             }}
-          ></FilesPanelFileButton>
-          <FilesPanelFileButton
-            text="Import"
-            cannotRenameOrDelete
-            forceIcon={IoDownloadOutline}
-            onClick={onImport}
-          ></FilesPanelFileButton>
-          <FilesPanelFileButton
-            text="Export File"
-            cannotRenameOrDelete
-            forceIcon={IoShareOutline}
-            onClick={() => {
-              download(fileExtension(activeFile), ibpsCode);
+          >
+            Exporting IBPS Workspace
+          </Modal>
+          <Modal
+            key={new Date().valueOf()}
+            visible={newFileModalVisible}
+            setVisible={setNewFileModalVisible}
+            requestStringInput="Name your new file"
+            onSubmit={(name) => {
+              newFile(name);
             }}
-          ></FilesPanelFileButton>
+          >
+            Creating new IBPS script
+          </Modal>
+          <div className="flex flex-col pb-4 pt-3">
+            <span className="pl-3 font-medium opacity-60">Files</span>
+            <div className="flex flex-col">
+              <FilesPanelFileButton
+                text="New File"
+                cannotRenameOrDelete
+                forceIcon={IoAddCircleOutline}
+                onClick={() => {
+                  setNewFileModalVisible(true);
+                }}
+              ></FilesPanelFileButton>
+              <FilesPanelFileButton
+                text="Import"
+                cannotRenameOrDelete
+                forceIcon={IoDownloadOutline}
+                onClick={onImport}
+              ></FilesPanelFileButton>
+              <FilesPanelFileButton
+                text="Export File"
+                cannotRenameOrDelete
+                forceIcon={IoShareOutline}
+                onClick={() => {
+                  download(fileExtension(activeFile), ibpsCode);
+                }}
+              ></FilesPanelFileButton>
+              <FilesPanelFileButton
+                text="Export Workspace"
+                cannotRenameOrDelete
+                forceIcon={IoArchiveOutline}
+                onClick={() => {
+                  setDownloadWorkspaceModalVisible(true);
+                }}
+              ></FilesPanelFileButton>
+            </div>
+          </div>
+          <FilesPanelFileButton cannotRenameOrDelete text="Welcome" />
+          <FilesPanelFileButton cannotRenameOrDelete text="Documentation" />
           <FilesPanelFileButton
-            text="Export Workspace"
             cannotRenameOrDelete
-            forceIcon={IoArchiveOutline}
-            onClick={() => {
-              setDownloadWorkspaceModalVisible(true);
-            }}
-          ></FilesPanelFileButton>
-        </div>
-      </div>
-      <FilesPanelFileButton cannotRenameOrDelete text="Welcome" />
-      <FilesPanelFileButton cannotRenameOrDelete text="Documentation" />
-      <FilesPanelFileButton
-        cannotRenameOrDelete
-        text="Examples"
-        onClick={() => setExamplePickerShown(true)}
-      />
-      {examplePickerShown && <ExamplePicker />}
-      <span className="pl-3 pt-4 font-medium opacity-60">Your Workspace</span>
-      <div className="flex h-full flex-col gap-1 overflow-y-auto">
-        <div className="h-full flex-grow">
-          {allFilenames()
-            .reverse()
-            .map((file) => (
-              <FilesPanelFileButton text={file} key={file} />
-            ))}
-          <div className="h-20 w-full"></div>
-        </div>
-      </div>
+            text="Examples"
+            onClick={() => setExamplePickerShown(true)}
+          />
+          <span className="pl-3 pt-4 font-medium opacity-60">Your Workspace</span>
+          <div className="flex h-full flex-col gap-1 overflow-y-auto">
+            <div className="h-full flex-grow">
+              {allFilenames()
+                .reverse()
+                .map((file) => (
+                  <FilesPanelFileButton text={file} key={file} />
+                ))}
+              <div className="h-20 w-full"></div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

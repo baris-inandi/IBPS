@@ -74,7 +74,6 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
                 <button
                   type="button"
                   onClick={() => {
-                    const oldActiveFile = activeFile;
                     setRenameModalVisible(true);
                   }}
                 >
@@ -83,7 +82,6 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
                 <button
                   type="button"
                   onClick={() => {
-                    const oldActiveFile = activeFile;
                     setDeleteModalVisible(true);
                   }}
                 >

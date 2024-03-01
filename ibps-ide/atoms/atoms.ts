@@ -33,7 +33,10 @@ export const ibpsCodeAtom = atom((get) => {
   const fileName = files.active;
   if (fileName === "Welcome") return WELCOME_CODE;
   const code = files.allFiles[fileName];
-  return code ?? "";
+  return (
+    code ??
+    "There was an issue reading your file.\n\nYou can report this issue\nusing the 'Bugs and Feedback' button\non the bottom-right corner of the window.\n"
+  );
 });
 
 export const filesAtom = atomWithStorage<IFiles>("jotai__filesAtom", INITIAL_FILES);
