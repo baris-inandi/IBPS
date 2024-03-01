@@ -1,6 +1,6 @@
 [package]
 name = "ibps-ide-desktop"
-version = "0.1.0"
+version = "0.8.3"
 description = "IBPS IDE. Now on desktop."
 authors = ["baris-inandi"]
 license = "AGPL-3.0-only"
