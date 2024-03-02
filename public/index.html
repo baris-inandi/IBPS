@@ -20,7 +20,7 @@
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
-          .register("/react-py-sw.js")
+          .register(new URL("/react-py-sw.js", window.location.origin))
           .then(function (registration) {
             console.log(
               "Service Worker registration successful with scope: ",
