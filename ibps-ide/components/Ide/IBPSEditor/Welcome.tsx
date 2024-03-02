@@ -4,7 +4,7 @@ import DocsCode from "./Docs/DocsCode";
 const Welcome = () => {
   return (
     <div className="flex h-full w-full select-text flex-col gap-5 overflow-y-auto bg-white p-10 pb-20 dark:bg-idedark-1000">
-      <p className="pb-1 text-2xl font-bold">Welcome to the IBPS IDE!</p>
+      <p className="pb-1 text-2xl font-bold">Welcome to the IBPS IDE</p>
       <p>
         This integrated development environment lets you create, edit, run, and share your
         IBPS scripts right on your browser.
