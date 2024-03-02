@@ -52,7 +52,7 @@
   "devDependencies": {
     "@rsbuild/core": "^0.4.1",
     "@rsbuild/plugin-preact": "^0.4.2",
-    "@tauri-apps/cli": "^1.5.10",
+    "@tauri-apps/cli": "latest",
     "@tsconfig/strictest": "^2.0.2",
     "autoprefixer": "^10.4.17",
     "eslint": "^8.57.0",
