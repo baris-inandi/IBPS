@@ -107,13 +107,13 @@
     },
     "windows": [
       {
+        "title": "IBPS IDE",
         "width": 1260,
         "height": 720,
         "minWidth": 700,
-        "minHeight": 400,
+        "minHeight": 500,
         "acceptFirstMouse": false,
         "decorations": true,
-        "title": "IBPS IDE",
         "fullscreen": false,
         "resizable": true,
         "titleBarStyle": "Overlay",
