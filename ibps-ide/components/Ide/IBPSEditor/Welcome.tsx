@@ -27,7 +27,7 @@ const Welcome = () => {
       <p>
         Now click the <b>Run</b> button to see the output!
       </p>
-      <div className="pt-5 text-neutral-400">
+      <div className="pt-5 text-idelight-400">
         <p>
           <span>Created by </span>
           <Ahref

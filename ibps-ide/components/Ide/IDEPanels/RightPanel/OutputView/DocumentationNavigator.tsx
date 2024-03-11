@@ -29,8 +29,8 @@ const DocumentationNavigator = () => {
                                 docsHeading.level <= 2
                                   ? "pt-3 text-lg font-bold" // h2
                                   : docsHeading.level === 3
-                                    ? "font-medium text-neutral-800 dark:text-neutral-300" // h3
-                                    : "text-neutral-500 dark:text-neutral-400" // h4-6
+                                    ? "font-medium text-idelight-800 dark:text-idedark-200" // h3
+                                    : "text-idelight-500 dark:text-idedark-500" // h4-6
                               }`}
               >
                 {docsHeading.text}

@@ -61,7 +61,7 @@ const RunButton = () => {
             ${
               isRunning
                 ? "bg-orange-600 text-white dark:bg-orange-400 dark:bg-opacity-60"
-                : "bg-blue-500 text-white dark:bg-idedark-700 dark:text-idedark-200"
+                : "bg-idelight-accent text-white dark:bg-idedark-700 dark:text-idedark-200"
             }
             `}
         onClick={() => {

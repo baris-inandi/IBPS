@@ -1,0 +1,69 @@
+:root,
+.theme-light-root,
+.theme-light-silver {
+  --theme-light-50: 0 0% 98%;
+  --theme-light-100: 0 0% 96.1%;
+  --theme-light-200: 0 0% 89.8%;
+  --theme-light-300: 0 0% 83.1%;
+  --theme-light-400: 0 0% 63.9%;
+  --theme-light-500: 0 0% 45.1%;
+  --theme-light-600: 0 0% 32.2%;
+  --theme-light-700: 0 0% 25.1%;
+  --theme-light-800: 0 0% 14.9%;
+  --theme-light-900: 0 0% 9%;
+  --theme-light-950: 0 0% 3.9%;
+  --theme-light-1000: 0 0% 0%;
+  --theme-light-1100: 0 0% 0%;
+  --theme-light-accent: 217 91% 60%;
+}
+
+.theme-light-lake {
+  --theme-light-50: 215 45% 97%;
+  --theme-light-100: 215 45% 96.1%;
+  --theme-light-200: 215 45% 89.8%;
+  --theme-light-300: 215 45% 83.1%;
+  --theme-light-400: 215 45% 63.9%;
+  --theme-light-500: 215 45% 45.1%;
+  --theme-light-600: 215 45% 32.2%;
+  --theme-light-700: 215 45% 25.1%;
+  --theme-light-800: 215 45% 14.9%;
+  --theme-light-900: 215 45% 9%;
+  --theme-light-950: 215 45% 3.9%;
+  --theme-light-1000: 215 45% 0%;
+  --theme-light-1100: 215 45% 0%;
+  --theme-light-accent: 215 50% 55%;
+}
+
+.theme-light-solarized {
+  --theme-light-50: 46 40% 97%;
+  --theme-light-100: 46 40% 96.1%;
+  --theme-light-200: 46 40% 89.8%;
+  --theme-light-300: 46 40% 83.1%;
+  --theme-light-400: 46 40% 63.9%;
+  --theme-light-500: 46 40% 45.1%;
+  --theme-light-600: 46 40% 32.2%;
+  --theme-light-700: 46 40% 25.1%;
+  --theme-light-800: 46 40% 14.9%;
+  --theme-light-900: 46 40% 9%;
+  --theme-light-950: 46 40% 3.9%;
+  --theme-light-1000: 46 40% 0%;
+  --theme-light-1100: 46 40% 0%;
+  --theme-light-accent: 193 72% 26%;
+}
+
+.theme-light-ruby {
+  --theme-light-50: 350 25% 97%;
+  --theme-light-100: 350 25% 96.1%;
+  --theme-light-200: 350 25% 89.8%;
+  --theme-light-300: 350 25% 83.1%;
+  --theme-light-400: 350 25% 63.9%;
+  --theme-light-500: 350 25% 45.1%;
+  --theme-light-600: 350 25% 32.2%;
+  --theme-light-700: 350 25% 25.1%;
+  --theme-light-800: 350 25% 14.9%;
+  --theme-light-900: 350 25% 9%;
+  --theme-light-950: 350 25% 3.9%;
+  --theme-light-1000: 350 25% 0%;
+  --theme-light-1100: 350 25% 0%;
+  --theme-light-accent: 350 40% 55%;
+}

@@ -88,7 +88,7 @@ const FilesPanel = () => {
 
   return (
     <div
-      className={`flex h-full flex-col bg-neutral-100 text-sm text-neutral-800 dark:bg-idedark-950 dark:text-idedark-200
+      className={`flex h-full flex-col bg-idelight-100 text-sm text-idelight-800 dark:bg-idedark-950 dark:text-idedark-200
                 ${platform.isMacOS ? "bg-opacity-75 dark:bg-opacity-75" : "bg-opacity-100"}`}
     >
       {examplePickerShown ? (

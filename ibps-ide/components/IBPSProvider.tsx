@@ -1,11 +1,12 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { FunctionalComponent } from "preact";
+import "../styles/dark-themes.css";
 import "../styles/fonts.css";
 import "../styles/global.css";
+import "../styles/light-themes.css";
 import "../styles/markdown.css";
 import "../styles/tailwind.css";
-import "../styles/themes.css";
 
 const IBPSProvider: FunctionalComponent<{ children?: React.ReactNode }> = (props) => {
   return (

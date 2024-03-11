@@ -14,7 +14,7 @@ const BottomBar = () => {
   const [themePickerVisible, setThemePickerVisible] = useState(false);
 
   return (
-    <div className="flex w-full justify-between border-t border-neutral-300 bg-white px-2 py-[3px] text-sm text-neutral-500 dark:border-black dark:bg-idedark-1100 dark:text-neutral-400">
+    <div className="flex w-full justify-between border-t border-idelight-300 bg-white px-2 py-[3px] text-sm text-idelight-500 dark:border-black dark:bg-idedark-1100 dark:text-neutral-400">
       <Modal
         hideDefaultButtons
         visible={themePickerVisible}
@@ -36,12 +36,12 @@ const BottomBar = () => {
         </p>
         <span className="px-1">•</span>
         <p>IDE</p>
-        <div className="h-fit w-fit rounded-md border border-neutral-300 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
+        <div className="h-fit w-fit rounded-md border border-idelight-300 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
           {ideVersion}
         </div>{" "}
         <span className="px-1">•</span>
         <p>Compiler</p>
-        <div className="h-fit w-fit rounded-md border border-neutral-300 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
+        <div className="h-fit w-fit rounded-md border border-idelight-300 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
           {compilerVersion}
         </div>{" "}
       </div>

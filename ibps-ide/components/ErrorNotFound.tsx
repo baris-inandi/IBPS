@@ -15,7 +15,7 @@ const NotFound = () => {
         IBPS <span className="font-normal">IDE</span>
       </p>
       <h1 className="text-2xl font-medium">Not Found</h1>
-      <p className="max-w-sm pb-6 text-neutral-500 dark:text-neutral-400">
+      <p className="max-w-sm pb-6 text-idelight-500 dark:text-neutral-400">
         That's an error.
       </p>
       <button

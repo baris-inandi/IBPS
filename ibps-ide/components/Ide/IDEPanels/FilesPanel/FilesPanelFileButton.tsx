@@ -11,7 +11,8 @@ interface FilesPanelFileButtonProps {
   text: string;
   onClick?: () => void;
   cannotRenameOrDelete?: boolean;
-  forceIcon?: IconType | null;
+  forceIcon?: IconType;
+  hideIcon?: boolean;
   noPaddingX?: boolean;
 }
 
@@ -61,20 +62,16 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
         className={`group flex w-full items-center justify-between rounded-md border-y border-transparent py-[2px] pl-1 pr-2
               ${
                 activeFile === props.text
-                  ? "border-neutral-300 bg-black bg-opacity-[7%] text-neutral-900 dark:bg-idedark-400 dark:bg-opacity-30 dark:text-white"
-                  : "text-neutral-700 hover:bg-black hover:bg-opacity-5 dark:text-idedark-200 dark:hover:bg-idedark-400 dark:hover:bg-opacity-20"
+                  ? "border-idelight-300 bg-idelight-700 bg-opacity-10 text-idelight-800 dark:bg-idedark-400 dark:bg-opacity-30 dark:text-white"
+                  : "text-idelight-700 hover:bg-idelight-900 hover:bg-opacity-5 dark:text-idedark-200 dark:hover:bg-idedark-400 dark:hover:bg-opacity-20"
               }
               `}
       >
         <div className="flex w-full items-center gap-2 pl-2">
           <div className="shrink-0">
-            {props.forceIcon === null ? (
-              ""
-            ) : props.forceIcon ? (
-              <props.forceIcon />
-            ) : (
-              <FileIcon fileName={props.text} />
-            )}
+            <div className={props.hideIcon ? "opacity-0" : ""}>
+              {props.forceIcon ? <props.forceIcon /> : <FileIcon fileName={props.text} />}
+            </div>
           </div>
           <p className="grow overflow-hidden truncate text-left">{props.text}</p>
           {props.cannotRenameOrDelete === true ? null : (
