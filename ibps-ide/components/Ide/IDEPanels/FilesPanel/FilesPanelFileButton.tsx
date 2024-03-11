@@ -30,6 +30,7 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
         onSubmit={(newName) => {
           renameFile(props.text, newName);
         }}
+        initialInputValue={props.text}
         requestStringInput="Enter new file name"
       >
         Renaming file <b>'{props.text}'</b>

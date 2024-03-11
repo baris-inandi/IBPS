@@ -21,7 +21,14 @@ const BottomBar = () => {
         setVisible={setThemePickerVisible}
         onSubmit={() => {}}
       >
-        <ThemeSelector></ThemeSelector>
+        <ThemeSelector />
+        <button
+          type="button"
+          onClick={() => setThemePickerVisible(false)}
+          className="highlight mt-4 w-full flex-1 rounded-md bg-idelight-300 py-2 text-idelight-700 dark:bg-idedark-700 dark:text-white"
+        >
+          Dismiss
+        </button>
       </Modal>
       <div className="flex items-center gap-1">
         <p>

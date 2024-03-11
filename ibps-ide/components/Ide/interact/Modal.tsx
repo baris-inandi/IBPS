@@ -15,6 +15,7 @@ interface ModalProps {
   cancelText?: string;
   submitText?: string;
   hideDefaultButtons?: boolean;
+  initialInputValue?: string;
 }
 
 const Modal: FunctionalComponent<ModalProps> = (props) => {
@@ -43,7 +44,7 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
   }, [handleKeyPress]);
 
   const { ref, didClickInside } = useDidClickInside();
-  const text = useSignal("");
+  const text = useSignal(props.initialInputValue ?? "");
   const inputElement = useRef(null);
 
   useEffect(() => {

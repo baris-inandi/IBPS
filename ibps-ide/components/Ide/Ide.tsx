@@ -46,7 +46,7 @@ const Ide = () => {
         <PanelGroup
           autoSaveId="IBPS_IDE_LAYOUT_SAVE"
           direction="horizontal"
-          className={`flex-grow ${window.__TAURI__ ? "border-idelight-300 border-t dark:border-black" : ""}`}
+          className={`flex-grow ${window.__TAURI__ ? "border-t border-idelight-300 dark:border-black" : ""}`}
         >
           <div className={`w-60 ${filePanelVisible ? "block" : "hidden"}`}>
             <IDEPanelTopbar pl desktopUI={platform.isMacOS}>
@@ -77,7 +77,7 @@ const Ide = () => {
                 </h1>
               </div>
             </IDEPanelTopbar>
-            <div className="border-idelight-300 h-full w-full border-r dark:border-black">
+            <div className="h-full w-full border-r border-idelight-300 dark:border-black">
               <FilesPanel />
             </div>
           </div>
@@ -109,9 +109,9 @@ const Ide = () => {
           </Panel>
           {rightPanelVisible && (
             <>
-              <PanelResizeHandle className="bg-idelight-100 w-3 dark:bg-idedark-950">
+              <PanelResizeHandle className="w-3 bg-idelight-100 dark:bg-idedark-950">
                 <IDEPanelTopbar />
-                <div className="border-idelight-300 h-full w-full border-l dark:border-black"></div>
+                <div className="h-full w-full border-l border-idelight-300 dark:border-black"></div>
               </PanelResizeHandle>
               <Panel minSize={30} maxSize={60} defaultSize={40}>
                 <IDEPanelTopbar>
@@ -131,10 +131,10 @@ const Ide = () => {
           IBPS <span className="font-normal">IDE</span>
         </p>
         <h1 className="text-2xl font-medium">Window too small</h1>
-        <p className="text-idelight-500 max-w-sm dark:text-neutral-400">
+        <p className="max-w-sm text-idelight-500 dark:text-neutral-400">
           Please resize your window or switch to a desktop device to use the IBPS IDE
         </p>
-        <p className="text-idelight-500 pb-5 pt-2 text-sm dark:text-neutral-400">
+        <p className="pb-5 pt-2 text-sm text-idelight-500 dark:text-neutral-400">
           IBPS IDE <code className="pl-[2px] font-bold">{ideVersion}</code>
           {"  •  "}
           ibps-comp <code className="pl-[2px] font-bold">
