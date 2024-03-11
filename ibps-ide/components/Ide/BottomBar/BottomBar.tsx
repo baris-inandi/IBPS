@@ -48,7 +48,7 @@ const BottomBar = () => {
       <div className="flex items-center gap-2">
         <button
           onClick={() => setThemePickerVisible(true)}
-          className="shrink-0 px-2 text-xs font-medium"
+          className="shrink-0 px-1 text-xs font-medium"
         >
           Change Theme
         </button>
