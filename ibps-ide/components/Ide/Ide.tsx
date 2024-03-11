@@ -1,11 +1,17 @@
+import { useSignal } from "@preact/signals";
 import { useAtom } from "jotai";
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { PiSidebar } from "react-icons/pi";
 import { PythonProvider } from "react-py";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-import { filePanelVisibleAtom, rightPanelVisibleAtom } from "../../atoms/atoms";
+import {
+  filePanelVisibleAtom,
+  ideThemeAtom,
+  rightPanelVisibleAtom,
+} from "../../atoms/atoms";
 import { useTauriOS } from "../../hooks/useTauriOS";
 import { useVersion } from "../../hooks/useVersion";
+import { ideThemes } from "../../lib/ideThemes";
 import DragRegion from "../DesktopDragRegion";
 import BottomBar from "./BottomBar/BottomBar";
 import IBPSEditor from "./IBPSEditor/IBPSEditor";
@@ -24,11 +30,18 @@ const Ide = () => {
   const [rightPanelVisible, setRightPanelVisible] = useAtom(rightPanelVisibleAtom);
   const [forceView, setForceView] = useState(window.__TAURI__ !== undefined);
   const platform = useTauriOS();
+  const [ideTheme] = useAtom(ideThemeAtom);
+  const ideThemeClasses = useSignal("theme-dark-default theme-light-default");
+
+  useEffect(() => {
+    ideThemeClasses.value = `${ideThemes.dark[ideTheme.dark]} ${ideThemes.light[ideTheme.light]}`;
+    console.log(ideThemeClasses.value)
+  }, [ideTheme]);
 
   return (
     <PythonProvider>
       <div
-        className={`${forceView ? "flex" : "hidden sm:flex"} h-full w-full flex-col`}
+        className={`${forceView ? "flex" : "hidden sm:flex"} h-full w-full flex-col ${ideThemeClasses.value}`}
         id="ibpside"
       >
         {platform.isMacOS ? <DragRegion /> : null}

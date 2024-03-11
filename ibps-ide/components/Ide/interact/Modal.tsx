@@ -14,6 +14,7 @@ interface ModalProps {
   dangerous?: boolean;
   cancelText?: string;
   submitText?: string;
+  hideDefaultButtons?: boolean;
 }
 
 const Modal: FunctionalComponent<ModalProps> = (props) => {
@@ -78,21 +79,23 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
               }}
               value={text.value}
             />
-            <div className="flex gap-2 pt-5">
-              <button
-                type="button"
-                onClick={cancelHandler}
-                className="highlight w-full flex-1 rounded-md bg-neutral-300 py-2 text-neutral-700 dark:bg-neutral-500 dark:text-white"
-              >
-                {props.cancelText ?? "Cancel"}
-              </button>
-              <button
-                type="submit"
-                className={`highlight w-full flex-1 text-nowrap rounded-md py-2 text-white ${props.dangerous ? "bg-red-600" : "bg-blue-500"}`}
-              >
-                {props.submitText ?? "Confirm"}
-              </button>
-            </div>
+            {props.hideDefaultButtons ? null : (
+              <div className="flex gap-2 pt-5">
+                <button
+                  type="button"
+                  onClick={cancelHandler}
+                  className="highlight w-full flex-1 rounded-md bg-neutral-300 py-2 text-neutral-700 dark:bg-neutral-500 dark:text-white"
+                >
+                  {props.cancelText ?? "Cancel"}
+                </button>
+                <button
+                  type="submit"
+                  className={`highlight w-full flex-1 text-nowrap rounded-md py-2 text-white ${props.dangerous ? "bg-red-600" : "bg-blue-500"}`}
+                >
+                  {props.submitText ?? "Confirm"}
+                </button>
+              </div>
+            )}
           </form>
         </div>
       </div>

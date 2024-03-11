@@ -19,6 +19,13 @@ const IBPSEditor = () => {
 
   const prefersColorScheme = usePrefersColorScheme();
 
+  const getTheme = () => {
+    if (prefersColorScheme === "dark") {
+      return "dracula";
+    }
+    return "cloud_editor";
+  }
+
   return (
     <div className="h-full w-full" id="ibpseditor">
       <div className={activeFile === "Documentation" ? "block h-full" : "hidden"}>
@@ -37,7 +44,7 @@ const IBPSEditor = () => {
           value={ibpsCode}
           mode="python"
           showPrintMargin={false}
-          theme={prefersColorScheme === "dark" ? "dracula" : "cloud_editor"}
+          theme={getTheme()}
           fontSize={codeFontSize}
           onChange={(val) => {
             if (!isWelcomePage()) {

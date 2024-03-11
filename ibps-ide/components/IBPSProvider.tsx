@@ -5,6 +5,7 @@ import "../styles/fonts.css";
 import "../styles/global.css";
 import "../styles/markdown.css";
 import "../styles/tailwind.css";
+import "../styles/themes.css";
 
 const IBPSProvider: FunctionalComponent<{ children?: React.ReactNode }> = (props) => {
   return (

@@ -1,16 +1,28 @@
 import { useAtom } from "jotai";
+import { useState } from "preact/hooks";
 import { BsDatabaseFill } from "react-icons/bs";
 import { usedDiskSpaceAtom } from "../../../atoms/atoms";
 import { useVersion } from "../../../hooks/useVersion";
 import Ahref from "../global/Ahref";
+import Modal from "../interact/Modal";
+import ThemeSelector from "./ThemeSelector";
 
 const BottomBar = () => {
   const [{ usedBytesRepr, availableBytesRepr, usedBytesPercentage }] =
     useAtom(usedDiskSpaceAtom);
   const { compilerVersion, ideVersion } = useVersion();
+  const [themePickerVisible, setThemePickerVisible] = useState(false);
 
   return (
-    <div className="flex w-full justify-between border-t border-neutral-300 bg-white px-2 py-[2px] text-sm text-neutral-500 dark:border-black dark:bg-idedark-1100 dark:text-neutral-400">
+    <div className="flex w-full justify-between border-t border-neutral-300 bg-white px-2 py-[3px] text-sm text-neutral-500 dark:border-black dark:bg-idedark-1100 dark:text-neutral-400">
+      <Modal
+        hideDefaultButtons
+        visible={themePickerVisible}
+        setVisible={setThemePickerVisible}
+        onSubmit={() => {}}
+      >
+        <ThemeSelector></ThemeSelector>
+      </Modal>
       <div className="flex items-center gap-1">
         <p>
           Created by{" "}
@@ -34,14 +46,20 @@ const BottomBar = () => {
         </div>{" "}
       </div>
       <div className="flex items-center gap-2">
+        <button
+          onClick={() => setThemePickerVisible(true)}
+          className="shrink-0 px-2 text-xs font-medium"
+        >
+          Change Theme
+        </button>
         <Ahref
-          className="shrink-0 pr-3 text-xs font-medium underline underline-offset-2"
+          className="shrink-0 px-2 text-xs font-medium"
           href="https://github.com/baris-inandi/IBPS/issues/new"
           target="blank"
         >
           Bugs & Feedback
         </Ahref>
-        <span className="h-fit">
+        <span className="h-fit pl-2">
           <BsDatabaseFill />
         </span>
         <div className="flex h-full flex-shrink-0 items-center gap-2">

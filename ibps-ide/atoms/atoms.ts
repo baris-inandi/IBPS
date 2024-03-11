@@ -64,3 +64,8 @@ export const examplePickerShownAtom = atom(false);
 export const promptAtom = atom(true);
 
 export const tauriTestAtom = atom("");
+
+export const ideThemeAtom = atomWithStorage("jotai__ideThemeAtom", {
+  dark: "DarkDefault",
+  light: "LightDefault",
+});
