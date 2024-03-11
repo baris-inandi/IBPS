@@ -56,7 +56,7 @@ const RunButton = () => {
       <button
         type="button"
         id="runbutton"
-        className={`highlight mr-2 flex h-full flex-shrink-0 items-center gap-1 rounded-md px-3 text-sm
+        className={`highlight mr-2 flex h-full flex-shrink-0 items-center gap-1 rounded-md px-3 text-sm shadow-sm
             ${isLoading || isCompiling ? "cursor-default opacity-60" : "cursor-pointer"}
             ${
               isRunning

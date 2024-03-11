@@ -12,7 +12,7 @@ module.exports = {
         "ui-sans-serif",
         "system-ui",
       ],
-      mono: ["Jetbrains Mono", "SF Mono", "Menlo", "Cascadia Mono", "mono"],
+      mono: ["Chivo Mono", "SF Mono", "Menlo", "Cascadia Mono", "mono"],
     },
     extend: {
       colors: {

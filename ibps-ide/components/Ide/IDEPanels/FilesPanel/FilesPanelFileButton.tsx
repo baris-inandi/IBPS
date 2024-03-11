@@ -60,7 +60,7 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
         className={`group flex w-full items-center justify-between rounded-md border-y border-transparent py-[2px] pl-1 pr-2
               ${
                 activeFile === props.text
-                  ? "border-neutral-300 bg-black bg-opacity-10 text-neutral-900 dark:bg-idedark-400 dark:bg-opacity-30 dark:text-white"
+                  ? "border-neutral-300 bg-black bg-opacity-[7%] text-neutral-900 dark:bg-idedark-400 dark:bg-opacity-30 dark:text-white"
                   : "text-neutral-700 hover:bg-black  hover:bg-opacity-5 dark:text-idedark-200 dark:hover:bg-idedark-400 dark:hover:bg-opacity-20"
               }
               `}

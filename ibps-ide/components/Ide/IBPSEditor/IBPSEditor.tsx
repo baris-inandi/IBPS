@@ -28,6 +28,10 @@ const IBPSEditor = () => {
         <Welcome />
       ) : (
         <AceEditor
+          onLoad={(editor) => {
+            editor.container.style.lineHeight = "1.45";
+            editor.renderer.updateFontSize();
+          }}
           className="font-mono"
           readOnly={isWelcomePage()}
           value={ibpsCode}
