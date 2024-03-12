@@ -49,6 +49,9 @@ const IBPSEditor = () => {
       height="100%"
       width="100%"
       showGutter={false}
+      setOptions={{
+        displayIndentGuides: false,
+      }}
     />
   );
 };
