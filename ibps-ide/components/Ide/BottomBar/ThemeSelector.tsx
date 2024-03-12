@@ -16,7 +16,7 @@ const ThemeSelector: FunctionalComponent = () => {
     <>
       <div className="flex items-center gap-3 pb-3 pl-1 text-lg font-bold text-idelight-700 dark:text-idedark-100">
         {colorScheme === "dark" ? <IoMoonOutline /> : <IoSunnyOutline />}
-        Select Theme
+        Select IDE Theme
       </div>
       <p className="border-t border-idelight-300 pt-2 text-idelight-500 dark:border-idedark-700 dark:text-idedark-400">
         Choose your color scheme preference:
@@ -56,6 +56,7 @@ const ThemeSelector: FunctionalComponent = () => {
             <div className="flex items-center gap-3" key={theme}>
               <div className="shrink-0 grow">
                 <FilesPanelFileButton
+                  neverActive
                   noPaddingX
                   text={theme}
                   onClick={() =>
@@ -84,6 +85,7 @@ const ThemeSelector: FunctionalComponent = () => {
             <div className="flex items-center gap-3" key={theme}>
               <div className="shrink-0 grow">
                 <FilesPanelFileButton
+                  neverActive
                   noPaddingX
                   text={theme}
                   onClick={() =>

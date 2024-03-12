@@ -54,17 +54,18 @@
 }
 
 .theme-light-solarized {
-  --theme-light-50: 46 40% 97%;
-  --theme-light-100: 46 40% 96.1%;
-  --theme-light-200: 46 40% 89.8%;
-  --theme-light-300: 46 40% 83.1%;
-  --theme-light-400: 46 40% 63.9%;
-  --theme-light-500: 46 40% 45.1%;
-  --theme-light-600: 46 40% 32.2%;
-  --theme-light-700: 46 40% 25.1%;
-  --theme-light-800: 46 40% 14.9%;
-  --theme-light-900: 46 40% 9%;
-  --theme-light-950: 46 40% 3.9%;
+  --theme-light-whitish: 46 40% 96%;
+  --theme-light-50: 46 40% 92%;
+  --theme-light-100: 46 40% 90.1%;
+  --theme-light-200: 46 40% 84.8%;
+  --theme-light-300: 46 40% 78.1%;
+  --theme-light-400: 46 40% 58.9%;
+  --theme-light-500: 46 40% 40.1%;
+  --theme-light-600: 46 40% 27.2%;
+  --theme-light-700: 46 40% 20.1%;
+  --theme-light-800: 46 40% 9.9%;
+  --theme-light-900: 46 40% 4%;
+  --theme-light-950: 46 40% 0.9%;
   --theme-light-1000: 46 40% 0%;
   --theme-light-1100: 46 40% 0%;
   --theme-light-accent: 193 72% 26%;

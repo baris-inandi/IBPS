@@ -14,7 +14,7 @@ const BottomBar = () => {
   const [themePickerVisible, setThemePickerVisible] = useState(false);
 
   return (
-    <div className="flex w-full justify-between border-t border-idelight-300 bg-white px-2 py-[3px] text-sm text-idelight-500 dark:border-black dark:bg-idedark-1100 dark:text-neutral-400">
+    <div className="flex w-full justify-between border-t border-idelight-300 bg-white px-2 py-[3px] text-sm text-idelight-500 dark:border-black dark:bg-idedark-1100 dark:text-idedark-200/60">
       <Modal
         hideDefaultButtons
         visible={themePickerVisible}
@@ -44,24 +44,24 @@ const BottomBar = () => {
         </p>
         <span className="px-1">•</span>
         <p>IDE</p>
-        <div className="h-fit w-fit rounded-md border border-idelight-300 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
+        <div className="h-fit w-fit rounded-md border border-idelight-300/70 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-idedark-400/20">
           {ideVersion}
         </div>{" "}
         <span className="px-1">•</span>
         <p>Compiler</p>
-        <div className="h-fit w-fit rounded-md border border-idelight-300 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-neutral-700">
+        <div className="h-fit w-fit rounded-md border border-idelight-300/70 px-1 py-[2px] font-mono text-[0.8em] font-medium leading-none dark:border-idedark-400/20">
           {compilerVersion}
         </div>{" "}
       </div>
       <div className="flex items-center gap-2">
         <button
           onClick={() => setThemePickerVisible(true)}
-          className="shrink-0 px-1 text-xs font-medium"
+          className="shrink-0 px-1 text-sm font-medium"
         >
           Change Theme
         </button>
         <Ahref
-          className="shrink-0 px-2 text-xs font-medium"
+          className="shrink-0 px-2 text-sm font-medium"
           href="https://github.com/baris-inandi/IBPS/issues/new"
           target="blank"
         >
@@ -76,10 +76,10 @@ const BottomBar = () => {
           </span>
         </div>
         <div
-          className={`hidden h-[10px] rounded-full border bg-black bg-opacity-20 md:block md:w-28 dark:bg-idedark-900 ${
+          className={`hidden h-[10px] rounded-full border bg-idelight-200 md:block md:w-28 dark:bg-idedark-900 ${
             usedBytesPercentage >= 90
-              ? "border-red-300"
-              : "border-transparent dark:border-black"
+              ? "border-red-400"
+              : "border-idelight-300 dark:border-black"
           }`}
         >
           <div
@@ -88,10 +88,10 @@ const BottomBar = () => {
                 usedBytesPercentage >= 100
                   ? "100%"
                   : usedBytesPercentage < 10
-                    ? "10px"
+                    ? "8px"
                     : usedBytesPercentage + "%",
             }}
-            className="h-full rounded-full bg-white dark:bg-idedark-300"
+            className="h-full rounded-full bg-idelight-400 dark:bg-idedark-700"
           />
         </div>
       </div>

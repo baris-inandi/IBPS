@@ -59,7 +59,7 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
       onClick={(e) => {
         if (!didClickInside(e)) cancelHandler();
       }}
-      className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-neutral-700 bg-opacity-40 dark:bg-black dark:bg-opacity-40"
+      className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-neutral-600 bg-opacity-40 dark:bg-neutral-950 dark:bg-opacity-40"
     >
       <div className={`${props.wide ? "w-[450px]" : "w-96"} p-4`} ref={ref}>
         <div className="w-full rounded-md border border-idelight-400 bg-idelight-100 p-4 shadow-lg dark:border-idedark-700 dark:bg-idedark-900">

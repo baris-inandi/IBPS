@@ -7,15 +7,15 @@ import { useAtom } from "jotai";
 import { useEffect, useRef } from "react";
 import AceEditor from "react-ace";
 import { codeFontSizeAtom, outputAtom } from "../../../../../atoms/atoms";
+import { useAceEditorTheme } from "../../../../../hooks/useAceEditorTheme";
 import useFiles from "../../../../../hooks/useFiles";
-import { usePreferredOrForcedColorScheme } from "../../../../../hooks/usePreferredOrForcedColorScheme";
 import DocumentationNavigator from "./DocumentationNavigator";
 
 const IBPSEditor = () => {
-  const { colorScheme } = usePreferredOrForcedColorScheme();
   const [output] = useAtom(outputAtom);
   const [codeFontSize] = useAtom(codeFontSizeAtom);
   const { activeFile } = useFiles();
+  const aceEditorTheme = useAceEditorTheme();
 
   const aceRef = useRef(null);
 
@@ -43,9 +43,9 @@ const IBPSEditor = () => {
       }
       mode="plain_text"
       showPrintMargin={false}
-      theme={colorScheme === "dark" ? "tomorrow_night" : "cloud_editor"}
+      theme={aceEditorTheme}
       fontSize={codeFontSize - codeFontSize / 8}
-      name="IBPSOutput"
+      name="ibpsoutputview"
       height="100%"
       width="100%"
       showGutter={false}

@@ -4,7 +4,13 @@ import { useEffect } from "preact/hooks";
 import usePrefersColorScheme from "use-prefers-color-scheme";
 import { ideColorSchemeAtom } from "../atoms/atoms";
 
-export const usePreferredOrForcedColorScheme = () => {
+interface UsePreferredOrForcedColorScheme {
+  colorScheme: "dark" | "light";
+  setColorScheme: (c: "auto" | "dark" | "light") => void;
+  colorSchemeOrAuto: "auto" | "dark" | "light";
+}
+
+export const usePreferredOrForcedColorScheme = (): UsePreferredOrForcedColorScheme => {
   const colorScheme = usePrefersColorScheme();
 
   const sanitizeColorScheme: (

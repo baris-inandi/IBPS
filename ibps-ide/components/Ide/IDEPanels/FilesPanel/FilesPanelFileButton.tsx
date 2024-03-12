@@ -14,6 +14,7 @@ interface FilesPanelFileButtonProps {
   forceIcon?: IconType;
   hideIcon?: boolean;
   noPaddingX?: boolean;
+  neverActive?: boolean;
 }
 
 const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (props) => {
@@ -62,7 +63,7 @@ const FilesPanelFileButton: FunctionalComponent<FilesPanelFileButtonProps> = (pr
         }
         className={`group flex w-full items-center justify-between rounded-md border-y border-transparent py-[2px] pl-1 pr-2
               ${
-                activeFile === props.text
+                !props.neverActive && activeFile === props.text
                   ? "border-idelight-300 bg-idelight-700 bg-opacity-10 text-idelight-800 dark:bg-idedark-400 dark:bg-opacity-30 dark:text-white"
                   : "text-idelight-700 hover:bg-idelight-900 hover:bg-opacity-5 dark:text-idedark-200 dark:hover:bg-idedark-400 dark:hover:bg-opacity-20"
               }
