@@ -69,3 +69,16 @@ body {
     inset 0 1px 1px 0 #ffffff20,
     inset 0 -1px 1px 0 #00000008 !important;
 }
+
+*::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  @apply bg-idelight-whitish dark:bg-idedark-1000;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply rounded-full border-4 border-solid border-idelight-whitish bg-idelight-300 dark:border-idedark-1000 dark:bg-idedark-700;
+}
