@@ -61,7 +61,7 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
       }}
       className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-neutral-700 bg-opacity-40 dark:bg-black dark:bg-opacity-40"
     >
-      <div className={`${props.wide ? "w-[480px]" : "w-96"} p-4`} ref={ref}>
+      <div className={`${props.wide ? "w-[450px]" : "w-96"} p-4`} ref={ref}>
         <div className="w-full rounded-md border border-idelight-400 bg-idelight-100 p-4 shadow-lg dark:border-idedark-700 dark:bg-idedark-900">
           <div className={`w-full ${props.hideDefaultButtons ? "" : "pb-3"} pt-1`}>
             {props.children}

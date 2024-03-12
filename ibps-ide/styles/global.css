@@ -59,20 +59,6 @@ body {
   @apply bg-transparent !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    color-scheme: dark;
-  }
-
-  body::-webkit-scrollbar-track {
-    background: #1c1f24;
-  }
-
-  body::-webkit-scrollbar-thumb {
-    background-color: #282c34;
-  }
-}
-
 .highlight {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
