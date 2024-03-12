@@ -51,7 +51,7 @@ const ThemeSelector: FunctionalComponent = () => {
         Choose your {colorScheme} theme:
       </p>
       {colorScheme === "dark" ? (
-        <div className="max-h-[50vh] overflow-y-auto pb-2 pt-1">
+        <div className="max-h-[50vh] overflow-y-auto overflow-x-hidden pb-2 pt-1">
           {Object.keys(ideThemes.dark).map((theme) => (
             <div className="flex items-center gap-3" key={theme}>
               <div className="shrink-0 grow">
