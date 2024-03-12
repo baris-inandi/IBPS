@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./ibps-ide/**/*.{js,jsx,ts,tsx}"],
-  darkMode: "media",
+  darkMode: "selector",
   theme: {
     fontFamily: {
       sans: [
@@ -33,6 +33,7 @@ module.exports = {
           accent: "hsl(var(--theme-dark-accent) / <alpha-value>)",
         },
         idelight: {
+          whitish: "hsl(var(--theme-light-whitish) / <alpha-value>)",
           50: "hsl(var(--theme-light-50) / <alpha-value>)",
           100: "hsl(var(--theme-light-100) / <alpha-value>)",
           200: "hsl(var(--theme-light-200) / <alpha-value>)",

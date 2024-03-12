@@ -4,16 +4,18 @@ import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-cloud_editor";
 import "ace-builds/src-noconflict/theme-cobalt";
 import "ace-builds/src-noconflict/theme-dracula";
+import "ace-builds/src-noconflict/theme-github_dark";
 import "ace-builds/src-noconflict/theme-idle_fingers";
 import "ace-builds/src-noconflict/theme-katzenmilch";
 import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/theme-nord_dark";
 import "ace-builds/src-noconflict/theme-one_dark";
 import "ace-builds/src-noconflict/theme-solarized_light";
 import { useAtom } from "jotai";
 import AceEditor from "react-ace";
-import usePrefersColorScheme from "use-prefers-color-scheme";
 import { codeFontSizeAtom, ibpsCodeAtom, ideThemeAtom } from "../../../atoms/atoms";
 import useFiles from "../../../hooks/useFiles";
+import { usePreferredOrForcedColorScheme } from "../../../hooks/usePreferredOrForcedColorScheme";
 import Docs from "./Docs/Docs";
 import Welcome from "./Welcome";
 
@@ -24,20 +26,23 @@ const IBPSEditor = () => {
   const [codeFontSize] = useAtom(codeFontSizeAtom);
   const [ideTheme] = useAtom(ideThemeAtom);
 
-  const prefersColorScheme = usePrefersColorScheme();
+  const { colorScheme } = usePreferredOrForcedColorScheme();
 
-  const getTheme = () => {
-    if (prefersColorScheme === "dark") {
-      if (ideTheme.dark === "theme-dark-onedark") return "one_dark";
-      if (ideTheme.dark === "theme-dark-cobalt") return "cobalt";
-      if (ideTheme.dark === "theme-dark-monokai") return "monokai";
-      if (ideTheme.dark === "theme-dark-earth") return "idle_fingers";
-      return "dracula";
-    }
-    if (ideTheme.light === "theme-light-solarized") return "solarized_light";
-    if (ideTheme.light === "theme-light-ruby") return "katzenmilch";
-    return "cloud_editor";
-  };
+  const getTheme = () =>
+    ({
+      // dark themes
+      "theme-dark-onedark": "one_dark",
+      "theme-dark-cobalt": "cobalt",
+      "theme-dark-monokai": "monokai",
+      "theme-dark-earth": "idle_fingers",
+      "theme-dark-githubdefault": "github_dark",
+      "theme-dark-githubdimmed": "github_dark",
+      "theme-dark-nord": "nord_dark",
+      // light themes
+      "theme-light-solarized": "solarized_light",
+      "theme-light-ruby": "katzenmilch",
+    })[colorScheme === "dark" ? ideTheme.dark : ideTheme.light] ??
+    (colorScheme === "dark" ? "dracula" : "cloud_editor"); // default editor themes
 
   return (
     <div className="h-full w-full" id="ibpseditor">

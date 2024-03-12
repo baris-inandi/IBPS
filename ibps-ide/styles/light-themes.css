@@ -1,36 +1,55 @@
 :root,
 .theme-light-root,
 .theme-light-silver {
+  --theme-light-whitish: 0 0% 100%;
   --theme-light-50: 0 0% 98%;
-  --theme-light-100: 0 0% 96.1%;
-  --theme-light-200: 0 0% 89.8%;
-  --theme-light-300: 0 0% 83.1%;
-  --theme-light-400: 0 0% 63.9%;
-  --theme-light-500: 0 0% 45.1%;
-  --theme-light-600: 0 0% 32.2%;
-  --theme-light-700: 0 0% 25.1%;
-  --theme-light-800: 0 0% 14.9%;
-  --theme-light-900: 0 0% 9%;
-  --theme-light-950: 0 0% 3.9%;
+  --theme-light-100: 0 0% 95.1%;
+  --theme-light-200: 0 0% 87.8%;
+  --theme-light-300: 0 0% 81.1%;
+  --theme-light-400: 0 0% 61.9%;
+  --theme-light-500: 0 0% 43.1%;
+  --theme-light-600: 0 0% 30.2%;
+  --theme-light-700: 0 0% 23.1%;
+  --theme-light-800: 0 0% 12.9%;
+  --theme-light-900: 0 0% 7%;
+  --theme-light-950: 0 0% 1.9%;
   --theme-light-1000: 0 0% 0%;
   --theme-light-1100: 0 0% 0%;
   --theme-light-accent: 217 91% 60%;
 }
 
+.theme-light-icy {
+  --theme-light-50: 215 40% 97%;
+  --theme-light-100: 215 40% 96.1%;
+  --theme-light-200: 215 40% 89.8%;
+  --theme-light-300: 215 40% 83.1%;
+  --theme-light-400: 215 40% 63.9%;
+  --theme-light-500: 215 40% 45.1%;
+  --theme-light-600: 215 40% 32.2%;
+  --theme-light-700: 215 40% 25.1%;
+  --theme-light-800: 215 40% 14.9%;
+  --theme-light-900: 215 40% 9%;
+  --theme-light-950: 215 40% 3.9%;
+  --theme-light-1000: 215 40% 0%;
+  --theme-light-1100: 215 40% 0%;
+  --theme-light-accent: 215 50% 55%;
+}
+
 .theme-light-lake {
-  --theme-light-50: 215 45% 97%;
-  --theme-light-100: 215 45% 96.1%;
-  --theme-light-200: 215 45% 89.8%;
-  --theme-light-300: 215 45% 83.1%;
-  --theme-light-400: 215 45% 63.9%;
-  --theme-light-500: 215 45% 45.1%;
-  --theme-light-600: 215 45% 32.2%;
-  --theme-light-700: 215 45% 25.1%;
-  --theme-light-800: 215 45% 14.9%;
-  --theme-light-900: 215 45% 9%;
-  --theme-light-950: 215 45% 3.9%;
-  --theme-light-1000: 215 45% 0%;
-  --theme-light-1100: 215 45% 0%;
+  --theme-light-whitish: 215 100% 98%;
+  --theme-light-50: 215 60% 94%;
+  --theme-light-100: 215 60% 93.1%;
+  --theme-light-200: 215 60% 86.8%;
+  --theme-light-300: 215 60% 80.1%;
+  --theme-light-400: 215 60% 60.9%;
+  --theme-light-500: 215 60% 42.1%;
+  --theme-light-600: 215 60% 29.2%;
+  --theme-light-700: 215 60% 22.1%;
+  --theme-light-800: 215 60% 11.9%;
+  --theme-light-900: 215 60% 6%;
+  --theme-light-950: 215 60% 0.9%;
+  --theme-light-1000: 215 60% 0%;
+  --theme-light-1100: 215 60% 0%;
   --theme-light-accent: 215 50% 55%;
 }
 

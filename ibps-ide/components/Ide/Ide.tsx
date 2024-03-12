@@ -1,16 +1,9 @@
-import { useSignal } from "@preact/signals";
 import { useAtom } from "jotai";
-import { useEffect, useState } from "preact/hooks";
 import { PiSidebar } from "react-icons/pi";
 import { PythonProvider } from "react-py";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-import {
-  filePanelVisibleAtom,
-  ideThemeAtom,
-  rightPanelVisibleAtom,
-} from "../../atoms/atoms";
+import { filePanelVisibleAtom, rightPanelVisibleAtom } from "../../atoms/atoms";
 import { useTauriOS } from "../../hooks/useTauriOS";
-import { useVersion } from "../../hooks/useVersion";
 import DragRegion from "../DesktopDragRegion";
 import BottomBar from "./BottomBar/BottomBar";
 import IBPSEditor from "./IBPSEditor/IBPSEditor";
@@ -18,30 +11,18 @@ import ConsoleSectionTabs from "./IDEPanels/ConsoleSectionTabs";
 import FilesPanel from "./IDEPanels/FilesPanel/FilesPanel";
 import IDEPanelTopbar from "./IDEPanels/IDEPanelTopbar";
 import RightPanel from "./IDEPanels/RightPanel/RightPanel";
-import Ahref from "./global/Ahref";
 import FileName from "./global/FileName";
 import FontSizeButton from "./global/FontSizeButton";
 import RunButton from "./global/RunButton";
 
 const Ide = () => {
-  const { compilerVersion, ideVersion } = useVersion();
   const [filePanelVisible, setFilePanelVisible] = useAtom(filePanelVisibleAtom);
   const [rightPanelVisible, setRightPanelVisible] = useAtom(rightPanelVisibleAtom);
-  const [forceView, setForceView] = useState(window.__TAURI__ !== undefined);
   const platform = useTauriOS();
-  const [ideTheme] = useAtom(ideThemeAtom);
-  const ideThemeClasses = useSignal("theme-dark-default theme-light-default");
-
-  useEffect(() => {
-    ideThemeClasses.value = `${ideTheme.dark ?? "theme-dark-root"} ${ideTheme.light ?? "theme-light-root"}`;
-  }, [ideTheme]);
 
   return (
     <PythonProvider>
-      <div
-        className={`${forceView ? "flex" : "hidden sm:flex"} h-full w-full flex-col ${ideThemeClasses.value}`}
-        id="ibpside"
-      >
+      <div className="flex h-full w-full flex-col" id="ibpside">
         {platform.isMacOS ? <DragRegion /> : null}
         <PanelGroup
           autoSaveId="IBPS_IDE_LAYOUT_SAVE"
@@ -124,6 +105,7 @@ const Ide = () => {
         </PanelGroup>
         <BottomBar />
       </div>
+      {/*
       <div
         className={`${forceView ? "flex" : "flex sm:hidden"} h-full w-full flex-col items-center justify-center gap-2 overflow-y-scroll bg-white p-7 text-center dark:bg-idedark-950`}
       >
@@ -156,6 +138,7 @@ const Ide = () => {
           Continue Anyway
         </button>
       </div>
+      */}
     </PythonProvider>
   );
 };

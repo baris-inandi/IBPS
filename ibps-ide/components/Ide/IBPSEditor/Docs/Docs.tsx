@@ -39,7 +39,7 @@ const Docs = () => {
     <div
       id="ibpsdocs"
       ref={docsRef}
-      className="markdown flex h-full w-full select-text flex-col gap-5 overflow-y-auto scroll-smooth bg-white px-9 pb-40 pt-3 dark:bg-idedark-1000"
+      className="markdown flex h-full w-full select-text flex-col gap-5 overflow-y-auto scroll-smooth bg-idelight-whitish px-9 pb-40 pt-3 dark:bg-idedark-1000"
     >
       <div className="h1">The IBPS Programming Language</div>
       <p>

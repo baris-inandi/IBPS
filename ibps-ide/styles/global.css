@@ -32,7 +32,7 @@ body {
 }
 
 .ace_gutter {
-  @apply bg-white dark:bg-idedark-1000 !important;
+  @apply bg-idelight-whitish dark:bg-idedark-1000 !important;
 }
 
 .ace_gutter-active-line {
@@ -48,7 +48,7 @@ body {
 }
 
 .ace_editor {
-  @apply bg-white dark:bg-idedark-1000;
+  @apply bg-idelight-whitish dark:bg-idedark-1000;
 }
 
 #IBPSOutput.ace_editor {

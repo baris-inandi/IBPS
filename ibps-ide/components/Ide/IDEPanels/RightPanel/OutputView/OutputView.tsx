@@ -6,13 +6,13 @@ import "ace-builds/src-noconflict/theme-tomorrow_night";
 import { useAtom } from "jotai";
 import { useEffect, useRef } from "react";
 import AceEditor from "react-ace";
-import usePrefersColorScheme from "use-prefers-color-scheme";
 import { codeFontSizeAtom, outputAtom } from "../../../../../atoms/atoms";
 import useFiles from "../../../../../hooks/useFiles";
+import { usePreferredOrForcedColorScheme } from "../../../../../hooks/usePreferredOrForcedColorScheme";
 import DocumentationNavigator from "./DocumentationNavigator";
 
 const IBPSEditor = () => {
-  const prefersColorScheme = usePrefersColorScheme();
+  const { colorScheme } = usePreferredOrForcedColorScheme();
   const [output] = useAtom(outputAtom);
   const [codeFontSize] = useAtom(codeFontSizeAtom);
   const { activeFile } = useFiles();
@@ -43,7 +43,7 @@ const IBPSEditor = () => {
       }
       mode="plain_text"
       showPrintMargin={false}
-      theme={prefersColorScheme === "dark" ? "tomorrow_night" : "cloud_editor"}
+      theme={colorScheme === "dark" ? "tomorrow_night" : "cloud_editor"}
       fontSize={codeFontSize - codeFontSize / 8}
       name="IBPSOutput"
       height="100%"

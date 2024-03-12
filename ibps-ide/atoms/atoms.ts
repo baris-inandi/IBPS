@@ -69,3 +69,8 @@ export const ideThemeAtom = atomWithStorage("jotai__ideThemeAtom", {
   dark: "theme-dark-titanium",
   light: "theme-light-silver",
 });
+
+export const ideColorSchemeAtom = atomWithStorage<"auto" | "dark" | "light">(
+  "jotai__ideColorSchemeAtom",
+  "auto",
+);

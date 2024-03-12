@@ -16,6 +16,7 @@ interface ModalProps {
   submitText?: string;
   hideDefaultButtons?: boolean;
   initialInputValue?: string;
+  wide?: boolean;
 }
 
 const Modal: FunctionalComponent<ModalProps> = (props) => {
@@ -58,11 +59,13 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
       onClick={(e) => {
         if (!didClickInside(e)) cancelHandler();
       }}
-      className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-neutral-700 bg-opacity-50 dark:bg-black dark:bg-opacity-50"
+      className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-neutral-700 bg-opacity-40 dark:bg-black dark:bg-opacity-40"
     >
-      <div className="min-w-80 max-w-96 p-4" ref={ref}>
+      <div className={`${props.wide ? "w-[480px]" : "w-96"} p-4`} ref={ref}>
         <div className="w-full rounded-md border border-idelight-400 bg-idelight-100 p-4 shadow-lg dark:border-idedark-700 dark:bg-idedark-900">
-          <div className="w-full pb-3 pt-1">{props.children}</div>
+          <div className={`w-full ${props.hideDefaultButtons ? "" : "pb-3"} pt-1`}>
+            {props.children}
+          </div>
           <form
             className="flex h-full w-full flex-grow flex-col items-stretch gap-2"
             onSubmit={() => {
@@ -72,7 +75,7 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
           >
             <input
               ref={inputElement}
-              className={`${props.requestStringInput ? "" : "hidden"} rounded-md border border-idelight-200 bg-white px-3 py-1 focus:outline-idelight-accent dark:border-idedark-700 dark:bg-idedark-800 dark:focus:outline-idedark-accent`}
+              className={`${props.requestStringInput ? "" : "hidden"} rounded-md border border-idelight-200 bg-idelight-whitish px-3 py-1 focus:outline-idelight-accent dark:border-idedark-700 dark:bg-idedark-800 dark:focus:outline-idedark-accent`}
               type="text"
               placeholder={props.requestStringInput}
               onInput={(input) => {
@@ -85,7 +88,7 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
                 <button
                   type="button"
                   onClick={cancelHandler}
-                  className="highlight w-full flex-1 rounded-md bg-idelight-300 py-2 text-idelight-700 dark:bg-idedark-700 dark:text-white"
+                  className="highlight w-full flex-1 rounded-md bg-idelight-300 py-2 text-idelight-800 dark:bg-idedark-700 dark:text-white"
                 >
                   {props.cancelText ?? "Cancel"}
                 </button>
