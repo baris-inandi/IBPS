@@ -157,7 +157,11 @@ const useFiles = () => {
   };
 
   const setActiveFile = (name: string) => {
-    if (files.allFiles[name] || name === "Welcome" || name === "Documentation") {
+    if (
+      files.allFiles[name] !== undefined ||
+      name === "Welcome" ||
+      name === "Documentation"
+    ) {
       setFiles({ ...files, active: name });
     }
   };
