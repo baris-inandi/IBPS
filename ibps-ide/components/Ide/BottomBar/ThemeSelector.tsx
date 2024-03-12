@@ -70,7 +70,7 @@ const ThemeSelector: FunctionalComponent = () => {
                 />
               </div>
               <div
-                className={`h-5 w-5 ${ideThemes.dark[theme]} flex rotate-45 rounded-full border border-idedark-700`}
+                className={`h-5 w-5 ${ideThemes.dark[theme]} flex rotate-45 rounded-full border border-idedark-700 shadow-sm`}
               >
                 <div className="h-full w-1/2 rounded-l-full bg-idedark-800"></div>
                 <div className="h-full w-1/2 rounded-r-full bg-idedark-accent"></div>
@@ -79,7 +79,7 @@ const ThemeSelector: FunctionalComponent = () => {
           ))}
         </div>
       ) : (
-        <div className="max-h-[50vh] overflow-y-auto py-2">
+        <div className="max-h-[50vh] overflow-y-auto overflow-x-hidden py-2">
           {Object.keys(ideThemes.light).map((theme) => (
             <div className="flex items-center gap-3" key={theme}>
               <div className="shrink-0 grow">
@@ -98,7 +98,7 @@ const ThemeSelector: FunctionalComponent = () => {
                 />
               </div>
               <div
-                className={`h-5 w-5 ${ideThemes.light[theme]} flex rotate-45 rounded-full border border-idelight-300`}
+                className={`h-5 w-5 ${ideThemes.light[theme]} flex rotate-45 rounded-full border border-idelight-300 shadow-sm`}
               >
                 <div className="h-full w-1/2 rounded-l-full bg-idelight-200"></div>
                 <div className="h-full w-1/2 rounded-r-full bg-idelight-accent"></div>
