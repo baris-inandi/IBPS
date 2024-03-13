@@ -35,19 +35,19 @@
 }
 
 .theme-dark-rosepine {
-  --theme-dark-50: 260 20% 86.1%;
-  --theme-dark-100: 260 20% 82%;
-  --theme-dark-200: 260 20% 73.9%;
-  --theme-dark-300: 260 20% 66.1%;
-  --theme-dark-400: 260 20% 58%;
-  --theme-dark-500: 260 20% 50%;
-  --theme-dark-600: 260 20% 42%;
-  --theme-dark-700: 260 20% 33.9%;
-  --theme-dark-800: 260 20% 26.1%;
-  --theme-dark-900: 260 20% 18%;
-  --theme-dark-950: 260 20% 12.5%;
-  --theme-dark-1000: 260 20% 9%;
-  --theme-dark-1100: 260 20% 5%;
+  --theme-dark-50: 249 23% 86.1%;
+  --theme-dark-100: 249 23% 82%;
+  --theme-dark-200: 249 23% 73.9%;
+  --theme-dark-300: 249 23% 66.1%;
+  --theme-dark-400: 249 23% 58%;
+  --theme-dark-500: 249 23% 50%;
+  --theme-dark-600: 249 23% 42%;
+  --theme-dark-700: 249 23% 33.9%;
+  --theme-dark-800: 249 23% 26.1%;
+  --theme-dark-900: 249 23% 18%;
+  --theme-dark-950: 249 23% 12.5%;
+  --theme-dark-1000: 249 23% 9%;
+  --theme-dark-1100: 249 23% 5%;
   --theme-dark-accent: 197 49% 38%;
 }
 

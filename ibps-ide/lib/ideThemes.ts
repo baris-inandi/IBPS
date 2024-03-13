@@ -11,7 +11,7 @@ export const ideThemes: IIdeThemes = {
   dark: {
     "Titanium": "theme-dark-titanium", // DO NOT CHANGE: DEFAULT DARK THEME!!
     "One Dark": "theme-dark-onedark",
-    "Rose Pine": "theme-dark-rosepine",
+    "Rosé Pine": "theme-dark-rosepine",
     "Cobalt": "theme-dark-cobalt",
     "Earth": "theme-dark-earth",
     "Monokai": "theme-dark-monokai",
