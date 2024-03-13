@@ -5,7 +5,6 @@ import { useEffect } from "preact/hooks";
 import { useIdeThemeCSSClasses } from "../hooks/useIdeThemeCSSClasses";
 import { usePreferredOrForcedColorScheme } from "../hooks/usePreferredOrForcedColorScheme";
 import "../styles/dark-themes.css";
-import "../styles/fonts.css";
 import "../styles/global.css";
 import "../styles/light-themes.css";
 import "../styles/markdown.css";
