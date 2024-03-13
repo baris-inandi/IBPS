@@ -23,7 +23,9 @@ export const ideThemes: IIdeThemes = {
     Silver: "theme-light-silver", // DO NOT CHANGE: DEFAULT LIGHT THEME!!
     Icy: "theme-light-icy",
     Lake: "theme-light-lake",
+    Monochrome: "theme-light-monochrome",
     Solarized: "theme-light-solarized",
     Ruby: "theme-light-ruby",
+    Lavender: "theme-light-lavender",
   },
 };

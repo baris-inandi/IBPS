@@ -31,6 +31,7 @@ module.exports = {
           1000: "hsl(var(--theme-dark-1000) / <alpha-value>)",
           1100: "hsl(var(--theme-dark-1100) / <alpha-value>)",
           accent: "hsl(var(--theme-dark-accent) / <alpha-value>)",
+          border: "hsl(var(--theme-dark-border) / <alpha-value>)",
         },
         idelight: {
           whitish: "hsl(var(--theme-light-whitish) / <alpha-value>)",
