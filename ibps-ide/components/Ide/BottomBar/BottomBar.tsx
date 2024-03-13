@@ -14,7 +14,7 @@ const BottomBar = () => {
   const [themePickerVisible, setThemePickerVisible] = useState(false);
 
   return (
-    <div className="dark:border-idedark-border flex w-full justify-between border-t border-idelight-300 bg-white px-2 py-[3px] text-sm text-idelight-500 dark:bg-idedark-1100 dark:text-idedark-200/60">
+    <div className="dark:border-idedark-border flex w-full justify-between border-t border-idelight-300 bg-idelight-whitish px-2 py-[3px] text-sm text-idelight-500 dark:bg-idedark-1100 dark:text-idedark-200/60">
       <Modal
         hideDefaultButtons
         visible={themePickerVisible}

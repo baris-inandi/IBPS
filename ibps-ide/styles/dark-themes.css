@@ -158,18 +158,19 @@
 }
 
 .theme-dark-solarized {
-  --theme-dark-50: 192 96% 86.1%;
-  --theme-dark-100: 192 96% 82%;
-  --theme-dark-200: 192 96% 73.9%;
-  --theme-dark-300: 192 96% 66.1%;
-  --theme-dark-400: 192 96% 58%;
-  --theme-dark-500: 192 96% 50%;
-  --theme-dark-600: 192 96% 42%;
-  --theme-dark-700: 192 96% 33.9%;
-  --theme-dark-800: 192 96% 26.1%;
-  --theme-dark-900: 192 96% 18%;
-  --theme-dark-950: 192 96% 12.5%;
-  --theme-dark-1000: 192 96% 9%;
-  --theme-dark-1100: 192 96% 5%;
-  --theme-dark-accent: 192 96% 45%;
+  --theme-dark-50: 192 96% 85.1%;
+  --theme-dark-100: 192 96% 80%;
+  --theme-dark-200: 192 96% 71.9%;
+  --theme-dark-300: 192 96% 64.1%;
+  --theme-dark-400: 192 96% 56%;
+  --theme-dark-500: 192 96% 48%;
+  --theme-dark-600: 192 96% 39.9%;
+  --theme-dark-700: 192 96% 31.8%;
+  --theme-dark-800: 192 96% 24%;
+  --theme-dark-900: 192 96% 15.9%;
+  --theme-dark-950: 192 96% 10.4%;
+  --theme-dark-1000: 192 96% 6.9%;
+  --theme-dark-1100: 192 96% 3.9%;
+  --theme-dark-accent: 67.9 98.7% 30.2%;
+  --theme-dark-border: var(--theme-dark-950);
 }

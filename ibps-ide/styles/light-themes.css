@@ -123,3 +123,57 @@
   --theme-light-1100: 340 25% 0%;
   --theme-light-accent: 220 17.8% 39.6%;
 }
+
+.theme-light-sage {
+  --theme-light-whitish: 112 15% 95%;
+  --theme-light-50: 112 15% 92%;
+  --theme-light-100: 112 15% 90.1%;
+  --theme-light-200: 112 15% 85%;
+  --theme-light-300: 112 15% 78.3%;
+  --theme-light-400: 112 15% 58.5%;
+  --theme-light-500: 112 15% 40%;
+  --theme-light-600: 112 15% 27.1%;
+  --theme-light-700: 112 15% 20%;
+  --theme-light-800: 112 15% 10%;
+  --theme-light-900: 112 15% 5%;
+  --theme-light-950: 112 15% 0.9%;
+  --theme-light-1000: 112 15% 0%;
+  --theme-light-1100: 112 15% 0%;
+  --theme-light-accent: 125 20% 30%;
+}
+
+.theme-light-desert {
+  --theme-light-whitish: 25 20% 93%;
+  --theme-light-50: 25 20% 89%;
+  --theme-light-100: 25 20% 85.1%;
+  --theme-light-200: 25 20% 80%;
+  --theme-light-300: 25 20% 73.3%;
+  --theme-light-400: 25 20% 54.5%;
+  --theme-light-500: 25 20% 36%;
+  --theme-light-600: 25 20% 23.1%;
+  --theme-light-700: 25 20% 16%;
+  --theme-light-800: 25 20% 6.9%;
+  --theme-light-900: 25 20% 2.5%;
+  --theme-light-950: 25 20% 0.4%;
+  --theme-light-1000: 25 20% 0%;
+  --theme-light-1100: 25 20% 0%;
+  --theme-light-accent: 25 20% 30%;
+}
+
+.theme-light-iplastic {
+  --theme-light-whitish: 0 0% 90%;
+  --theme-light-50: 0 0% 85%;
+  --theme-light-100: 0 0% 80.1%;
+  --theme-light-200: 0 0% 73.8%;
+  --theme-light-300: 0 0% 67.1%;
+  --theme-light-400: 0 0% 47.9%;
+  --theme-light-500: 0 0% 29.1%;
+  --theme-light-600: 0 0% 16.2%;
+  --theme-light-700: 0 0% 9.1%;
+  --theme-light-800: 0 0% 0.9%;
+  --theme-light-900: 0 0% 0.1%;
+  --theme-light-950: 0 0% 0%;
+  --theme-light-1000: 0 0% 0%;
+  --theme-light-1100: 0 0% 0%;
+  --theme-light-accent: 0 0% 35%;
+}

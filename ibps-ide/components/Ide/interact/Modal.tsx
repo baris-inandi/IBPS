@@ -75,7 +75,7 @@ const Modal: FunctionalComponent<ModalProps> = (props) => {
           >
             <input
               ref={inputElement}
-              className={`${props.requestStringInput ? "" : "hidden"} rounded-md border border-idelight-200 bg-idelight-whitish px-3 py-1 focus:outline-idelight-accent dark:border-idedark-700 dark:bg-idedark-800 dark:focus:outline-idedark-accent`}
+              className={`${props.requestStringInput ? "" : "hidden"} rounded-md border border-idelight-200 bg-idelight-whitish px-3 py-1 focus:outline-none focus:outline-idelight-accent dark:border-idedark-700 dark:bg-idedark-800 dark:focus:outline-idedark-accent`}
               type="text"
               placeholder={props.requestStringInput}
               onInput={(input) => {

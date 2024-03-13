@@ -18,14 +18,18 @@ export const ideThemes: IIdeThemes = {
     "GitHub Default": "theme-dark-githubdefault",
     "GitHub Dimmed": "theme-dark-githubdimmed",
     "Nord": "theme-dark-nord",
+    "Solarized Dark": "theme-dark-solarized",
   },
   light: {
-    Silver: "theme-light-silver", // DO NOT CHANGE: DEFAULT LIGHT THEME!!
-    Icy: "theme-light-icy",
-    Lake: "theme-light-lake",
-    Monochrome: "theme-light-monochrome",
-    Solarized: "theme-light-solarized",
-    Ruby: "theme-light-ruby",
-    Lavender: "theme-light-lavender",
+    "Silver": "theme-light-silver", // DO NOT CHANGE: DEFAULT LIGHT THEME!!
+    "Icy": "theme-light-icy",
+    "Lake": "theme-light-lake",
+    "Solarized Light": "theme-light-solarized",
+    "Ruby": "theme-light-ruby",
+    "Lavender": "theme-light-lavender",
+    "Sage": "theme-light-sage",
+    "Desert": "theme-light-desert",
+    "Monochrome": "theme-light-monochrome",
+    "iPlastic": "theme-light-iplastic",
   },
 };

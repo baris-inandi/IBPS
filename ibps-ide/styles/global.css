@@ -52,7 +52,7 @@ body {
 }
 
 .ace_editor .ace_line * {
-  @apply font-normal;
+  font-weight: 400 !important;
 }
 
 #ibpsoutputview.ace_editor {
