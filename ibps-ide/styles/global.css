@@ -77,14 +77,14 @@ body {
 }
 
 *::-webkit-scrollbar {
-  width: 16px;
-  height: 16px;
+  width: 10px;
+  height: 10px;
 }
 
 *::-webkit-scrollbar-track {
-  @apply bg-idelight-whitish dark:bg-idedark-1000;
+  @apply bg-transparent;
 }
 
 *::-webkit-scrollbar-thumb {
-  @apply rounded-full border-4 border-solid border-idelight-whitish bg-idelight-300 dark:border-idedark-1000 dark:bg-idedark-700;
+  @apply rounded-full border border-solid border-idelight-100 bg-idelight-300 dark:border-idedark-950 dark:bg-idedark-800;
 }

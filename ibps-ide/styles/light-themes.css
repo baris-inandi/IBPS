@@ -107,21 +107,21 @@
 }
 
 .theme-light-lavender {
-  --theme-light-whitish: 270 40% 97%;
+  --theme-light-whitish: 280 40% 97%;
   --theme-light-50: 220 30% 94%;
-  --theme-light-100: 220 30% 90.1%;
+  --theme-light-100: 235 30% 90.1%;
   --theme-light-200: 240 30% 85%;
-  --theme-light-300: 250 30% 78.3%;
-  --theme-light-400: 260 30% 58.5%;
-  --theme-light-500: 270 30% 40%;
-  --theme-light-600: 280 30% 27.1%;
-  --theme-light-700: 290 30% 20%;
-  --theme-light-800: 300 30% 10%;
+  --theme-light-300: 245 30% 78.3%;
+  --theme-light-400: 250 30% 58.5%;
+  --theme-light-500: 260 30% 40%;
+  --theme-light-600: 270 30% 27.1%;
+  --theme-light-700: 280 30% 20%;
+  --theme-light-800: 390 30% 10%;
   --theme-light-900: 300 30% 5%;
   --theme-light-950: 310 30% 0.9%;
   --theme-light-1000: 330 30% 0%;
   --theme-light-1100: 340 30% 0%;
-  --theme-light-accent: 220 17.8% 39.6%;
+  --theme-light-accent: 230 25% 40%;
 }
 
 .theme-light-sage {
