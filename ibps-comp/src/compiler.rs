@@ -56,13 +56,11 @@ pub fn ibps_to_py(code: &str, filename: &str, is_native: bool) -> String {
                 "{}while __ibps_until_flag__ or {}{}\n",
                 spaces, args, colon
             ));
-            if spaces == "" {
-                out.push_str("    __ibps_until_flag__ = False\n");
-                continue;
-            }
+            let extra_indent = if spaces.contains("\t") { "\t" } else { "    " };
+            println!("extra_indent: {:?}", extra_indent);
             out.push_str(&format!(
                 "{}{}__ibps_until_flag__ = False\n",
-                spaces, spaces
+                spaces, extra_indent
             ));
         } else if l.starts_with("loop ") {
             let spaces = line.split("loop").next().unwrap();

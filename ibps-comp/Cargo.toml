@@ -1,7 +1,7 @@
 [package]
 name = "ibps-comp"
 authors = ["baris-inandi"]
-version = "0.2.22"
+version = "0.2.23"
 edition = "2021"
 repository = "https://github.com/baris-inandi/ibps"
 license = "AGPL-3.0-only"
