@@ -1,0 +1,39 @@
+import unittest
+
+class ControlFlowTestCase(unittest.TestCase):
+
+    sub test_for_loop(self)
+        output "Testing for loop:"
+        VALS = Array(5)
+        loop I from 0 to VALS.length - 1
+            VALS[I] = I
+        end loop
+        expected_arr = Array.fromValues(0, 1, 2, 3, 4)
+        self.assertEqual(VALS, expected_arr)
+    end sub
+
+    sub test_while_loop(self)
+        output "Testing while loop:"
+        X = 0
+        VALS = Array(5)
+        loop while X < 5
+            VALS[X] = X
+            X = X + 1
+        end loop
+        expected_arr = Array.fromValues(0, 1, 2, 3, 4)
+        self.assertEqual(VALS, expected_arr)
+    end sub
+
+    sub test_until_loop(self)
+        output "Testing until loop:"
+        X = 0
+        VALS = Array(5)
+        loop until X < 5
+            VALS[X] = X
+            X = X + 1
+        end loop
+        expected_arr = Array.fromValues(0, 1, 2, 3, 4)
+        self.assertEqual(VALS, expected_arr)
+    end sub
+
+unittest.main()

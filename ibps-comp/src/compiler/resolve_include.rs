@@ -1,11 +1,14 @@
 use std::{fs, path::Path, process::exit};
 
+// TODO: this needs to resolve ABSOLUTE paths, not relative
+// this is becasue the IDE algorithm also looks for files in the root directory by design.
 pub fn resolve_include(line: &str, include_stack: &mut Vec<String>) -> String {
     let mut split = line.split("include");
     let spaces = split.next().unwrap_or("");
     let included_filename = split.next().unwrap_or("").trim();
+    let included_filename_as_path = Path::new(included_filename);
 
-    if !Path::new(included_filename).is_file() {
+    if !included_filename_as_path.is_file() {
         return format!(
             r#"
 ### INCLUDE COULDN'T BE RESOLVED ###

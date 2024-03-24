@@ -28,3 +28,15 @@ pub fn compiler_version() -> String {
 pub fn ibpscomp_rs_version() -> String {
     compiler_version()
 }
+
+#[cfg(test)]
+mod tests {
+    use ibpscomp_runlocalpy::run_ibps_using_local_python;
+
+    use crate::ibps_to_py_native;
+
+    #[test]
+    fn run_ibps_tests() {
+        run_ibps_using_local_python("test.ibps", ibps_to_py_native);
+    }
+}

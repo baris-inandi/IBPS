@@ -25,7 +25,6 @@ fn main() {
         exit(1)
     });
 
-    // TODO: make this an absolute path to resolve includes correctly.
     let pycode = ibps_to_py_native(contents, &filename);
 
     match runpy::runpy(&pycode, &filename) {
