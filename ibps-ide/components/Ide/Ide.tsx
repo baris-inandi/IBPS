@@ -27,7 +27,7 @@ const Ide = () => {
         <PanelGroup
           autoSaveId="IBPS_IDE_LAYOUT_SAVE"
           direction="horizontal"
-          className={`flex-grow ${window.__TAURI__ ? "dark:border-idedark-border border-t border-idelight-300" : ""}`}
+          className={`flex-grow ${window.__TAURI__ ? "border-t border-idelight-300 dark:border-idedark-border" : ""}`}
         >
           <div className={`w-60 ${filePanelVisible ? "block" : "hidden"}`}>
             <IDEPanelTopbar pl desktopUI={platform.isMacOS}>
@@ -58,7 +58,7 @@ const Ide = () => {
                 </h1>
               </div>
             </IDEPanelTopbar>
-            <div className="dark:border-idedark-border h-full w-full border-r border-idelight-300">
+            <div className="h-full w-full border-r border-idelight-300 dark:border-idedark-border">
               <FilesPanel />
             </div>
           </div>
@@ -92,7 +92,7 @@ const Ide = () => {
             <>
               <PanelResizeHandle className="w-3 bg-idelight-100 dark:bg-idedark-950">
                 <IDEPanelTopbar />
-                <div className="dark:border-idedark-border h-full w-full border-l border-idelight-300"></div>
+                <div className="h-full w-full border-l border-idelight-300 dark:border-idedark-border"></div>
               </PanelResizeHandle>
               <Panel minSize={30} maxSize={60} defaultSize={40}>
                 <IDEPanelTopbar>

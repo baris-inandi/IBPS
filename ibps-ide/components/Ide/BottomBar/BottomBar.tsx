@@ -14,7 +14,7 @@ const BottomBar = () => {
   const [themePickerVisible, setThemePickerVisible] = useState(false);
 
   return (
-    <div className="dark:border-idedark-border flex w-full justify-between border-t border-idelight-300 bg-idelight-whitish px-2 py-[3px] text-sm text-idelight-500 dark:bg-idedark-1100 dark:text-idedark-200/60">
+    <div className="flex w-full justify-between border-t border-idelight-300 bg-idelight-whitish px-2 py-[3px] text-sm text-idelight-500 dark:border-idedark-border dark:bg-idedark-1100 dark:text-idedark-200/60">
       <Modal
         hideDefaultButtons
         visible={themePickerVisible}
@@ -79,7 +79,7 @@ const BottomBar = () => {
           className={`hidden h-[10px] rounded-full border bg-idelight-200 md:block md:w-28 dark:bg-idedark-900 ${
             usedBytesPercentage >= 90
               ? "border-red-400"
-              : "dark:border-idedark-border border-idelight-300"
+              : "border-idelight-300 dark:border-idedark-border"
           }`}
         >
           <div
