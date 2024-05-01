@@ -681,7 +681,7 @@ BAR = Stack(1,2,3) // Stack[1,2,3]
                   <DocsCode>.pop()</DocsCode> removes and returns the last element.
                 </li>
                 <li>
-                  <DocsCode>.length</DocsCode> returns the length of the collection.
+                  <DocsCode>.length</DocsCode> returns the length of the stack.
                 </li>
               </ul>
             </DocsSec>

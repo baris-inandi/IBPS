@@ -1,0 +1,24 @@
+from random import random
+
+sub selectionSort(A)
+    loop i from 0 to A.length - 1
+        MIN = i
+        loop j from i + 1 to A.length - 1
+            if A[MIN] > A[j] then
+                MIN = j
+            end if
+        end loop
+        TEMP = A[i]
+        A[i] = A[MIN]
+        A[MIN] = TEMP
+    end loop
+    return A
+end sub
+
+# Generate an array of random numbers to sort
+RANDOM_ARRAY = Array(20)
+loop I from 0 to RANDOM_ARRAY.length - 1
+    RANDOM_ARRAY[I] = round(random() * 1000)
+end loop
+
+output selectionSort(RANDOM_ARRAY)
