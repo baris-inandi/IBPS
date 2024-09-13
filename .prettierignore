@@ -5,3 +5,5 @@ target/
 *.md
 *.rs
 RustPython/
+ibps-desktop/target-desktop
+ibps-desktop/build

@@ -5,7 +5,9 @@ import { useState } from "preact/hooks";
 import {
   IoAddCircleOutline,
   IoArchiveOutline,
+  IoDesktopOutline,
   IoDownloadOutline,
+  IoLaptopOutline,
   IoShareOutline,
 } from "react-icons/io5";
 import { examplePickerShownAtom, ibpsCodeAtom } from "../../../../atoms/atoms";
@@ -15,12 +17,16 @@ import { fileExtension } from "../../../../lib/fileExtension";
 import ExamplePicker from "../../global/ExamplePicker";
 import Modal from "../../interact/Modal";
 import FilesPanelFileButton from "./FilesPanelFileButton";
+import DownloadDesktopAppModal from "./DownloadDesktopAppModal";
+import { useDesktopDownloadURLs } from "../../../../hooks/useDesktopDownloadURLs";
+import Ahref from "../../global/Ahref";
 
 const FilesPanel = () => {
   const { allFilenames, newFile, activeFile, filesRaw, importIBPSorIBWS } = useFiles();
   const [ibpsCode] = useAtom(ibpsCodeAtom);
   const [examplePickerShown, setExamplePickerShown] = useAtom(examplePickerShownAtom);
   const platform = useTauriOS();
+  const desktopDownload = useDesktopDownloadURLs();
 
   const onImport = () => {
     const input = document.createElement("input");
@@ -85,11 +91,12 @@ const FilesPanel = () => {
   const [downloadWorkspaceModalVisible, setDownloadWorkspaceModalVisible] =
     useState(false);
   const [newFileModalVisible, setNewFileModalVisible] = useState(false);
+  const [downloadDesktopModalVisible, setDownloadDesktopModalVisible] = useState(false);
 
   return (
     <div
       className={`flex h-full flex-col bg-idelight-100 text-sm text-idelight-800 dark:bg-idedark-950 dark:text-idedark-200
-                ${platform.isMacOS ? "bg-opacity-75 dark:bg-opacity-75" : "bg-opacity-100"}`}
+                ${platform.isMacOS ? "bg-opacity-75 dark:bg-opacity-85" : "bg-opacity-100"}`}
     >
       {examplePickerShown ? (
         <ExamplePicker />
@@ -119,7 +126,37 @@ const FilesPanel = () => {
           >
             Creating new IBPS script
           </Modal>
+          <Modal
+            key={new Date().valueOf()}
+            visible={downloadDesktopModalVisible}
+            setVisible={setDownloadDesktopModalVisible}
+            onSubmit={(name) => {
+              newFile(name);
+            }}
+            hideDefaultButtons
+          >
+            <DownloadDesktopAppModal />
+          </Modal>
           <div className="flex flex-col pb-4 pt-3">
+            {desktopDownload?.updateAvailable && (
+              <div class="w-full px-3 pb-3">
+                <Ahref
+                  className="w-full"
+                  href={
+                    platform.isMacOS
+                      ? desktopDownload?.macos
+                      : platform.isWindows
+                        ? desktopDownload?.windows
+                        : desktopDownload.genericDownloadPage
+                  }
+                >
+                  <div className="highlight flex w-full cursor-pointer items-center gap-2 rounded-md bg-idelight-200 px-3 py-2 text-idelight-800 dark:bg-idedark-700 dark:text-white">
+                    <IoDesktopOutline />
+                    <span>Update Available</span>
+                  </div>
+                </Ahref>
+              </div>
+            )}
             <span className="pl-3 font-medium opacity-60">Files</span>
             <div className="flex flex-col">
               <FilesPanelFileButton
@@ -161,6 +198,16 @@ const FilesPanel = () => {
             text="Examples"
             onClick={() => setExamplePickerShown(true)}
           />
+          {platform.isWeb && (
+            <FilesPanelFileButton
+              text="IBPS for Desktop"
+              cannotRenameOrDelete
+              forceIcon={IoLaptopOutline}
+              onClick={() => {
+                setDownloadDesktopModalVisible(true);
+              }}
+            ></FilesPanelFileButton>
+          )}
           <span className="pl-3 pt-4 font-medium opacity-60">Your Workspace</span>
           <div className="flex h-full flex-col gap-1 overflow-y-auto">
             <div className="h-full flex-grow">
