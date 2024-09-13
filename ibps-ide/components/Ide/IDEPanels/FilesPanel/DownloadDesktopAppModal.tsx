@@ -2,9 +2,9 @@ import { useDesktopDownloadURLs } from "../../../../hooks/useDesktopDownloadURLs
 
 const DownloadDesktopAppModal: React.FC = () => {
   const secondaryButton =
-    "cursor-pointer highlight w-full flex-1 rounded-md bg-idelight-300 py-2 px-3 text-idelight-800 dark:bg-idedark-700 dark:text-white";
+    "text-center cursor-pointer highlight w-full flex-1 rounded-md bg-idelight-300 py-2 px-3 text-idelight-800 dark:bg-idedark-700 dark:text-white";
   const primaryButton =
-    "cursor-pointer highlight w-full flex-1 text-nowrap rounded-md bg-idelight-accent py-2 px-3 text-white dark:bg-idedark-accent";
+    "text-center cursor-pointer highlight w-full flex-1 text-nowrap rounded-md bg-idelight-accent py-2 px-3 text-white dark:bg-idedark-accent";
   const downloadURLs = useDesktopDownloadURLs();
 
   const os = undefined; // TODO: Implement this later
