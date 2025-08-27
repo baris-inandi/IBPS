@@ -7,3 +7,5 @@ target/
 RustPython/
 ibps-desktop/target-desktop
 ibps-desktop/build
+bun.lock
+bun.lockb

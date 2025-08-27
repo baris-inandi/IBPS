@@ -15,6 +15,9 @@ const config = tseslint.config(
         ...globals.browser,
       },
     },
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
   },
 );
 

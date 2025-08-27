@@ -1,5 +1,5 @@
-import { useEffect, useState } from "preact/hooks";
 import { getVersion } from "@tauri-apps/api/app";
+import { useEffect, useState } from "preact/hooks";
 
 export type UseDesktopDownloadURLs = {
   version: string;
