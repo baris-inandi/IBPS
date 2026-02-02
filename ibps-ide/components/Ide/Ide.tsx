@@ -125,7 +125,7 @@ const Ide = () => {
           <Ahref
             className="font-medium underline underline-offset-2"
             target="blank"
-            href="https://inandioglu.com"
+            href="https://itsbaris.com"
           >
             Baris
           </Ahref>

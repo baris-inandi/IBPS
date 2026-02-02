@@ -33,7 +33,7 @@ const Welcome = () => {
           <Ahref
             target="blank"
             className="underline underline-offset-2"
-            href="https://inandioglu.com"
+            href="https://itsbaris.com"
           >
             baris-inandi
           </Ahref>

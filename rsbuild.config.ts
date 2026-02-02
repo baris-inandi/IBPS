@@ -15,7 +15,7 @@ export default defineConfig({
   html: {
     template: "./public/index.html",
     templateParameters: {
-      baseUrl: "https://ibps.inandioglu.com",
+      baseUrl: "https://ibps.itsbaris.com",
       description: "Write and run IBPS code in your browser.",
     },
   },
